@@ -1,0 +1,517 @@
+{
+  "site": {
+    "name": "CalcAtlas",
+    "tagline": "Precision calculators for people who cross borders, build wealth and track their health.",
+    "metaTitle": "CalcAtlas — Schengen, FIRE and TDEE Calculators",
+    "metaDescription": "Free, instant, privacy-first calculators. Schengen 90/180 visa tracking, FIRE compound interest projections and TDEE macro planning. Everything runs in your browser."
+  },
+  "nav": {
+    "home": "Home",
+    "calculators": "Calculators",
+    "language": "Language",
+    "switchLanguage": "Switch language",
+    "openMenu": "Open menu"
+  },
+  "categories": {
+    "travel": { "name": "Travel", "description": "Visa windows, border rules and trip compliance." },
+    "finance": { "name": "Finance", "description": "Compounding, retirement targets and inflation-adjusted returns." },
+    "health": { "name": "Health", "description": "Energy expenditure, body composition and nutrition targets." }
+  },
+  "common": {
+    "results": "Results",
+    "reset": "Reset",
+    "resetDefaults": "Reset to defaults",
+    "faqTitle": "Frequently asked questions",
+    "formulaTitle": "How the maths works",
+    "aboutTitle": "Everything you need to know",
+    "lastUpdated": "Last updated",
+    "unitSystem": "Units",
+    "metric": "Metric",
+    "imperial": "Imperial",
+    "advertisement": "Advertisement",
+    "adSlot": "Ad slot",
+    "breadcrumbLabel": "Breadcrumb",
+    "onThisPage": "On this page",
+    "clientSideNotice": "All calculations run locally in your browser. No data is uploaded.",
+    "relatedCalculators": "Related calculators",
+    "openCalculator": "Open calculator",
+    "features": "Features",
+    "copy": "Copy result",
+    "copied": "Copied",
+    "exportCsv": "Export CSV",
+    "days": "days",
+    "years": "years",
+    "yearsOld": "yrs",
+    "kcal": "kcal",
+    "grams": "g",
+    "perDay": "per day",
+    "perMonth": "per month",
+    "perYear": "per year"
+  },
+  "home": {
+    "heroBadge": "3 calculators · 4 languages · 0 tracking",
+    "heroTitle": "Calculators that give you an answer, not a subscription",
+    "heroSubtitle": "Schengen day counting, FIRE projections and TDEE macros — computed instantly on your device, in your language.",
+    "ctaPrimary": "Browse calculators",
+    "ctaSecondary": "Start with Schengen 90/180",
+    "featuredTitle": "Featured calculators",
+    "featuredSubtitle": "Built for the questions people actually search for.",
+    "trustTitle": "Why it is different",
+    "trust": {
+      "speedTitle": "Instant, offline-capable",
+      "speedBody": "Every formula is shipped to the browser. No round-trip, no spinner, no server bill.",
+      "privacyTitle": "Nothing leaves your device",
+      "privacyBody": "Trip dates, salaries and body metrics stay in local memory only.",
+      "i18nTitle": "Genuinely localised",
+      "i18nBody": "English, German, Spanish and Chinese — including the formula explanations, not just the buttons."
+    },
+    "browseByCategory": "Browse by category"
+  },
+  "calculatorsIndex": {
+    "metaTitle": "All Calculators — Travel, Finance and Health",
+    "metaDescription": "The complete CalcAtlas index: Schengen 90/180 visa calculator, FIRE compound interest projection and TDEE macronutrient planner. Free and instant.",
+    "title": "All calculators",
+    "intro": "Every tool is free, needs no account and computes entirely in your browser."
+  },
+  "calculators": {
+    "schengen": {
+      "name": "Schengen Visa 90/180 Day Calculator",
+      "shortName": "Schengen 90/180",
+      "metaTitle": "Schengen 90/180 Day Calculator — Rolling Window Visa Tracker",
+      "metaDescription": "Track your Schengen short-stay allowance with the official rolling 180-day rule. Add every trip, see days used, days remaining, overstay warnings and your next legal entry date.",
+      "h1": "Schengen Visa 90/180 Day Calculator",
+      "intro": "Add your past and planned trips to see exactly how many of your 90 days remain inside the rolling 180-day window — and the earliest date you can legally re-enter.",
+      "keywords": [
+        "schengen calculator",
+        "90/180 rule",
+        "schengen visa days",
+        "rolling 180 day window",
+        "schengen overstay"
+      ],
+      "features": [
+        "Rolling 180-day window evaluated day by day",
+        "Unlimited past and planned trips",
+        "Overstay detection with exact excess days",
+        "Next legal entry date and maximum consecutive stay",
+        "90-day allowance progress bar"
+      ],
+      "ui": {
+        "referenceDateLabel": "Reference date",
+        "referenceDateHint": "The day you want to be assessed on — usually today or a planned entry date.",
+        "tripsTitle": "Your trips",
+        "tripsHint": "Entry and exit days both count as full days of presence.",
+        "entryDate": "Entry",
+        "exitDate": "Exit",
+        "addTrip": "Add trip",
+        "removeTrip": "Remove trip",
+        "tripLabel": "Trip {index}",
+        "clearAll": "Clear all trips",
+        "loadExample": "Load example",
+        "daysUsed": "Days used",
+        "daysRemaining": "Days remaining",
+        "windowLabel": "Rolling window",
+        "windowValue": "{start} → {end}",
+        "allowanceLabel": "{used} of 90 days used",
+        "statusOk": "Compliant",
+        "statusWarning": "Approaching the limit",
+        "statusCritical": "Allowance exhausted",
+        "statusOverstay": "Overstay detected",
+        "statusOkBody": "You are within the 90/180 allowance on the reference date.",
+        "statusWarningBody": "You have used more than 80% of your allowance. Plan the next entry carefully.",
+        "statusCriticalBody": "No days left on this date. You must wait until the window rolls forward.",
+        "statusOverstayBody": "Your itinerary breaches the 90-day limit by {days} day(s). Adjust the trips before travelling.",
+        "nextEntry": "Next legal entry",
+        "nextEntryToday": "Available now",
+        "maxConsecutive": "Max consecutive stay",
+        "fullReset": "Full 90 days available again",
+        "breakdownTitle": "Trip breakdown",
+        "breakdownTotal": "Total days",
+        "breakdownInWindow": "Counted in window",
+        "violationsTitle": "Days that breach the rule",
+        "violationDetail": "{date}: {days} days in the preceding 180-day window ({excess} over the limit)",
+        "invalidDate": "Please enter a valid date",
+        "reversedRange": "Exit date must not be before the entry date",
+        "noTrips": "Add your first trip to see the calculation.",
+        "timelineTitle": "Rolling window usage",
+        "timelineHint": "Days of presence counted for each day of the last 180 days."
+      },
+      "formula": {
+        "intro": "The short-stay rule comes from Article 6 of the Schengen Borders Code: a maximum of 90 days of presence in any 180-day period. The window is not a fixed calendar block — it rolls forward one day at a time.",
+        "steps": [
+          "Pick the reference date D (today, or the day you plan to enter).",
+          "Build the window: the 180 consecutive days ending on D, i.e. [D − 179, D].",
+          "Count every day of physical presence inside that window. Entry day and exit day each count as one full day.",
+          "Overlapping trips are counted once — a day is either spent inside the area or it is not.",
+          "Days remaining = 90 − days counted. A negative result is an overstay.",
+          "For the next legal entry, step forward day by day until the window contains 89 days or fewer."
+        ],
+        "note": "This tool models the rule itself. Long-stay national visas, residence permits and bilateral exemptions can change how days are counted — always confirm with the consulate of your destination."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "What the 90/180 rule actually means",
+            "paragraphs": [
+              "Most visa-exempt travellers and holders of a short-stay Schengen visa may spend up to 90 days in the Schengen area within any 180-day period. The frequent misunderstanding is that the 180 days reset on a fixed date, or that leaving the area starts a fresh count. Neither is true.",
+              "The window is retrospective and rolling: on any given day, a border officer looks back 179 days plus the current day and adds up your days of presence. That is why an itinerary that felt legal in March can become an overstay in May without you spending a single extra day abroad."
+            ]
+          },
+          {
+            "heading": "How days are counted at the border",
+            "paragraphs": [
+              "The day you enter counts as a whole day, even if you land at 23:50. The day you leave counts as a whole day too, even for an early-morning flight. A weekend trip from Friday to Sunday therefore consumes three days, not two.",
+              "Transit through a Schengen airport without crossing into the area does not normally count, but any passport stamp on entry does. Keep boarding passes and stamps: if the count is disputed, the burden of proof is on the traveller."
+            ],
+            "list": [
+              "Entry day and exit day are both full days.",
+              "Consecutive trips separated by a day still count each individual day of presence.",
+              "The count covers all Schengen states together, not per country.",
+              "Time on a long-stay national visa or residence permit is normally excluded from the 90-day pot."
+            ]
+          },
+          {
+            "heading": "Consequences of an overstay",
+            "paragraphs": [
+              "Penalties range from a warning stamp to a fine, a removal order or an entry ban recorded in the SIS database for up to several years. Even a short overstay can complicate future visa applications, residence permits and Schengen entries.",
+              "If you discover that a planned itinerary breaches the limit, adjust it before departure. Once you are inside the area, options narrow to a national extension request, which is granted only for force majeure or humanitarian reasons."
+            ]
+          },
+          {
+            "heading": "Planning trips around the rolling window",
+            "paragraphs": [
+              "The practical strategy is to plan backwards from the day you want to enter. Enter your planned trip in this calculator, set the reference date to the intended entry day, and check that the window still has room for the whole stay.",
+              "If the allowance is exhausted, the tool reports the first date on which a new entry becomes legal and how many consecutive days would then be available. From that date on, the allowance regenerates day by day as older stays drop out of the window."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Does the 180-day period reset every six months?",
+          "answer": "No. It is a rolling window, recalculated every single day. On any given date the authorities look back over the previous 180 days, including that date, and count your days of presence. There is no fixed reset date."
+        },
+        {
+          "question": "Do the entry and exit days both count?",
+          "answer": "Yes. Both are counted as full days regardless of the time of day. A trip from 1 June to 3 June uses three days of your allowance."
+        },
+        {
+          "question": "What happens if I have already overstayed?",
+          "answer": "Possible consequences include a fine, an obligation to leave, a removal decision or an entry ban registered in the Schengen Information System. Contact the immigration authority of the country you are in before your situation worsens, and expect closer scrutiny on future applications."
+        },
+        {
+          "question": "Are Ireland, Bulgaria, Romania or Cyprus included?",
+          "answer": "Ireland is not part of the Schengen area and applies its own rules. Bulgaria and Romania joined the Schengen area for air and sea borders in 2024 and for land borders in 2025, so recent stays there do count. Cyprus is still outside the area. Always verify the current status before relying on old advice."
+        },
+        {
+          "question": "Does a residence permit or long-stay visa consume my 90 days?",
+          "answer": "Normally no. Time spent in the issuing country under a national long-stay visa (type D) or a residence permit is not deducted from the 90/180 short-stay allowance. Time spent in other Schengen states may still count, so check the terms of your permit."
+        },
+        {
+          "question": "Is my trip data stored anywhere?",
+          "answer": "No. The calculation runs entirely in your browser, and trip dates never leave your device. Reloading the page clears everything unless you save it yourself."
+        }
+      ]
+    },
+    "fire": {
+      "name": "FIRE & Compound Interest Calculator",
+      "shortName": "FIRE compound interest",
+      "metaTitle": "FIRE Calculator — Compound Interest with Inflation Adjustment",
+      "metaDescription": "Project your path to financial independence: monthly contributions, compound growth, inflation-adjusted purchasing power, the 4% rule and the exact age your portfolio covers your expenses.",
+      "h1": "FIRE & Investment Compound Interest Calculator",
+      "intro": "Model monthly investing with compound growth, salary increases and inflation, then see the age at which your portfolio can safely cover your annual spending.",
+      "keywords": [
+        "fire calculator",
+        "compound interest calculator",
+        "financial independence",
+        "4 percent rule",
+        "inflation adjusted returns"
+      ],
+      "features": [
+        "Monthly compounding with annual contribution growth",
+        "Inflation-adjusted (real) purchasing power line",
+        "FIRE number from any safe withdrawal rate",
+        "Interactive contribution slider",
+        "Year-by-year growth chart and data table"
+      ],
+      "ui": {
+        "inputsTitle": "Your assumptions",
+        "currentAge": "Current age",
+        "retirementAge": "Target retirement age",
+        "initialCapital": "Starting capital",
+        "monthlyContribution": "Monthly contribution",
+        "contributionGrowth": "Annual contribution increase",
+        "annualReturn": "Expected annual return",
+        "inflation": "Expected inflation",
+        "withdrawalRate": "Safe withdrawal rate",
+        "annualExpenses": "Annual spending to cover",
+        "horizon": "Projection horizon",
+        "fireNumber": "FIRE number",
+        "fireNumberHint": "Annual spending ÷ withdrawal rate, in today's money.",
+        "fireAge": "Financially independent at",
+        "yearsToFire": "Time to independence",
+        "notReached": "Not reached within the horizon",
+        "onTrack": "On track for your target age",
+        "offTrack": "Behind your target age",
+        "balanceAtRetirement": "Portfolio at target age",
+        "realBalance": "In today's money",
+        "totalContributed": "Total contributed",
+        "totalGrowth": "Investment growth",
+        "growthShare": "{percent}% of the final portfolio comes from compounding",
+        "sustainableIncome": "Sustainable annual income",
+        "requiredContribution": "Monthly saving needed to hit the target on time",
+        "chartTitle": "Portfolio projection",
+        "chartNominal": "Nominal",
+        "chartReal": "Real (today's money)",
+        "chartContributed": "Contributed",
+        "chartTarget": "FIRE target",
+        "tableTitle": "Year by year",
+        "tableAge": "Age",
+        "tableBalance": "Balance",
+        "tableReal": "Real value",
+        "tableContributed": "Contributed",
+        "tableGrowth": "Growth",
+        "coverage": "Coverage of the FIRE number",
+        "yearsShort": "{count} yr",
+        "yearsLong": "{count} years"
+      },
+      "formula": {
+        "intro": "The projection compounds monthly and separates nominal currency from real purchasing power, because a portfolio that doubles while prices double has not made you richer.",
+        "steps": [
+          "Convert the annual return r into a monthly rate: rm = (1 + r)^(1/12) − 1.",
+          "For every month: balance = balance × (1 + rm) + contribution.",
+          "Increase the contribution once per year by the salary-growth rate.",
+          "Deflate the balance to today's money: real = nominal ÷ (1 + i)^years, where i is inflation.",
+          "FIRE number = annual spending ÷ safe withdrawal rate (4% → 25× spending).",
+          "Inflate the target forward each year and report the first year the nominal balance clears it."
+        ],
+        "note": "Returns are modelled as a smooth average. Real markets are volatile and sequence-of-returns risk matters in the first years of withdrawal — treat the output as a planning baseline, not a promise."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Why compounding beats contribution size over time",
+            "paragraphs": [
+              "In the first years, almost all portfolio growth comes from the money you deposit. Somewhere between year ten and year fifteen — depending on the return you assume — the annual gain produced by the portfolio itself overtakes the annual contribution. From that point on, time in the market matters more than the size of each deposit.",
+              "This is why the chart shows contributions and total balance separately: the gap between the two lines is the part of your wealth that compounding built for you."
+            ]
+          },
+          {
+            "heading": "Reading the 4% rule correctly",
+            "paragraphs": [
+              "The 4% safe withdrawal rate comes from the Trinity study and its successors, which tested historical 30-year retirements against a portfolio of stocks and bonds. It implies a FIRE number of roughly 25 times annual spending.",
+              "It is a heuristic, not a law. Longer retirements, lower expected returns, high fees or an early bear market all argue for a lower rate — 3.25% to 3.5% is a common conservative choice, which raises the target to roughly 29–31 times spending."
+            ],
+            "list": [
+              "4.0% → 25× annual spending",
+              "3.5% → about 29× annual spending",
+              "3.0% → about 33× annual spending",
+              "5.0% → 20× annual spending, but with materially higher depletion risk"
+            ]
+          },
+          {
+            "heading": "Inflation is the quiet variable",
+            "paragraphs": [
+              "At 2.5% inflation, prices roughly double in 28 years. A portfolio target set in today's money must therefore be inflated to the year you actually retire, otherwise you will hit a nominal number that no longer buys the life you planned.",
+              "The calculator does both: the nominal line shows the balance you will literally see in your account, and the real line shows what it is worth in the prices you know today."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What return rate should I assume?",
+          "answer": "A globally diversified equity portfolio has historically returned about 7–8% nominal per year over long periods, before fees. Many planners use 5–6% for a mixed portfolio, or subtract inflation and work in real terms. Lower assumptions produce plans that are harder to break."
+        },
+        {
+          "question": "Should I enter numbers before or after inflation?",
+          "answer": "Enter the nominal return and inflation separately, and set your spending in today's money. The calculator inflates the target and shows both nominal and real balances, so you never have to mix the two conventions yourself."
+        },
+        {
+          "question": "How is the FIRE number calculated?",
+          "answer": "FIRE number = annual spending ÷ (withdrawal rate ÷ 100). With 30,000 of annual spending and a 4% rate, that is 750,000 in today's money. The target is then grown with inflation for each future year."
+        },
+        {
+          "question": "Does the tool account for taxes?",
+          "answer": "Not directly, because tax treatment differs by country and account type. The practical approach is to enter an after-tax expected return, or to add your expected tax bill to annual spending."
+        },
+        {
+          "question": "What is sequence-of-returns risk?",
+          "answer": "It is the risk of a large market drop in the first years of retirement, when withdrawals are taken from a shrinking portfolio. Two retirees with identical average returns can end up with very different outcomes depending on the order in which those returns arrive. Cash buffers and flexible spending reduce the damage."
+        },
+        {
+          "question": "Can I model a career break or a mortgage payoff?",
+          "answer": "Approximately. Run one projection up to the break, note the balance, then start a second projection with that balance as the starting capital and adjusted contributions. Full multi-phase modelling is planned for a later release."
+        }
+      ]
+    },
+    "tdee": {
+      "name": "TDEE & Macro Nutrition Calculator",
+      "shortName": "TDEE & macros",
+      "metaTitle": "TDEE Calculator — Daily Calories and Macronutrient Split",
+      "metaDescription": "Calculate BMR and TDEE with the Mifflin-St Jeor or Katch-McArdle formula, then get calorie and macronutrient targets for cutting, maintenance or lean bulking. Metric and imperial units.",
+      "h1": "TDEE & Macronutrient Calculator",
+      "intro": "Work out your basal metabolic rate, total daily energy expenditure and a protein-first macro split for your goal — in metric or imperial units.",
+      "keywords": [
+        "tdee calculator",
+        "macro calculator",
+        "bmr calculator",
+        "mifflin st jeor",
+        "katch mcardle"
+      ],
+      "features": [
+        "Mifflin-St Jeor and Katch-McArdle formulas",
+        "Metric and imperial unit toggle",
+        "Cut, maintain and lean-bulk calorie targets",
+        "Protein-first macro presets including keto",
+        "BMI, lean body mass, fibre and water targets"
+      ],
+      "ui": {
+        "inputsTitle": "Your body data",
+        "sex": "Sex",
+        "male": "Male",
+        "female": "Female",
+        "age": "Age",
+        "height": "Height",
+        "weight": "Weight",
+        "heightCm": "Height (cm)",
+        "weightKg": "Weight (kg)",
+        "heightFt": "Height (ft)",
+        "heightIn": "Height (in)",
+        "weightLb": "Weight (lb)",
+        "bodyFat": "Body fat",
+        "bodyFatOptional": "Body fat % (optional)",
+        "bodyFatHint": "Required for the Katch-McArdle formula.",
+        "formula": "BMR formula",
+        "formulaMifflin": "Mifflin-St Jeor",
+        "formulaKatch": "Katch-McArdle (needs body fat %)",
+        "formulaFallback": "Body fat % missing — Mifflin-St Jeor used instead.",
+        "activity": "Activity level",
+        "activitySedentary": "Sedentary — desk job, little exercise",
+        "activityLight": "Light — 1–3 sessions per week",
+        "activityModerate": "Moderate — 3–5 sessions per week",
+        "activityActive": "Active — 6–7 sessions per week",
+        "activityAthlete": "Athlete — twice daily or physical job",
+        "goal": "Goal",
+        "goalCut": "Aggressive cut (−20%)",
+        "goalMildCut": "Mild cut (−10%)",
+        "goalMaintain": "Maintain",
+        "goalLeanBulk": "Lean bulk (+10%)",
+        "goalBulk": "Bulk (+20%)",
+        "macroPreset": "Macro split",
+        "presetBalanced": "Balanced",
+        "presetHighProtein": "High protein",
+        "presetLowCarb": "Low carb",
+        "presetKeto": "Keto",
+        "bmr": "BMR",
+        "bmrHint": "Energy burned at complete rest.",
+        "tdee": "TDEE",
+        "tdeeHint": "Maintenance calories including activity.",
+        "targetCalories": "Target calories",
+        "calorieDelta": "Daily deficit / surplus",
+        "weeklyChange": "Expected weekly change",
+        "protein": "Protein",
+        "carbs": "Carbs",
+        "fat": "Fat",
+        "macrosTitle": "Daily macronutrients",
+        "bmi": "BMI",
+        "bmiUnderweight": "Underweight",
+        "bmiNormal": "Normal",
+        "bmiOverweight": "Overweight",
+        "bmiObese": "Obese",
+        "leanMass": "Lean body mass",
+        "water": "Water target",
+        "fiber": "Fibre target",
+        "activityTableTitle": "TDEE by activity level",
+        "goalTableTitle": "Calories by goal",
+        "chartTitle": "Calorie split by macronutrient",
+        "notMedicalAdvice": "Estimates for healthy adults. Not medical advice — consult a professional before large dietary changes."
+      },
+      "formula": {
+        "intro": "Total daily energy expenditure is basal metabolic rate multiplied by an activity factor, then adjusted for your goal. Which BMR formula is more accurate depends on whether you know your body-fat percentage.",
+        "steps": [
+          "Mifflin-St Jeor (men): BMR = 10 × kg + 6.25 × cm − 5 × age + 5.",
+          "Mifflin-St Jeor (women): BMR = 10 × kg + 6.25 × cm − 5 × age − 161.",
+          "Katch-McArdle: BMR = 370 + 21.6 × lean body mass (kg), where LBM = weight × (1 − body fat%).",
+          "TDEE = BMR × activity factor (1.2 sedentary → 1.9 athlete).",
+          "Target calories = TDEE × (1 + goal adjustment), never below 90% of BMR.",
+          "Protein = g/kg from the chosen preset; fat = a share of total calories; carbohydrates fill the remainder (4/4/9 kcal per gram)."
+        ],
+        "note": "Activity factors are population averages and can be off by 10–15% for an individual. Track your weight for two to three weeks and adjust calories by 100–200 until the trend matches your goal."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "BMR, TDEE and why the difference matters",
+            "paragraphs": [
+              "Basal metabolic rate is what your body burns doing nothing at all: heartbeat, breathing, temperature, brain. For most people it accounts for 60–70% of total daily energy use. Total daily energy expenditure adds the rest — planned exercise, everyday movement and the energy cost of digesting food.",
+              "Eating at BMR instead of TDEE is one of the most common dieting mistakes. It creates a deficit far larger than intended, which usually ends in muscle loss, fatigue and a rebound."
+            ]
+          },
+          {
+            "heading": "Choosing the right formula",
+            "paragraphs": [
+              "Mifflin-St Jeor is the default recommendation for the general population and needs only height, weight, age and sex. Katch-McArdle works from lean body mass instead, which makes it more accurate for lean, muscular or very heavy individuals — but only if your body-fat estimate is reliable.",
+              "If your body-fat number comes from a cheap bioimpedance scale, treat it as a rough estimate and prefer Mifflin-St Jeor. DEXA, hydrostatic weighing or careful calliper measurements justify Katch-McArdle."
+            ]
+          },
+          {
+            "heading": "Setting protein, fat and carbohydrates",
+            "paragraphs": [
+              "Protein is set first because it is the macronutrient most strongly linked to keeping muscle in a deficit and to satiety: roughly 1.6–2.2 g per kg of bodyweight for active people, and the upper end when cutting hard.",
+              "Fat should generally stay above about 0.6 g per kg to support hormone production, and carbohydrates take whatever calories remain — they are the cheapest fuel for hard training. A keto split inverts this, pushing fat to about 70% of calories and leaving carbohydrates minimal."
+            ],
+            "list": [
+              "Protein: 4 kcal per gram, 1.6–2.4 g/kg depending on goal",
+              "Fat: 9 kcal per gram, 25–35% of calories in most splits",
+              "Carbohydrates: 4 kcal per gram, the remaining calories",
+              "Fibre: about 14 g per 1000 kcal"
+            ]
+          },
+          {
+            "heading": "How fast should the weight move?",
+            "paragraphs": [
+              "A deficit of 500 kcal per day corresponds to roughly 0.45 kg per week, since about 7700 kcal is stored in a kilogram of body fat. Sustainable cutting usually means 0.5–1% of bodyweight per week; faster rates increase muscle loss.",
+              "For lean bulking the reverse applies: a surplus of 10% is usually enough to add tissue without excessive fat gain. Recalculate after every 3–4 kg of change, because both BMR and TDEE move with your bodyweight."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "How accurate is a TDEE calculator?",
+          "answer": "Formula-based estimates are typically within 10–15% of measured expenditure for healthy adults. Use the number as a starting point, then adjust based on two to three weeks of weight trend data rather than day-to-day fluctuation."
+        },
+        {
+          "question": "Mifflin-St Jeor or Katch-McArdle?",
+          "answer": "Use Mifflin-St Jeor unless you have a reliable body-fat measurement. Katch-McArdle is based on lean body mass, which makes it better for athletic or very heavy bodies, but it inherits any error in your body-fat estimate."
+        },
+        {
+          "question": "How much protein do I actually need?",
+          "answer": "For active adults, 1.6–2.2 g per kg of bodyweight covers almost all evidence-based recommendations. Aim for the upper end during a calorie deficit to protect muscle, and spread intake across three to five meals."
+        },
+        {
+          "question": "Why did my weight not change even though I ate at the target?",
+          "answer": "Water retention, glycogen, sodium, menstrual cycle and food weight in the gut can mask fat loss for one to two weeks. Compare weekly averages instead of single mornings, and only change calories if the trend is flat for two to three weeks."
+        },
+        {
+          "question": "Is it safe to eat below my BMR?",
+          "answer": "It is generally not advisable without medical supervision. The calculator floors your target at 90% of BMR for that reason. Very low intakes risk muscle loss, micronutrient deficiency, hormonal disruption and poor adherence."
+        },
+        {
+          "question": "Do I need to recalculate as I lose weight?",
+          "answer": "Yes. BMR scales with bodyweight, so recalculate after every 3–4 kg of change, or roughly once a month during an active phase, to keep the deficit or surplus at the intended size."
+        }
+      ]
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The calculator you are looking for does not exist or has moved.",
+    "cta": "Back to all calculators"
+  },
+  "footer": {
+    "disclaimer": "CalcAtlas provides informational estimates only. Always verify visa rules with the relevant consulate and consult qualified professionals for financial or medical decisions.",
+    "rights": "All rights reserved.",
+    "builtWith": "Static, edge-delivered and computed entirely client-side."
+  }
+}

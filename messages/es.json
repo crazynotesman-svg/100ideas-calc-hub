@@ -1,0 +1,517 @@
+{
+  "site": {
+    "name": "CalcAtlas",
+    "tagline": "Calculadoras precisas para quienes cruzan fronteras, construyen patrimonio y cuidan su salud.",
+    "metaTitle": "CalcAtlas — Calculadoras Schengen, FIRE y TDEE",
+    "metaDescription": "Calculadoras gratuitas, instantáneas y respetuosas con la privacidad: control Schengen 90/180, proyección FIRE de interés compuesto y planificación de macros con TDEE. Todo se calcula en tu navegador."
+  },
+  "nav": {
+    "home": "Inicio",
+    "calculators": "Calculadoras",
+    "language": "Idioma",
+    "switchLanguage": "Cambiar idioma",
+    "openMenu": "Abrir menú"
+  },
+  "categories": {
+    "travel": { "name": "Viajes", "description": "Ventanas de visado, normas fronterizas y cumplimiento de itinerarios." },
+    "finance": { "name": "Finanzas", "description": "Interés compuesto, objetivos de jubilación y rentabilidad ajustada por inflación." },
+    "health": { "name": "Salud", "description": "Gasto energético, composición corporal y objetivos nutricionales." }
+  },
+  "common": {
+    "results": "Resultados",
+    "reset": "Restablecer",
+    "resetDefaults": "Volver a los valores por defecto",
+    "faqTitle": "Preguntas frecuentes",
+    "formulaTitle": "Cómo funciona el cálculo",
+    "aboutTitle": "Todo lo que necesitas saber",
+    "lastUpdated": "Última actualización",
+    "unitSystem": "Unidades",
+    "metric": "Métrico",
+    "imperial": "Imperial",
+    "advertisement": "Publicidad",
+    "adSlot": "Espacio publicitario",
+    "breadcrumbLabel": "Ruta de navegación",
+    "onThisPage": "En esta página",
+    "clientSideNotice": "Todos los cálculos se ejecutan localmente en tu navegador. No se envía ningún dato.",
+    "relatedCalculators": "Calculadoras relacionadas",
+    "openCalculator": "Abrir calculadora",
+    "features": "Funciones",
+    "copy": "Copiar resultado",
+    "copied": "Copiado",
+    "exportCsv": "Exportar CSV",
+    "days": "días",
+    "years": "años",
+    "yearsOld": "años",
+    "kcal": "kcal",
+    "grams": "g",
+    "perDay": "al día",
+    "perMonth": "al mes",
+    "perYear": "al año"
+  },
+  "home": {
+    "heroBadge": "3 calculadoras · 4 idiomas · 0 rastreo",
+    "heroTitle": "Calculadoras que dan una respuesta, no una suscripción",
+    "heroSubtitle": "Días Schengen, proyecciones FIRE y macros con TDEE: calculado al instante en tu dispositivo y en tu idioma.",
+    "ctaPrimary": "Ver calculadoras",
+    "ctaSecondary": "Empezar con Schengen 90/180",
+    "featuredTitle": "Calculadoras destacadas",
+    "featuredSubtitle": "Creadas para las preguntas que la gente busca de verdad.",
+    "trustTitle": "Por qué es diferente",
+    "trust": {
+      "speedTitle": "Instantáneo y sin conexión",
+      "speedBody": "Cada fórmula viaja al navegador. Sin ida y vuelta al servidor, sin spinner, sin factura de servidor.",
+      "privacyTitle": "Nada sale de tu dispositivo",
+      "privacyBody": "Fechas de viaje, salarios y métricas corporales permanecen solo en memoria local.",
+      "i18nTitle": "Localización real",
+      "i18nBody": "Inglés, alemán, español y chino, incluidas las explicaciones de las fórmulas, no solo los botones."
+    },
+    "browseByCategory": "Explorar por categoría"
+  },
+  "calculatorsIndex": {
+    "metaTitle": "Todas las calculadoras — Viajes, finanzas y salud",
+    "metaDescription": "Índice completo de CalcAtlas: calculadora de visado Schengen 90/180, proyección FIRE de interés compuesto y planificador de macronutrientes TDEE. Gratis e inmediato.",
+    "title": "Todas las calculadoras",
+    "intro": "Todas las herramientas son gratuitas, no requieren cuenta y calculan íntegramente en tu navegador."
+  },
+  "calculators": {
+    "schengen": {
+      "name": "Calculadora Schengen 90/180 días",
+      "shortName": "Schengen 90/180",
+      "metaTitle": "Calculadora Schengen 90/180 — control de la ventana móvil",
+      "metaDescription": "Controla tu estancia corta en Schengen con la regla oficial de los 180 días móviles: días usados, días restantes, aviso de exceso y la próxima fecha de entrada legal.",
+      "h1": "Calculadora del visado Schengen 90/180 días",
+      "intro": "Añade tus viajes pasados y previstos para ver cuántos de tus 90 días quedan dentro de la ventana móvil de 180 días, y la fecha más próxima en la que puedes volver a entrar legalmente.",
+      "keywords": [
+        "calculadora schengen",
+        "regla 90/180",
+        "días visado schengen",
+        "ventana móvil 180 días",
+        "exceso de estancia schengen"
+      ],
+      "features": [
+        "Ventana móvil de 180 días evaluada día a día",
+        "Viajes pasados y previstos sin límite",
+        "Detección de exceso con los días exactos de más",
+        "Próxima fecha de entrada legal y estancia consecutiva máxima",
+        "Barra de progreso del cupo de 90 días"
+      ],
+      "ui": {
+        "referenceDateLabel": "Fecha de referencia",
+        "referenceDateHint": "El día que quieres evaluar: normalmente hoy o una fecha de entrada prevista.",
+        "tripsTitle": "Tus viajes",
+        "tripsHint": "Los días de entrada y de salida cuentan como días completos de presencia.",
+        "entryDate": "Entrada",
+        "exitDate": "Salida",
+        "addTrip": "Añadir viaje",
+        "removeTrip": "Eliminar viaje",
+        "tripLabel": "Viaje {index}",
+        "clearAll": "Borrar todos los viajes",
+        "loadExample": "Cargar ejemplo",
+        "daysUsed": "Días usados",
+        "daysRemaining": "Días restantes",
+        "windowLabel": "Ventana móvil",
+        "windowValue": "{start} → {end}",
+        "allowanceLabel": "{used} de 90 días usados",
+        "statusOk": "Conforme",
+        "statusWarning": "Cerca del límite",
+        "statusCritical": "Cupo agotado",
+        "statusOverstay": "Exceso detectado",
+        "statusOkBody": "En la fecha de referencia estás dentro del cupo 90/180.",
+        "statusWarningBody": "Has usado más del 80 % del cupo. Planifica con cuidado la próxima entrada.",
+        "statusCriticalBody": "No quedan días en esta fecha. Debes esperar a que la ventana avance.",
+        "statusOverstayBody": "Tu itinerario supera el límite de 90 días en {days} día(s). Ajusta los viajes antes de salir.",
+        "nextEntry": "Próxima entrada legal",
+        "nextEntryToday": "Disponible ahora",
+        "maxConsecutive": "Estancia consecutiva máxima",
+        "fullReset": "Los 90 días completos vuelven a estar disponibles",
+        "breakdownTitle": "Desglose por viaje",
+        "breakdownTotal": "Días totales",
+        "breakdownInWindow": "Contados en la ventana",
+        "violationsTitle": "Días que incumplen la regla",
+        "violationDetail": "{date}: {days} días en la ventana de 180 días anterior ({excess} por encima del límite)",
+        "invalidDate": "Introduce una fecha válida",
+        "reversedRange": "La fecha de salida no puede ser anterior a la de entrada",
+        "noTrips": "Añade tu primer viaje para ver el cálculo.",
+        "timelineTitle": "Uso de la ventana móvil",
+        "timelineHint": "Días de presencia contados para cada uno de los últimos 180 días."
+      },
+      "formula": {
+        "intro": "La regla de estancia corta procede del artículo 6 del Código de fronteras Schengen: un máximo de 90 días de presencia en cualquier periodo de 180 días. La ventana no es un bloque fijo del calendario, avanza un día cada día.",
+        "steps": [
+          "Elige la fecha de referencia D (hoy o el día en que planeas entrar).",
+          "Construye la ventana: los 180 días consecutivos que terminan en D, es decir [D − 179, D].",
+          "Cuenta todos los días de presencia dentro de esa ventana. El día de entrada y el de salida cuentan como un día completo cada uno.",
+          "Los viajes solapados se cuentan una sola vez: un día se pasa dentro del área o no.",
+          "Días restantes = 90 − días contados. Un resultado negativo es un exceso de estancia.",
+          "Para la próxima entrada legal, avanza día a día hasta que la ventana contenga 89 días o menos."
+        ],
+        "note": "Esta herramienta modela la regla en sí. Los visados nacionales de larga duración, los permisos de residencia y las exenciones bilaterales pueden cambiar el recuento: confírmalo siempre con el consulado de tu destino."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Qué significa realmente la regla 90/180",
+            "paragraphs": [
+              "La mayoría de los viajeros exentos de visado y quienes tienen un visado Schengen de corta duración pueden pasar hasta 90 días en el espacio Schengen dentro de cualquier periodo de 180 días. El malentendido habitual es creer que los 180 días se reinician en una fecha fija, o que salir del área empieza un recuento nuevo. Ninguna de las dos cosas es cierta.",
+              "La ventana es retrospectiva y móvil: cualquier día, el agente de fronteras mira 179 días atrás más el día actual y suma tus días de presencia. Por eso un itinerario que parecía legal en marzo puede convertirse en exceso en mayo sin pasar un solo día más."
+            ]
+          },
+          {
+            "heading": "Cómo se cuentan los días en la frontera",
+            "paragraphs": [
+              "El día de entrada cuenta completo aunque aterrices a las 23:50. El día de salida también cuenta completo, incluso con un vuelo de madrugada. Un viaje de fin de semana de viernes a domingo consume por tanto tres días, no dos.",
+              "El tránsito por un aeropuerto Schengen sin entrar en el área normalmente no cuenta, pero cualquier sello de entrada en el pasaporte sí. Guarda tarjetas de embarque y sellos: si el recuento se discute, la carga de la prueba recae en el viajero."
+            ],
+            "list": [
+              "El día de entrada y el de salida son días completos.",
+              "Viajes seguidos separados por un día siguen contando cada día de presencia.",
+              "El cupo cubre todos los Estados Schengen en conjunto, no por país.",
+              "El tiempo con visado nacional de larga duración o permiso de residencia normalmente queda fuera del cupo de 90 días."
+            ]
+          },
+          {
+            "heading": "Consecuencias de un exceso de estancia",
+            "paragraphs": [
+              "Las sanciones van desde una anotación hasta una multa, una orden de salida o una prohibición de entrada registrada en la base SIS durante varios años. Incluso un exceso breve puede complicar futuras solicitudes de visado, permisos de residencia y entradas.",
+              "Si descubres que un itinerario previsto incumple el límite, ajústalo antes de viajar. Una vez dentro del área, las opciones se reducen a una solicitud nacional de prórroga, que solo se concede por fuerza mayor o razones humanitarias."
+            ]
+          },
+          {
+            "heading": "Planificar viajes alrededor de la ventana móvil",
+            "paragraphs": [
+              "La estrategia práctica es planificar hacia atrás desde el día en que quieres entrar. Introduce el viaje previsto, fija la fecha de referencia en el día de entrada y comprueba que la ventana admite toda la estancia.",
+              "Si el cupo está agotado, la herramienta indica la primera fecha en la que una nueva entrada es legal y cuántos días consecutivos habría disponibles. A partir de esa fecha el cupo se regenera día a día, según las estancias antiguas salen de la ventana."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "¿El periodo de 180 días se reinicia cada seis meses?",
+          "answer": "No. Es una ventana móvil que se recalcula cada día. En cualquier fecha, las autoridades revisan los 180 días anteriores, incluida esa fecha, y suman tus días de presencia. No existe una fecha fija de reinicio."
+        },
+        {
+          "question": "¿Cuentan tanto el día de entrada como el de salida?",
+          "answer": "Sí. Ambos cuentan como días completos, sea la hora que sea. Un viaje del 1 al 3 de junio consume tres días de tu cupo."
+        },
+        {
+          "question": "¿Qué pasa si ya he excedido la estancia?",
+          "answer": "Las consecuencias posibles incluyen una multa, la obligación de salir, una decisión de retorno o una prohibición de entrada inscrita en el Sistema de Información de Schengen. Contacta con la autoridad de inmigración del país donde estés antes de que la situación empeore y espera un escrutinio mayor en futuras solicitudes."
+        },
+        {
+          "question": "¿Se incluyen Irlanda, Bulgaria, Rumanía o Chipre?",
+          "answer": "Irlanda no forma parte del espacio Schengen y aplica sus propias normas. Bulgaria y Rumanía se incorporaron en 2024 para fronteras aéreas y marítimas y en 2025 para las terrestres, por lo que las estancias recientes allí sí cuentan. Chipre sigue fuera del área. Verifica siempre el estado actual antes de fiarte de información antigua."
+        },
+        {
+          "question": "¿Un permiso de residencia o un visado de larga duración consume mis 90 días?",
+          "answer": "Normalmente no. El tiempo pasado en el país emisor con un visado nacional de larga duración (tipo D) o un permiso de residencia no se descuenta del cupo 90/180. El tiempo en otros Estados Schengen sí puede contar, así que revisa las condiciones de tu permiso."
+        },
+        {
+          "question": "¿Se guardan mis datos de viaje en algún sitio?",
+          "answer": "No. El cálculo se ejecuta íntegramente en tu navegador y las fechas nunca salen de tu dispositivo. Al recargar la página se borra todo, salvo que lo guardes tú."
+        }
+      ]
+    },
+    "fire": {
+      "name": "Calculadora FIRE e interés compuesto",
+      "shortName": "FIRE interés compuesto",
+      "metaTitle": "Calculadora FIRE — interés compuesto ajustado por inflación",
+      "metaDescription": "Proyecta tu camino a la independencia financiera: aportaciones mensuales, interés compuesto, poder de compra ajustado por inflación, regla del 4 % y la edad exacta en que tu cartera cubre tus gastos.",
+      "h1": "Calculadora FIRE de interés compuesto",
+      "intro": "Modela la inversión mensual con interés compuesto, subidas salariales e inflación, y descubre a qué edad tu cartera puede cubrir con seguridad tu gasto anual.",
+      "keywords": [
+        "calculadora fire",
+        "calculadora interés compuesto",
+        "independencia financiera",
+        "regla del 4 por ciento",
+        "rentabilidad ajustada por inflación"
+      ],
+      "features": [
+        "Capitalización mensual con aportación creciente cada año",
+        "Línea de poder de compra ajustado por inflación",
+        "Número FIRE para cualquier tasa de retirada segura",
+        "Control deslizante interactivo de aportación",
+        "Gráfico de crecimiento y tabla año por año"
+      ],
+      "ui": {
+        "inputsTitle": "Tus hipótesis",
+        "currentAge": "Edad actual",
+        "retirementAge": "Edad objetivo de jubilación",
+        "initialCapital": "Capital inicial",
+        "monthlyContribution": "Aportación mensual",
+        "contributionGrowth": "Incremento anual de la aportación",
+        "annualReturn": "Rentabilidad anual esperada",
+        "inflation": "Inflación esperada",
+        "withdrawalRate": "Tasa de retirada segura",
+        "annualExpenses": "Gasto anual a cubrir",
+        "horizon": "Horizonte de proyección",
+        "fireNumber": "Número FIRE",
+        "fireNumberHint": "Gasto anual ÷ tasa de retirada, en dinero de hoy.",
+        "fireAge": "Independencia financiera a los",
+        "yearsToFire": "Tiempo hasta la independencia",
+        "notReached": "No alcanzado dentro del horizonte",
+        "onTrack": "En camino para tu edad objetivo",
+        "offTrack": "Por detrás de tu edad objetivo",
+        "balanceAtRetirement": "Cartera en la edad objetivo",
+        "realBalance": "En dinero de hoy",
+        "totalContributed": "Total aportado",
+        "totalGrowth": "Crecimiento de la inversión",
+        "growthShare": "El {percent}% de la cartera final proviene del interés compuesto",
+        "sustainableIncome": "Renta anual sostenible",
+        "requiredContribution": "Ahorro mensual necesario para llegar a tiempo",
+        "chartTitle": "Proyección de la cartera",
+        "chartNominal": "Nominal",
+        "chartReal": "Real (dinero de hoy)",
+        "chartContributed": "Aportado",
+        "chartTarget": "Objetivo FIRE",
+        "tableTitle": "Año por año",
+        "tableAge": "Edad",
+        "tableBalance": "Saldo",
+        "tableReal": "Valor real",
+        "tableContributed": "Aportado",
+        "tableGrowth": "Crecimiento",
+        "coverage": "Cobertura del número FIRE",
+        "yearsShort": "{count} a.",
+        "yearsLong": "{count} años"
+      },
+      "formula": {
+        "intro": "La proyección capitaliza mensualmente y separa el dinero nominal del poder de compra real, porque una cartera que se duplica mientras los precios se duplican no te ha hecho más rico.",
+        "steps": [
+          "Convierte la rentabilidad anual r en tasa mensual: rm = (1 + r)^(1/12) − 1.",
+          "Cada mes: saldo = saldo × (1 + rm) + aportación.",
+          "Aumenta la aportación una vez al año según el crecimiento salarial.",
+          "Deflacta el saldo a dinero de hoy: real = nominal ÷ (1 + i)^años, donde i es la inflación.",
+          "Número FIRE = gasto anual ÷ tasa de retirada segura (4 % → 25 veces el gasto).",
+          "Infla el objetivo cada año e informa del primer año en que el saldo nominal lo supera."
+        ],
+        "note": "La rentabilidad se modela como una media constante. Los mercados reales son volátiles y el riesgo de secuencia de rentabilidades pesa mucho en los primeros años de retirada: trata el resultado como una base de planificación, no como una promesa."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Por qué el interés compuesto supera al tamaño de la aportación",
+            "paragraphs": [
+              "En los primeros años, casi todo el crecimiento de la cartera viene del dinero que ingresas. En algún punto entre el año diez y el quince —según la rentabilidad que asumas— la ganancia anual que genera la propia cartera supera la aportación anual. Desde ahí, el tiempo en el mercado importa más que el tamaño de cada ingreso.",
+              "Por eso el gráfico muestra aportaciones y saldo total por separado: la distancia entre ambas líneas es la parte de tu patrimonio que ha construido el interés compuesto."
+            ]
+          },
+          {
+            "heading": "Leer bien la regla del 4 %",
+            "paragraphs": [
+              "La tasa de retirada segura del 4 % proviene del estudio Trinity y sus sucesores, que probaron jubilaciones históricas de 30 años con una cartera de acciones y bonos. Implica un número FIRE de aproximadamente 25 veces el gasto anual.",
+              "Es una heurística, no una ley. Jubilaciones más largas, rentabilidades esperadas menores, comisiones altas o un mercado bajista temprano justifican una tasa menor: entre 3,25 % y 3,5 % es una elección conservadora habitual, que eleva el objetivo a unas 29–31 veces el gasto."
+            ],
+            "list": [
+              "4,0 % → 25 veces el gasto anual",
+              "3,5 % → unas 29 veces el gasto anual",
+              "3,0 % → unas 33 veces el gasto anual",
+              "5,0 % → 20 veces el gasto, pero con riesgo de agotamiento mucho mayor"
+            ]
+          },
+          {
+            "heading": "La inflación es la variable silenciosa",
+            "paragraphs": [
+              "Con una inflación del 2,5 %, los precios se duplican aproximadamente en 28 años. Un objetivo fijado en dinero de hoy debe inflarse hasta el año en que realmente te jubiles; si no, alcanzarás una cifra nominal que ya no compra la vida que habías planeado.",
+              "La calculadora hace las dos cosas: la línea nominal muestra el saldo que verás literalmente en tu cuenta y la línea real muestra lo que vale a los precios que conoces hoy."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "¿Qué rentabilidad debo suponer?",
+          "answer": "Una cartera de renta variable global diversificada ha rendido históricamente alrededor del 7–8 % nominal anual en periodos largos, antes de comisiones. Muchos planificadores usan 5–6 % para una cartera mixta, o descuentan la inflación y trabajan en términos reales. Las hipótesis prudentes generan planes más difíciles de romper."
+        },
+        {
+          "question": "¿Introduzco cifras antes o después de la inflación?",
+          "answer": "Introduce la rentabilidad nominal y la inflación por separado, y fija el gasto en dinero de hoy. La calculadora infla el objetivo y muestra saldos nominales y reales, así no tienes que mezclar convenciones."
+        },
+        {
+          "question": "¿Cómo se calcula el número FIRE?",
+          "answer": "Número FIRE = gasto anual ÷ (tasa de retirada ÷ 100). Con 30.000 de gasto anual y una tasa del 4 %, son 750.000 en dinero de hoy. Después el objetivo crece con la inflación cada año futuro."
+        },
+        {
+          "question": "¿La herramienta tiene en cuenta los impuestos?",
+          "answer": "No directamente, porque la fiscalidad varía según el país y el tipo de cuenta. Lo práctico es introducir una rentabilidad esperada después de impuestos, o sumar la factura fiscal prevista al gasto anual."
+        },
+        {
+          "question": "¿Qué es el riesgo de secuencia de rentabilidades?",
+          "answer": "Es el riesgo de una gran caída del mercado en los primeros años de jubilación, cuando las retiradas salen de una cartera que se reduce. Dos personas con la misma rentabilidad media pueden acabar muy distintas según el orden en que lleguen esas rentabilidades. Un colchón de liquidez y un gasto flexible reducen el daño."
+        },
+        {
+          "question": "¿Puedo modelar una pausa laboral o amortizar una hipoteca?",
+          "answer": "De forma aproximada. Proyecta hasta la pausa, apunta el saldo y empieza una segunda proyección con ese saldo como capital inicial y aportaciones ajustadas. El modelado multifase completo está previsto para una versión posterior."
+        }
+      ]
+    },
+    "tdee": {
+      "name": "Calculadora TDEE y macronutrientes",
+      "shortName": "TDEE y macros",
+      "metaTitle": "Calculadora TDEE — calorías diarias y reparto de macros",
+      "metaDescription": "Calcula tu TMB y TDEE con la fórmula Mifflin-St Jeor o Katch-McArdle y obtén objetivos de calorías y macronutrientes para definición, mantenimiento o volumen. Unidades métricas e imperiales.",
+      "h1": "Calculadora de TDEE y macronutrientes",
+      "intro": "Calcula tu tasa metabólica basal, tu gasto energético diario total y un reparto de macros centrado en la proteína, en unidades métricas o imperiales.",
+      "keywords": [
+        "calculadora tdee",
+        "calculadora macros",
+        "calculadora tmb",
+        "mifflin st jeor",
+        "katch mcardle"
+      ],
+      "features": [
+        "Fórmulas Mifflin-St Jeor y Katch-McArdle",
+        "Cambio entre unidades métricas e imperiales",
+        "Objetivos calóricos de definición, mantenimiento y volumen limpio",
+        "Presets de macros centrados en proteína, incluida keto",
+        "IMC, masa libre de grasa, fibra y objetivo de agua"
+      ],
+      "ui": {
+        "inputsTitle": "Tus datos corporales",
+        "sex": "Sexo",
+        "male": "Hombre",
+        "female": "Mujer",
+        "age": "Edad",
+        "height": "Altura",
+        "weight": "Peso",
+        "heightCm": "Altura (cm)",
+        "weightKg": "Peso (kg)",
+        "heightFt": "Altura (ft)",
+        "heightIn": "Altura (in)",
+        "weightLb": "Peso (lb)",
+        "bodyFat": "Grasa corporal",
+        "bodyFatOptional": "Grasa corporal % (opcional)",
+        "bodyFatHint": "Necesaria para la fórmula Katch-McArdle.",
+        "formula": "Fórmula de TMB",
+        "formulaMifflin": "Mifflin-St Jeor",
+        "formulaKatch": "Katch-McArdle (requiere % de grasa)",
+        "formulaFallback": "Falta el % de grasa corporal: se ha usado Mifflin-St Jeor.",
+        "activity": "Nivel de actividad",
+        "activitySedentary": "Sedentario — trabajo de oficina, poco ejercicio",
+        "activityLight": "Ligero — 1–3 sesiones por semana",
+        "activityModerate": "Moderado — 3–5 sesiones por semana",
+        "activityActive": "Activo — 6–7 sesiones por semana",
+        "activityAthlete": "Atleta — dos sesiones diarias o trabajo físico",
+        "goal": "Objetivo",
+        "goalCut": "Definición agresiva (−20 %)",
+        "goalMildCut": "Definición suave (−10 %)",
+        "goalMaintain": "Mantenimiento",
+        "goalLeanBulk": "Volumen limpio (+10 %)",
+        "goalBulk": "Volumen (+20 %)",
+        "macroPreset": "Reparto de macros",
+        "presetBalanced": "Equilibrado",
+        "presetHighProtein": "Alto en proteína",
+        "presetLowCarb": "Bajo en carbohidratos",
+        "presetKeto": "Keto",
+        "bmr": "TMB",
+        "bmrHint": "Energía que gastas en reposo absoluto.",
+        "tdee": "TDEE",
+        "tdeeHint": "Calorías de mantenimiento incluyendo actividad.",
+        "targetCalories": "Calorías objetivo",
+        "calorieDelta": "Déficit / superávit diario",
+        "weeklyChange": "Cambio semanal esperado",
+        "protein": "Proteína",
+        "carbs": "Carbohidratos",
+        "fat": "Grasa",
+        "macrosTitle": "Macronutrientes diarios",
+        "bmi": "IMC",
+        "bmiUnderweight": "Bajo peso",
+        "bmiNormal": "Normal",
+        "bmiOverweight": "Sobrepeso",
+        "bmiObese": "Obesidad",
+        "leanMass": "Masa libre de grasa",
+        "water": "Objetivo de agua",
+        "fiber": "Objetivo de fibra",
+        "activityTableTitle": "TDEE por nivel de actividad",
+        "goalTableTitle": "Calorías por objetivo",
+        "chartTitle": "Reparto de calorías por macronutriente",
+        "notMedicalAdvice": "Estimaciones para adultos sanos. No es consejo médico: consulta a un profesional antes de cambios dietéticos importantes."
+      },
+      "formula": {
+        "intro": "El gasto energético diario total es la tasa metabólica basal multiplicada por un factor de actividad y luego ajustada a tu objetivo. Qué fórmula de TMB es más precisa depende de si conoces tu porcentaje de grasa corporal.",
+        "steps": [
+          "Mifflin-St Jeor (hombres): TMB = 10 × kg + 6,25 × cm − 5 × edad + 5.",
+          "Mifflin-St Jeor (mujeres): TMB = 10 × kg + 6,25 × cm − 5 × edad − 161.",
+          "Katch-McArdle: TMB = 370 + 21,6 × masa libre de grasa (kg), donde MLG = peso × (1 − % de grasa).",
+          "TDEE = TMB × factor de actividad (1,2 sedentario → 1,9 atleta).",
+          "Calorías objetivo = TDEE × (1 + ajuste del objetivo), nunca por debajo del 90 % de la TMB.",
+          "Proteína = g/kg según el preset elegido; grasa = porcentaje de las calorías totales; los carbohidratos completan el resto (4/4/9 kcal por gramo)."
+        ],
+        "note": "Los factores de actividad son medias poblacionales y pueden desviarse un 10–15 % en cada persona. Registra tu peso dos o tres semanas y ajusta las calorías en pasos de 100–200 hasta que la tendencia coincida con tu objetivo."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "TMB, TDEE y por qué importa la diferencia",
+            "paragraphs": [
+              "La tasa metabólica basal es lo que tu cuerpo gasta sin hacer nada: latido, respiración, temperatura, cerebro. En la mayoría de personas supone el 60–70 % del gasto diario. El gasto energético total añade el resto: ejercicio planificado, movimiento cotidiano y el coste energético de digerir la comida.",
+              "Comer al nivel de la TMB en lugar del TDEE es uno de los errores más comunes al hacer dieta. Crea un déficit mucho mayor de lo previsto, que suele acabar en pérdida de músculo, fatiga y rebote."
+            ]
+          },
+          {
+            "heading": "Elegir la fórmula adecuada",
+            "paragraphs": [
+              "Mifflin-St Jeor es la recomendación por defecto para la población general y solo necesita altura, peso, edad y sexo. Katch-McArdle parte de la masa libre de grasa, lo que la hace más precisa en personas delgadas, musculadas o muy pesadas, pero solo si tu estimación de grasa es fiable.",
+              "Si tu porcentaje de grasa viene de una báscula de bioimpedancia económica, trátalo como una estimación aproximada y usa Mifflin-St Jeor. DEXA, pesaje hidrostático o mediciones cuidadosas con plicómetro justifican Katch-McArdle."
+            ]
+          },
+          {
+            "heading": "Fijar proteína, grasa y carbohidratos",
+            "paragraphs": [
+              "La proteína se fija primero porque es el macronutriente más ligado a conservar músculo en déficit y a la saciedad: aproximadamente 1,6–2,2 g por kg de peso en personas activas, y el extremo alto en definiciones agresivas.",
+              "La grasa debería mantenerse por encima de unos 0,6 g por kg para sostener la producción hormonal, y los carbohidratos ocupan las calorías restantes: son el combustible más económico para entrenar duro. Un reparto keto invierte esto, llevando la grasa a cerca del 70 % de las calorías y dejando los carbohidratos al mínimo."
+            ],
+            "list": [
+              "Proteína: 4 kcal por gramo, 1,6–2,4 g/kg según objetivo",
+              "Grasa: 9 kcal por gramo, 25–35 % de las calorías en la mayoría de repartos",
+              "Carbohidratos: 4 kcal por gramo, las calorías restantes",
+              "Fibra: unos 14 g por cada 1000 kcal"
+            ]
+          },
+          {
+            "heading": "¿A qué velocidad debe cambiar el peso?",
+            "paragraphs": [
+              "Un déficit de 500 kcal al día corresponde a unos 0,45 kg por semana, ya que un kilogramo de grasa corporal almacena alrededor de 7700 kcal. Una definición sostenible suele ser del 0,5–1 % del peso corporal por semana; ritmos mayores aumentan la pérdida de músculo.",
+              "En volumen limpio ocurre lo contrario: un superávit del 10 % suele bastar para ganar tejido sin exceso de grasa. Recalcula cada 3–4 kg de cambio, porque la TMB y el TDEE se mueven con tu peso."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "¿Qué precisión tiene una calculadora de TDEE?",
+          "answer": "Las estimaciones por fórmula suelen quedar dentro del 10–15 % del gasto medido en adultos sanos. Usa el número como punto de partida y ajústalo con dos o tres semanas de tendencia de peso, no con la fluctuación diaria."
+        },
+        {
+          "question": "¿Mifflin-St Jeor o Katch-McArdle?",
+          "answer": "Usa Mifflin-St Jeor salvo que tengas una medición fiable de grasa corporal. Katch-McArdle se basa en la masa libre de grasa, lo que la hace mejor para cuerpos atléticos o muy pesados, pero hereda cualquier error de tu estimación de grasa."
+        },
+        {
+          "question": "¿Cuánta proteína necesito realmente?",
+          "answer": "Para adultos activos, 1,6–2,2 g por kg de peso cubre casi todas las recomendaciones basadas en evidencia. Apunta al extremo alto en déficit calórico para proteger el músculo y reparte la ingesta en tres a cinco comidas."
+        },
+        {
+          "question": "¿Por qué no cambia mi peso si como según el objetivo?",
+          "answer": "La retención de agua, el glucógeno, el sodio, el ciclo menstrual y el peso de la comida en el intestino pueden ocultar la pérdida de grasa una o dos semanas. Compara medias semanales en lugar de mañanas concretas y cambia las calorías solo si la tendencia se mantiene plana dos o tres semanas."
+        },
+        {
+          "question": "¿Es seguro comer por debajo de mi TMB?",
+          "answer": "En general no es aconsejable sin supervisión médica. Por eso la calculadora limita el objetivo al 90 % de la TMB. Ingestas muy bajas implican riesgo de pérdida muscular, déficit de micronutrientes, alteraciones hormonales y mala adherencia."
+        },
+        {
+          "question": "¿Debo recalcular a medida que pierdo peso?",
+          "answer": "Sí. La TMB escala con el peso corporal, así que recalcula cada 3–4 kg de cambio, o aproximadamente una vez al mes en una fase activa, para mantener el déficit o superávit en el tamaño previsto."
+        }
+      ]
+    }
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La calculadora que buscas no existe o se ha movido.",
+    "cta": "Volver a todas las calculadoras"
+  },
+  "footer": {
+    "disclaimer": "CalcAtlas ofrece únicamente estimaciones informativas. Verifica siempre las normas de visado con el consulado correspondiente y consulta a profesionales cualificados para decisiones financieras o médicas.",
+    "rights": "Todos los derechos reservados.",
+    "builtWith": "Estático, servido desde el edge y calculado íntegramente en el cliente."
+  }
+}

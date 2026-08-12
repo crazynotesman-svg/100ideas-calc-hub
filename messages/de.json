@@ -1,0 +1,517 @@
+{
+  "site": {
+    "name": "CalcAtlas",
+    "tagline": "Präzise Rechner für Menschen, die Grenzen überschreiten, Vermögen aufbauen und ihre Gesundheit steuern.",
+    "metaTitle": "CalcAtlas — Schengen-, FIRE- und TDEE-Rechner",
+    "metaDescription": "Kostenlose, sofortige und datenschutzfreundliche Rechner: Schengen 90/180-Tage-Berechnung, FIRE-Zinseszinsprognose und TDEE-Makronährstoffplanung. Alles läuft direkt im Browser."
+  },
+  "nav": {
+    "home": "Startseite",
+    "calculators": "Rechner",
+    "language": "Sprache",
+    "switchLanguage": "Sprache wechseln",
+    "openMenu": "Menü öffnen"
+  },
+  "categories": {
+    "travel": { "name": "Reisen", "description": "Visumfenster, Einreiseregeln und Reise-Compliance." },
+    "finance": { "name": "Finanzen", "description": "Zinseszins, Ruhestandsziele und inflationsbereinigte Renditen." },
+    "health": { "name": "Gesundheit", "description": "Energieverbrauch, Körperzusammensetzung und Ernährungsziele." }
+  },
+  "common": {
+    "results": "Ergebnisse",
+    "reset": "Zurücksetzen",
+    "resetDefaults": "Standardwerte wiederherstellen",
+    "faqTitle": "Häufige Fragen",
+    "formulaTitle": "So funktioniert die Berechnung",
+    "aboutTitle": "Alles Wichtige im Detail",
+    "lastUpdated": "Zuletzt aktualisiert",
+    "unitSystem": "Einheiten",
+    "metric": "Metrisch",
+    "imperial": "Imperial",
+    "advertisement": "Werbung",
+    "adSlot": "Werbeplatz",
+    "breadcrumbLabel": "Brotkrümelnavigation",
+    "onThisPage": "Auf dieser Seite",
+    "clientSideNotice": "Alle Berechnungen laufen lokal in Ihrem Browser. Es werden keine Daten übertragen.",
+    "relatedCalculators": "Verwandte Rechner",
+    "openCalculator": "Rechner öffnen",
+    "features": "Funktionen",
+    "copy": "Ergebnis kopieren",
+    "copied": "Kopiert",
+    "exportCsv": "CSV exportieren",
+    "days": "Tage",
+    "years": "Jahre",
+    "yearsOld": "J.",
+    "kcal": "kcal",
+    "grams": "g",
+    "perDay": "pro Tag",
+    "perMonth": "pro Monat",
+    "perYear": "pro Jahr"
+  },
+  "home": {
+    "heroBadge": "3 Rechner · 4 Sprachen · 0 Tracking",
+    "heroTitle": "Rechner, die eine Antwort liefern — kein Abo",
+    "heroSubtitle": "Schengen-Tage, FIRE-Prognosen und TDEE-Makros — sofort auf Ihrem Gerät berechnet, in Ihrer Sprache.",
+    "ctaPrimary": "Rechner ansehen",
+    "ctaSecondary": "Mit Schengen 90/180 starten",
+    "featuredTitle": "Empfohlene Rechner",
+    "featuredSubtitle": "Gebaut für die Fragen, die wirklich gesucht werden.",
+    "trustTitle": "Was den Unterschied macht",
+    "trust": {
+      "speedTitle": "Sofort und offlinefähig",
+      "speedBody": "Jede Formel wird in den Browser ausgeliefert. Keine Serveranfrage, kein Ladebalken, keine Serverkosten.",
+      "privacyTitle": "Nichts verlässt Ihr Gerät",
+      "privacyBody": "Reisedaten, Gehälter und Körperwerte bleiben ausschließlich im lokalen Speicher.",
+      "i18nTitle": "Echt lokalisiert",
+      "i18nBody": "Englisch, Deutsch, Spanisch und Chinesisch — inklusive der Formelerklärungen, nicht nur der Buttons."
+    },
+    "browseByCategory": "Nach Kategorie stöbern"
+  },
+  "calculatorsIndex": {
+    "metaTitle": "Alle Rechner — Reisen, Finanzen und Gesundheit",
+    "metaDescription": "Das komplette CalcAtlas-Verzeichnis: Schengen 90/180-Rechner, FIRE-Zinseszinsprognose und TDEE-Makronährstoffplaner. Kostenlos und sofort einsatzbereit.",
+    "title": "Alle Rechner",
+    "intro": "Jedes Werkzeug ist kostenlos, benötigt kein Konto und rechnet vollständig in Ihrem Browser."
+  },
+  "calculators": {
+    "schengen": {
+      "name": "Schengen-Visum 90/180-Tage-Rechner",
+      "shortName": "Schengen 90/180",
+      "metaTitle": "Schengen 90/180-Tage-Rechner — rollierendes Zeitfenster prüfen",
+      "metaDescription": "Berechnen Sie Ihr Schengen-Kurzaufenthaltskontingent nach der offiziellen Regel des rollierenden 180-Tage-Zeitraums: verbrauchte Tage, Resttage, Overstay-Warnung und nächstes legales Einreisedatum.",
+      "h1": "Schengen-Visum 90/180-Tage-Rechner",
+      "intro": "Tragen Sie vergangene und geplante Reisen ein und sehen Sie genau, wie viele Ihrer 90 Tage im rollierenden 180-Tage-Fenster übrig sind — und ab wann Sie wieder legal einreisen dürfen.",
+      "keywords": [
+        "schengen rechner",
+        "90/180 regel",
+        "schengen visum tage",
+        "rollierendes 180-tage-fenster",
+        "schengen overstay"
+      ],
+      "features": [
+        "Rollierendes 180-Tage-Fenster, tagesgenau ausgewertet",
+        "Unbegrenzt viele vergangene und geplante Reisen",
+        "Overstay-Erkennung mit genauer Überschreitung",
+        "Nächstes legales Einreisedatum und maximale Aufenthaltsdauer",
+        "Fortschrittsbalken für das 90-Tage-Kontingent"
+      ],
+      "ui": {
+        "referenceDateLabel": "Stichtag",
+        "referenceDateHint": "Der Tag, für den geprüft werden soll — meist heute oder ein geplantes Einreisedatum.",
+        "tripsTitle": "Ihre Reisen",
+        "tripsHint": "Einreise- und Ausreisetag zählen jeweils als vollständiger Aufenthaltstag.",
+        "entryDate": "Einreise",
+        "exitDate": "Ausreise",
+        "addTrip": "Reise hinzufügen",
+        "removeTrip": "Reise entfernen",
+        "tripLabel": "Reise {index}",
+        "clearAll": "Alle Reisen löschen",
+        "loadExample": "Beispiel laden",
+        "daysUsed": "Verbrauchte Tage",
+        "daysRemaining": "Resttage",
+        "windowLabel": "Rollierendes Fenster",
+        "windowValue": "{start} → {end}",
+        "allowanceLabel": "{used} von 90 Tagen verbraucht",
+        "statusOk": "Regelkonform",
+        "statusWarning": "Grenze rückt näher",
+        "statusCritical": "Kontingent ausgeschöpft",
+        "statusOverstay": "Overstay erkannt",
+        "statusOkBody": "Am Stichtag liegen Sie innerhalb des 90/180-Kontingents.",
+        "statusWarningBody": "Mehr als 80 % des Kontingents sind verbraucht. Planen Sie die nächste Einreise sorgfältig.",
+        "statusCriticalBody": "An diesem Datum sind keine Tage mehr verfügbar. Sie müssen warten, bis das Fenster weiterrollt.",
+        "statusOverstayBody": "Ihre Reiseplanung überschreitet das 90-Tage-Limit um {days} Tag(e). Passen Sie die Reisen vor der Abreise an.",
+        "nextEntry": "Nächste legale Einreise",
+        "nextEntryToday": "Jetzt möglich",
+        "maxConsecutive": "Max. durchgehender Aufenthalt",
+        "fullReset": "Volle 90 Tage wieder verfügbar",
+        "breakdownTitle": "Reiseübersicht",
+        "breakdownTotal": "Tage gesamt",
+        "breakdownInWindow": "Im Fenster gezählt",
+        "violationsTitle": "Tage mit Regelverstoß",
+        "violationDetail": "{date}: {days} Tage im vorangehenden 180-Tage-Fenster ({excess} über dem Limit)",
+        "invalidDate": "Bitte ein gültiges Datum eingeben",
+        "reversedRange": "Das Ausreisedatum darf nicht vor der Einreise liegen",
+        "noTrips": "Fügen Sie Ihre erste Reise hinzu, um die Berechnung zu sehen.",
+        "timelineTitle": "Auslastung des Zeitfensters",
+        "timelineHint": "Gezählte Aufenthaltstage für jeden Tag der letzten 180 Tage."
+      },
+      "formula": {
+        "intro": "Die Kurzaufenthaltsregel stammt aus Artikel 6 des Schengener Grenzkodex: maximal 90 Aufenthaltstage in einem Zeitraum von 180 Tagen. Dieses Fenster ist kein fester Kalenderblock, sondern rollt Tag für Tag weiter.",
+        "steps": [
+          "Stichtag D festlegen (heute oder der geplante Einreisetag).",
+          "Fenster bilden: die 180 aufeinanderfolgenden Tage, die auf D endeten, also [D − 179, D].",
+          "Alle Anwesenheitstage in diesem Fenster zählen. Einreise- und Ausreisetag zählen je als ganzer Tag.",
+          "Überlappende Reisen werden nur einmal gezählt — ein Tag ist entweder im Raum verbracht oder nicht.",
+          "Resttage = 90 − gezählte Tage. Ein negativer Wert bedeutet Overstay.",
+          "Für die nächste legale Einreise Tag für Tag vorrücken, bis das Fenster maximal 89 Tage enthält."
+        ],
+        "note": "Dieses Werkzeug modelliert die Regel selbst. Nationale Langzeitvisa, Aufenthaltstitel und bilaterale Ausnahmen können die Zählweise verändern — bestätigen Sie den Sachverhalt immer beim Konsulat Ihres Ziellandes."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Was die 90/180-Regel wirklich bedeutet",
+            "paragraphs": [
+              "Visumfreie Reisende und Inhaber eines Schengen-Kurzaufenthaltsvisums dürfen sich in einem Zeitraum von 180 Tagen bis zu 90 Tage im Schengen-Raum aufhalten. Der häufigste Irrtum ist die Annahme, die 180 Tage würden an einem festen Datum zurückgesetzt oder eine Ausreise starte eine neue Zählung. Beides ist falsch.",
+              "Das Fenster ist rückblickend und rollierend: An jedem einzelnen Tag blickt die Grenzbehörde 179 Tage zurück, zählt den aktuellen Tag hinzu und summiert Ihre Anwesenheitstage. Deshalb kann eine im März noch legale Reiseplanung im Mai zum Overstay werden, ohne dass Sie einen zusätzlichen Tag verbringen."
+            ]
+          },
+          {
+            "heading": "Wie an der Grenze gezählt wird",
+            "paragraphs": [
+              "Der Einreisetag zählt vollständig, selbst wenn Sie um 23:50 landen. Der Ausreisetag zählt ebenfalls vollständig, auch bei einem Flug am frühen Morgen. Eine Wochenendreise von Freitag bis Sonntag verbraucht daher drei Tage, nicht zwei.",
+              "Ein Transit über einen Schengen-Flughafen ohne Einreise zählt in der Regel nicht, jeder Einreisestempel im Pass hingegen schon. Bewahren Sie Bordkarten und Stempel auf: Bei Streit über die Zählung liegt die Beweislast beim Reisenden."
+            ],
+            "list": [
+              "Einreise- und Ausreisetag sind jeweils ganze Tage.",
+              "Auch bei nur einem Tag Unterbrechung wird jeder Anwesenheitstag einzeln gezählt.",
+              "Das Kontingent gilt für alle Schengen-Staaten zusammen, nicht pro Land.",
+              "Zeiten mit nationalem Langzeitvisum oder Aufenthaltstitel werden normalerweise nicht angerechnet."
+            ]
+          },
+          {
+            "heading": "Folgen eines Overstays",
+            "paragraphs": [
+              "Die Sanktionen reichen von einem Vermerk über ein Bußgeld und eine Ausreiseverfügung bis zu einem Einreiseverbot, das für mehrere Jahre im SIS gespeichert wird. Selbst ein kurzer Overstay kann künftige Visumanträge, Aufenthaltstitel und Einreisen erschweren.",
+              "Wenn Ihre Planung das Limit überschreitet, ändern Sie sie vor der Abreise. Im Schengen-Raum selbst bleibt fast nur ein nationaler Verlängerungsantrag, der nur bei höherer Gewalt oder humanitären Gründen gewährt wird."
+            ]
+          },
+          {
+            "heading": "Reisen um das rollierende Fenster planen",
+            "paragraphs": [
+              "Praktisch planen Sie rückwärts vom gewünschten Einreisetag: Tragen Sie die geplante Reise ein, setzen Sie den Stichtag auf den Einreisetag und prüfen Sie, ob das Fenster den gesamten Aufenthalt noch trägt.",
+              "Ist das Kontingent erschöpft, nennt das Werkzeug das erste Datum für eine legale Einreise und die dann verfügbare durchgehende Aufenthaltsdauer. Ab diesem Tag regeneriert sich das Kontingent täglich, während ältere Aufenthalte aus dem Fenster fallen."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Wird der 180-Tage-Zeitraum alle sechs Monate zurückgesetzt?",
+          "answer": "Nein. Es ist ein rollierendes Fenster, das jeden Tag neu berechnet wird. An jedem Datum blicken die Behörden auf die vorangehenden 180 Tage einschließlich dieses Datums zurück und zählen die Anwesenheitstage. Ein festes Rücksetzdatum gibt es nicht."
+        },
+        {
+          "question": "Zählen Einreise- und Ausreisetag beide?",
+          "answer": "Ja. Beide gelten unabhängig von der Uhrzeit als ganze Tage. Eine Reise vom 1. bis 3. Juni verbraucht drei Tage Ihres Kontingents."
+        },
+        {
+          "question": "Was passiert, wenn ich schon überzogen habe?",
+          "answer": "Möglich sind ein Bußgeld, eine Ausreisepflicht, eine Rückführungsentscheidung oder ein im Schengener Informationssystem eingetragenes Einreiseverbot. Wenden Sie sich an die Ausländerbehörde des Landes, in dem Sie sich befinden, und rechnen Sie künftig mit strengerer Prüfung."
+        },
+        {
+          "question": "Sind Irland, Bulgarien, Rumänien oder Zypern eingeschlossen?",
+          "answer": "Irland gehört nicht zum Schengen-Raum und hat eigene Regeln. Bulgarien und Rumänien traten 2024 für Luft- und Seegrenzen und 2025 für Landgrenzen bei, aktuelle Aufenthalte dort zählen also mit. Zypern liegt weiterhin außerhalb. Prüfen Sie den Stand, bevor Sie sich auf ältere Auskünfte verlassen."
+        },
+        {
+          "question": "Verbrauchen Aufenthaltstitel oder Langzeitvisa meine 90 Tage?",
+          "answer": "Normalerweise nicht. Zeiten im ausstellenden Land mit nationalem Langzeitvisum (Typ D) oder Aufenthaltstitel werden nicht vom 90/180-Kontingent abgezogen. Aufenthalte in anderen Schengen-Staaten können jedoch zählen — prüfen Sie die Bedingungen Ihres Titels."
+        },
+        {
+          "question": "Werden meine Reisedaten irgendwo gespeichert?",
+          "answer": "Nein. Die Berechnung läuft vollständig im Browser, Ihre Reisedaten verlassen das Gerät nicht. Ein Neuladen der Seite löscht alles, sofern Sie es nicht selbst gesichert haben."
+        }
+      ]
+    },
+    "fire": {
+      "name": "FIRE- & Zinseszinsrechner",
+      "shortName": "FIRE-Zinseszins",
+      "metaTitle": "FIRE-Rechner — Zinseszins mit Inflationsbereinigung",
+      "metaDescription": "Prognostizieren Sie Ihren Weg zur finanziellen Unabhängigkeit: monatliche Sparraten, Zinseszins, inflationsbereinigte Kaufkraft, 4-%-Regel und das Alter, ab dem Ihr Depot Ihre Ausgaben deckt.",
+      "h1": "FIRE- und Zinseszinsrechner für Investments",
+      "intro": "Modellieren Sie monatliches Investieren mit Zinseszins, Gehaltssteigerungen und Inflation — und sehen Sie das Alter, ab dem Ihr Depot Ihre Jahresausgaben sicher trägt.",
+      "keywords": [
+        "fire rechner",
+        "zinseszinsrechner",
+        "finanzielle unabhängigkeit",
+        "4 prozent regel",
+        "inflationsbereinigte rendite"
+      ],
+      "features": [
+        "Monatlicher Zinseszins mit jährlich steigender Sparrate",
+        "Inflationsbereinigte Kaufkraftlinie",
+        "FIRE-Zahl für jede Entnahmerate",
+        "Interaktiver Sparraten-Slider",
+        "Wachstumsdiagramm und Datentabelle je Jahr"
+      ],
+      "ui": {
+        "inputsTitle": "Ihre Annahmen",
+        "currentAge": "Aktuelles Alter",
+        "retirementAge": "Ziel-Ruhestandsalter",
+        "initialCapital": "Startkapital",
+        "monthlyContribution": "Monatliche Sparrate",
+        "contributionGrowth": "Jährliche Erhöhung der Sparrate",
+        "annualReturn": "Erwartete Jahresrendite",
+        "inflation": "Erwartete Inflation",
+        "withdrawalRate": "Sichere Entnahmerate",
+        "annualExpenses": "Zu deckende Jahresausgaben",
+        "horizon": "Prognosehorizont",
+        "fireNumber": "FIRE-Zahl",
+        "fireNumberHint": "Jahresausgaben ÷ Entnahmerate, in heutigem Geld.",
+        "fireAge": "Finanziell unabhängig mit",
+        "yearsToFire": "Zeit bis zur Unabhängigkeit",
+        "notReached": "Im Horizont nicht erreicht",
+        "onTrack": "Auf Kurs für Ihr Zielalter",
+        "offTrack": "Hinter Ihrem Zielalter",
+        "balanceAtRetirement": "Depot im Zielalter",
+        "realBalance": "In heutigem Geld",
+        "totalContributed": "Eingezahlt insgesamt",
+        "totalGrowth": "Wertzuwachs",
+        "growthShare": "{percent}% des Endvermögens stammen aus dem Zinseszins",
+        "sustainableIncome": "Tragfähiges Jahreseinkommen",
+        "requiredContribution": "Nötige Monatsrate, um das Ziel rechtzeitig zu erreichen",
+        "chartTitle": "Depotprognose",
+        "chartNominal": "Nominal",
+        "chartReal": "Real (heutiges Geld)",
+        "chartContributed": "Eingezahlt",
+        "chartTarget": "FIRE-Ziel",
+        "tableTitle": "Jahr für Jahr",
+        "tableAge": "Alter",
+        "tableBalance": "Depotwert",
+        "tableReal": "Realwert",
+        "tableContributed": "Eingezahlt",
+        "tableGrowth": "Zuwachs",
+        "coverage": "Deckung der FIRE-Zahl",
+        "yearsShort": "{count} J.",
+        "yearsLong": "{count} Jahre"
+      },
+      "formula": {
+        "intro": "Die Prognose rechnet monatlich auf und trennt nominale Beträge von echter Kaufkraft — denn ein Depot, das sich verdoppelt, während sich die Preise verdoppeln, hat Sie nicht reicher gemacht.",
+        "steps": [
+          "Jahresrendite r in einen Monatszins umrechnen: rm = (1 + r)^(1/12) − 1.",
+          "Für jeden Monat: Depotwert = Depotwert × (1 + rm) + Sparrate.",
+          "Die Sparrate einmal pro Jahr um die Gehaltssteigerung erhöhen.",
+          "Auf heutiges Geld abzinsen: real = nominal ÷ (1 + i)^Jahre, wobei i die Inflation ist.",
+          "FIRE-Zahl = Jahresausgaben ÷ sichere Entnahmerate (4 % → 25-fache Ausgaben).",
+          "Das Ziel jährlich mit der Inflation fortschreiben und das erste Jahr melden, in dem der Nominalwert es überschreitet."
+        ],
+        "note": "Die Rendite wird als glatter Mittelwert modelliert. Reale Märkte schwanken, und das Rendite-Reihenfolge-Risiko der ersten Entnahmejahre ist erheblich — betrachten Sie das Ergebnis als Planungsbasis, nicht als Versprechen."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Warum der Zinseszins langfristig die Sparrate schlägt",
+            "paragraphs": [
+              "In den ersten Jahren stammt der Depotzuwachs fast vollständig aus Ihren Einzahlungen. Irgendwann zwischen Jahr zehn und Jahr fünfzehn — abhängig von der angenommenen Rendite — übersteigt der Jahresgewinn des Depots die Jahressparrate. Ab diesem Punkt zählt Zeit im Markt mehr als die Höhe jeder einzelnen Einzahlung.",
+              "Deshalb zeigt das Diagramm Einzahlungen und Gesamtwert getrennt: Der Abstand zwischen beiden Linien ist genau der Teil Ihres Vermögens, den der Zinseszins aufgebaut hat."
+            ]
+          },
+          {
+            "heading": "Die 4-%-Regel richtig lesen",
+            "paragraphs": [
+              "Die sichere Entnahmerate von 4 % geht auf die Trinity-Studie und ihre Nachfolger zurück, die historische 30-Jahres-Ruhestände mit einem Aktien-Renten-Portfolio getestet haben. Sie impliziert eine FIRE-Zahl von etwa dem 25-Fachen der Jahresausgaben.",
+              "Es ist eine Heuristik, kein Gesetz. Längere Ruhestände, niedrigere erwartete Renditen, hohe Kosten oder ein früher Bärenmarkt sprechen für eine niedrigere Rate — 3,25 % bis 3,5 % sind eine verbreitete konservative Wahl und heben das Ziel auf etwa das 29- bis 31-Fache."
+            ],
+            "list": [
+              "4,0 % → 25-fache Jahresausgaben",
+              "3,5 % → etwa 29-fache Jahresausgaben",
+              "3,0 % → etwa 33-fache Jahresausgaben",
+              "5,0 % → 20-fache Ausgaben, aber deutlich höheres Ausfallrisiko"
+            ]
+          },
+          {
+            "heading": "Inflation ist die stille Variable",
+            "paragraphs": [
+              "Bei 2,5 % Inflation verdoppeln sich die Preise in rund 28 Jahren. Ein in heutigem Geld gesetztes Depotziel muss daher auf das tatsächliche Ruhestandsjahr fortgeschrieben werden, sonst erreichen Sie eine Nominalzahl, die das geplante Leben nicht mehr finanziert.",
+              "Der Rechner zeigt beides: Die nominale Linie ist der Betrag, den Sie im Depot sehen werden, die reale Linie sein Wert in den Preisen, die Sie heute kennen."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Welche Rendite soll ich annehmen?",
+          "answer": "Ein global gestreutes Aktienportfolio erzielte historisch über lange Zeiträume rund 7–8 % nominal pro Jahr, vor Kosten. Viele Planer rechnen mit 5–6 % für ein Mischportfolio oder ziehen die Inflation ab und arbeiten real. Vorsichtige Annahmen ergeben robustere Pläne."
+        },
+        {
+          "question": "Soll ich Werte vor oder nach Inflation eintragen?",
+          "answer": "Tragen Sie Nominalrendite und Inflation getrennt ein und setzen Sie die Ausgaben in heutigem Geld an. Der Rechner schreibt das Ziel fort und zeigt nominale und reale Werte — Sie müssen die Konventionen nicht selbst mischen."
+        },
+        {
+          "question": "Wie wird die FIRE-Zahl berechnet?",
+          "answer": "FIRE-Zahl = Jahresausgaben ÷ (Entnahmerate ÷ 100). Bei 30.000 Jahresausgaben und 4 % ergibt das 750.000 in heutigem Geld. Anschließend wächst das Ziel mit der Inflation."
+        },
+        {
+          "question": "Berücksichtigt der Rechner Steuern?",
+          "answer": "Nicht direkt, da Besteuerung je Land und Depotart stark variiert. Praktikabel ist eine Nachsteuerrendite als Eingabe oder die erwartete Steuerlast in den Jahresausgaben."
+        },
+        {
+          "question": "Was ist das Rendite-Reihenfolge-Risiko?",
+          "answer": "Es ist das Risiko eines starken Markteinbruchs in den ersten Ruhestandsjahren, wenn Entnahmen aus einem schrumpfenden Depot erfolgen. Zwei Personen mit identischer Durchschnittsrendite können sehr unterschiedlich enden, je nach Reihenfolge der Renditen. Cash-Puffer und flexible Ausgaben mildern den Schaden."
+        },
+        {
+          "question": "Kann ich eine Auszeit oder eine Kredittilgung abbilden?",
+          "answer": "Annäherungsweise: Rechnen Sie bis zur Auszeit, notieren Sie den Depotwert und starten Sie eine zweite Prognose mit diesem Wert als Startkapital und angepasster Sparrate. Eine vollständige Mehrphasenrechnung ist für ein späteres Release geplant."
+        }
+      ]
+    },
+    "tdee": {
+      "name": "TDEE- & Makronährstoffrechner",
+      "shortName": "TDEE & Makros",
+      "metaTitle": "TDEE-Rechner — Tageskalorien und Makronährstoffverteilung",
+      "metaDescription": "Berechnen Sie BMR und TDEE mit Mifflin-St Jeor oder Katch-McArdle und erhalten Sie Kalorien- und Makroziele für Diät, Erhalt oder Aufbau. Metrische und imperiale Einheiten.",
+      "h1": "TDEE- und Makronährstoffrechner",
+      "intro": "Ermitteln Sie Grundumsatz, Gesamtumsatz und eine proteinorientierte Makroverteilung für Ihr Ziel — in metrischen oder imperialen Einheiten.",
+      "keywords": [
+        "tdee rechner",
+        "makro rechner",
+        "grundumsatz rechner",
+        "mifflin st jeor",
+        "katch mcardle"
+      ],
+      "features": [
+        "Formeln nach Mifflin-St Jeor und Katch-McArdle",
+        "Umschalter für metrische und imperiale Einheiten",
+        "Kalorienziele für Diät, Erhalt und Lean Bulk",
+        "Proteinorientierte Makro-Presets inklusive Keto",
+        "BMI, fettfreie Masse, Ballaststoff- und Wasserziel"
+      ],
+      "ui": {
+        "inputsTitle": "Ihre Körperdaten",
+        "sex": "Geschlecht",
+        "male": "Männlich",
+        "female": "Weiblich",
+        "age": "Alter",
+        "height": "Größe",
+        "weight": "Gewicht",
+        "heightCm": "Größe (cm)",
+        "weightKg": "Gewicht (kg)",
+        "heightFt": "Größe (ft)",
+        "heightIn": "Größe (in)",
+        "weightLb": "Gewicht (lb)",
+        "bodyFat": "Körperfett",
+        "bodyFatOptional": "Körperfett % (optional)",
+        "bodyFatHint": "Für die Katch-McArdle-Formel erforderlich.",
+        "formula": "BMR-Formel",
+        "formulaMifflin": "Mifflin-St Jeor",
+        "formulaKatch": "Katch-McArdle (benötigt Körperfett %)",
+        "formulaFallback": "Körperfett % fehlt — es wurde Mifflin-St Jeor verwendet.",
+        "activity": "Aktivitätsniveau",
+        "activitySedentary": "Sitzend — Bürojob, kaum Sport",
+        "activityLight": "Leicht — 1–3 Einheiten pro Woche",
+        "activityModerate": "Moderat — 3–5 Einheiten pro Woche",
+        "activityActive": "Aktiv — 6–7 Einheiten pro Woche",
+        "activityAthlete": "Athlet — zweimal täglich oder körperliche Arbeit",
+        "goal": "Ziel",
+        "goalCut": "Starke Diät (−20 %)",
+        "goalMildCut": "Leichte Diät (−10 %)",
+        "goalMaintain": "Erhalten",
+        "goalLeanBulk": "Lean Bulk (+10 %)",
+        "goalBulk": "Aufbau (+20 %)",
+        "macroPreset": "Makroverteilung",
+        "presetBalanced": "Ausgeglichen",
+        "presetHighProtein": "Proteinreich",
+        "presetLowCarb": "Low Carb",
+        "presetKeto": "Keto",
+        "bmr": "Grundumsatz",
+        "bmrHint": "Energieverbrauch in völliger Ruhe.",
+        "tdee": "Gesamtumsatz",
+        "tdeeHint": "Erhaltungskalorien inklusive Aktivität.",
+        "targetCalories": "Zielkalorien",
+        "calorieDelta": "Tägliches Defizit / Überschuss",
+        "weeklyChange": "Erwartete Gewichtsänderung pro Woche",
+        "protein": "Protein",
+        "carbs": "Kohlenhydrate",
+        "fat": "Fett",
+        "macrosTitle": "Makronährstoffe pro Tag",
+        "bmi": "BMI",
+        "bmiUnderweight": "Untergewicht",
+        "bmiNormal": "Normal",
+        "bmiOverweight": "Übergewicht",
+        "bmiObese": "Obesitas",
+        "leanMass": "Fettfreie Masse",
+        "water": "Wasserziel",
+        "fiber": "Ballaststoffziel",
+        "activityTableTitle": "TDEE je Aktivitätsniveau",
+        "goalTableTitle": "Kalorien je Ziel",
+        "chartTitle": "Kalorienverteilung nach Makronährstoff",
+        "notMedicalAdvice": "Schätzwerte für gesunde Erwachsene. Keine medizinische Beratung — sprechen Sie vor größeren Ernährungsumstellungen mit einer Fachperson."
+      },
+      "formula": {
+        "intro": "Der Gesamtumsatz ist der Grundumsatz multipliziert mit einem Aktivitätsfaktor und anschließend an Ihr Ziel angepasst. Welche BMR-Formel genauer ist, hängt davon ab, ob Sie Ihren Körperfettanteil kennen.",
+        "steps": [
+          "Mifflin-St Jeor (Männer): BMR = 10 × kg + 6,25 × cm − 5 × Alter + 5.",
+          "Mifflin-St Jeor (Frauen): BMR = 10 × kg + 6,25 × cm − 5 × Alter − 161.",
+          "Katch-McArdle: BMR = 370 + 21,6 × fettfreie Masse (kg), wobei FFM = Gewicht × (1 − Körperfett %).",
+          "TDEE = BMR × Aktivitätsfaktor (1,2 sitzend → 1,9 Athlet).",
+          "Zielkalorien = TDEE × (1 + Zielanpassung), nie unter 90 % des Grundumsatzes.",
+          "Protein = g/kg gemäß Preset; Fett = Anteil der Gesamtkalorien; Kohlenhydrate füllen den Rest (4/4/9 kcal pro Gramm)."
+        ],
+        "note": "Aktivitätsfaktoren sind Durchschnittswerte und können individuell um 10–15 % abweichen. Verfolgen Sie Ihr Gewicht zwei bis drei Wochen und passen Sie die Kalorien in Schritten von 100–200 an, bis der Trend zum Ziel passt."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Grundumsatz, Gesamtumsatz und warum die Differenz zählt",
+            "paragraphs": [
+              "Der Grundumsatz ist der Verbrauch in völliger Ruhe: Herzschlag, Atmung, Temperatur, Gehirn. Bei den meisten Menschen sind das 60–70 % des Tagesverbrauchs. Der Gesamtumsatz addiert den Rest: geplantes Training, Alltagsbewegung und die Energie für die Verdauung.",
+              "Auf Höhe des Grundumsatzes statt des Gesamtumsatzes zu essen, ist einer der häufigsten Diätfehler. Das Defizit wird viel größer als geplant und endet meist in Muskelverlust, Erschöpfung und Rückfall."
+            ]
+          },
+          {
+            "heading": "Die passende Formel wählen",
+            "paragraphs": [
+              "Mifflin-St Jeor ist die Standardempfehlung für die Allgemeinbevölkerung und braucht nur Größe, Gewicht, Alter und Geschlecht. Katch-McArdle rechnet mit der fettfreien Masse und ist damit für schlanke, muskulöse oder sehr schwere Personen genauer — aber nur bei belastbarer Körperfettschätzung.",
+              "Kommt Ihr Körperfettwert von einer günstigen Bioimpedanzwaage, behandeln Sie ihn als grobe Schätzung und bleiben Sie bei Mifflin-St Jeor. DEXA, hydrostatisches Wiegen oder sorgfältige Calipermessungen rechtfertigen Katch-McArdle."
+            ]
+          },
+          {
+            "heading": "Protein, Fett und Kohlenhydrate festlegen",
+            "paragraphs": [
+              "Protein wird zuerst gesetzt, weil es am stärksten mit Muskelerhalt im Defizit und mit Sättigung zusammenhängt: etwa 1,6–2,2 g pro kg Körpergewicht für aktive Menschen, im harten Defizit am oberen Ende.",
+              "Fett sollte in der Regel über etwa 0,6 g pro kg bleiben, um die Hormonproduktion zu stützen; Kohlenhydrate nehmen die restlichen Kalorien — sie sind der günstigste Treibstoff für hartes Training. Eine Keto-Verteilung dreht das um: Fett auf etwa 70 % der Kalorien, Kohlenhydrate minimal."
+            ],
+            "list": [
+              "Protein: 4 kcal pro Gramm, 1,6–2,4 g/kg je Ziel",
+              "Fett: 9 kcal pro Gramm, in den meisten Verteilungen 25–35 % der Kalorien",
+              "Kohlenhydrate: 4 kcal pro Gramm, der verbleibende Rest",
+              "Ballaststoffe: etwa 14 g pro 1000 kcal"
+            ]
+          },
+          {
+            "heading": "Wie schnell soll sich das Gewicht ändern?",
+            "paragraphs": [
+              "Ein Defizit von 500 kcal pro Tag entspricht rund 0,45 kg pro Woche, da in einem Kilogramm Körperfett etwa 7700 kcal gespeichert sind. Nachhaltiges Abnehmen bedeutet meist 0,5–1 % des Körpergewichts pro Woche; schneller steigt der Muskelverlust.",
+              "Beim Lean Bulk gilt das Gegenteil: 10 % Überschuss genügen meist für Gewebeaufbau ohne übermäßigen Fettzuwachs. Rechnen Sie nach jeweils 3–4 kg Veränderung neu, denn Grund- und Gesamtumsatz folgen dem Körpergewicht."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Wie genau ist ein TDEE-Rechner?",
+          "answer": "Formelbasierte Schätzungen liegen bei gesunden Erwachsenen typischerweise innerhalb von 10–15 % des gemessenen Verbrauchs. Nutzen Sie den Wert als Startpunkt und justieren Sie anhand des Gewichtstrends über zwei bis drei Wochen statt anhand täglicher Schwankungen."
+        },
+        {
+          "question": "Mifflin-St Jeor oder Katch-McArdle?",
+          "answer": "Nutzen Sie Mifflin-St Jeor, sofern Sie keine belastbare Körperfettmessung haben. Katch-McArdle basiert auf der fettfreien Masse und passt besser zu athletischen oder sehr schweren Körpern, übernimmt aber jeden Fehler der Körperfettschätzung."
+        },
+        {
+          "question": "Wie viel Protein brauche ich wirklich?",
+          "answer": "Für aktive Erwachsene deckt 1,6–2,2 g pro kg Körpergewicht nahezu alle evidenzbasierten Empfehlungen ab. Im Kaloriendefizit das obere Ende anstreben, um Muskeln zu schützen, und die Menge auf drei bis fünf Mahlzeiten verteilen."
+        },
+        {
+          "question": "Warum ändert sich mein Gewicht nicht, obwohl ich das Ziel treffe?",
+          "answer": "Wassereinlagerung, Glykogen, Natrium, Zyklus und Nahrungsgewicht im Darm können den Fettverlust ein bis zwei Wochen verdecken. Vergleichen Sie Wochenmittelwerte statt einzelner Morgende und ändern Sie die Kalorien erst, wenn der Trend zwei bis drei Wochen flach bleibt."
+        },
+        {
+          "question": "Ist es sicher, unter dem Grundumsatz zu essen?",
+          "answer": "Ohne medizinische Begleitung ist das in der Regel nicht ratsam. Genau deshalb begrenzt der Rechner das Ziel nach unten auf 90 % des Grundumsatzes. Sehr niedrige Zufuhr riskiert Muskelverlust, Mikronährstoffmängel, hormonelle Störungen und schlechte Umsetzbarkeit."
+        },
+        {
+          "question": "Muss ich beim Abnehmen neu rechnen?",
+          "answer": "Ja. Der Grundumsatz skaliert mit dem Körpergewicht. Rechnen Sie nach jeweils 3–4 kg Veränderung neu, in einer aktiven Phase etwa einmal pro Monat, damit Defizit oder Überschuss die geplante Größe behalten."
+        }
+      ]
+    }
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Der gesuchte Rechner existiert nicht oder wurde verschoben.",
+    "cta": "Zurück zu allen Rechnern"
+  },
+  "footer": {
+    "disclaimer": "CalcAtlas liefert ausschließlich informative Schätzungen. Prüfen Sie Visumregeln beim zuständigen Konsulat und ziehen Sie für finanzielle oder medizinische Entscheidungen qualifizierte Fachleute hinzu.",
+    "rights": "Alle Rechte vorbehalten.",
+    "builtWith": "Statisch erzeugt, über das Edge-Netz ausgeliefert, vollständig clientseitig berechnet."
+  }
+}

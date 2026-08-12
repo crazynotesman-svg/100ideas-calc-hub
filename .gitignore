@@ -1,0 +1,17 @@
+# dependencies
+/node_modules
+
+# next.js / cloudflare build artifacts (incl. rename leftovers)
+.next*
+.vercel*
+.open-next*
+
+# typescript
+*.tsbuildinfo
+
+# env files (never commit secrets)
+.env
+.env*.local
+
+# logs
+npm-debug.log*

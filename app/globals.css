@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 210 40% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 11%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+    --radius: 0.75rem;
+    --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+      'Noto Sans SC', sans-serif;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    /* Reserve the scrollbar gutter so that showing results never shifts layout (CLS = 0). */
+    scrollbar-gutter: stable;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Numeric readouts must not jump width while typing. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+  }
+}
+
+@layer components {
+  /* Fixed-height shells: the box exists before data arrives, so no reflow on compute. */
+  .result-shell {
+    @apply rounded-lg border bg-card p-4;
+    min-height: 96px;
+  }
+
+  .chart-shell {
+    height: 320px;
+    width: 100%;
+    contain: layout paint;
+  }
+
+  .ad-shell {
+    @apply flex items-center justify-center rounded-lg border border-dashed bg-muted/40 text-xs text-muted-foreground;
+  }
+
+  .prose-seo {
+    @apply text-[15px] leading-7 text-muted-foreground;
+  }
+
+  .prose-seo h3 {
+    @apply mb-2 mt-6 text-base font-semibold text-foreground;
+  }
+
+  .prose-seo p + p {
+    @apply mt-3;
+  }
+
+  .prose-seo ul {
+    @apply mt-3 space-y-1.5 pl-5;
+    list-style-type: disc;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
