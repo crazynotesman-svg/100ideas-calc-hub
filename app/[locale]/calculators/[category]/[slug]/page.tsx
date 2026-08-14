@@ -29,7 +29,7 @@ const registry: Record<string, React.ComponentType> = {
 /** Calculators that expose the metric/imperial switch in the page header. */
 const unitAware = new Set(['tdee']);
 
-/** locales × calculators — all 12 pages are pre-rendered as static HTML. */
+/** locales × calculators — all 12 pages are pre-rendered as static HTML when possible. */
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
     calculators.map((calculator) => ({
@@ -40,7 +40,14 @@ export function generateStaticParams() {
   );
 }
 
-export const dynamicParams = false;
+/**
+ * Allow on-demand rendering for any valid calculator slug.
+ * On Cloudflare Workers, OpenNext's prerender routing for dynamic-segment pages is not
+ * 100% reliable, so `dynamicParams = false` would hard-404 valid pages whose static HTML
+ * wasn't matched. With `true`, a valid slug renders (SSG hit or Worker SSR fallback — both
+ * SEO-complete); only slugs that fail `getCalculator()` reach `notFound()`.
+ */
+export const dynamicParams = true;
 
 interface PageParams {
   params: { locale: string; category: string; slug: string };
