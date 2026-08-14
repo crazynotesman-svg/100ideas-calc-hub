@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
+import { useCalculatorState } from '@/lib/hooks/useCalculatorState';
+import { CopyLinkButton } from '@/components/calculator/CopyLinkButton';
 import { AlertTriangle, CalendarPlus, CheckCircle2, Clock, Copy, Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -25,6 +27,29 @@ const newTrip = (entryDate = '', exitDate = ''): Trip => ({
   exitDate
 });
 
+/** Flat URL-query field map for SchengenCalculator. Defaults (empty) are omitted. */
+const SCHENGEN_FIELDS = {
+  ref: { default: '' },
+  trips: { default: '' }
+};
+
+/** Encode only the filled trips as `entry|exit` pairs joined by commas. */
+function encodeTrips(trips: Trip[]): string {
+  return trips
+    .filter((t) => t.entryDate && t.exitDate)
+    .map((t) => `${t.entryDate}|${t.exitDate}`)
+    .join(',');
+}
+
+function decodeTrips(raw: string): Trip[] {
+  if (!raw) return [];
+  return raw
+    .split(',')
+    .map((pair) => pair.split('|'))
+    .filter((parts) => parts.length === 2 && parts[0] && parts[1])
+    .map(([entryDate, exitDate]) => newTrip(entryDate, exitDate));
+}
+
 const statusStyles = {
   ok: { badge: 'success' as const, ring: 'border-emerald-500/40 bg-emerald-500/5', bar: 'bg-emerald-500' },
   warning: { badge: 'warning' as const, ring: 'border-amber-500/40 bg-amber-500/5', bar: 'bg-amber-500' },
@@ -44,10 +69,17 @@ export function SchengenCalculator() {
   const [trips, setTrips] = useState<Trip[]>([newTrip()]);
   const [copied, setCopied] = useState(false);
 
+  const { values, setField, hydrated, shareUrl } = useCalculatorState(SCHENGEN_FIELDS);
+
+  // Once URL params are read (post-mount), apply them to the calculator inputs.
   useEffect(() => {
-    setReferenceDate(todayISO());
+    if (!hydrated) return;
     setMounted(true);
-  }, []);
+    setReferenceDate(values.ref || todayISO());
+    const decoded = decodeTrips(values.trips);
+    if (decoded.length) setTrips(decoded);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hydrated]);
 
   const result = useMemo<SchengenResult | null>(() => {
     if (!referenceDate) return null;
@@ -65,16 +97,20 @@ export function SchengenCalculator() {
   const hasTrips = trips.some((trip) => trip.entryDate && trip.exitDate);
 
   function updateTrip(id: string, patch: Partial<Trip>) {
-    setTrips((prev) => prev.map((trip) => (trip.id === id ? { ...trip, ...patch } : trip)));
+    const next = trips.map((trip) => (trip.id === id ? { ...trip, ...patch } : trip));
+    setTrips(next);
+    setField('trips', encodeTrips(next));
   }
 
   function loadExample() {
     const base = referenceDate || todayISO();
-    setTrips([
+    const next = [
       newTrip(addDays(base, -150), addDays(base, -136)),
       newTrip(addDays(base, -70), addDays(base, -50)),
       newTrip(addDays(base, -20), addDays(base, -6))
-    ]);
+    ];
+    setTrips(next);
+    setField('trips', encodeTrips(next));
   }
 
   async function copyResult() {
@@ -110,7 +146,10 @@ export function SchengenCalculator() {
               id="reference-date"
               type="date"
               value={referenceDate}
-              onChange={(event) => setReferenceDate(event.target.value)}
+              onChange={(event) => {
+                setReferenceDate(event.target.value);
+                setField('ref', event.target.value);
+              }}
             />
             <p className="text-xs text-muted-foreground">{t('referenceDateHint')}</p>
           </div>
@@ -157,7 +196,11 @@ export function SchengenCalculator() {
                       variant="ghost"
                       size="icon"
                       aria-label={t('removeTrip')}
-                      onClick={() => setTrips((prev) => prev.filter((item) => item.id !== trip.id))}
+                      onClick={() => {
+                        const next = trips.filter((item) => item.id !== trip.id);
+                        setTrips(next);
+                        setField('trips', encodeTrips(next));
+                      }}
                       disabled={trips.length === 1}
                     >
                       <Trash2 className="h-4 w-4" aria-hidden />
@@ -174,7 +217,16 @@ export function SchengenCalculator() {
           </div>
 
           <div className="flex flex-wrap gap-2">
-            <Button type="button" variant="outline" size="sm" onClick={() => setTrips((prev) => [...prev, newTrip()])}>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                const next = [...trips, newTrip()];
+                setTrips(next);
+                setField('trips', encodeTrips(next));
+              }}
+            >
               <Plus className="h-4 w-4" aria-hidden />
               {t('addTrip')}
             </Button>
@@ -182,7 +234,16 @@ export function SchengenCalculator() {
               <CalendarPlus className="h-4 w-4" aria-hidden />
               {t('loadExample')}
             </Button>
-            <Button type="button" variant="ghost" size="sm" onClick={() => setTrips([newTrip()])}>
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              onClick={() => {
+                const next = [newTrip()];
+                setTrips(next);
+                setField('trips', encodeTrips(next));
+              }}
+            >
               <Trash2 className="h-4 w-4" aria-hidden />
               {t('clearAll')}
             </Button>
@@ -199,15 +260,18 @@ export function SchengenCalculator() {
             Reserving its row height here means hydration cannot grow the header and
             push the rest of the page down — that would be an un-attributed CLS hit.
           */}
-          <div className="flex h-6 items-center">
-            {result && (
-              <Badge variant={style.badge}>
-                {result.status === 'ok' && t('statusOk')}
-                {result.status === 'warning' && t('statusWarning')}
-                {result.status === 'critical' && t('statusCritical')}
-                {result.status === 'overstay' && t('statusOverstay')}
-              </Badge>
-            )}
+          <div className="flex items-center gap-2">
+            <div className="flex h-6 items-center">
+              {result && (
+                <Badge variant={style.badge}>
+                  {result.status === 'ok' && t('statusOk')}
+                  {result.status === 'warning' && t('statusWarning')}
+                  {result.status === 'critical' && t('statusCritical')}
+                  {result.status === 'overstay' && t('statusOverstay')}
+                </Badge>
+              )}
+            </div>
+            <CopyLinkButton getUrl={shareUrl} />
           </div>
         </CardHeader>
         <CardContent>

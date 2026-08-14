@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { Sigma, ShieldCheck, Sparkles } from 'lucide-react';
 import { Breadcrumbs } from '@/components/site/Breadcrumbs';
-import { JsonLd } from '@/components/seo/JsonLd';
+import { CalculatorSchema } from '@/components/seo/CalculatorSchema';
 import { AdSlot } from './AdSlot';
 import { FaqAccordion } from './FaqAccordion';
 import { UnitToggle } from './UnitToggle';
@@ -15,13 +15,7 @@ import {
   calculators,
   type CalculatorMeta
 } from '@/config/calculators.config';
-import {
-  breadcrumbSchema,
-  faqPageSchema,
-  graph,
-  softwareApplicationSchema,
-  type FaqEntry
-} from '@/lib/seo/schema';
+import { type FaqEntry } from '@/lib/seo/schema';
 
 interface ContentSection {
   heading: string;
@@ -77,25 +71,20 @@ export async function CalculatorLayout({
 
   return (
     <>
-      {/* SEO Rule 2: SoftwareApplication + FAQPage (+ BreadcrumbList) on every calculator page. */}
-      <JsonLd
-        id={`calculator-schema-${meta.id}`}
-        data={graph([
-          softwareApplicationSchema({
-            meta,
-            locale,
-            name: t('name'),
-            description: t('metaDescription'),
-            url: pageUrl,
-            featureList: features
-          }),
-          faqPageSchema(pageUrl, faqs),
-          breadcrumbSchema([
-            { name: tNav('home'), url: absoluteUrl(`/${locale}`) },
-            { name: tNav('calculators'), url: absoluteUrl(`/${locale}/calculators`) },
-            { name: t('name'), url: pageUrl }
-          ])
-        ])}
+      {/* SEO Rule 2: WebApplication + FAQPage (+ BreadcrumbList) on every calculator page. */}
+      <CalculatorSchema
+        locale={locale}
+        meta={meta}
+        name={t('name')}
+        description={t('metaDescription')}
+        url={pageUrl}
+        featureList={features}
+        faqs={faqs}
+        breadcrumbs={[
+          { name: tNav('home'), url: absoluteUrl(`/${locale}`) },
+          { name: tNav('calculators'), url: absoluteUrl(`/${locale}/calculators`) },
+          { name: t('name'), url: pageUrl }
+        ]}
       />
 
       {/* ---------------------------------------------------------------- header */}

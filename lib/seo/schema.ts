@@ -80,6 +80,39 @@ export function softwareApplicationSchema(params: {
   };
 }
 
+export function webApplicationSchema(params: {
+  meta: CalculatorMeta;
+  locale: Locale;
+  name: string;
+  description: string;
+  url: string;
+  featureList: string[];
+}) {
+  const { meta, locale, name, description, url, featureList } = params;
+  return {
+    '@type': 'WebApplication',
+    '@id': `${url}#webapp`,
+    name,
+    description,
+    url,
+    applicationCategory: categorySchemaMap[meta.category],
+    applicationSubCategory: categoryLabelMap[meta.category],
+    operatingSystem: 'Any (web browser)',
+    browserRequirements: 'Requires JavaScript. Runs fully client-side.',
+    softwareVersion: siteConfig.softwareVersion,
+    dateModified: meta.updated,
+    inLanguage: localeMeta[locale].hreflang,
+    isAccessibleForFree: true,
+    featureList,
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: localeMeta[locale].currency
+    },
+    publisher: { '@id': `${siteConfig.url}/#organization` }
+  };
+}
+
 export function faqPageSchema(url: string, faqs: FaqEntry[]) {
   return {
     '@type': 'FAQPage',

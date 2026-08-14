@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
+import { useCalculatorState } from '@/lib/hooks/useCalculatorState';
+import { CopyLinkButton } from '@/components/calculator/CopyLinkButton';
 import { Activity, Copy, Droplets, Flame, Leaf, Scale, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -82,6 +84,35 @@ const impDefaults = {
   lb: Math.round(kgToLb(defaults.weightKg))
 };
 
+/**
+ * Flat URL-query field map for TdeeCalculator. Metric is canonical: height/weight are
+ * stored as cm/kg even when the UI shows imperial, so shared links are unit-agnostic.
+ * Defaults are omitted from the URL.
+ */
+const TDEE_FIELDS = {
+  sex: { default: 'male' },
+  age: { default: '30' },
+  height: { default: '178' },
+  weight: { default: '76' },
+  bodyfat: { default: '' },
+  activity: { default: 'moderate' },
+  goal: { default: 'mild-cut' },
+  formula: { default: 'mifflin' },
+  preset: { default: 'balanced' }
+};
+
+const TDEE_URL_KEY: Record<keyof typeof defaults, keyof typeof TDEE_FIELDS> = {
+  sex: 'sex',
+  age: 'age',
+  heightCm: 'height',
+  weightKg: 'weight',
+  bodyFat: 'bodyfat',
+  activityLevel: 'activity',
+  goal: 'goal',
+  formula: 'formula',
+  macroPreset: 'preset'
+};
+
 /* ------------------------------------------------------------------ component */
 
 export function TdeeCalculator() {
@@ -94,6 +125,35 @@ export function TdeeCalculator() {
   const [form, setForm] = useState(defaults);
   const [imp, setImp] = useState(impDefaults);
   const [copied, setCopied] = useState(false);
+
+  const { values, setField, hydrated, shareUrl, reset } = useCalculatorState(TDEE_FIELDS);
+
+  // Once URL params are read (post-mount), apply them to the calculator inputs.
+  useEffect(() => {
+    if (!hydrated) return;
+    const heightCm = toNumber(values.height, defaults.heightCm);
+    const weightKg = toNumber(values.weight, defaults.weightKg);
+    setForm({
+      sex: (values.sex as Sex) || defaults.sex,
+      age: toNumber(values.age, defaults.age),
+      heightCm,
+      weightKg,
+      bodyFat: values.bodyfat ?? '',
+      activityLevel: (values.activity as ActivityLevel) || defaults.activityLevel,
+      goal: (values.goal as Goal) || defaults.goal,
+      formula: (values.formula as Formula) || defaults.formula,
+      macroPreset: (values.preset as MacroPreset) || defaults.macroPreset
+    });
+    if (unitSystem === 'imperial') {
+      const totalIn = cmToIn(heightCm);
+      setImp({
+        feet: Math.floor(totalIn / 12),
+        inches: Math.round(totalIn % 12),
+        lb: Math.round(kgToLb(weightKg))
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hydrated]);
 
   /**
    * Metric is the single source of truth. Every imperial edit writes back to metric
@@ -114,8 +174,11 @@ export function TdeeCalculator() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [unitSystem]);
 
-  const set = <K extends keyof typeof defaults>(key: K, value: (typeof defaults)[K]) =>
+  const set = <K extends keyof typeof defaults>(key: K, value: (typeof defaults)[K]) => {
     setForm((prev) => ({ ...prev, [key]: value }));
+    const urlKey = TDEE_URL_KEY[key];
+    if (urlKey) setField(urlKey, String(value));
+  };
 
   const bodyFatNumber = form.bodyFat.trim() === '' ? undefined : toNumber(form.bodyFat, 0);
 
@@ -416,6 +479,7 @@ export function TdeeCalculator() {
               onClick={() => {
                 setForm(defaults);
                 setImp(impDefaults);
+                reset();
               }}
             >
               {tc('resetDefaults')}
@@ -432,9 +496,12 @@ export function TdeeCalculator() {
       <Card className="border-2 border-primary/20">
         <CardHeader className="flex-row items-center justify-between space-y-0 pb-3">
           <CardTitle>{tc('results')}</CardTitle>
-          <Badge variant={result.bmiCategory === 'normal' ? 'success' : 'warning'}>
-            {t('bmi')} {nf1.format(result.bmi)} · {t(bmiKey[result.bmiCategory])}
-          </Badge>
+          <div className="flex items-center gap-2">
+            <Badge variant={result.bmiCategory === 'normal' ? 'success' : 'warning'}>
+              {t('bmi')} {nf1.format(result.bmi)} · {t(bmiKey[result.bmiCategory])}
+            </Badge>
+            <CopyLinkButton getUrl={shareUrl} />
+          </div>
         </CardHeader>
         <CardContent className="space-y-4">
           {katchUnavailable && (

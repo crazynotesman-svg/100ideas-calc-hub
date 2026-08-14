@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
+import { useCalculatorState } from '@/lib/hooks/useCalculatorState';
+import { CopyLinkButton } from '@/components/calculator/CopyLinkButton';
 import {
   Area,
   AreaChart,
@@ -38,6 +40,33 @@ const defaults: FireInput = {
   horizonAge: 65
 };
 
+/** Flat URL-query field map for FireCalculator. Defaults are omitted from the URL. */
+const FIRE_FIELDS = {
+  age: { default: '32' },
+  retire: { default: '50' },
+  capital: { default: '50000' },
+  contrib: { default: '1500' },
+  cgrowth: { default: '2' },
+  areturn: { default: '7' },
+  infl: { default: '2.5' },
+  withdraw: { default: '4' },
+  expenses: { default: '36000' },
+  horizon: { default: '65' }
+};
+
+const FIRE_URL_KEY: Partial<Record<keyof FireInput, keyof typeof FIRE_FIELDS>> = {
+  currentAge: 'age',
+  targetRetirementAge: 'retire',
+  initialCapital: 'capital',
+  monthlyContribution: 'contrib',
+  contributionGrowthRate: 'cgrowth',
+  annualReturnRate: 'areturn',
+  inflationRate: 'infl',
+  withdrawalRate: 'withdraw',
+  annualExpenses: 'expenses',
+  horizonAge: 'horizon'
+};
+
 export function FireCalculator() {
   const t = useTranslations('calculators.fire.ui');
   const tc = useTranslations('common');
@@ -45,7 +74,27 @@ export function FireCalculator() {
   const [input, setInput] = useState<FireInput>(defaults);
   const [mounted, setMounted] = useState(false);
 
+  const { values, setField, hydrated, shareUrl, reset } = useCalculatorState(FIRE_FIELDS);
+
   useEffect(() => setMounted(true), []);
+
+  // Once URL params are read (post-mount), apply them to the calculator inputs.
+  useEffect(() => {
+    if (!hydrated) return;
+    setInput({
+      currentAge: toNumber(values.age, defaults.currentAge),
+      targetRetirementAge: toNumber(values.retire, defaults.targetRetirementAge),
+      initialCapital: toNumber(values.capital, defaults.initialCapital),
+      monthlyContribution: toNumber(values.contrib, defaults.monthlyContribution),
+      contributionGrowthRate: toNumber(values.cgrowth, defaults.contributionGrowthRate),
+      annualReturnRate: toNumber(values.areturn, defaults.annualReturnRate),
+      inflationRate: toNumber(values.infl, defaults.inflationRate),
+      withdrawalRate: toNumber(values.withdraw, defaults.withdrawalRate),
+      annualExpenses: toNumber(values.expenses, defaults.annualExpenses),
+      horizonAge: toNumber(values.horizon, defaults.horizonAge)
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hydrated]);
 
   const result = useMemo(() => calculateFire(input), [input]);
 
@@ -64,8 +113,11 @@ export function FireCalculator() {
     [locale]
   );
 
-  const set = <K extends keyof FireInput>(key: K, value: FireInput[K]) =>
+  const set = <K extends keyof FireInput>(key: K, value: FireInput[K]) => {
     setInput((prev) => ({ ...prev, [key]: value }));
+    const urlKey = FIRE_URL_KEY[key];
+    if (urlKey) setField(urlKey, String(value));
+  };
 
   const chartData = useMemo(
     () =>
@@ -206,7 +258,15 @@ export function FireCalculator() {
           </div>
 
           <div className="flex flex-wrap gap-2">
-            <Button type="button" variant="ghost" size="sm" onClick={() => setInput(defaults)}>
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              onClick={() => {
+                setInput(defaults);
+                reset();
+              }}
+            >
               {tc('resetDefaults')}
             </Button>
             <Button type="button" variant="outline" size="sm" onClick={exportCsv}>
@@ -221,9 +281,12 @@ export function FireCalculator() {
       <Card className="border-2 border-primary/20">
         <CardHeader className="flex-row items-center justify-between space-y-0 pb-3">
           <CardTitle>{tc('results')}</CardTitle>
-          <Badge variant={result.onTrack ? 'success' : 'warning'}>
-            {result.onTrack ? t('onTrack') : t('offTrack')}
-          </Badge>
+          <div className="flex items-center gap-2">
+            <Badge variant={result.onTrack ? 'success' : 'warning'}>
+              {result.onTrack ? t('onTrack') : t('offTrack')}
+            </Badge>
+            <CopyLinkButton getUrl={shareUrl} />
+          </div>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
