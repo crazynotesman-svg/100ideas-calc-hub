@@ -2,7 +2,7 @@
 # Deployment target: Cloudflare Workers via @opennextjs/cloudflare (OpenNext adapter).
 # NOTE: OpenNext deploys a Worker (not a Pages Function). The site is still served from the
 # custom domain calc.100ideas.net — see DEPLOY.md for the full pipeline.
-name = "calc-100ideas"
+name = "100ideas-calc-hub"
 compatibility_date = "2026-08-12"
 compatibility_flags = ["nodejs_compat"]
 
@@ -11,4 +11,4 @@ main = ".open-next/worker.js"
 assets = { directory = ".open-next/assets", binding = "ASSETS" }
 
 # Self-reference so the Worker can call itself (required for some Next.js routing).
-services = [{ binding = "WORKER_SELF_REFERENCE", service = "calc-100ideas" }]
+services = [{ binding = "WORKER_SELF_REFERENCE", service = "100ideas-calc-hub" }]

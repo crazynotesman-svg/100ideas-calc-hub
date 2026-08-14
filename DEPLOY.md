@@ -58,7 +58,7 @@ npx wrangler login          # 仅首次
 npm run cf:deploy          # = opennextjs-cloudflare build && opennextjs-cloudflare deploy
 ```
 
-首次部署会创建 Worker `calc-100ideas`。
+首次部署会创建 Worker **`100ideas-calc-hub`**（Workers Builds 按 GitHub 仓库名强制命名；`wrangler.toml` 的 `name` 与 `services[].service` 必须与此一致，否则部署报 `[code: 10143]` 自引用绑定找不到 Worker）。
 
 ## 7. 通过 GitHub 自动部署（Cloudflare Workers Builds / CI-CD）
 
@@ -66,12 +66,13 @@ npm run cf:deploy          # = opennextjs-cloudflare build && opennextjs-cloudfl
    - Build command：`npm ci && npm run cf:deploy`
    - （无「输出目录」概念——部署单元是 Worker，构建产出 `.open-next` 由 `opennextjs-cloudflare deploy` 消费）
    - 生产分支：`main`
+   - ⚠️ **Worker 命名**：Workers Builds 会强制把 Worker 名设为仓库名 `100ideas-calc-hub`，并覆盖 `wrangler.toml` 的 `name`。因此 `wrangler.toml` 里的 `name` 与 `WORKER_SELF_REFERENCE` 绑定的 `service` 都必须写成 `100ideas-calc-hub`，否则部署失败 `[code: 10143]`。
 3. 环境变量：`NEXT_PUBLIC_SITE_URL = https://calc.100ideas.net`（构建期变量）
 4. 每次合并到 `main` 自动构建部署。
 
 ## 8. 绑定自定义域名 `calc.100ideas.net`
 
-1. Cloudflare 控制台 → 你的 Worker **calc-100ideas** → **Settings** → **Triggers** → **Custom Domains** → **Add `calc.100ideas.net`**。
+1. Cloudflare 控制台 → 你的 Worker **100ideas-calc-hub** → **Settings** → **Triggers** → **Custom Domains** → **Add `calc.100ideas.net`**。
 2. DNS 前置：确保 `calc.100ideas.net` 的 zone 在 Cloudflare 管理下（注册商处 NS 已指向 Cloudflare）。添加后 Cloudflare 会自动下发 Universal SSL 证书。
 3. 等边缘证书生效（通常几分钟），访问 `https://calc.100ideas.net/` 应 308 → `/en`。
 
