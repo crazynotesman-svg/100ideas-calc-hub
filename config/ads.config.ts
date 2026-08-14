@@ -19,13 +19,17 @@ export const ADSENSE_CLIENT = 'ca-pub-1952663885350547';
 
 export const ADSENSE_SLOTS: Record<string, string> = {
   // Logical slotId (from CalculatorLayout) -> real AdSense ad-unit ID.
-  // 'schengen-sidebar': 'XXXXXXXXXX',
+  // One "sidebar" display ad unit (slot 9928655976) is reused across all 3
+  // calculators' sidebar placements — AdSense permits reusing a unit this way.
+  'schengen-sidebar': '9928655976',
+  'fire-sidebar': '9928655976',
+  'tdee-sidebar': '9928655976',
+  // In-content and footer placements stay unconfigured (CLS-safe placeholders)
+  // until more ad units are created in the AdSense dashboard.
   // 'schengen-inline': 'XXXXXXXXXX',
   // 'schengen-footer': 'XXXXXXXXXX',
-  // 'fire-sidebar': 'XXXXXXXXXX',
   // 'fire-inline': 'XXXXXXXXXX',
   // 'fire-footer': 'XXXXXXXXXX',
-  // 'tdee-sidebar': 'XXXXXXXXXX',
   // 'tdee-inline': 'XXXXXXXXXX',
   // 'tdee-footer': 'XXXXXXXXXX'
 };
