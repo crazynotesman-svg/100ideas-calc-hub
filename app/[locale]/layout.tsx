@@ -5,6 +5,7 @@ import { getMessages, getTranslations, unstable_setRequestLocale } from 'next-in
 import { locales, localeMeta, isLocale, type Locale } from '@/config/i18n.config';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { graph, organizationSchema, websiteSchema } from '@/lib/seo/schema';
+import Script from 'next/script';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { SiteHeader } from '@/components/site/SiteHeader';
 import { SiteFooter } from '@/components/site/SiteFooter';
@@ -62,6 +63,14 @@ export default async function LocaleLayout({
   return (
     <html lang={meta.hreflang} dir={meta.direction} suppressHydrationWarning>
       <body className="flex min-h-screen flex-col">
+        {/* Google AdSense loader — loaded once, globally (publisher ca-pub-1952663885350547). */}
+        <Script
+          id="adsbygoogle-loader"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1952663885350547"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <JsonLd id="site-graph" data={graph([organizationSchema(), websiteSchema(locale)])} />
         <NextIntlClientProvider messages={messages}>
           <SiteHeader locale={locale} />
