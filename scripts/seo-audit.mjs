@@ -11,7 +11,7 @@
 const base = process.argv[2] || 'http://localhost:3311';
 const locales = ['en', 'de', 'es', 'zh'];
 const hreflangs = { en: 'en', de: 'de', es: 'es', zh: 'zh-Hans' };
-const CANONICAL_ORIGIN = 'https://calcatlas.com';
+const CANONICAL_ORIGIN = 'https://calc.100ideas.net';
 
 const routes = [
   { route: '', kind: 'home' },
@@ -74,7 +74,7 @@ for (const locale of locales) {
     const types = new Set([...html.matchAll(/"@type":"([^"]+)"/g)].map((m) => m[1]));
     problems.push(check(types.has('Organization') && types.has('WebSite'), 'site graph'));
     if (kind === 'calculator') {
-      problems.push(check(types.has('SoftwareApplication'), 'SoftwareApplication'));
+      problems.push(check(types.has('WebApplication'), 'WebApplication'));
       problems.push(check(types.has('FAQPage'), 'FAQPage'));
       problems.push(check(types.has('BreadcrumbList'), 'BreadcrumbList'));
       const questions = [...html.matchAll(/"@type":"Question"/g)].length;

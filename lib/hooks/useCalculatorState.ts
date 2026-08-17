@@ -37,16 +37,23 @@ export interface UseCalculatorStateResult<T extends CalculatorFieldConfig> {
  *    don't require a Suspense boundary.
  *  - Defaults are omitted from the query string, so a "clean" visit produces a clean
  *    URL and a shared link only carries the values the user actually changed.
+ *  - An optional `initial` map seeds the first-render state (used by pSEO preset pages
+ *    so pre-filled inputs appear in the static HTML with no layout shift); it is never
+ *    written to the URL unless the user edits a field.
  */
 export function useCalculatorState<T extends CalculatorFieldConfig>(
-  config: T
+  config: T,
+  /** Optional seed values (e.g. a pSEO preset) applied as the initial state. Defaults are omitted per key. */
+  initial?: Partial<Record<keyof T, string>>
 ): UseCalculatorStateResult<T> {
   const keys = useRef(Object.keys(config) as string[]);
   const defaults = useRef(
     Object.fromEntries(keys.current.map((k) => [k, config[k].default])) as Record<keyof T, string>
   );
 
-  const [values, setValues] = useState<Record<keyof T, string>>(() => ({ ...defaults.current }));
+  const [values, setValues] = useState<Record<keyof T, string>>(() =>
+    ({ ...defaults.current, ...(initial as Record<keyof T, string> | undefined) })
+  );
   const [hydrated, setHydrated] = useState(false);
   const valuesRef = useRef(values);
   valuesRef.current = values;
@@ -71,9 +78,11 @@ export function useCalculatorState<T extends CalculatorFieldConfig>(
   );
 
   // Read URL params once, after mount (client-only) -> no SSR/CSR hydration mismatch.
+  // Merge onto the current (possibly preset-seeded) values rather than resetting to
+  // defaults, so a pSEO preset page keeps its seeded inputs when the URL carries no params.
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const next: Record<string, string> = { ...defaults.current };
+    const next: Record<string, string> = { ...valuesRef.current };
     for (const k of keys.current) {
       const v = params.get(k);
       if (v !== null) next[k] = v;

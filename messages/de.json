@@ -507,6 +507,14 @@
       ]
     }
   },
+  "tdeePresets": {
+    "gridTitle": "TDEE-Szenarien",
+    "gridSubtitle": "Vorausgefüllte Ausgangswerte für gängige Körperbauarten und Ziele.",
+    "viewPreset": "Szenario öffnen",
+    "benchmarkTitle": "Szenario-Benchmark",
+    "benchmarkIntro": "Auf Basis der voreingestellten Werte erhalten Sie hier das berechnete Energie- und Makronährstoff-Profile für {scenario}.",
+    "currentLabel": "Sie sind hier"
+  },
   "notFound": {
     "title": "Seite nicht gefunden",
     "description": "Der gesuchte Rechner existiert nicht oder wurde verschoben.",

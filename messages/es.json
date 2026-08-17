@@ -507,6 +507,14 @@
       ]
     }
   },
+  "tdeePresets": {
+    "gridTitle": "Escenarios de TDEE",
+    "gridSubtitle": "Puntos de partida precargados para tipos de cuerpo y objetivos comunes.",
+    "viewPreset": "Abrir escenario",
+    "benchmarkTitle": "Banco de pruebas del escenario",
+    "benchmarkIntro": "Con los valores preestablecidos, este es el perfil de energía y macronutrientes calculado para {scenario}.",
+    "currentLabel": "Estás aquí"
+  },
   "notFound": {
     "title": "Página no encontrada",
     "description": "La calculadora que buscas no existe o se ha movido.",

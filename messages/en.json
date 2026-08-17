@@ -507,6 +507,14 @@
       ]
     }
   },
+  "tdeePresets": {
+    "gridTitle": "TDEE scenarios",
+    "gridSubtitle": "Pre-filled starting points for common body types and goals.",
+    "viewPreset": "Open scenario",
+    "benchmarkTitle": "Scenario benchmark",
+    "benchmarkIntro": "Using the preset inputs, here is the calculated energy and macro profile for {scenario}.",
+    "currentLabel": "You are here"
+  },
   "notFound": {
     "title": "Page not found",
     "description": "The calculator you are looking for does not exist or has moved.",

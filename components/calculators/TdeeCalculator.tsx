@@ -78,6 +78,9 @@ const defaults = {
   macroPreset: 'balanced' as MacroPreset
 };
 
+/** Shape of the calculator's client-side input state; also the type of a pSEO preset's defaultParams. */
+export type TdeeForm = typeof defaults;
+
 const impDefaults = {
   feet: Math.floor(cmToIn(defaults.heightCm) / 12),
   inches: Math.round(cmToIn(defaults.heightCm) % 12),
@@ -113,20 +116,36 @@ const TDEE_URL_KEY: Record<keyof typeof defaults, keyof typeof TDEE_FIELDS> = {
   macroPreset: 'preset'
 };
 
+/** Exported so pSEO preset pages can derive the URL-query seed from a TdeeForm preset. */
+export { TDEE_URL_KEY };
+
 /* ------------------------------------------------------------------ component */
 
-export function TdeeCalculator() {
+export function TdeeCalculator({
+  initialState,
+  initialQuery
+}: { initialState?: Partial<TdeeForm>; initialQuery?: Record<string, string> } = {}) {
   const t = useTranslations('calculators.tdee.ui');
   const tc = useTranslations('common');
   const locale = useLocale();
   const { unitSystem } = useUnitSystem();
   const imperial = unitSystem === 'imperial';
 
-  const [form, setForm] = useState(defaults);
-  const [imp, setImp] = useState(impDefaults);
+  // Seed initial state from a pSEO preset when provided so pre-filled inputs appear in the
+  // static HTML with zero layout shift; otherwise fall back to the canonical defaults.
+  const [form, setForm] = useState<TdeeForm>(() => ({ ...defaults, ...(initialState || {}) }));
+  const initialImp = useMemo(() => {
+    const totalIn = cmToIn(form.heightCm);
+    return {
+      feet: Math.floor(totalIn / 12),
+      inches: Math.round(totalIn % 12),
+      lb: Math.round(kgToLb(form.weightKg))
+    };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  const [imp, setImp] = useState(initialImp);
   const [copied, setCopied] = useState(false);
 
-  const { values, setField, hydrated, shareUrl, reset } = useCalculatorState(TDEE_FIELDS);
+  const { values, setField, hydrated, shareUrl, reset } = useCalculatorState(TDEE_FIELDS, initialQuery);
 
   // Once URL params are read (post-mount), apply them to the calculator inputs.
   useEffect(() => {

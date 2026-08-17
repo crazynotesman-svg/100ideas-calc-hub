@@ -30,6 +30,18 @@ export interface CalculatorLayoutProps {
   children: React.ReactNode;
   /** Show the metric/imperial segmented control in the page header. */
   showUnitToggle?: boolean;
+  /** pSEO preset override — swaps title/description/FAQ/canonical/breadcrumb and injects extra sections. */
+  scenario?: {
+    name: string;
+    description: string;
+    faqs: FaqEntry[];
+    breadcrumbLabel: string;
+    canonicalRoute: string;
+    afterCalculator?: React.ReactNode;
+    footer?: React.ReactNode;
+  };
+  /** Extra content rendered at the bottom of the page (e.g. the preset grid on the base TDEE page). */
+  bottomSlot?: React.ReactNode;
 }
 
 /**
@@ -47,27 +59,40 @@ export async function CalculatorLayout({
   locale,
   meta,
   children,
-  showUnitToggle = false
+  showUnitToggle = false,
+  scenario,
+  bottomSlot
 }: CalculatorLayoutProps) {
   const t = await getTranslations({ locale, namespace: `calculators.${meta.id}` });
   const tc = await getTranslations({ locale, namespace: 'common' });
   const tCat = await getTranslations({ locale, namespace: 'categories' });
   const tNav = await getTranslations({ locale, namespace: 'nav' });
 
-  const faqs = t.raw('faq') as FaqEntry[];
+  const name = scenario?.name ?? t('name');
+  const description = scenario?.description ?? t('metaDescription');
+  const faqs = scenario?.faqs ?? (t.raw('faq') as FaqEntry[]);
   const steps = t.raw('formula.steps') as string[];
   const sections = t.raw('content.sections') as ContentSection[];
   const features = t.raw('features') as string[];
 
-  const pageUrl = absoluteUrl(`/${locale}${calculatorRoute(meta)}`);
+  const pageUrl = scenario
+    ? absoluteUrl(`/${locale}${scenario.canonicalRoute}`)
+    : absoluteUrl(`/${locale}${calculatorRoute(meta)}`);
   const related = calculators.filter((c) => c.id !== meta.id);
 
-  const crumbs = [
-    { label: tNav('home'), href: '/' },
-    { label: tNav('calculators'), href: '/calculators' },
-    { label: tCat(`${meta.category}.name`), href: '/calculators' },
-    { label: t('shortName') }
-  ];
+  const crumbs = scenario
+    ? [
+        { label: tNav('home'), href: '/' },
+        { label: tNav('calculators'), href: '/calculators' },
+        { label: t('name'), href: calculatorRoute(meta) },
+        { label: scenario.breadcrumbLabel }
+      ]
+    : [
+        { label: tNav('home'), href: '/' },
+        { label: tNav('calculators'), href: '/calculators' },
+        { label: tCat(`${meta.category}.name`), href: '/calculators' },
+        { label: t('shortName') }
+      ];
 
   return (
     <>
@@ -75,16 +100,25 @@ export async function CalculatorLayout({
       <CalculatorSchema
         locale={locale}
         meta={meta}
-        name={t('name')}
-        description={t('metaDescription')}
+        name={name}
+        description={description}
         url={pageUrl}
         featureList={features}
         faqs={faqs}
-        breadcrumbs={[
-          { name: tNav('home'), url: absoluteUrl(`/${locale}`) },
-          { name: tNav('calculators'), url: absoluteUrl(`/${locale}/calculators`) },
-          { name: t('name'), url: pageUrl }
-        ]}
+        breadcrumbs={
+          scenario
+            ? [
+                { name: tNav('home'), url: absoluteUrl(`/${locale}`) },
+                { name: tNav('calculators'), url: absoluteUrl(`/${locale}/calculators`) },
+                { name: t('name'), url: absoluteUrl(`/${locale}${calculatorRoute(meta)}`) },
+                { name: scenario.breadcrumbLabel, url: pageUrl }
+              ]
+            : [
+                { name: tNav('home'), url: absoluteUrl(`/${locale}`) },
+                { name: tNav('calculators'), url: absoluteUrl(`/${locale}/calculators`) },
+                { name: t('name'), url: pageUrl }
+              ]
+        }
       />
 
       {/* ---------------------------------------------------------------- header */}
@@ -94,8 +128,8 @@ export async function CalculatorLayout({
 
           <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">{t('h1')}</h1>
-              <p className="mt-2.5 text-[15px] leading-7 text-muted-foreground">{t('intro')}</p>
+              <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">{name}</h1>
+              <p className="mt-2.5 text-[15px] leading-7 text-muted-foreground">{description}</p>
             </div>
             {showUnitToggle && <UnitToggle className="shrink-0" />}
           </div>
@@ -143,6 +177,8 @@ export async function CalculatorLayout({
             </div>
           </div>
         </div>
+
+        {scenario?.afterCalculator}
 
         {/* Mobile / tablet in-content ad — reserved height, so no shift on small screens either. */}
         <AdSlot
@@ -234,6 +270,10 @@ export async function CalculatorLayout({
                 ))}
               </div>
             </section>
+
+          {bottomSlot}
+          {scenario?.footer}
+
           </div>
 
           <div className="hidden lg:block">

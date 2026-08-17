@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "audit:seo": "node scripts/seo-audit.mjs",
     "audit:engines": "node scripts/verify-engines.mjs",
+    "audit:preindex": "node scripts/preindex-check.mjs",
     "verify": "npm run typecheck && npm run build",
     "cf:build": "npx opennextjs-cloudflare build",
     "cf:preview": "npx opennextjs-cloudflare preview",

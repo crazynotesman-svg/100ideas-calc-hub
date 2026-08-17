@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
+import { ScenarioPresetsGrid } from '@/components/seo/ScenarioPresetsGrid';
 import { locales, isLocale, type Locale } from '@/config/i18n.config';
 import { calculators, getCalculator, calculatorRoute } from '@/config/calculators.config';
 import { buildMetadata } from '@/lib/seo/metadata';
@@ -82,11 +83,16 @@ export default async function CalculatorPage({ params: { locale, category, slug 
   const Calculator = registry[meta.id];
   if (!Calculator) notFound();
 
+  // Internal-linking mesh: surface the TDEE pSEO preset grid on the base calculator page.
+  const bottomSlot =
+    meta.id === 'tdee' ? <ScenarioPresetsGrid locale={locale as Locale} /> : undefined;
+
   return (
     <CalculatorLayout
       locale={locale as Locale}
       meta={meta}
       showUnitToggle={unitAware.has(meta.id)}
+      bottomSlot={bottomSlot}
     >
       <Calculator />
     </CalculatorLayout>
