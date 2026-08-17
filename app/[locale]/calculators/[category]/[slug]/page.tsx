@@ -4,6 +4,9 @@ import { notFound } from 'next/navigation';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { ScenarioPresetsGrid } from '@/components/seo/ScenarioPresetsGrid';
+import { PRESETS as TDEE_PRESETS, presetRoute as tdeeRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/tdeePresets';
+import { PRESETS as FIRE_PRESETS, presetRoute as fireRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/firePresets';
+import { PRESETS as SCHENGEN_PRESETS, presetRoute as schengenRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/schengenPresets';
 import { locales, isLocale, type Locale } from '@/config/i18n.config';
 import { calculators, getCalculator, calculatorRoute } from '@/config/calculators.config';
 import { buildMetadata } from '@/lib/seo/metadata';
@@ -83,9 +86,30 @@ export default async function CalculatorPage({ params: { locale, category, slug 
   const Calculator = registry[meta.id];
   if (!Calculator) notFound();
 
-  // Internal-linking mesh: surface the TDEE pSEO preset grid on the base calculator page.
+  // Internal-linking mesh: surface each calculator's pSEO preset grid on its base page.
   const bottomSlot =
-    meta.id === 'tdee' ? <ScenarioPresetsGrid locale={locale as Locale} /> : undefined;
+    meta.id === 'tdee' ? (
+      <ScenarioPresetsGrid
+        locale={locale as Locale}
+        namespace="tdeePresets"
+        presets={TDEE_PRESETS}
+        routeFor={tdeeRoute}
+      />
+    ) : meta.id === 'fire' ? (
+      <ScenarioPresetsGrid
+        locale={locale as Locale}
+        namespace="firePresets"
+        presets={FIRE_PRESETS}
+        routeFor={fireRoute}
+      />
+    ) : meta.id === 'schengen' ? (
+      <ScenarioPresetsGrid
+        locale={locale as Locale}
+        namespace="schengenPresets"
+        presets={SCHENGEN_PRESETS}
+        routeFor={schengenRoute}
+      />
+    ) : undefined;
 
   return (
     <CalculatorLayout

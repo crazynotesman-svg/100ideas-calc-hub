@@ -1,37 +1,53 @@
 /**
- * ScenarioPresetsGrid — internal linking mesh for the TDEE pSEO preset pages.
+ * ScenarioPresetsGrid — internal linking mesh for the pSEO preset pages.
  *
- * Rendered at the bottom of the main TDEE calculator page and inside every preset
- * page, so crawlers (and readers) can hop between pre-filled scenarios. Each card
- * links to a fully resolved, SSG-prerendered scenario route.
+ * Rendered at the bottom of each base calculator page and inside every preset page,
+ * so crawlers (and readers) can hop between pre-filled scenarios. Each card links to a
+ * fully resolved, SSG-prerendered scenario route.
+ *
+ * Calculator-agnostic: the caller supplies the preset list, the i18n namespace for the
+ * shared grid copy, and a route builder for the specific calculator.
  */
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
-import { PRESETS, presetRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/tdeePresets';
 import { Card, CardContent } from '@/components/ui/card';
 import type { Locale } from '@/config/i18n.config';
 
+export interface GridPreset {
+  slug: string;
+  localized: Record<Locale, { title: string; summaryIntro: string }>;
+}
+
 interface ScenarioPresetsGridProps {
   locale: Locale;
+  /** i18n namespace that holds gridTitle / gridSubtitle / viewPreset / currentLabel. */
+  namespace: string;
+  /** Preset list to render (already localized per entry). */
+  presets: GridPreset[];
+  /** Route builder for this calculator's preset pages, e.g. (slug) => `/calculators/.../preset/slug`. */
+  routeFor: (slug: string) => string;
   /** Slug of the page currently being viewed, so it can be marked active. */
   current?: string;
 }
 
-export async function ScenarioPresetsGrid({ locale, current }: ScenarioPresetsGridProps) {
-  const t = await getTranslations({ locale, namespace: 'tdeePresets' });
+export async function ScenarioPresetsGrid({
+  locale,
+  namespace,
+  presets,
+  routeFor,
+  current
+}: ScenarioPresetsGridProps) {
+  const t = await getTranslations({ locale, namespace });
 
   return (
     <section aria-labelledby="preset-grid-heading" className="mt-12">
-      <h2
-        id="preset-grid-heading"
-        className="text-xl font-semibold tracking-tight"
-      >
+      <h2 id="preset-grid-heading" className="text-xl font-semibold tracking-tight">
         {t('gridTitle')}
       </h2>
       <p className="mt-2 text-sm text-muted-foreground">{t('gridSubtitle')}</p>
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
-        {PRESETS.map((preset) => {
+        {presets.map((preset) => {
           const loc = preset.localized[locale];
           const active = preset.slug === current;
           return (
@@ -57,7 +73,7 @@ export async function ScenarioPresetsGrid({ locale, current }: ScenarioPresetsGr
                   </span>
                 ) : (
                   <Link
-                    href={presetRoute(preset.slug)}
+                    href={routeFor(preset.slug)}
                     className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
                   >
                     {t('viewPreset')}

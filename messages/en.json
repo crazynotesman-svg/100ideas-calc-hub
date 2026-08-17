@@ -127,6 +127,7 @@
         "nextEntryToday": "Available now",
         "maxConsecutive": "Max consecutive stay",
         "fullReset": "Full 90 days available again",
+        "status": "Status",
         "breakdownTitle": "Trip breakdown",
         "breakdownTotal": "Total days",
         "breakdownInWindow": "Counted in window",
@@ -513,6 +514,22 @@
     "viewPreset": "Open scenario",
     "benchmarkTitle": "Scenario benchmark",
     "benchmarkIntro": "Using the preset inputs, here is the calculated energy and macro profile for {scenario}.",
+    "currentLabel": "You are here"
+  },
+  "firePresets": {
+    "gridTitle": "FIRE scenarios",
+    "gridSubtitle": "Pre-filled starting points for common Financial Independence goals.",
+    "viewPreset": "Open scenario",
+    "benchmarkTitle": "Scenario benchmark",
+    "benchmarkIntro": "Using the preset inputs, here is the calculated FIRE projection for {scenario}.",
+    "currentLabel": "You are here"
+  },
+  "schengenPresets": {
+    "gridTitle": "Schengen scenarios",
+    "gridSubtitle": "Pre-filled starting points for common 90/180-day planning questions.",
+    "viewPreset": "Open scenario",
+    "benchmarkTitle": "Scenario benchmark",
+    "benchmarkIntro": "Using the preset dates, here is the calculated 90/180-day status for {scenario}.",
     "currentLabel": "You are here"
   },
   "notFound": {

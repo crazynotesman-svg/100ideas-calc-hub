@@ -127,6 +127,7 @@
         "nextEntryToday": "Disponible ahora",
         "maxConsecutive": "Estancia consecutiva máxima",
         "fullReset": "Los 90 días completos vuelven a estar disponibles",
+        "status": "Estado",
         "breakdownTitle": "Desglose por viaje",
         "breakdownTotal": "Días totales",
         "breakdownInWindow": "Contados en la ventana",
@@ -513,6 +514,22 @@
     "viewPreset": "Abrir escenario",
     "benchmarkTitle": "Banco de pruebas del escenario",
     "benchmarkIntro": "Con los valores preestablecidos, este es el perfil de energía y macronutrientes calculado para {scenario}.",
+    "currentLabel": "Estás aquí"
+  },
+  "firePresets": {
+    "gridTitle": "Escenarios FIRE",
+    "gridSubtitle": "Puntos de partida preconfigurados para objetivos comunes de Independencia Financiera.",
+    "viewPreset": "Abrir escenario",
+    "benchmarkTitle": "Benchmark del escenario",
+    "benchmarkIntro": "Con las entradas del preset, aquí está la proyección FIRE calculada para {scenario}.",
+    "currentLabel": "Estás aquí"
+  },
+  "schengenPresets": {
+    "gridTitle": "Escenarios Schengen",
+    "gridSubtitle": "Puntos de partida preconfigurados para dudas comunes de 90/180 días.",
+    "viewPreset": "Abrir escenario",
+    "benchmarkTitle": "Benchmark del escenario",
+    "benchmarkIntro": "Con las fechas del preset, aquí está el estado 90/180 días calculado para {scenario}.",
     "currentLabel": "Estás aquí"
   },
   "notFound": {

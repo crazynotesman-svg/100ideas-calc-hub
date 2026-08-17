@@ -31,30 +31,44 @@ const CALCULATORS = [
   { category: 'health', slug: 'tdee-macro-calculator' }
 ];
 
-// pSEO preset scenarios (TDEE calculator only) — kept here so both the sitemap
+// pSEO preset scenarios across every calculator — kept here so both the sitemap
 // coverage check and the head-tag check below share one source of truth.
 const PRESETS = [
-  '25-year-old-male',
-  '30-year-old-female',
-  'sedentary-office-worker',
-  'weight-loss-cutting'
+  { category: 'health', slug: 'tdee-macro-calculator', scenario: '25-year-old-male' },
+  { category: 'health', slug: 'tdee-macro-calculator', scenario: '30-year-old-female' },
+  { category: 'health', slug: 'tdee-macro-calculator', scenario: 'sedentary-office-worker' },
+  { category: 'health', slug: 'tdee-macro-calculator', scenario: 'weight-loss-cutting' },
+  { category: 'finance', slug: 'fire-compound-interest-calculator', scenario: 'fat-fire-tech-engineer' },
+  { category: 'finance', slug: 'fire-compound-interest-calculator', scenario: 'lean-fire-digital-nomad' },
+  { category: 'finance', slug: 'fire-compound-interest-calculator', scenario: 'barista-fire-semi-retired' },
+  { category: 'finance', slug: 'fire-compound-interest-calculator', scenario: 'coast-fire-early-career' },
+  { category: 'travel', slug: 'schengen-visa-calculator', scenario: '90-day-rule-tourist' },
+  { category: 'travel', slug: 'schengen-visa-calculator', scenario: 'frequent-business-traveler' },
+  { category: 'travel', slug: 'schengen-visa-calculator', scenario: 'digital-nomad-schengen-shuffle' },
+  { category: 'travel', slug: 'schengen-visa-calculator', scenario: 'overstay-risk-checker' }
 ];
 
-// Every SSG content route that must appear in sitemap.xml and carry a clean
-// canonical + full hreflang + JSON-LD. (Canonical/sitemap are emitted with the
-// production origin, so all host-agnostic checks below compare PATHNAME only.)
+// Every SSG content route that must appear in a sitemap and carry a clean
+// canonical + full hreflang + JSON-LD. Core routes live in /sitemap.xml; the 48
+// preset routes live in /sitemap-presets.xml. (Canonical/sitemap are emitted with
+// the production origin, so all host-agnostic checks below compare PATHNAME only.)
 const targets = [];
 for (const c of CALCULATORS) {
   for (const l of LOCALES) targets.push({ path: `/${l}/calculators/${c.category}/${c.slug}`, calc: true });
 }
 for (const p of PRESETS) {
   for (const l of LOCALES)
-    targets.push({ path: `/${l}/calculators/health/tdee-macro-calculator/preset/${p}`, calc: true });
+    targets.push({ path: `/${l}/calculators/${p.category}/${p.slug}/preset/${p.scenario}`, calc: true });
 }
 for (const l of LOCALES) {
   targets.push({ path: `/${l}`, calc: false });
   targets.push({ path: `/${l}/calculators`, calc: false });
 }
+
+// Core (non-preset) routes that MUST live in /sitemap.xml. The 48 preset routes
+// are intentionally excluded here — they are verified in [2b] against
+// /sitemap-presets.xml instead (task: "pSEO Sitemap Isolation").
+const corePaths = targets.map((t) => t.path).filter((p) => !p.includes('/preset/'));
 
 const C = {
   pass: '\x1b[32m', fail: '\x1b[31m', warn: '\x1b[33m',
@@ -142,13 +156,72 @@ let sitemapOk = true;
     }
     totalChecks++;
 
-    const expectedPaths = targets.map((t) => t.path);
+    const expectedPaths = corePaths;
     const missing = expectedPaths.filter((p) => !paths.has(p));
     if (missing.length === 0) {
-      console.log(`${C.pass}[PASS]${C.rst} all ${expectedPaths.length} target routes present in sitemap`);
+      console.log(`${C.pass}[PASS]${C.rst} all ${expectedPaths.length} core routes present in sitemap.xml`);
     } else {
       console.log(`${C.fail}[FAIL]${C.rst} routes missing from sitemap: ${missing.join(', ')}`);
       failedTargets++; sitemapOk = false;
+    }
+    totalChecks++;
+  }
+}
+
+// -------------------------------------------------- [2b] sitemap-presets.xml
+console.log(
+  `\n${C.bold}[2b/3] sitemap-presets.xml${C.rst} ${C.dim}(${base}/sitemap-presets.xml)${C.rst}`
+);
+{
+  const { res, text } = await get('/sitemap-presets.xml');
+  if (res.status !== 200) {
+    console.log(`${C.fail}[FAIL]${C.rst} sitemap-presets.xml returned HTTP ${res.status}`);
+    failedTargets++;
+  } else {
+    const blocks = text.split('<url>').slice(1).map((b) => b.split('</url>')[0]);
+    const locs = blocks.map((b) => (b.match(/<loc>([^<]+)<\/loc>/) || [])[1]).filter(Boolean);
+    const paths = new Set(
+      locs.map((u) => {
+        try {
+          return new URL(u).pathname;
+        } catch {
+          return u;
+        }
+      })
+    );
+    console.log(`${C.pass}[PASS]${C.rst} ${locs.length} <url> entries`);
+    totalChecks++;
+
+    let missingAlts = 0;
+    for (const b of blocks) {
+      const langs = new Set([...b.matchAll(/hreflang="([^"]+)"/g)].map((m) => m[1].toLowerCase()));
+      for (const h of EXPECTED) if (!langs.has(h)) missingAlts++;
+    }
+    if (missingAlts === 0) {
+      console.log(
+        `${C.pass}[PASS]${C.rst} every <url> carries full hreflang set (en/de/es/zh-Hans/x-default)`
+      );
+    } else {
+      console.log(
+        `${C.fail}[FAIL]${C.rst} ${missingAlts} missing hreflang alternates in sitemap-presets.xml`
+      );
+      failedTargets++;
+    }
+    totalChecks++;
+
+    const expectedPresetPaths = PRESETS.flatMap((p) =>
+      LOCALES.map((l) => `/${l}/calculators/${p.category}/${p.slug}/preset/${p.scenario}`)
+    );
+    const missing = expectedPresetPaths.filter((p) => !paths.has(p));
+    if (missing.length === 0) {
+      console.log(
+        `${C.pass}[PASS]${C.rst} all ${expectedPresetPaths.length} preset routes present in sitemap-presets.xml`
+      );
+    } else {
+      console.log(
+        `${C.fail}[FAIL]${C.rst} preset routes missing: ${missing.slice(0, 5).join(', ')}${missing.length > 5 ? '…' : ''}`
+      );
+      failedTargets++;
     }
     totalChecks++;
   }
@@ -203,7 +276,7 @@ for (const r of results) {
 // ---------------------------------------------------------------- summary
 console.log(`\n${'─'.repeat(64)}`);
 console.log(`${C.bold}SUMMARY${C.rst}`);
-console.log(`  pages checked : ${targets.length} (12 calculator + 8 home/listing + 16 preset)`);
+console.log(`  pages checked : ${targets.length} (12 calculator + 8 home/listing + 48 preset)`);
 console.log(`  sitemap/robots: ${sitemapOk ? `${C.pass}OK${C.rst}` : `${C.fail}FAIL${C.rst}`}`);
 console.log(`  pages with failures : ${failedTargets}`);
 console.log(`  pages with warnings : ${warnedTargets}`);

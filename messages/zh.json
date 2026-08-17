@@ -121,6 +121,7 @@
         "nextEntryToday": "当前即可入境",
         "maxConsecutive": "最长连续停留",
         "fullReset": "完整 90 天额度恢复日",
+        "status": "状态",
         "breakdownTitle": "行程明细",
         "breakdownTotal": "总天数",
         "breakdownInWindow": "计入窗口",
@@ -495,6 +496,22 @@
     "viewPreset": "打开场景",
     "benchmarkTitle": "场景基准",
     "benchmarkIntro": "根据预设输入，以下是「{scenario}」场景计算出的能量与宏量营养素画像。",
+    "currentLabel": "当前页"
+  },
+  "firePresets": {
+    "gridTitle": "FIRE 场景",
+    "gridSubtitle": "针对常见财务独立目标预填的起步参数。",
+    "viewPreset": "打开场景",
+    "benchmarkTitle": "场景基准",
+    "benchmarkIntro": "根据预设输入，以下是「{scenario}」场景计算出的 FIRE 预测。",
+    "currentLabel": "当前页"
+  },
+  "schengenPresets": {
+    "gridTitle": "申根场景",
+    "gridSubtitle": "针对常见 90/180 天规划问题预填的起步参数。",
+    "viewPreset": "打开场景",
+    "benchmarkTitle": "场景基准",
+    "benchmarkIntro": "根据预设日期，以下是「{scenario}」场景计算出的 90/180 天状态。",
     "currentLabel": "当前页"
   },
   "notFound": {

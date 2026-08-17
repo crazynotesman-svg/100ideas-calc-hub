@@ -458,3 +458,28 @@ export const PRESET_SLUGS = PRESETS.map((p) => p.slug);
 export function getPreset(scenario: string): TdeePreset | undefined {
   return PRESETS.find((p) => p.slug === scenario);
 }
+
+/**
+ * Build the URL-query seed from a TdeeForm preset. Mirrors TDEE_URL_KEY in TdeeCalculator
+ * (sex/age/height/weight/bodyfat/activity/goal/formula/preset). Defaults are omitted so a
+ * clean share link only carries the values the preset actually set.
+ */
+export function tdeeInitialQuery(preset: TdeePreset): Record<string, string> {
+  const map: Record<keyof TdeeForm, string> = {
+    sex: 'sex',
+    age: 'age',
+    heightCm: 'height',
+    weightKg: 'weight',
+    bodyFat: 'bodyfat',
+    activityLevel: 'activity',
+    goal: 'goal',
+    formula: 'formula',
+    macroPreset: 'preset'
+  };
+  const q: Record<string, string> = {};
+  for (const [formKey, urlKey] of Object.entries(map) as [keyof TdeeForm, string][]) {
+    const v = preset.defaultParams[formKey];
+    if (v !== undefined && v !== '') q[urlKey] = String(v);
+  }
+  return q;
+}

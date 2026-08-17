@@ -127,6 +127,7 @@
         "nextEntryToday": "Jetzt möglich",
         "maxConsecutive": "Max. durchgehender Aufenthalt",
         "fullReset": "Volle 90 Tage wieder verfügbar",
+        "status": "Status",
         "breakdownTitle": "Reiseübersicht",
         "breakdownTotal": "Tage gesamt",
         "breakdownInWindow": "Im Fenster gezählt",
@@ -513,6 +514,22 @@
     "viewPreset": "Szenario öffnen",
     "benchmarkTitle": "Szenario-Benchmark",
     "benchmarkIntro": "Auf Basis der voreingestellten Werte erhalten Sie hier das berechnete Energie- und Makronährstoff-Profile für {scenario}.",
+    "currentLabel": "Sie sind hier"
+  },
+  "firePresets": {
+    "gridTitle": "FIRE-Szenarien",
+    "gridSubtitle": "Vorausgefüllte Ausgangswerte für gängige Financial-Independence-Ziele.",
+    "viewPreset": "Szenario öffnen",
+    "benchmarkTitle": "Szenario-Benchmark",
+    "benchmarkIntro": "Auf Basis der voreingestellten Werte erhalten Sie hier die berechnete FIRE-Projektion für {scenario}.",
+    "currentLabel": "Sie sind hier"
+  },
+  "schengenPresets": {
+    "gridTitle": "Schengen-Szenarien",
+    "gridSubtitle": "Vorausgefüllte Ausgangswerte für gängige 90/180-Tage-Planungsfragen.",
+    "viewPreset": "Szenario öffnen",
+    "benchmarkTitle": "Szenario-Benchmark",
+    "benchmarkIntro": "Auf Basis der voreingestellten Daten erhalten Sie hier den berechneten 90/180-Tage-Status für {scenario}.",
     "currentLabel": "Sie sind hier"
   },
   "notFound": {

@@ -2,7 +2,6 @@ import type { MetadataRoute } from 'next';
 import { locales, localeMeta, xDefaultLocale, type Locale } from '@/config/i18n.config';
 import { absoluteUrl } from '@/config/site.config';
 import { calculators, calculatorPath } from '@/config/calculators.config';
-import { PRESET_SLUGS, presetRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/tdeePresets';
 
 /**
  * Multi-language sitemap (SEO Rule 1, sitemap half).
@@ -79,18 +78,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternates: {
           languages: languagesFor(`/calculators/${calculator.category}/${calculator.slug}`)
         }
-      });
-    }
-
-    // TDEE pSEO preset pages — every scenario mirrored across all four locales with full hreflang.
-    for (const preset of PRESET_SLUGS) {
-      const route = presetRoute(preset);
-      entries.push({
-        url: absoluteUrl(`/${locale}${route}`),
-        lastModified: now,
-        changeFrequency: 'monthly',
-        priority: 0.7,
-        alternates: { languages: languagesFor(route) }
       });
     }
   }

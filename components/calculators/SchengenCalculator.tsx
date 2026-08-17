@@ -57,7 +57,9 @@ const statusStyles = {
   overstay: { badge: 'destructive' as const, ring: 'border-destructive/50 bg-destructive/10', bar: 'bg-destructive' }
 };
 
-export function SchengenCalculator() {
+export function SchengenCalculator({
+  initialQuery
+}: { initialState?: { referenceDate?: string; trips?: Trip[] }; initialQuery?: Record<string, string> } = {}) {
   const t = useTranslations('calculators.schengen.ui');
   const tc = useTranslations('common');
   const locale = useLocale();
@@ -69,7 +71,9 @@ export function SchengenCalculator() {
   const [trips, setTrips] = useState<Trip[]>([newTrip()]);
   const [copied, setCopied] = useState(false);
 
-  const { values, setField, hydrated, shareUrl } = useCalculatorState(SCHENGEN_FIELDS);
+  // Seed from a pSEO preset so pre-filled dates/trips appear once mounted (the skeleton
+  // holds the same height on first paint, so there is no layout shift).
+  const { values, setField, hydrated, shareUrl } = useCalculatorState(SCHENGEN_FIELDS, initialQuery);
 
   // Once URL params are read (post-mount), apply them to the calculator inputs.
   useEffect(() => {

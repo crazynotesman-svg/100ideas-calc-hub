@@ -68,14 +68,18 @@ const FIRE_URL_KEY: Partial<Record<keyof FireInput, keyof typeof FIRE_FIELDS>> =
   horizonAge: 'horizon'
 };
 
-export function FireCalculator() {
+export function FireCalculator({
+  initialState,
+  initialQuery
+}: { initialState?: Partial<FireInput>; initialQuery?: Record<string, string> } = {}) {
   const t = useTranslations('calculators.fire.ui');
   const tc = useTranslations('common');
   const locale = useLocale() as Locale;
-  const [input, setInput] = useState<FireInput>(defaults);
+  // Seed from a pSEO preset so pre-filled inputs appear in the static HTML with zero layout shift.
+  const [input, setInput] = useState<FireInput>(() => ({ ...defaults, ...(initialState || {}) }));
   const [mounted, setMounted] = useState(false);
 
-  const { values, setField, hydrated, shareUrl, reset } = useCalculatorState(FIRE_FIELDS);
+  const { values, setField, hydrated, shareUrl, reset } = useCalculatorState(FIRE_FIELDS, initialQuery);
 
   useEffect(() => setMounted(true), []);
 
