@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { NumberField } from '@/components/ui/number-field';
 import { Badge } from '@/components/ui/badge';
 import { Select } from '@/components/ui/select';
 import { useUnitSystem } from '@/store/useUnitSystem';
@@ -713,42 +714,6 @@ export function TdeeCalculator({
 }
 
 /* ------------------------------------------------------------------- helpers */
-
-function NumberField({
-  id,
-  label,
-  value,
-  onChange,
-  min,
-  max,
-  step = 1
-}: {
-  id: string;
-  label: string;
-  value: number;
-  onChange: (value: number) => void;
-  min?: number;
-  max?: number;
-  step?: number;
-}) {
-  return (
-    <div className="grid gap-1.5">
-      <Label htmlFor={id} className="text-xs text-muted-foreground">
-        {label}
-      </Label>
-      <Input
-        id={id}
-        type="number"
-        inputMode="decimal"
-        value={value}
-        min={min}
-        max={max}
-        step={step}
-        onChange={(event) => onChange(toNumber(event.target.value, min ?? 0))}
-      />
-    </div>
-  );
-}
 
 function Stat({
   icon,
