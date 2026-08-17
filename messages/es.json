@@ -13,9 +13,18 @@
     "openMenu": "Abrir menú"
   },
   "categories": {
-    "travel": { "name": "Viajes", "description": "Ventanas de visado, normas fronterizas y cumplimiento de itinerarios." },
-    "finance": { "name": "Finanzas", "description": "Interés compuesto, objetivos de jubilación y rentabilidad ajustada por inflación." },
-    "health": { "name": "Salud", "description": "Gasto energético, composición corporal y objetivos nutricionales." }
+    "travel": {
+      "name": "Viajes",
+      "description": "Ventanas de visado, normas fronterizas y cumplimiento de itinerarios."
+    },
+    "finance": {
+      "name": "Finanzas",
+      "description": "Interés compuesto, objetivos de jubilación y rentabilidad ajustada por inflación."
+    },
+    "health": {
+      "name": "Salud",
+      "description": "Gasto energético, composición corporal y objetivos nutricionales."
+    }
   },
   "common": {
     "results": "Resultados",
@@ -49,7 +58,27 @@
     "grams": "g",
     "perDay": "al día",
     "perMonth": "al mes",
-    "perYear": "al año"
+    "perYear": "al año",
+    "share": {
+      "heading": "Comparte tu resultado",
+      "download": "Descargar tarjeta",
+      "copyLink": "Copiar enlace",
+      "copied": "¡Copiado!",
+      "sub": "Calculadora gratuita en línea"
+    },
+    "tweak": {
+      "heading": "Explora otros escenarios"
+    },
+    "bridge": {
+      "heading": "Continúa tu plan",
+      "cta": "Abrir {name}",
+      "tdeeTitle": "Planifica tu presupuesto de retiro anticipado",
+      "tdeeBody": "Toma los datos de tu plan de nutrición y estilo de vida y modela la independencia financiera a largo plazo con la Calculadora FIRE.",
+      "fireTitle": "Revisa tu reloj de visado Schengen",
+      "fireBody": "Si el retiro anticipado implica viajar por Europa, mantén tu estancia de 90/180 días dentro de las normas con la Calculadora de Visado Schengen.",
+      "schengenTitle": "Mantente sano mientras viajas",
+      "schengenBody": "Controla tus calorías y macros en ruta y mantén tu nutrición con la Calculadora TDEE."
+    }
   },
   "home": {
     "heroBadge": "3 calculadoras · 4 idiomas · 0 rastreo",

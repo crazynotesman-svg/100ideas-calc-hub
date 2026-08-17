@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { ScenarioPresetsGrid } from '@/components/seo/ScenarioPresetsGrid';
+import { PresetQuickTweak } from '@/components/seo/PresetQuickTweak';
 import { TdeeCalculator } from '@/components/calculators/TdeeCalculator';
 import { FireCalculator } from '@/components/calculators/FireCalculator';
 import { SchengenCalculator } from '@/components/calculators/SchengenCalculator';
@@ -136,7 +137,9 @@ export default async function PresetPage({
     ns = 'tdeePresets';
     presets = TDEE_PRESETS;
     routeFor = tdeeRoute;
-    calculatorNode = <TdeeCalculator initialState={p.defaultParams} initialQuery={tdeeInitialQuery(p)} />;
+    calculatorNode = (
+      <TdeeCalculator initialState={p.defaultParams} initialQuery={tdeeInitialQuery(p)} cardTitle={title} />
+    );
     benchmark = await TdeeBenchmark(l, r);
   } else if (slug === FIRE_SLUG) {
     const p = getFire(scenario);
@@ -149,7 +152,9 @@ export default async function PresetPage({
     ns = 'firePresets';
     presets = FIRE_PRESETS;
     routeFor = fireRoute;
-    calculatorNode = <FireCalculator initialState={p.defaultParams} initialQuery={fireInitialQuery(p)} />;
+    calculatorNode = (
+      <FireCalculator initialState={p.defaultParams} initialQuery={fireInitialQuery(p)} cardTitle={title} />
+    );
     benchmark = await FireBenchmark(l, r);
   } else if (slug === SCHENGEN_SLUG) {
     const p = getSchengen(scenario);
@@ -162,7 +167,7 @@ export default async function PresetPage({
     ns = 'schengenPresets';
     presets = SCHENGEN_PRESETS;
     routeFor = schengenRoute;
-    calculatorNode = <SchengenCalculator initialQuery={schengenInitialQuery(p)} />;
+    calculatorNode = <SchengenCalculator initialQuery={schengenInitialQuery(p)} cardTitle={title} />;
     benchmark = await SchengenBenchmark(l, r);
   } else {
     notFound();
@@ -204,7 +209,10 @@ export default async function PresetPage({
         )
       }}
     >
-      {calculatorNode}
+      <>
+        <PresetQuickTweak locale={l} current={scenario} presets={presets} routeFor={routeFor} />
+        {calculatorNode}
+      </>
     </CalculatorLayout>
   );
 }

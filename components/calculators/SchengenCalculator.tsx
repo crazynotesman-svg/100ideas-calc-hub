@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useCalculatorState } from '@/lib/hooks/useCalculatorState';
 import { CopyLinkButton } from '@/components/calculator/CopyLinkButton';
+import { ResultShareCard, type ShareHighlight } from '@/components/calculator/ResultShareCard';
+import { CrossCalcBridge } from '@/components/seo/CrossCalcBridge';
 import { AlertTriangle, CalendarPlus, CheckCircle2, Clock, Copy, Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,6 +14,7 @@ import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
+import type { Locale } from '@/config/i18n.config';
 import { addDays, todayISO } from '@/lib/calculators/date-utils';
 import {
   MAX_STAY_DAYS,
@@ -58,10 +61,16 @@ const statusStyles = {
 };
 
 export function SchengenCalculator({
-  initialQuery
-}: { initialState?: { referenceDate?: string; trips?: Trip[] }; initialQuery?: Record<string, string> } = {}) {
+  initialQuery,
+  cardTitle
+}: {
+  initialState?: { referenceDate?: string; trips?: Trip[] };
+  initialQuery?: Record<string, string>;
+  cardTitle?: string;
+} = {}) {
   const t = useTranslations('calculators.schengen.ui');
   const tc = useTranslations('common');
+  const tName = useTranslations('calculators.schengen');
   const locale = useLocale();
 
   // Rendered identically on the server and on first client paint, then filled in.
@@ -90,6 +99,24 @@ export function SchengenCalculator({
     const usable = trips.filter((trip) => trip.entryDate && trip.exitDate);
     return calculateSchengen(usable, referenceDate);
   }, [trips, referenceDate]);
+
+  /** Key result highlights for the shareable card; null until a result exists (skeleton). */
+  const highlights: ShareHighlight[] | null = useMemo(() => {
+    if (!result) return null;
+    const statusLabel =
+      result.status === 'ok'
+        ? t('statusOk')
+        : result.status === 'warning'
+          ? t('statusWarning')
+          : result.status === 'critical'
+            ? t('statusCritical')
+            : t('statusOverstay');
+    return [
+      { label: t('daysUsed'), value: `${result.daysUsed} / ${MAX_STAY_DAYS}` },
+      { label: t('daysRemaining'), value: `${result.daysRemaining} ${tc('days')}` },
+      { label: t('status'), value: statusLabel }
+    ];
+  }, [result, t, tc]);
 
   const dateFmt = useMemo(
     () => new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: '2-digit', timeZone: 'UTC' }),
@@ -421,6 +448,16 @@ export function SchengenCalculator({
           </div>
         </CardContent>
       </Card>
+
+      {/* -------------------------------------------- share card + cross-calc bridge */}
+      <ResultShareCard
+        locale={locale as Locale}
+        calculatorId="schengen"
+        title={cardTitle ?? tName('name')}
+        highlights={highlights}
+        shareUrl={shareUrl}
+      />
+      <CrossCalcBridge from="schengen" />
 
       {/* ----------------------------------------------------------- timeline */}
       <Card>

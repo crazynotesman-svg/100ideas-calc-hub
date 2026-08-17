@@ -13,9 +13,18 @@
     "openMenu": "Open menu"
   },
   "categories": {
-    "travel": { "name": "Travel", "description": "Visa windows, border rules and trip compliance." },
-    "finance": { "name": "Finance", "description": "Compounding, retirement targets and inflation-adjusted returns." },
-    "health": { "name": "Health", "description": "Energy expenditure, body composition and nutrition targets." }
+    "travel": {
+      "name": "Travel",
+      "description": "Visa windows, border rules and trip compliance."
+    },
+    "finance": {
+      "name": "Finance",
+      "description": "Compounding, retirement targets and inflation-adjusted returns."
+    },
+    "health": {
+      "name": "Health",
+      "description": "Energy expenditure, body composition and nutrition targets."
+    }
   },
   "common": {
     "results": "Results",
@@ -49,7 +58,27 @@
     "grams": "g",
     "perDay": "per day",
     "perMonth": "per month",
-    "perYear": "per year"
+    "perYear": "per year",
+    "share": {
+      "heading": "Share your result",
+      "download": "Download card",
+      "copyLink": "Copy link",
+      "copied": "Copied!",
+      "sub": "Free online calculator"
+    },
+    "tweak": {
+      "heading": "Explore other scenarios"
+    },
+    "bridge": {
+      "heading": "Continue your plan",
+      "cta": "Open {name}",
+      "tdeeTitle": "Plan your early-retirement budget",
+      "tdeeBody": "Take the numbers from your nutrition and lifestyle plan and model long-term financial independence with the FIRE Calculator.",
+      "fireTitle": "Check your Schengen visa clock",
+      "fireBody": "If early retirement means traveling Europe, keep your 90/180-day stay inside the rules with the Schengen Visa Calculator.",
+      "schengenTitle": "Stay healthy while traveling",
+      "schengenBody": "Track your calories and macros on the road and keep your nutrition on track with the TDEE Calculator."
+    }
   },
   "home": {
     "heroBadge": "3 calculators · 4 languages · 0 tracking",

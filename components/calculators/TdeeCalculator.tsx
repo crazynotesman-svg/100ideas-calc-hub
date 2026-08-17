@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useCalculatorState } from '@/lib/hooks/useCalculatorState';
 import { CopyLinkButton } from '@/components/calculator/CopyLinkButton';
+import { ResultShareCard, type ShareHighlight } from '@/components/calculator/ResultShareCard';
+import { CrossCalcBridge } from '@/components/seo/CrossCalcBridge';
 import { Activity, Copy, Droplets, Flame, Leaf, Scale, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -14,6 +16,7 @@ import { Badge } from '@/components/ui/badge';
 import { Select } from '@/components/ui/select';
 import { useUnitSystem } from '@/store/useUnitSystem';
 import { cn, toNumber } from '@/lib/utils';
+import type { Locale } from '@/config/i18n.config';
 import {
   activityFactors,
   calculateTdee,
@@ -124,10 +127,16 @@ export { TDEE_URL_KEY };
 
 export function TdeeCalculator({
   initialState,
-  initialQuery
-}: { initialState?: Partial<TdeeForm>; initialQuery?: Record<string, string> } = {}) {
+  initialQuery,
+  cardTitle
+}: {
+  initialState?: Partial<TdeeForm>;
+  initialQuery?: Record<string, string>;
+  cardTitle?: string;
+} = {}) {
   const t = useTranslations('calculators.tdee.ui');
   const tc = useTranslations('common');
+  const tName = useTranslations('calculators.tdee');
   const locale = useLocale();
   const { unitSystem } = useUnitSystem();
   const imperial = unitSystem === 'imperial';
@@ -232,6 +241,16 @@ export function TdeeCalculator({
   const nf1 = useMemo(
     () => new Intl.NumberFormat(locale, { maximumFractionDigits: 1, minimumFractionDigits: 1 }),
     [locale]
+  );
+
+  /** Key result highlights surfaced on the shareable card. */
+  const highlights: ShareHighlight[] = useMemo(
+    () => [
+      { label: t('tdee'), value: `${nf.format(result.tdee)} ${tc('kcal')}` },
+      { label: t('targetCalories'), value: `${nf.format(result.targetCalories)} ${tc('kcal')}` },
+      { label: t('protein'), value: `${nf.format(result.macros.proteinG)} ${tc('grams')}` }
+    ],
+    [result, nf, tc, t]
   );
 
   /* ------------------------------------------------------- unit presentation */
@@ -601,6 +620,16 @@ export function TdeeCalculator({
           </div>
         </CardContent>
       </Card>
+
+      {/* -------------------------------------------- share card + cross-calc bridge */}
+      <ResultShareCard
+        locale={locale as Locale}
+        calculatorId="tdee"
+        title={cardTitle ?? tName('name')}
+        highlights={highlights}
+        shareUrl={shareUrl}
+      />
+      <CrossCalcBridge from="tdee" />
 
       {/* --------------------------------------------------------- macro split */}
       <Card>

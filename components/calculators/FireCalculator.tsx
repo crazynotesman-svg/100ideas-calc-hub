@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useCalculatorState } from '@/lib/hooks/useCalculatorState';
 import { CopyLinkButton } from '@/components/calculator/CopyLinkButton';
+import { ResultShareCard, type ShareHighlight } from '@/components/calculator/ResultShareCard';
+import { CrossCalcBridge } from '@/components/seo/CrossCalcBridge';
 import {
   Area,
   AreaChart,
@@ -70,10 +72,16 @@ const FIRE_URL_KEY: Partial<Record<keyof FireInput, keyof typeof FIRE_FIELDS>> =
 
 export function FireCalculator({
   initialState,
-  initialQuery
-}: { initialState?: Partial<FireInput>; initialQuery?: Record<string, string> } = {}) {
+  initialQuery,
+  cardTitle
+}: {
+  initialState?: Partial<FireInput>;
+  initialQuery?: Record<string, string>;
+  cardTitle?: string;
+} = {}) {
   const t = useTranslations('calculators.fire.ui');
   const tc = useTranslations('common');
+  const tName = useTranslations('calculators.fire');
   const locale = useLocale() as Locale;
   // Seed from a pSEO preset so pre-filled inputs appear in the static HTML with zero layout shift.
   const [input, setInput] = useState<FireInput>(() => ({ ...defaults, ...(initialState || {}) }));
@@ -116,6 +124,19 @@ export function FireCalculator({
   const compact = useMemo(
     () => new Intl.NumberFormat(locale, { notation: 'compact', maximumFractionDigits: 1 }),
     [locale]
+  );
+
+  /** Key result highlights surfaced on the shareable card. */
+  const highlights: ShareHighlight[] = useMemo(
+    () => [
+      { label: t('fireNumber'), value: money.format(result.fireNumber) },
+      {
+        label: t('fireAge'),
+        value: result.fireAge ? `${result.fireAge} ${tc('yearsOld')}` : t('notReached')
+      },
+      { label: t('sustainableIncome'), value: money.format(result.sustainableRealIncome) }
+    ],
+    [result, money, t, tc]
   );
 
   const set = <K extends keyof FireInput>(key: K, value: FireInput[K]) => {
@@ -363,6 +384,16 @@ export function FireCalculator({
           </div>
         </CardContent>
       </Card>
+
+      {/* -------------------------------------------- share card + cross-calc bridge */}
+      <ResultShareCard
+        locale={locale}
+        calculatorId="fire"
+        title={cardTitle ?? tName('name')}
+        highlights={highlights}
+        shareUrl={shareUrl}
+      />
+      <CrossCalcBridge from="fire" />
 
       {/* -------------------------------------------------------------- chart */}
       <Card>

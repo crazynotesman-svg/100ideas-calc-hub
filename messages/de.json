@@ -13,9 +13,18 @@
     "openMenu": "Menü öffnen"
   },
   "categories": {
-    "travel": { "name": "Reisen", "description": "Visumfenster, Einreiseregeln und Reise-Compliance." },
-    "finance": { "name": "Finanzen", "description": "Zinseszins, Ruhestandsziele und inflationsbereinigte Renditen." },
-    "health": { "name": "Gesundheit", "description": "Energieverbrauch, Körperzusammensetzung und Ernährungsziele." }
+    "travel": {
+      "name": "Reisen",
+      "description": "Visumfenster, Einreiseregeln und Reise-Compliance."
+    },
+    "finance": {
+      "name": "Finanzen",
+      "description": "Zinseszins, Ruhestandsziele und inflationsbereinigte Renditen."
+    },
+    "health": {
+      "name": "Gesundheit",
+      "description": "Energieverbrauch, Körperzusammensetzung und Ernährungsziele."
+    }
   },
   "common": {
     "results": "Ergebnisse",
@@ -49,7 +58,27 @@
     "grams": "g",
     "perDay": "pro Tag",
     "perMonth": "pro Monat",
-    "perYear": "pro Jahr"
+    "perYear": "pro Jahr",
+    "share": {
+      "heading": "Ergebnis teilen",
+      "download": "Karte herunterladen",
+      "copyLink": "Link kopieren",
+      "copied": "Kopiert!",
+      "sub": "Kostenloser Online-Rechner"
+    },
+    "tweak": {
+      "heading": "Weitere Szenarien entdecken"
+    },
+    "bridge": {
+      "heading": "Plan weiterführen",
+      "cta": "{name} öffnen",
+      "tdeeTitle": "Budget für den frühen Ruhestand planen",
+      "tdeeBody": "Übertrage die Zahlen aus deinem Ernährungs- und Lebensstilplan und simuliere langfristige finanzielle Unabhängigkeit mit dem FIRE-Rechner.",
+      "fireTitle": "Prüfe deine Schengen-Visumsfrist",
+      "fireBody": "Wenn früher Ruhestand Europa-Reisen bedeutet, halte deinen 90/180-Tage-Aufenthalt mit dem Schengen-Visum-Rechner regelkonform.",
+      "schengenTitle": "Unterwegs gesund bleiben",
+      "schengenBody": "Verfolge deine Kalorien und Makros auf Reisen und halte deine Ernährung mit dem TDEE-Rechner im Blick."
+    }
   },
   "home": {
     "heroBadge": "3 Rechner · 4 Sprachen · 0 Tracking",
