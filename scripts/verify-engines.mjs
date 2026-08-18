@@ -98,5 +98,19 @@ assert('Amortization table server-rendered', /<tbody/.test(mortHtml), true);
 assert('Chart shell height reserved', mortHtml.includes('chart-shell'), true);
 assert('Result shells reserved pre-hydration', (mortHtml.match(/result-shell/g) || []).length >= 4, true);
 
+/* --------------------------------------------------- Body Fat & BMI reference
+ * Defaults shipped in the component: male, 30y, 175cm, 75kg, waist 85cm, neck 38cm.
+ *   BMI  = 75 / 1.75^2 = 24.4898                                    -> "24.5"
+ *   Navy (male, inches): log10((85−38)/2.54)=1.26726, log10(175/2.54)=1.83818
+ *     495/(1.0324 − 0.19077·1.26726 + 0.15456·1.83818) − 450 = 10.57 -> "10.6%"
+ */
+const bfHtml = await (await fetch(`${base}/en/calculators/health/body-fat-bmi-calculator`)).text();
+console.log('\nBODY FAT & BMI ENGINE (server-rendered defaults: male 175cm/75kg/waist85/neck38)');
+console.log('─'.repeat(96));
+assert('BMI = 24.5 (en-US)', bfHtml.includes('24.5'), true);
+assert('Navy body fat = 10.6%', bfHtml.includes('10.6%'), true);
+assert('Composition bar rendered', /width:"?\s*\d+(\.\d+)?%/.test(bfHtml), true);
+assert('Result shells reserved pre-hydration', (bfHtml.match(/result-shell/g) || []).length >= 4, true);
+
 console.log(`\n${failures === 0 ? 'PASS — engines verified' : `FAILED — ${failures} checks`}\n`);
 process.exit(failures === 0 ? 0 : 1);

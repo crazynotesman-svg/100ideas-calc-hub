@@ -17,13 +17,15 @@ import { PRESET_SLUGS as FIRE, presetRoute as fireRoute } from '@/app/[locale]/c
 import { PRESET_SLUGS as SCHENGEN, presetRoute as schengenRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/schengenPresets';
 import { PRESET_SLUGS as COMPOUND, presetRoute as compoundRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/compoundInterestPresets';
 import { PRESET_SLUGS as MORTGAGE, presetRoute as mortgageRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/mortgagePresets';
+import { PRESET_SLUGS as BODYFAT, presetRoute as bodyFatRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/bodyFatPresets';
 
 const ALL_PRESET_ROUTES: string[] = [
   ...TDEE.map((s) => tdeeRoute(s)),
   ...FIRE.map((s) => fireRoute(s)),
   ...SCHENGEN.map((s) => schengenRoute(s)),
   ...COMPOUND.map((s) => compoundRoute(s)),
-  ...MORTGAGE.map((s) => mortgageRoute(s))
+  ...MORTGAGE.map((s) => mortgageRoute(s)),
+  ...BODYFAT.map((s) => bodyFatRoute(s))
 ];
 
 function languagesFor(route: string): Record<string, string> {

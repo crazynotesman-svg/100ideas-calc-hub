@@ -9,6 +9,7 @@ import { PRESETS as FIRE_PRESETS, presetRoute as fireRoute } from '@/app/[locale
 import { PRESETS as SCHENGEN_PRESETS, presetRoute as schengenRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/schengenPresets';
 import { PRESETS as COMPOUND_PRESETS, presetRoute as compoundRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/compoundInterestPresets';
 import { PRESETS as MORTGAGE_PRESETS, presetRoute as mortgageRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/mortgagePresets';
+import { PRESETS as BODYFAT_PRESETS, presetRoute as bodyFatRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/bodyFatPresets';
 import { locales, isLocale, type Locale } from '@/config/i18n.config';
 import { calculators, getCalculator, calculatorRoute } from '@/config/calculators.config';
 import { buildMetadata } from '@/lib/seo/metadata';
@@ -40,11 +41,16 @@ const registry: Record<string, React.ComponentType> = {
     import('@/components/calculators/finance/MortgageCalculatorClient').then(
       (m) => m.MortgageCalculatorClient
     )
+  ),
+  'body-fat-bmi': dynamic(() =>
+    import('@/components/calculators/health/BodyFatBmiCalculatorClient').then(
+      (m) => m.BodyFatBmiCalculatorClient
+    )
   )
 };
 
 /** Calculators that expose the metric/imperial switch in the page header. */
-const unitAware = new Set(['tdee']);
+const unitAware = new Set(['tdee', 'body-fat-bmi']);
 
 /** locales × calculators — all 12 pages are pre-rendered as static HTML when possible. */
 export function generateStaticParams() {
@@ -135,6 +141,13 @@ export default async function CalculatorPage({ params: { locale, category, slug 
         namespace="mortgagePresets"
         presets={MORTGAGE_PRESETS}
         routeFor={mortgageRoute}
+      />
+    ) : meta.id === 'body-fat-bmi' ? (
+      <ScenarioPresetsGrid
+        locale={locale as Locale}
+        namespace="bodyFatPresets"
+        presets={BODYFAT_PRESETS}
+        routeFor={bodyFatRoute}
       />
     ) : undefined;
 

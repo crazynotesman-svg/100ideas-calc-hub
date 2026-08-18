@@ -83,7 +83,9 @@
       "mortgageTitle": "Turn your mortgage into a retirement plan",
       "mortgageBody": "Once the payment is under control, model the same monthly cash flow building wealth with the FIRE Calculator.",
       "secondaryTitle": "Compare the investment path",
-      "secondaryBody": "See what the same monthly payment could grow to with the {name}."
+      "secondaryBody": "See what the same monthly payment could grow to with the {name}.",
+      "body-fat-bmiTitle": "Refine your calorie targets",
+      "body-fat-bmiBody": "Body composition is one half of the picture — set calories and macros around it with the TDEE Calculator."
     }
   },
   "home": {
@@ -765,6 +767,113 @@
           "answer": "Yes — the share link carries your exact inputs, the result card can be downloaded as an image, and the year-by-year schedule exports to CSV."
         }
       ]
+    },
+    "body-fat-bmi": {
+      "name": "Body Fat & BMI Calculator",
+      "shortName": "Body Fat & BMI",
+      "metaTitle": "Body Fat & BMI Calculator — Navy Method & Health Range",
+      "metaDescription": "Measure body fat percentage with the U.S. Navy method, calculate BMI, and see fat mass, lean mass and healthy ranges. All runs in your browser.",
+      "h1": "Body Fat & BMI Calculator",
+      "intro": "Two key health numbers from simple measurements. Enter gender, age, height, weight and neck, waist (and hip for women) circumference — the Navy method estimates body fat while BMI checks your weight band.",
+      "keywords": [
+        "body fat calculator",
+        "bmi calculator",
+        "navy body fat formula",
+        "body composition calculator",
+        "body fat percentage calculator"
+      ],
+      "features": [
+        "BMI with WHO health category",
+        "U.S. Navy body fat formula",
+        "Fat mass & lean mass breakdown",
+        "Age-based ideal body fat range",
+        "Metric / imperial switching + CSV export"
+      ],
+      "ui": {
+        "inputsTitle": "Your measurements",
+        "gender": "Gender",
+        "male": "Male",
+        "female": "Female",
+        "age": "Age",
+        "height": "Height",
+        "weight": "Weight",
+        "waist": "Waist",
+        "neck": "Neck",
+        "hip": "Hip",
+        "hipHint": "Required for the female formula",
+        "bmi": "BMI",
+        "bodyFat": "Body fat",
+        "fatMass": "Fat mass",
+        "leanMass": "Lean mass",
+        "idealRange": "Ideal body fat range",
+        "idealHint": "Common healthy band for {gender}: {min}–{max}%",
+        "chartTitle": "Body composition",
+        "chartFat": "Fat mass",
+        "chartLean": "Lean mass",
+        "bmiUnderweight": "Underweight",
+        "bmiNormal": "Normal",
+        "bmiOverweight": "Overweight",
+        "bmiObese": "Obese",
+        "bfEssential": "Essential",
+        "bfAthletic": "Athletic",
+        "bfFitness": "Fitness",
+        "bfAverage": "Average",
+        "bfHigh": "High"
+      },
+      "formula": {
+        "steps": [
+          "Calculate BMI: weight (kg) divided by height (m) squared.",
+          "Convert height, waist, neck (and hip for women) to inches.",
+          "Male body fat % = 495 / (1.0324 − 0.19077·log10(waist−neck) + 0.15456·log10(height)) − 450.",
+          "Female body fat % = 495 / (1.29579 − 0.35004·log10(waist+hip−neck) + 0.22100·log10(height)) − 450."
+        ],
+        "intro": "The U.S. Navy circumference method estimates body fat from tape measurements, and BMI classifies weight against height. Neither requires a special device — just a tape measure and a scale.",
+        "note": "Tape estimates are approximate; body fat varies with hydration and measurement technique. Results are educational, not a medical diagnosis."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "What is body fat percentage?",
+            "paragraphs": [
+              "Body fat percentage is the share of your total weight made up of fat tissue. The rest — muscle, bone, organs and water — is your lean mass.",
+              "The U.S. Navy method estimates the percentage from circumferences, so you can track composition changes without a body-fat scale or impedance device."
+            ]
+          },
+          {
+            "heading": "BMI vs body fat: why both?",
+            "paragraphs": [
+              "BMI is a quick weight-for-height screen, but it cannot tell muscle from fat — a muscular athlete can read \"overweight\" while carrying little fat.",
+              "Body fat percentage fills that gap. Checking both gives a more honest picture of your health and your progress."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "How is body fat percentage calculated here?",
+          "answer": "It uses the U.S. Navy circumference method with waist, neck and height (plus hip for women). Enter the measurements in metric or imperial and the estimate updates instantly."
+        },
+        {
+          "question": "What is the U.S. Navy method?",
+          "answer": "A tape-measure body fat formula originally developed for military personnel. It uses logarithms of circumference differences to estimate fat percentage without electrical impedance."
+        },
+        {
+          "question": "What is a healthy BMI?",
+          "answer": "WHO classes BMI under 18.5 as underweight, 18.5–24.9 as normal, 25–29.9 as overweight and 30+ as obese. BMI is a screening tool, not a diagnosis."
+        },
+        {
+          "question": "What is a healthy body fat percentage?",
+          "answer": "Roughly 8–24% for men and 21–36% for women depending on age, with athletes at the lower end. The calculator shows the common band for your gender and age."
+        },
+        {
+          "question": "Why do BMI and body fat disagree?",
+          "answer": "BMI only compares weight with height, so muscle counts the same as fat. Body fat percentage separates the two — that is why a fit person can have a high BMI but a healthy body fat reading."
+        },
+        {
+          "question": "Can I save or share this result?",
+          "answer": "Yes — the share link carries your exact measurements, the result card downloads as an image, and the summary exports to CSV."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -811,6 +920,14 @@
   },
   "mortgagePresets": {
     "gridTitle": "Mortgage scenarios",
+    "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
+    "viewPreset": "View scenario",
+    "currentLabel": "Current",
+    "benchmarkTitle": "Scenario Benchmark",
+    "benchmarkIntro": "Key figures for {scenario}."
+  },
+  "bodyFatPresets": {
+    "gridTitle": "Body composition scenarios",
     "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
     "viewPreset": "View scenario",
     "currentLabel": "Current",

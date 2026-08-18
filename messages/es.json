@@ -83,7 +83,9 @@
       "mortgageTitle": "Convierte tu hipoteca en un plan de jubilación",
       "mortgageBody": "Una vez controlado el pago, modela cómo ese mismo flujo de caja mensual construye riqueza con la calculadora FIRE.",
       "secondaryTitle": "Compara el camino de inversión",
-      "secondaryBody": "Mira en qué podría convertirse ese mismo pago mensual con el {name}."
+      "secondaryBody": "Mira en qué podría convertirse ese mismo pago mensual con el {name}.",
+      "body-fat-bmiTitle": "Afina tus objetivos de calorías",
+      "body-fat-bmiBody": "La composición corporal es la mitad del panorama — planifica calorías y macros a su alrededor con la calculadora TDEE."
     }
   },
   "home": {
@@ -765,6 +767,113 @@
           "answer": "Sí — el enlace compartible lleva tus datos exactos, la tarjeta de resultado se descarga como imagen y el calendario se exporta a CSV."
         }
       ]
+    },
+    "body-fat-bmi": {
+      "name": "Calculadora de Grasa Corporal e IMC",
+      "shortName": "Grasa corporal e IMC",
+      "metaTitle": "Calculadora de Grasa Corporal e IMC — Método Navy y Rangos",
+      "metaDescription": "Mide tu porcentaje de grasa corporal con el método Navy, calcula tu IMC y consulta masa grasa, masa magra y rangos saludables. Todo en tu navegador.",
+      "h1": "Calculadora de Grasa Corporal e IMC",
+      "intro": "Dos cifras clave de salud a partir de mediciones sencillas. Introduce sexo, edad, altura, peso y circunferencias de cuello y cintura (y cadera en mujeres) — el método Navy estima la grasa y el IMC revisa tu banda de peso.",
+      "keywords": [
+        "calculadora de grasa corporal",
+        "calculadora de IMC",
+        "fórmula Navy de grasa corporal",
+        "calculadora de composición corporal",
+        "calculadora de porcentaje de grasa"
+      ],
+      "features": [
+        "IMC con categoría de salud OMS",
+        "Fórmula Navy de grasa corporal",
+        "Desglose de masa grasa y magra",
+        "Rango ideal por edad",
+        "Cambio métrico/imperial + exportación CSV"
+      ],
+      "ui": {
+        "inputsTitle": "Tus medidas",
+        "gender": "Sexo",
+        "male": "Hombre",
+        "female": "Mujer",
+        "age": "Edad",
+        "height": "Altura",
+        "weight": "Peso",
+        "waist": "Cintura",
+        "neck": "Cuello",
+        "hip": "Cadera",
+        "hipHint": "Requerido para la fórmula femenina",
+        "bmi": "IMC",
+        "bodyFat": "Grasa corporal",
+        "fatMass": "Masa grasa",
+        "leanMass": "Masa magra",
+        "idealRange": "Rango ideal de grasa",
+        "idealHint": "Banda sana habitual para {gender}: {min}–{max} %",
+        "chartTitle": "Composición corporal",
+        "chartFat": "Masa grasa",
+        "chartLean": "Masa magra",
+        "bmiUnderweight": "Bajo peso",
+        "bmiNormal": "Normal",
+        "bmiOverweight": "Sobrepeso",
+        "bmiObese": "Obesidad",
+        "bfEssential": "Esencial",
+        "bfAthletic": "Atlético",
+        "bfFitness": "Fitness",
+        "bfAverage": "Promedio",
+        "bfHigh": "Alto"
+      },
+      "formula": {
+        "steps": [
+          "Calcula el IMC: peso (kg) dividido por altura (m) al cuadrado.",
+          "Convierte altura, cintura, cuello (y cadera en mujeres) a pulgadas.",
+          "Hombre: % grasa = 495 / (1,0324 − 0,19077·log10(cintura−cuello) + 0,15456·log10(altura)) − 450.",
+          "Mujer: % grasa = 495 / (1,29579 − 0,35004·log10(cintura+cadera−cuello) + 0,22100·log10(altura)) − 450."
+        ],
+        "intro": "El método de circunferencias Navy estima la grasa corporal a partir de la cinta métrica, y el IMC clasifica el peso frente a la altura. No se necesita ningún aparato especial: solo cinta y báscula.",
+        "note": "Las estimaciones con cinta son aproximadas; la grasa varía con la hidratación y la técnica. Los resultados son informativos, no un diagnóstico médico."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "¿Qué es el porcentaje de grasa corporal?",
+            "paragraphs": [
+              "El porcentaje de grasa corporal es la parte de tu peso total formada por tejido graso. El resto — músculo, hueso, órganos y agua — es tu masa magra.",
+              "El método Navy estima el porcentaje a partir de circunferencias, así que puedes seguir la composición sin báscula de grasa ni medición por impedancia."
+            ]
+          },
+          {
+            "heading": "IMC frente a grasa corporal: ¿por qué ambos?",
+            "paragraphs": [
+              "El IMC es un cribado rápido de peso frente a altura, pero no distingue músculo de grasa — un atleta musculoso puede salir \"con sobrepeso\" y tener poca grasa.",
+              "El porcentaje de grasa llena ese vacío. Comprobar ambos da una imagen más honesta de tu salud y tu progreso."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "¿Cómo se calcula aquí el porcentaje de grasa corporal?",
+          "answer": "Usa el método de circunferencias Navy con cintura, cuello y altura (más cadera en mujeres). Introduce las medidas en métrico o imperial y la estimación se actualiza al instante."
+        },
+        {
+          "question": "¿Qué es el método Navy?",
+          "answer": "Una fórmula de grasa corporal con cinta métrica creada originalmente para personal militar. Usa logaritmos de diferencias de circunferencias para estimar el porcentaje sin impedancia eléctrica."
+        },
+        {
+          "question": "¿Qué es un IMC saludable?",
+          "answer": "La OMS clasifica: bajo 18,5 bajo peso, 18,5–24,9 normal, 25–29,9 sobrepeso y 30+ obesidad. El IMC es un cribado, no un diagnóstico."
+        },
+        {
+          "question": "¿Qué es un porcentaje de grasa saludable?",
+          "answer": "Roughly el 8–24 % en hombres y el 21–36 % en mujeres según la edad, con deportistas en el extremo inferior. La calculadora muestra la banda habitual para tu sexo y edad."
+        },
+        {
+          "question": "¿Por qué discrepan el IMC y la grasa corporal?",
+          "answer": "El IMC solo compara peso con altura, así que el músculo cuenta igual que la grasa. El porcentaje de grasa los separa: por eso una persona en forma puede tener IMC alto y grasa sana."
+        },
+        {
+          "question": "¿Puedo guardar o compartir este resultado?",
+          "answer": "Sí — el enlace compartible lleva tus medidas exactas, la tarjeta se descarga como imagen y el resumen se exporta a CSV."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -811,6 +920,14 @@
   },
   "mortgagePresets": {
     "gridTitle": "Escenarios de hipoteca",
+    "gridSubtitle": "Salta a un ejemplo preconfigurado o empieza desde cero.",
+    "viewPreset": "Ver escenario",
+    "currentLabel": "Actual",
+    "benchmarkTitle": "Referencia del escenario",
+    "benchmarkIntro": "Cifras clave para {scenario}."
+  },
+  "bodyFatPresets": {
+    "gridTitle": "Escenarios de composición corporal",
     "gridSubtitle": "Salta a un ejemplo preconfigurado o empieza desde cero.",
     "viewPreset": "Ver escenario",
     "currentLabel": "Actual",

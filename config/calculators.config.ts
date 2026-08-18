@@ -86,6 +86,18 @@ export const calculators: readonly CalculatorMeta[] = [
     accent: 'from-orange-500/15 to-amber-500/5'
   },
   {
+    id: 'body-fat-bmi',
+    category: 'health',
+    slug: 'body-fat-bmi-calculator',
+    faqCount: 6,
+    updated: '2026-08-18',
+    priority: 0.9,
+    featured: true,
+    availableLocales: locales,
+    icon: 'activity',
+    accent: 'from-rose-500/15 to-pink-500/5'
+  },
+  {
     id: 'compound',
     category: 'finance',
     slug: 'compound-interest-calculator',

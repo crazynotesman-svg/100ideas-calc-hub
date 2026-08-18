@@ -30,7 +30,8 @@ const CALCULATORS = [
   { category: 'finance', slug: 'fire-compound-interest-calculator' },
   { category: 'health', slug: 'tdee-macro-calculator' },
   { category: 'finance', slug: 'compound-interest-calculator' },
-  { category: 'finance', slug: 'mortgage-calculator' }
+  { category: 'finance', slug: 'mortgage-calculator' },
+  { category: 'health', slug: 'body-fat-bmi-calculator' }
 ];
 
 // pSEO preset scenarios across every calculator — kept here so both the sitemap
@@ -63,7 +64,15 @@ const PRESETS = [
   { category: 'finance', slug: 'mortgage-calculator', scenario: '700k-house-10-percent-down' },
   { category: 'finance', slug: 'mortgage-calculator', scenario: 'mortgage-amortization-first-5-years' },
   { category: 'finance', slug: 'mortgage-calculator', scenario: '1-million-luxury-home-mortgage' },
-  { category: 'finance', slug: 'mortgage-calculator', scenario: 'rental-property-mortgage-calculator' }
+  { category: 'finance', slug: 'mortgage-calculator', scenario: 'rental-property-mortgage-calculator' },
+  { category: 'health', slug: 'body-fat-bmi-calculator', scenario: 'navy-body-fat-formula-calculator' },
+  { category: 'health', slug: 'body-fat-bmi-calculator', scenario: 'bmi-vs-body-fat-percentage' },
+  { category: 'health', slug: 'body-fat-bmi-calculator', scenario: 'female-body-fat-calculator' },
+  { category: 'health', slug: 'body-fat-bmi-calculator', scenario: 'ideal-body-fat-percentage-by-age' },
+  { category: 'health', slug: 'body-fat-bmi-calculator', scenario: 'body-fat-percentage-men-average' },
+  { category: 'health', slug: 'body-fat-bmi-calculator', scenario: 'bmi-calculator-weight-height' },
+  { category: 'health', slug: 'body-fat-bmi-calculator', scenario: 'lean-mass-body-composition' },
+  { category: 'health', slug: 'body-fat-bmi-calculator', scenario: 'weight-loss-body-fat-target' }
 ];
 
 // Every SSG content route that must appear in a sitemap and carry a clean

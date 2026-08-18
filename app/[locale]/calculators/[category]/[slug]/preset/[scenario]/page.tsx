@@ -59,6 +59,17 @@ import {
   presetRoute as mortgageRoute,
   mortgageInitialQuery
 } from '@/app/[locale]/calculators/[category]/[slug]/preset/mortgagePresets';
+import { BodyFatBmiCalculatorClient } from '@/components/calculators/health/BodyFatBmiCalculatorClient';
+import { calculateBodyFatBmi, type BodyFatBmiResult } from '@/lib/calculators/health/body-fat-bmi';
+import {
+  BODYFAT_CATEGORY,
+  BODYFAT_SLUG,
+  PRESET_SLUGS as BODYFAT_SLUGS,
+  PRESETS as BODYFAT_PRESETS,
+  getPreset as getBodyFat,
+  presetRoute as bodyFatRoute,
+  bodyFatInitialQuery
+} from '@/app/[locale]/calculators/[category]/[slug]/preset/bodyFatPresets';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { HrefLangAlternates } from '@/components/seo/HrefLangAlternates';
 import { isLocale, locales, localeMeta, type Locale } from '@/config/i18n.config';
@@ -85,7 +96,8 @@ export function generateStaticParams() {
     ...expand(FIRE_CATEGORY, FIRE_SLUG, FIRE_SLUGS),
     ...expand(SCHENGEN_CATEGORY, SCHENGEN_SLUG, SCHENGEN_SLUGS),
     ...expand(COMPOUND_CATEGORY, COMPOUND_SLUG, COMPOUND_SLUGS),
-    ...expand(MORTGAGE_CATEGORY, MORTGAGE_SLUG, MORTGAGE_SLUGS)
+    ...expand(MORTGAGE_CATEGORY, MORTGAGE_SLUG, MORTGAGE_SLUGS),
+    ...expand(BODYFAT_CATEGORY, BODYFAT_SLUG, BODYFAT_SLUGS)
   ];
   return locales.flatMap((l) => combos.map((c) => ({ locale: l, ...c })));
 }
@@ -126,6 +138,11 @@ export async function generateMetadata({
     if (!p) return {};
     preset = p;
     route = mortgageRoute(scenario);
+  } else if (slug === BODYFAT_SLUG) {
+    const p = getBodyFat(scenario);
+    if (!p) return {};
+    preset = p;
+    route = bodyFatRoute(scenario);
   } else {
     return {};
   }
@@ -150,7 +167,8 @@ export default async function PresetPage({
     category !== FIRE_CATEGORY &&
     category !== SCHENGEN_CATEGORY &&
     category !== COMPOUND_CATEGORY &&
-    category !== MORTGAGE_CATEGORY
+    category !== MORTGAGE_CATEGORY &&
+    category !== BODYFAT_CATEGORY
   )
     notFound();
   const l = locale as Locale;
@@ -249,6 +267,25 @@ export default async function PresetPage({
       />
     );
     benchmark = await MortgageBenchmark(l, r);
+  } else if (slug === BODYFAT_SLUG) {
+    const p = getBodyFat(scenario);
+    if (!p) notFound();
+    const r = calculateBodyFatBmi(p.defaultParams);
+    const loc = p.localized[l];
+    title = loc.title;
+    description = loc.description;
+    faqs = loc.faqs;
+    ns = 'bodyFatPresets';
+    presets = BODYFAT_PRESETS;
+    routeFor = bodyFatRoute;
+    calculatorNode = (
+      <BodyFatBmiCalculatorClient
+        initialState={p.defaultParams}
+        initialQuery={bodyFatInitialQuery(p)}
+        cardTitle={title}
+      />
+    );
+    benchmark = await BodyFatBmiBenchmark(l, r);
   } else {
     notFound();
     return;
@@ -262,7 +299,7 @@ export default async function PresetPage({
       <CalculatorLayout
         locale={l}
         meta={meta}
-        showUnitToggle={slug === TDEE_SLUG}
+        showUnitToggle={slug === TDEE_SLUG || slug === BODYFAT_SLUG}
         scenario={{
         name: title,
         description,
@@ -419,6 +456,36 @@ async function MortgageBenchmark(locale: Locale, r: MortgageResult) {
           <PresetStat label={t('interestSaved')} value={money.format(r.interestSaved)} accent />
         </>
       )}
+    </>
+  );
+}
+
+async function BodyFatBmiBenchmark(locale: Locale, r: BodyFatBmiResult) {
+  const t = await getTranslations({ locale, namespace: 'calculators.body-fat-bmi.ui' });
+  const nf1 = new Intl.NumberFormat(locale, { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+  const bmiLabel = {
+    underweight: t('bmiUnderweight'),
+    normal: t('bmiNormal'),
+    overweight: t('bmiOverweight'),
+    obese: t('bmiObese')
+  }[r.bmiCategory];
+  const bfLabel = {
+    essential: t('bfEssential'),
+    athletic: t('bfAthletic'),
+    fitness: t('bfFitness'),
+    average: t('bfAverage'),
+    high: t('bfHigh')
+  }[r.bodyFatCategory];
+  return (
+    <>
+      <PresetStat label={t('bmi')} value={`${nf1.format(r.bmi)} · ${bmiLabel}`} accent />
+      <PresetStat
+        label={t('bodyFat')}
+        value={`${nf1.format(r.bodyFatPercentage)}% · ${bfLabel}`}
+        accent
+      />
+      <PresetStat label={t('fatMass')} value={`${nf1.format(r.fatMassKg)} kg`} />
+      <PresetStat label={t('leanMass')} value={`${nf1.format(r.leanMassKg)} kg`} />
     </>
   );
 }

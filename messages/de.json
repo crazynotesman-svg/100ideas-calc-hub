@@ -83,7 +83,9 @@
       "mortgageTitle": "Aus der Hypothek einen Ruhestandsplan machen",
       "mortgageBody": "Wenn die Rate unter Kontrolle ist, modelliere mit dem FIRE-Rechner, wie derselbe monatliche Cashflow Vermögen aufbaut.",
       "secondaryTitle": "Den Anlageweg vergleichen",
-      "secondaryBody": "Sieh, wozu dieselbe Monatsrate mit dem {name} wachsen könnte."
+      "secondaryBody": "Sieh, wozu dieselbe Monatsrate mit dem {name} wachsen könnte.",
+      "body-fat-bmiTitle": "Kalorienziele verfeinern",
+      "body-fat-bmiBody": "Die Körperzusammensetzung ist eine Hälfte des Bildes — plane Kalorien und Makros darum herum mit dem TDEE-Rechner."
     }
   },
   "home": {
@@ -765,6 +767,113 @@
           "answer": "Ja — der Teillink trägt deine exakten Eingaben, die Ergebniskarte lässt sich als Bild herunterladen und der Jahresplan als CSV exportieren."
         }
       ]
+    },
+    "body-fat-bmi": {
+      "name": "Körperfett- und BMI-Rechner",
+      "shortName": "Körperfett & BMI",
+      "metaTitle": "Körperfett- & BMI-Rechner — Navy-Methode, gesunde Werte",
+      "metaDescription": "Körperfettanteil mit der US-Navy-Methode messen, BMI berechnen und Fettmasse, fettfreie Masse sowie gesunde Bereiche sehen. Läuft komplett im Browser.",
+      "h1": "Körperfett- und BMI-Rechner",
+      "intro": "Zwei wichtige Gesundheitszahlen aus einfachen Messungen. Geschlecht, Alter, Größe, Gewicht sowie Hals- und Taillenumfang (bei Frauen auch Hüfte) eingeben — die Navy-Methode schätzt das Körperfett, der BMI prüft die Gewichtsklasse.",
+      "keywords": [
+        "Körperfettrechner",
+        "BMI-Rechner",
+        "Navy-Methode Körperfett",
+        "Körperzusammensetzung Rechner",
+        "Körperfettanteil Rechner"
+      ],
+      "features": [
+        "BMI mit WHO-Kategorie",
+        "US-Navy-Körperfettformel",
+        "Fettmasse & fettfreie Masse",
+        "Altersbasierter Idealbereich",
+        "Metrisch / imperial + CSV-Export"
+      ],
+      "ui": {
+        "inputsTitle": "Deine Messwerte",
+        "gender": "Geschlecht",
+        "male": "Männlich",
+        "female": "Weiblich",
+        "age": "Alter",
+        "height": "Größe",
+        "weight": "Gewicht",
+        "waist": "Taille",
+        "neck": "Hals",
+        "hip": "Hüfte",
+        "hipHint": "Für die weibliche Formel erforderlich",
+        "bmi": "BMI",
+        "bodyFat": "Körperfett",
+        "fatMass": "Fettmasse",
+        "leanMass": "Fettfreie Masse",
+        "idealRange": "Idealer Körperfettbereich",
+        "idealHint": "Übliche gesunde Bandbreite für {gender}: {min}–{max} %",
+        "chartTitle": "Körperzusammensetzung",
+        "chartFat": "Fettmasse",
+        "chartLean": "Fettfreie Masse",
+        "bmiUnderweight": "Untergewicht",
+        "bmiNormal": "Normal",
+        "bmiOverweight": "Übergewicht",
+        "bmiObese": "Adipositas",
+        "bfEssential": "Essenziell",
+        "bfAthletic": "Athletisch",
+        "bfFitness": "Fitness",
+        "bfAverage": "Durchschnitt",
+        "bfHigh": "Hoch"
+      },
+      "formula": {
+        "steps": [
+          "BMI berechnen: Gewicht (kg) geteilt durch Größe (m) zum Quadrat.",
+          "Größe, Taille, Hals (und Hüfte bei Frauen) in Zoll umrechnen.",
+          "Männlich: Körperfett % = 495 / (1,0324 − 0,19077·log10(Taille−Hals) + 0,15456·log10(Größe)) − 450.",
+          "Weiblich: Körperfett % = 495 / (1,29579 − 0,35004·log10(Taille+Hüfte−Hals) + 0,22100·log10(Größe)) − 450."
+        ],
+        "intro": "Die US-Navy-Maßbandmethode schätzt Körperfett aus Umfängen, und der BMI ordnet Gewicht gegen Größe ein. Beides braucht kein Spezialgerät — nur Maßband und Waage.",
+        "note": "Maßbandschätzungen sind Näherungswerte; der Körperfettanteil variiert mit Hydration und Messtechnik. Die Ergebnisse sind informativ, keine ärztliche Diagnose."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Was ist der Körperfettanteil?",
+            "paragraphs": [
+              "Der Körperfettanteil ist der Anteil deines Gesamtgewichts, der aus Fettgewebe besteht. Der Rest — Muskeln, Knochen, Organe und Wasser — ist deine fettfreie Masse.",
+              "Die US-Navy-Methode schätzt den Anteil aus Umfängen, sodass du Kompositionsänderungen ohne Waage oder Impedanzmessung verfolgen kannst."
+            ]
+          },
+          {
+            "heading": "BMI vs. Körperfett: warum beides?",
+            "paragraphs": [
+              "Der BMI ist ein schneller Gewicht-Größe-Screen, kann aber Muskel nicht von Fett unterscheiden — ein muskulöser Sportler kann \"übergewichtig\" lesen und wenig Fett tragen.",
+              "Der Körperfettanteil schließt diese Lücke. Beides zu prüfen ergibt ein ehrlicheres Bild von Gesundheit und Fortschritt."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Wie wird der Körperfettanteil hier berechnet?",
+          "answer": "Mit der US-Navy-Umfangsmethode aus Taille, Hals und Größe (plus Hüfte bei Frauen). Maßangaben in metrisch oder imperial eingeben und die Schätzung aktualisiert sich sofort."
+        },
+        {
+          "question": "Was ist die US-Navy-Methode?",
+          "answer": "Eine Maßband-Körperfettformel, ursprünglich für Militärangehörige entwickelt. Sie nutzt Logarithmen von Umfangsdifferenzen, um den Fettanteil ohne elektrische Impedanz zu schätzen."
+        },
+        {
+          "question": "Was ist ein gesunder BMI?",
+          "answer": "Die WHO stuft unter 18,5 als Untergewicht, 18,5–24,9 als normal, 25–29,9 als übergewichtig und ab 30 als Adipositas ein. Der BMI ist ein Screening, keine Diagnose."
+        },
+        {
+          "question": "Was ist ein gesunder Körperfettanteil?",
+          "answer": "Je nach Alter grob 8–24 % bei Männern und 21–36 % bei Frauen, Sportler liegen am unteren Ende. Der Rechner zeigt die übliche Bandbreite für Geschlecht und Alter."
+        },
+        {
+          "question": "Warum weichen BMI und Körperfett ab?",
+          "answer": "Der BMI vergleicht nur Gewicht mit Größe, also zählt Muskel wie Fett. Der Körperfettanteil trennt beides — daher kann ein Fitnesstyp hohen BMI und gesundes Körperfett haben."
+        },
+        {
+          "question": "Kann ich dieses Ergebnis speichern oder teilen?",
+          "answer": "Ja — der Teillink trägt deine exakten Maße, die Ergebniskarte lässt sich als Bild herunterladen und die Zusammenfassung als CSV exportieren."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -811,6 +920,14 @@
   },
   "mortgagePresets": {
     "gridTitle": "Hypothekenszenarien",
+    "gridSubtitle": "Zu einem vorbefüllten Beispiel springen oder von null starten.",
+    "viewPreset": "Szenario ansehen",
+    "currentLabel": "Aktuell",
+    "benchmarkTitle": "Szenario-Kennzahlen",
+    "benchmarkIntro": "Kennzahlen für {scenario}."
+  },
+  "bodyFatPresets": {
+    "gridTitle": "Körperzusammensetzungs-Szenarien",
     "gridSubtitle": "Zu einem vorbefüllten Beispiel springen oder von null starten.",
     "viewPreset": "Szenario ansehen",
     "currentLabel": "Aktuell",
