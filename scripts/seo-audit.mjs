@@ -57,7 +57,10 @@ for (const locale of locales) {
     problems.push(check(canonical === expectedCanonical, `canonical=${canonical}`));
 
     // --- Rule 1: hreflang set
-    const alternates = [...html.matchAll(/rel="alternate" hrefLang="([^"]+)" href="([^"]+)"/g)].map(
+    // Match the reciprocal hreflang <link> set. The attribute is emitted as lowercase
+    // `hreflang` (correct HTML); the regex is case-insensitive and order-tolerant so the
+    // audit validates the canonical serialization rather than the old camelCase quirk.
+    const alternates = [...html.matchAll(/rel="alternate"[^>]*?hreflang="([^"]+)"[^>]*?href="([^"]+)"/gi)].map(
       (m) => [m[1], m[2]]
     );
     const map = Object.fromEntries(alternates);
