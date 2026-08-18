@@ -32,11 +32,17 @@ Shadcn 风格手写原语 · Zustand（单位制）· Recharts 2.15（仅 FIRE�
 
 ## 质量门禁（改完必跑）
 ```
-npm run typecheck && npm run build      # 类型 + 25 页静态预渲染
+npm run typecheck && npm run build      # 类型 + 静态预渲染（现 110 页：4 计算器 base + 预设）
 npx next start -p 3311                  # 另起终端
-npm run audit:seo -- http://127.0.0.1:3311      # 20 页 SEO 断言
+npm run audit:preindex -- http://127.0.0.1:3311  # 预索引 SEO 断言（canonical/hreflang/JSON-LD/sitemap 覆盖）
+npm run audit:seo -- http://127.0.0.1:3311      # SEO 断言（标题/描述长度、hreflang 计数等）
 npm run audit:engines -- http://127.0.0.1:3311  # 引擎数值对照
 ```
+- **新增计算器时，必须同步扩展审计脚本里的硬编码路由清单**：`scripts/preindex-check.mjs`
+  （`CALCULATORS` + `PRESETS`）、`scripts/seo-audit.mjs`（`routes`）。否则审计会"通过"但根本不校验
+  新页面——上次复利计算器就因此漏掉 es 标题超长(86>75)、zh 描述过短(38<51) 两个真实 SEO 缺陷。
+- 关键约束：`metaTitle` 渲染值 = i18n 值 + ` | CalcAtlas`（12 字符后缀），故 i18n 值须 ≤ 63 才满足 ≤75；
+  `metaDescription` 须 > 50 且 ≤ 320 字符。
 
 ## 内容规模
 `config/calculators.config.ts` 是唯一索引（驱动路由/sitemap/JSON-LD/列表）。
