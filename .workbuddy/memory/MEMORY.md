@@ -30,6 +30,23 @@ Shadcn 风格手写原语 · Zustand（单位制）· Recharts 2.15（仅 FIRE�
 - `NEXT_PUBLIC_SITE_URL` 兜底已改 `https://calc.100ideas.net`（config/site.config.ts）。
 - 本地 `wrangler dev` 预览在本沙箱会因 workerd/esbuild panic 崩溃（环境限制），但 `cf:build` 产物正常，云端 `wrangler deploy` 不受影响。
 
+### 关键坑：纯 SSG 预渲染动态路由在 Workers 上 404（GSC `sitemap-presets.xml` 无法抓取根因）
+- **现象**：`/preset/[scenario]` 等 `dynamicParams=false` 的预渲染动态路由在 Cloudflare Workers 上**全部返回 404**，
+  而基础计算器页（静态文件）正常 200。GSC 因 sitemap 内 URL 大面积 404，将 `sitemap-presets.xml` 标记为「无法抓取」。
+- **排除项**：Cloudflare Builds UI 的 **Cache 开关无关**（启用并重新部署后 preset 仍 404）。
+- **根因与修复**：OpenNext for Cloudflare 默认增量缓存为 in-memory，**不跨 Worker 实例持久化**，故 `dynamicParams=false`
+  的预渲染结果在边缘读不到 → 404。纯 SSG 站必须在 `open-next.config.ts` 显式配置只读 Static Assets 增量缓存：
+  ```ts
+  import staticAssetsIncrementalCache from "@opennextjs/cloudflare/overrides/incremental-cache/static-assets-incremental-cache";
+  export default defineCloudflareConfig({
+    incrementalCache: staticAssetsIncrementalCache,
+    enableCacheInterception: true,
+  });
+  ```
+  配置后 `cf:build` 会生成 `.open-next/cache/**/*.cache`（preset 页 + sitemap 本身），由 Static Assets 直接服务，preset 页转 200。
+- **沙箱网络限制**：本沙箱对 `github.com` 的 egress 经代理返回 502（api.github.com / cloudflare.com 正常），
+  故 `git push origin main` 无法在此环境完成，需用户在自有网络（绕过沙箱代理）执行推送以触发 Cloudflare Workers Builds 自动部署。
+
 ## 质量门禁（改完必跑）
 ```
 npm run typecheck && npm run build      # 类型 + 静态预渲染（现 110 页：4 计算器 base + 预设）

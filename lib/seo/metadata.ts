@@ -43,7 +43,10 @@ export function buildMetadata(input: BuildMetadataInput): Metadata {
     title,
     description,
     keywords,
-    alternates,
+    // NOTE: `languages` (the full hreflang set) is intentionally NOT passed here.
+    // Next.js serialises `alternates.languages` as `hrefLang` (camelCase); the
+    // correct lowercase `hreflang` links are rendered by <HrefLangAlternates /> instead.
+    alternates: { canonical: alternates.canonical },
     metadataBase: new URL(siteConfig.url),
     robots: index
       ? {

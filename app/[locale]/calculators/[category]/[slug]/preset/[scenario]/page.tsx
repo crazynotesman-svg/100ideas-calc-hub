@@ -49,6 +49,7 @@ import {
   compoundInitialQuery
 } from '@/app/[locale]/calculators/[category]/[slug]/preset/compoundInterestPresets';
 import { buildMetadata } from '@/lib/seo/metadata';
+import { HrefLangAlternates } from '@/components/seo/HrefLangAlternates';
 import { isLocale, locales, localeMeta, type Locale } from '@/config/i18n.config';
 import { calculatorRoute, getCalculator } from '@/config/calculators.config';
 
@@ -219,11 +220,13 @@ export default async function PresetPage({
   const tPreset = await getTranslations({ locale: l, namespace: ns });
 
   return (
-    <CalculatorLayout
-      locale={l}
-      meta={meta}
-      showUnitToggle={slug === TDEE_SLUG}
-      scenario={{
+    <>
+      <HrefLangAlternates route={routeFor(scenario)} locale={l} />
+      <CalculatorLayout
+        locale={l}
+        meta={meta}
+        showUnitToggle={slug === TDEE_SLUG}
+        scenario={{
         name: title,
         description,
         faqs,
@@ -256,6 +259,7 @@ export default async function PresetPage({
         {calculatorNode}
       </>
     </CalculatorLayout>
+    </>
   );
 }
 

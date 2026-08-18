@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { CalculatorCard } from '@/components/site/CalculatorCard';
 import { AdSlot } from '@/components/calculator/AdSlot';
-import { locales, isLocale } from '@/config/i18n.config';
+import { locales, isLocale, type Locale } from '@/config/i18n.config';
+import { HrefLangAlternates } from '@/components/seo/HrefLangAlternates';
 import {
   calculators,
   calculatorRoute,
@@ -55,6 +56,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
 
   return (
     <>
+      <HrefLangAlternates route="/" locale={locale as Locale} />
       {/* ----------------------------------------------------------------- hero */}
       <section className="border-b bg-gradient-to-b from-muted/60 to-background">
         <div className="container py-14 sm:py-20">

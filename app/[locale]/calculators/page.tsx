@@ -5,7 +5,8 @@ import { Breadcrumbs } from '@/components/site/Breadcrumbs';
 import { CalculatorCard } from '@/components/site/CalculatorCard';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { AdSlot } from '@/components/calculator/AdSlot';
-import { locales, isLocale } from '@/config/i18n.config';
+import { locales, isLocale, type Locale } from '@/config/i18n.config';
+import { HrefLangAlternates } from '@/components/seo/HrefLangAlternates';
 import { absoluteUrl } from '@/config/site.config';
 import {
   calculators,
@@ -61,6 +62,7 @@ export default async function CalculatorsIndexPage({
 
   return (
     <>
+      <HrefLangAlternates route="/calculators" locale={locale as Locale} />
       <JsonLd
         id="calculators-index-schema"
         data={graph([

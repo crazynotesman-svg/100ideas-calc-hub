@@ -11,6 +11,7 @@ import { PRESETS as COMPOUND_PRESETS, presetRoute as compoundRoute } from '@/app
 import { locales, isLocale, type Locale } from '@/config/i18n.config';
 import { calculators, getCalculator, calculatorRoute } from '@/config/calculators.config';
 import { buildMetadata } from '@/lib/seo/metadata';
+import { HrefLangAlternates } from '@/components/seo/HrefLangAlternates';
 
 /**
  * One dynamic route serves every calculator in every locale.
@@ -125,13 +126,16 @@ export default async function CalculatorPage({ params: { locale, category, slug 
     ) : undefined;
 
   return (
-    <CalculatorLayout
-      locale={locale as Locale}
-      meta={meta}
-      showUnitToggle={unitAware.has(meta.id)}
-      bottomSlot={bottomSlot}
-    >
-      <Calculator />
-    </CalculatorLayout>
+    <>
+      <HrefLangAlternates route={calculatorRoute(meta)} locale={locale as Locale} />
+      <CalculatorLayout
+        locale={locale as Locale}
+        meta={meta}
+        showUnitToggle={unitAware.has(meta.id)}
+        bottomSlot={bottomSlot}
+      >
+        <Calculator />
+      </CalculatorLayout>
+    </>
   );
 }
