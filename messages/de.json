@@ -77,7 +77,9 @@
       "fireTitle": "Prüfe deine Schengen-Visumsfrist",
       "fireBody": "Wenn früher Ruhestand Europa-Reisen bedeutet, halte deinen 90/180-Tage-Aufenthalt mit dem Schengen-Visum-Rechner regelkonform.",
       "schengenTitle": "Unterwegs gesund bleiben",
-      "schengenBody": "Verfolge deine Kalorien und Makros auf Reisen und halte deine Ernährung mit dem TDEE-Rechner im Blick."
+      "schengenBody": "Verfolge deine Kalorien und Makros auf Reisen und halte deine Ernährung mit dem TDEE-Rechner im Blick.",
+      "compoundTitle": "Möchtest du wissen, ob dieses Wachstum für den frühen Ruhestand reicht?",
+      "compoundBody": "Verwandle dein projiziertes Guthaben mit dem FIRE-Rechner in einen Finanzunabhängigkeits-Plan."
     }
   },
   "home": {
@@ -535,6 +537,123 @@
           "answer": "Ja. Der Grundumsatz skaliert mit dem Körpergewicht. Rechnen Sie nach jeweils 3–4 kg Veränderung neu, in einer aktiven Phase etwa einmal pro Monat, damit Defizit oder Überschuss die geplante Größe behalten."
         }
       ]
+    },
+    "compound": {
+      "name": "Zinseszins-Rechner",
+      "shortName": "Zinseszins",
+      "metaTitle": "Zinseszins-Rechner — Anlagewachstum projizieren",
+      "metaDescription": "Schätze, wie Sparbeträge und monatliche Einzahlungen mit Zinseszins wachsen. Kostenloses Tool mit Jahresaufstellung und teilbarer Ergebniskarte.",
+      "h1": "Zinseszins-Rechner",
+      "intro": "Sieh, wie reinvestierte Renditen dein Vermögen mit der Zeit beschleunigen. Gib einen Startbetrag, eine monatliche Einzahlung und eine Jahresrendite ein, um dein Guthaben Jahr für Jahr zu projizieren.",
+      "keywords": [
+        "zinseszins rechner",
+        "anlagewachstum rechner",
+        "sparrechner",
+        "zinseszins formel",
+        "zukunftswert rechner"
+      ],
+      "features": [
+        "Jahresaufstellung des Wachstums",
+        "Aufschlüsselung von Endwert, Prinzipal & Zinsen",
+        "Zinseszins-Formel erklärt",
+        "Teilbare Ergebniskarte"
+      ],
+      "ui": {
+        "inputsTitle": "Deine Eingaben",
+        "initialPrincipal": "Anfangsprinzipal",
+        "monthlyContribution": "Monatliche Einzahlung",
+        "annualReturn": "Jahresrendite",
+        "years": "Jahre",
+        "compoundingFrequency": "Zinsfrequenz",
+        "frequencyAnnual": "Jährlich",
+        "frequencySemiannual": "Halbjährlich",
+        "frequencyQuarterly": "Vierteljährlich",
+        "frequencyMonthly": "Monatlich",
+        "futureValue": "Zukunftswert",
+        "futureValueHint": "Projiziertes Guthaben am Laufzeitende",
+        "totalPrincipal": "Investiertes Prinzipal",
+        "totalInterest": "Erhaltene Zinsen",
+        "interestRatio": "Zinsen sind {percent}% des Endwerts",
+        "interestRatioLabel": "Zinsen zu Prinzipal",
+        "cagr": "Ø jährliches Wachstum (CAGR)",
+        "chartTitle": "Wachstum über die Zeit",
+        "chartBalance": "Guthaben",
+        "chartContributed": "Investiertes Prinzipal",
+        "chartInterest": "Erhaltene Zinsen",
+        "tableTitle": "Jahresaufstellung",
+        "tableYear": "Jahr",
+        "tableBalance": "Guthaben",
+        "tableContributed": "Prinzipal",
+        "tableInterest": "Zinsen"
+      },
+      "formula": {
+        "steps": [
+          "Beginne mit deinem Anfangsprinzipal P.",
+          "Jede Zinsperiode erwirtschaftet das Guthaben die Periodenrate r/n, dann wird die Periodeneinzahlung addiert.",
+          "Wiederhole das für n Zinsperioden pro Jahr über alle t Jahre.",
+          "Das Endguthaben A ist dein Zukunftswert; ziehe die Einzahlungen ab, um die Zinsen zu ermitteln."
+        ],
+        "intro": "Zinseszins bedeutet, dass du Rendite auf deine Rendite erzielst. Je öfter Zinsen anfallen, desto schneller wächst das Guthaben.",
+        "note": "Die Zahlen sind nominal und ohne Steuern, Gebühren und Inflation. Sie dienen der Veranschaulichung, nicht als Finanzberatung."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Was ist Zinseszins?",
+            "paragraphs": [
+              "Zinseszins bedeutet, dass die erwirtschafteten Zinsen reinvestiert werden, sodass künftige Zinsen auf ein höheres Guthaben berechnet werden.",
+              "Über lange Zeiträume übertrifft dieser Schneeballeffekt den Einfluss deiner ursprünglichen Einzahlung bei weitem."
+            ]
+          },
+          {
+            "heading": "Wie oft sollte verzinst werden?",
+            "paragraphs": [
+              "Häufigeres Verzinsen (monatlich statt jährlich) bringt etwas mehr Wachstum, weil Zinsen früher zu erwirtschaften beginnen.",
+              "Unser Rechner verzinst standardmäßig monatlich — der gängigste Rhythmus für Broker- und Rentenkonten."
+            ],
+            "list": [
+              "Jährlich (n=1)",
+              "Halbjährlich (n=2)",
+              "Vierteljährlich (n=4)",
+              "Monatlich (n=12)"
+            ]
+          },
+          {
+            "heading": "Das Beste aus dem Zinseszins machen",
+            "paragraphs": [
+              "Starte früh — die Zeit ist der größte Hebel auf das Endguthaben.",
+              "Zahle konstant ein und reinvestiere Dividenden, um den Schneeball zu maximieren.",
+              "Selbst bescheidene monatliche Beträge wachsen über Jahrzehnte zu großen Summen."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Was ist die Zinseszins-Formel?",
+          "answer": "Der Zukunftswert verbindet das verzinste Prinzipal P(1 + r/n)^(nt) mit dem verzinsten Wert der Periodeneinzahlungen. Unser Rechner wendet jede Periode den Zins an und addiert deine Einzahlung, wiederholt über die gesamte Laufzeit."
+        },
+        {
+          "question": "Macht die Zinsfrequenz einen Unterschied?",
+          "answer": "Ja, aber geringfügig. Monatliche Verzinsung schlägt jährliche knapp, weil Zinsen früher zu erwirtschaften beginnen. Der Rechner lässt dich Zeitpläne vergleichen."
+        },
+        {
+          "question": "Sind meine Renditen garantiert?",
+          "answer": "Nein. Die Zahlen sind deterministische Projektionen mit der von dir eingegebenen Rate; reale Märkte schwanken, und das Ergebnis ignoriert Steuern, Gebühren und Inflation."
+        },
+        {
+          "question": "Wie helfen regelmäßige Einzahlungen?",
+          "answer": "Konstante monatliche Einzahlungen fügen neues Prinzipal hinzu, das dann verzinst wird — oft mehr zum Endguthaben beiträgt als der anfängliche Betrag über lange Zeiträume."
+        },
+        {
+          "question": "Warum wächst das Guthaben später schneller?",
+          "answer": "Weil die Zinsen jeder Periode auf ein höheres Guthaben berechnet werden. Der Schneeball beschleunigt, sobald der verzinste Betrag deine Einzahlungen überholt."
+        },
+        {
+          "question": "Kann ich mein Ergebnis teilen oder speichern?",
+          "answer": "Ja — nutze die teilbare Ergebniskarte, um ein SVG herunterzuladen oder einen Link zu kopieren, der deine genauen Eingaben bewahrt."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -570,5 +689,13 @@
     "disclaimer": "CalcAtlas liefert ausschließlich informative Schätzungen. Prüfen Sie Visumregeln beim zuständigen Konsulat und ziehen Sie für finanzielle oder medizinische Entscheidungen qualifizierte Fachleute hinzu.",
     "rights": "Alle Rechte vorbehalten.",
     "builtWith": "Statisch erzeugt, über das Edge-Netz ausgeliefert, vollständig clientseitig berechnet."
+  },
+  "compoundPresets": {
+    "gridTitle": "Zinseszins-Szenarien",
+    "gridSubtitle": "Springe zu einem voreingestellten Beispiel oder starte von Null.",
+    "viewPreset": "Szenario ansehen",
+    "currentLabel": "Aktuell",
+    "benchmarkTitle": "Szenario-Benchmark",
+    "benchmarkIntro": "Kennzahlen für {scenario}."
   }
 }

@@ -6,20 +6,22 @@ import { Activity, ArrowRight, Plane, TrendingUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { calculatorRoute, getCalculatorById, type CalculatorMeta } from '@/config/calculators.config';
 
-const NEXT: Record<string, string> = { tdee: 'fire', fire: 'schengen', schengen: 'tdee' };
+const NEXT: Record<string, string> = { tdee: 'fire', fire: 'schengen', schengen: 'tdee', compound: 'fire' };
 const ICON = { plane: Plane, 'trending-up': TrendingUp, activity: Activity } as const;
 const RING: Record<string, string> = {
   fire: 'border-emerald-500/30 bg-emerald-500/5',
   schengen: 'border-sky-500/30 bg-sky-500/5',
-  tdee: 'border-orange-500/30 bg-orange-500/5'
+  tdee: 'border-orange-500/30 bg-orange-500/5',
+  compound: 'border-violet-500/30 bg-violet-500/5'
 };
 const CHIP: Record<string, string> = {
   fire: 'bg-emerald-500/15 text-emerald-600',
   schengen: 'bg-sky-500/15 text-sky-600',
-  tdee: 'bg-orange-500/15 text-orange-600'
+  tdee: 'bg-orange-500/15 text-orange-600',
+  compound: 'bg-violet-500/15 text-violet-600'
 };
 
-type CalcId = 'tdee' | 'fire' | 'schengen';
+type CalcId = 'tdee' | 'fire' | 'schengen' | 'compound';
 
 interface CrossCalcBridgeProps {
   from: CalcId;

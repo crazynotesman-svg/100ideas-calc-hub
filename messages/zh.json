@@ -77,7 +77,9 @@
       "fireTitle": "核对你的申根签证时钟",
       "fireBody": "如果提前退休意味着走遍欧洲，用申根签证计算器确保你的 90/180 天停留合规。",
       "schengenTitle": "旅行中保持健康",
-      "schengenBody": "在路上追踪热量与宏量营养素，用 TDEE 计算器维持营养计划。"
+      "schengenBody": "在路上追踪热量与宏量营养素，用 TDEE 计算器维持营养计划。",
+      "compoundTitle": "想知道这笔增长能否覆盖提前退休？",
+      "compoundBody": "用 FIRE 计算器把你的预计余额变成一份财务独立计划。"
     }
   },
   "home": {
@@ -535,6 +537,123 @@
           "answer": "需要。BMR 随体重变化，因此每减增 3–4 公斤，或在积极调整期内大约每月一次，都应重新计算，以保持缺口或盈余处于预期幅度。"
         }
       ]
+    },
+    "compound": {
+      "name": "复利计算器",
+      "shortName": "复利",
+      "metaTitle": "复利计算器 — 测算投资增长",
+      "metaDescription": "估算本金与每月定投在复利效应下的长期资产增长。免费在线工具，提供逐年明细表、可视化增长图表以及可一键分享的结果卡片。",
+      "h1": "复利计算器",
+      "intro": "看看再投资收益如何随时间加速财富积累。输入起步本金、每月定投与年化回报，逐年测算你的余额。",
+      "keywords": [
+        "复利计算器",
+        "投资增长计算器",
+        "储蓄计算器",
+        "复利公式",
+        "未来价值计算器"
+      ],
+      "features": [
+        "逐年增长明细表",
+        "未来价值、本金与利息拆解",
+        "复利公式讲解",
+        "可分享结果卡片"
+      ],
+      "ui": {
+        "inputsTitle": "你的输入",
+        "initialPrincipal": "初始本金",
+        "monthlyContribution": "每月定投",
+        "annualReturn": "年化回报",
+        "years": "年数",
+        "compoundingFrequency": "复利频率",
+        "frequencyAnnual": "每年",
+        "frequencySemiannual": "每半年",
+        "frequencyQuarterly": "每季",
+        "frequencyMonthly": "每月",
+        "futureValue": "未来价值",
+        "futureValueHint": "期限结束时的预计余额",
+        "totalPrincipal": "累计投入本金",
+        "totalInterest": "赚得利息",
+        "interestRatio": "利息占最终价值的 {percent}%",
+        "interestRatioLabel": "利息 vs 本金",
+        "cagr": "平均年增长 (CAGR)",
+        "chartTitle": "随时间增长",
+        "chartBalance": "余额",
+        "chartContributed": "投入本金",
+        "chartInterest": "赚得利息",
+        "tableTitle": "逐年明细",
+        "tableYear": "年份",
+        "tableBalance": "余额",
+        "tableContributed": "本金",
+        "tableInterest": "利息"
+      },
+      "formula": {
+        "steps": [
+          "从初始本金 P 开始。",
+          "每个复利周期，余额先按周期利率 r/n 生息，再加入当期定投。",
+          "在全部 t 年里，每年重复 n 个复利周期。",
+          "最终余额 A 即未来价值；减去累计本金即为赚得的利息。"
+        ],
+        "intro": "复利意味着你对本息再投资，于是利息也会生息。复利越频繁，余额增长越快。",
+        "note": "数字为名义值，未计税费与通胀，仅作示意，不构成投资建议。"
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "什么是复利？",
+            "paragraphs": [
+              "复利是把赚到的利息再投资，于是未来的利息按更大的本金计算。",
+              "在长周期下，这种滚雪球效应会远远盖过原始本金的作用。"
+            ]
+          },
+          {
+            "heading": "复利应该多频繁？",
+            "paragraphs": [
+              "更频繁的复利（月 vs 年）会带来略多的增长，因为利息更早开始生息。",
+              "我们的计算器默认按月复利，这是券商与退休账户最常见的节奏。"
+            ],
+            "list": [
+              "每年 (n=1)",
+              "每半年 (n=2)",
+              "每季 (n=4)",
+              "每月 (n=12)"
+            ]
+          },
+          {
+            "heading": "把复利用到极致",
+            "paragraphs": [
+              "尽早开始——时间是影响最终余额最大的杠杆。",
+              "持续定投并再投资分红，让雪球滚得更大。",
+              "即便小额月投，几十年后也会复合成可观的财富。"
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "复利公式是什么？",
+          "answer": "未来价值由两部分组成：复利的本金 P(1 + r/n)^(nt)，以及各期定投的复利终值。我们的计算器每个周期先计息再加定投，在整个期限内重复。"
+        },
+        {
+          "question": "复利频率重要吗？",
+          "answer": "重要，但差别不大。按月复利略优于按年，因为利息更早开始生息。计算器支持你比较不同节奏。"
+        },
+        {
+          "question": "我的回报有保证吗？",
+          "answer": "没有。数字是用你输入的利率做的确定性测算；真实市场会波动，且结果未计税费与通胀。"
+        },
+        {
+          "question": "定期定投有什么帮助？",
+          "answer": "稳定的月投不断注入新本金并随后复利，在长周期里往往比初始一次性投入贡献更多最终余额。"
+        },
+        {
+          "question": "为什么后期余额增长更快？",
+          "answer": "因为每个周期的利息是按更大的余额计算的。当复利金额超过你的本金投入，雪球便加速滚动。"
+        },
+        {
+          "question": "能分享或保存我的结果吗？",
+          "answer": "可以——用可分享结果卡片下载 SVG，或复制一条保留你精确输入的链接。"
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -570,5 +689,13 @@
     "disclaimer": "CalcAtlas 仅提供信息性估算。签证规则请向相关领事机构核实；财务或医疗决策请咨询具备资质的专业人士。",
     "rights": "保留所有权利。",
     "builtWith": "静态构建、边缘分发，全部计算在客户端完成。"
+  },
+  "compoundPresets": {
+    "gridTitle": "复利场景",
+    "gridSubtitle": "跳到预填好的例子，或从零开始。",
+    "viewPreset": "查看场景",
+    "currentLabel": "当前",
+    "benchmarkTitle": "场景基准",
+    "benchmarkIntro": "{scenario} 的关键数据。"
   }
 }

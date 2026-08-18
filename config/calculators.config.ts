@@ -84,6 +84,18 @@ export const calculators: readonly CalculatorMeta[] = [
     availableLocales: locales,
     icon: 'activity',
     accent: 'from-orange-500/15 to-amber-500/5'
+  },
+  {
+    id: 'compound',
+    category: 'finance',
+    slug: 'compound-interest-calculator',
+    faqCount: 6,
+    updated: '2026-08-17',
+    priority: 0.9,
+    featured: true,
+    availableLocales: locales,
+    icon: 'trending-up',
+    accent: 'from-violet-500/15 to-fuchsia-500/5'
   }
 ] as const;
 

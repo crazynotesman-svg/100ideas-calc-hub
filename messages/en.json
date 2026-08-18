@@ -77,7 +77,9 @@
       "fireTitle": "Check your Schengen visa clock",
       "fireBody": "If early retirement means traveling Europe, keep your 90/180-day stay inside the rules with the Schengen Visa Calculator.",
       "schengenTitle": "Stay healthy while traveling",
-      "schengenBody": "Track your calories and macros on the road and keep your nutrition on track with the TDEE Calculator."
+      "schengenBody": "Track your calories and macros on the road and keep your nutrition on track with the TDEE Calculator.",
+      "compoundTitle": "Want to know if this growth covers early retirement?",
+      "compoundBody": "Turn your projected balance into a financial-independence plan with the FIRE Calculator."
     }
   },
   "home": {
@@ -535,6 +537,123 @@
           "answer": "Yes. BMR scales with bodyweight, so recalculate after every 3–4 kg of change, or roughly once a month during an active phase, to keep the deficit or surplus at the intended size."
         }
       ]
+    },
+    "compound": {
+      "name": "Compound Interest Calculator",
+      "shortName": "Compound Interest",
+      "metaTitle": "Compound Interest Calculator — Project Investment Growth",
+      "metaDescription": "Estimate how savings and monthly contributions grow with compound interest. Free tool with a year-by-year breakdown and a shareable result card.",
+      "h1": "Compound Interest Calculator",
+      "intro": "See how reinvested returns accelerate wealth over time. Enter a starting amount, a monthly contribution and an annual return to project your balance year by year.",
+      "keywords": [
+        "compound interest calculator",
+        "investment growth calculator",
+        "savings calculator",
+        "compound interest formula",
+        "future value calculator"
+      ],
+      "features": [
+        "Year-by-year growth table",
+        "Future value, principal & interest breakdown",
+        "Compound interest formula explained",
+        "Shareable result card"
+      ],
+      "ui": {
+        "inputsTitle": "Your inputs",
+        "initialPrincipal": "Initial principal",
+        "monthlyContribution": "Monthly contribution",
+        "annualReturn": "Annual return",
+        "years": "Years",
+        "compoundingFrequency": "Compounding frequency",
+        "frequencyAnnual": "Annually",
+        "frequencySemiannual": "Semi-annually",
+        "frequencyQuarterly": "Quarterly",
+        "frequencyMonthly": "Monthly",
+        "futureValue": "Future value",
+        "futureValueHint": "Projected balance at the end of the term",
+        "totalPrincipal": "Total principal invested",
+        "totalInterest": "Total interest earned",
+        "interestRatio": "Interest is {percent}% of the final value",
+        "interestRatioLabel": "Interest vs. principal",
+        "cagr": "Avg. annual growth (CAGR)",
+        "chartTitle": "Growth over time",
+        "chartBalance": "Balance",
+        "chartContributed": "Principal invested",
+        "chartInterest": "Interest earned",
+        "tableTitle": "Year-by-year breakdown",
+        "tableYear": "Year",
+        "tableBalance": "Balance",
+        "tableContributed": "Principal",
+        "tableInterest": "Interest"
+      },
+      "formula": {
+        "steps": [
+          "Start with your initial principal P.",
+          "Each compounding period, the balance earns the periodic rate r/n, then the periodic deposit is added.",
+          "Repeat for n compounding periods per year across all t years.",
+          "The final balance A is your future value; subtract total deposits to find the interest earned."
+        ],
+        "intro": "Compound interest means you earn returns on your returns. The more often interest compounds, the faster the balance grows.",
+        "note": "Figures are nominal and exclude taxes, fees and inflation. They are illustrative, not financial advice."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "What is compound interest?",
+            "paragraphs": [
+              "Compound interest is the process where the interest you earn is reinvested, so future interest is calculated on a larger balance.",
+              "Over long horizons this snowball effect dwarfs the impact of your original deposit."
+            ]
+          },
+          {
+            "heading": "How often should interest compound?",
+            "paragraphs": [
+              "More frequent compounding (monthly vs. annually) produces slightly more growth because interest starts earning sooner.",
+              "Our calculator defaults to monthly compounding, the most common schedule for brokerage and retirement accounts."
+            ],
+            "list": [
+              "Annual (n=1)",
+              "Semi-annual (n=2)",
+              "Quarterly (n=4)",
+              "Monthly (n=12)"
+            ]
+          },
+          {
+            "heading": "Making the most of compounding",
+            "paragraphs": [
+              "Start early — time is the single biggest lever on the final balance.",
+              "Contribute consistently and reinvest dividends to maximize the snowball.",
+              "Even modest monthly deposits compound into large sums over decades."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What is the compound interest formula?",
+          "answer": "The future value combines the compounded principal P(1 + r/n)^(nt) with the compounded value of periodic deposits. Our calculator applies the rate each period and adds your deposit, repeating for every period across the full term."
+        },
+        {
+          "question": "Does compounding frequency matter?",
+          "answer": "Yes, but modestly. Monthly compounding beats annual by a small margin because interest begins earning sooner. The calculator lets you compare schedules."
+        },
+        {
+          "question": "Are my returns guaranteed?",
+          "answer": "No. The figures are deterministic projections using the rate you enter; real markets fluctuate and the result excludes taxes, fees and inflation."
+        },
+        {
+          "question": "How do regular contributions help?",
+          "answer": "Consistent monthly deposits add new principal that then compounds, often contributing more to the final balance than the initial lump sum over long periods."
+        },
+        {
+          "question": "Why does the balance grow faster later?",
+          "answer": "Because each period’s interest is calculated on a larger balance. The snowball accelerates as the compounded amount overtakes your contributions."
+        },
+        {
+          "question": "Can I share or save my result?",
+          "answer": "Yes — use the shareable result card to download an SVG or copy a link that preserves your exact inputs."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -570,5 +689,13 @@
     "disclaimer": "CalcAtlas provides informational estimates only. Always verify visa rules with the relevant consulate and consult qualified professionals for financial or medical decisions.",
     "rights": "All rights reserved.",
     "builtWith": "Static, edge-delivered and computed entirely client-side."
+  },
+  "compoundPresets": {
+    "gridTitle": "Compound Interest Scenarios",
+    "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
+    "viewPreset": "View scenario",
+    "currentLabel": "Current",
+    "benchmarkTitle": "Scenario Benchmark",
+    "benchmarkIntro": "Key figures for {scenario}."
   }
 }

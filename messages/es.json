@@ -77,7 +77,9 @@
       "fireTitle": "Revisa tu reloj de visado Schengen",
       "fireBody": "Si el retiro anticipado implica viajar por Europa, mantén tu estancia de 90/180 días dentro de las normas con la Calculadora de Visado Schengen.",
       "schengenTitle": "Mantente sano mientras viajas",
-      "schengenBody": "Controla tus calorías y macros en ruta y mantén tu nutrición con la Calculadora TDEE."
+      "schengenBody": "Controla tus calorías y macros en ruta y mantén tu nutrición con la Calculadora TDEE.",
+      "compoundTitle": "¿Quieres saber si este crecimiento cubre tu jubilación anticipada?",
+      "compoundBody": "Convierte tu saldo proyectado en un plan de independencia financiera con la Calculadora FIRE."
     }
   },
   "home": {
@@ -535,6 +537,123 @@
           "answer": "Sí. La TMB escala con el peso corporal, así que recalcula cada 3–4 kg de cambio, o aproximadamente una vez al mes en una fase activa, para mantener el déficit o superávit en el tamaño previsto."
         }
       ]
+    },
+    "compound": {
+      "name": "Calculadora de Interés Compuesto",
+      "shortName": "Interés compuesto",
+      "metaTitle": "Calculadora de Interés Compuesto — Proyecta tu inversión",
+      "metaDescription": "Estima cómo crecen tus ahorros y aportes mensuales con interés compuesto. Herramienta gratuita con desglose anual y tarjeta de resultado compartible.",
+      "h1": "Calculadora de Interés Compuesto",
+      "intro": "Descubre cómo los rendimientos reinvertidos aceleran la riqueza con el tiempo. Introduce un monto inicial, un aporte mensual y una rentabilidad anual para proyectar tu saldo año a año.",
+      "keywords": [
+        "calculadora de interes compuesto",
+        "calculadora de crecimiento de inversion",
+        "calculadora de ahorro",
+        "formula de interes compuesto",
+        "calculadora de valor futuro"
+      ],
+      "features": [
+        "Tabla de crecimiento año a año",
+        "Desglose de valor futuro, principal e interés",
+        "Fórmula de interés compuesto explicada",
+        "Tarjeta de resultado compartible"
+      ],
+      "ui": {
+        "inputsTitle": "Tus datos",
+        "initialPrincipal": "Principal inicial",
+        "monthlyContribution": "Aporte mensual",
+        "annualReturn": "Rentabilidad anual",
+        "years": "Años",
+        "compoundingFrequency": "Frecuencia de capitalización",
+        "frequencyAnnual": "Anual",
+        "frequencySemiannual": "Semestral",
+        "frequencyQuarterly": "Trimestral",
+        "frequencyMonthly": "Mensual",
+        "futureValue": "Valor futuro",
+        "futureValueHint": "Saldo proyectado al final del plazo",
+        "totalPrincipal": "Principal invertido",
+        "totalInterest": "Interés ganado",
+        "interestRatio": "El interés es el {percent}% del valor final",
+        "interestRatioLabel": "Interés frente a principal",
+        "cagr": "Crecimiento anual medio (CAGR)",
+        "chartTitle": "Crecimiento en el tiempo",
+        "chartBalance": "Saldo",
+        "chartContributed": "Principal invertido",
+        "chartInterest": "Interés ganado",
+        "tableTitle": "Desglose año a año",
+        "tableYear": "Año",
+        "tableBalance": "Saldo",
+        "tableContributed": "Principal",
+        "tableInterest": "Interés"
+      },
+      "formula": {
+        "steps": [
+          "Empieza con tu principal inicial P.",
+          "Cada periodo de capitalización, el saldo gana la tasa periódica r/n y luego se suma el aporte del periodo.",
+          "Repite durante n periodos de capitalización al año a lo largo de los t años.",
+          "El saldo final A es tu valor futuro; resta los aportes para obtener el interés ganado."
+        ],
+        "intro": "El interés compuesto significa que ganas rendimiento sobre tu rendimiento. Cuanto más a menudo se capitaliza, más rápido crece el saldo.",
+        "note": "Las cifras son nominales y excluyen impuestos, comisiones e inflación. Son ilustrativas, no constituyen asesoramiento financiero."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "¿Qué es el interés compuesto?",
+            "paragraphs": [
+              "El interés compuesto es el proceso por el cual los intereses que ganas se reinvierten, así los intereses futuros se calculan sobre un saldo mayor.",
+              "A lo largo de horizontes largos este efecto bola de nieve supera con creces el impacto de tu depósito original."
+            ]
+          },
+          {
+            "heading": "¿Con qué frecuencia debe capitalizarse?",
+            "paragraphs": [
+              "Una capitalización más frecuente (mensual frente a anual) produce algo más de crecimiento porque el interés empieza a generar antes.",
+              "Nuestra calculadora capitaliza mensualmente por defecto, el calendario más común en cuentas de corretaje y jubilación."
+            ],
+            "list": [
+              "Anual (n=1)",
+              "Semestral (n=2)",
+              "Trimestral (n=4)",
+              "Mensual (n=12)"
+            ]
+          },
+          {
+            "heading": "Aprovechar al máximo el interés compuesto",
+            "paragraphs": [
+              "Empieza pronto — el tiempo es la mayor palanca sobre el saldo final.",
+              "Aporta de forma constante y reinvierte dividendos para maximizar la bola de nieve.",
+              "Incluso aportes mensuales modestos se acumulan en grandes sumas a lo largo de décadas."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "¿Cuál es la fórmula del interés compuesto?",
+          "answer": "El valor futuro combina el principal capitalizado P(1 + r/n)^(nt) con el valor capitalizado de los aportes periódicos. Nuestra calculadora aplica la tasa cada periodo y suma tu aporte, repitiendo durante toda la duración."
+        },
+        {
+          "question": "¿Importa la frecuencia de capitalización?",
+          "answer": "Sí, pero modestamente. La capitalización mensual supera a la anual por un margen pequeño porque el interés empieza a generar antes. La calculadora permite comparar calendarios."
+        },
+        {
+          "question": "¿Están garantizados mis rendimientos?",
+          "answer": "No. Las cifras son proyecciones deterministas con la tasa que introduces; los mercados reales fluctúan y el resultado excluye impuestos, comisiones e inflación."
+        },
+        {
+          "question": "¿Cómo ayudan los aportes regulares?",
+          "answer": "Los aportes mensuales constantes añaden nuevo principal que luego se capitaliza, a menudo aportando más al saldo final que el capital inicial a lo largo de periodos largos."
+        },
+        {
+          "question": "¿Por qué el saldo crece más rápido después?",
+          "answer": "Porque los intereses de cada periodo se calculan sobre un saldo mayor. La bola de nieve se acelera cuando el monto capitalizado supera tus aportes."
+        },
+        {
+          "question": "¿Puedo compartir o guardar mi resultado?",
+          "answer": "Sí — usa la tarjeta de resultado compartible para descargar un SVG o copiar un enlace que conserva tus entradas exactas."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -570,5 +689,13 @@
     "disclaimer": "CalcAtlas ofrece únicamente estimaciones informativas. Verifica siempre las normas de visado con el consulado correspondiente y consulta a profesionales cualificados para decisiones financieras o médicas.",
     "rights": "Todos los derechos reservados.",
     "builtWith": "Estático, servido desde el edge y calculado íntegramente en el cliente."
+  },
+  "compoundPresets": {
+    "gridTitle": "Escenarios de interés compuesto",
+    "gridSubtitle": "Salta a un ejemplo preconfigurado o empieza desde cero.",
+    "viewPreset": "Ver escenario",
+    "currentLabel": "Actual",
+    "benchmarkTitle": "Referencia del escenario",
+    "benchmarkIntro": "Cifras clave de {scenario}."
   }
 }

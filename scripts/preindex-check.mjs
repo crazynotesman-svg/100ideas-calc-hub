@@ -28,7 +28,8 @@ const EXPECTED = new Set([...LOCALES.map((l) => HREFLANG[l]), 'x-default'].map((
 const CALCULATORS = [
   { category: 'travel', slug: 'schengen-visa-calculator' },
   { category: 'finance', slug: 'fire-compound-interest-calculator' },
-  { category: 'health', slug: 'tdee-macro-calculator' }
+  { category: 'health', slug: 'tdee-macro-calculator' },
+  { category: 'finance', slug: 'compound-interest-calculator' }
 ];
 
 // pSEO preset scenarios across every calculator — kept here so both the sitemap
@@ -45,7 +46,15 @@ const PRESETS = [
   { category: 'travel', slug: 'schengen-visa-calculator', scenario: '90-day-rule-tourist' },
   { category: 'travel', slug: 'schengen-visa-calculator', scenario: 'frequent-business-traveler' },
   { category: 'travel', slug: 'schengen-visa-calculator', scenario: 'digital-nomad-schengen-shuffle' },
-  { category: 'travel', slug: 'schengen-visa-calculator', scenario: 'overstay-risk-checker' }
+  { category: 'travel', slug: 'schengen-visa-calculator', scenario: 'overstay-risk-checker' },
+  { category: 'finance', slug: 'compound-interest-calculator', scenario: '10k-at-7-percent-20-years' },
+  { category: 'finance', slug: 'compound-interest-calculator', scenario: 'monthly-500-dollar-index-fund-growth' },
+  { category: 'finance', slug: 'compound-interest-calculator', scenario: '100k-sp500-historical-return-30-years' },
+  { category: 'finance', slug: 'compound-interest-calculator', scenario: 'millionaire-by-40-monthly-contribution' },
+  { category: 'finance', slug: 'compound-interest-calculator', scenario: 'lump-sum-50k-5-years' },
+  { category: 'finance', slug: 'compound-interest-calculator', scenario: 'conservative-saver-3-percent-20-years' },
+  { category: 'finance', slug: 'compound-interest-calculator', scenario: 'early-start-teen-investor-18-to-65' },
+  { category: 'finance', slug: 'compound-interest-calculator', scenario: 'high-earner-2k-monthly-15-years' }
 ];
 
 // Every SSG content route that must appear in a sitemap and carry a clean

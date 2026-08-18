@@ -68,19 +68,26 @@ export function useCalculatorState<T extends CalculatorFieldConfig>(
     return params.toString();
   }, []);
 
+  // The hook runs during static prerender (server, no `window`). Every `window` access
+  // is gated behind this flag so the SSR pass never throws "window is not defined" and
+  // the prerendered HTML matches the first client paint (no hydration mismatch).
+  const isBrowser = typeof window !== 'undefined';
+
   const writeUrl = useCallback(
     (src: Record<keyof T, string>) => {
+      if (!isBrowser) return;
       const qs = buildQuery(src);
       const url = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
       window.history.replaceState(window.history.state, '', url);
     },
-    [buildQuery]
+    [buildQuery, isBrowser]
   );
 
   // Read URL params once, after mount (client-only) -> no SSR/CSR hydration mismatch.
   // Merge onto the current (possibly preset-seeded) values rather than resetting to
   // defaults, so a pSEO preset page keeps its seeded inputs when the URL carries no params.
   useEffect(() => {
+    if (!isBrowser) return;
     const params = new URLSearchParams(window.location.search);
     const next: Record<string, string> = { ...valuesRef.current };
     for (const k of keys.current) {
@@ -107,10 +114,11 @@ export function useCalculatorState<T extends CalculatorFieldConfig>(
   const getField = useCallback((key: keyof T) => values[key], [values]);
 
   const shareUrl = useCallback(() => {
+    if (!isBrowser) return '';
     const qs = buildQuery(valuesRef.current);
     const path = window.location.pathname;
     return qs ? `${window.location.origin}${path}?${qs}` : window.location.href;
-  }, [buildQuery]);
+  }, [buildQuery, isBrowser]);
 
   const reset = useCallback(() => {
     const d = { ...defaults.current };

@@ -37,6 +37,17 @@ import {
   presetRoute as schengenRoute,
   schengenInitialQuery
 } from '@/app/[locale]/calculators/[category]/[slug]/preset/schengenPresets';
+import { CompoundInterestCalculatorClient } from '@/components/calculators/finance/CompoundInterestCalculatorClient';
+import { calculateCompound, type CompoundResult } from '@/lib/calculators/finance/compound';
+import {
+  COMPOUND_CATEGORY,
+  COMPOUND_SLUG,
+  PRESET_SLUGS as COMPOUND_SLUGS,
+  PRESETS as COMPOUND_PRESETS,
+  getPreset as getCompound,
+  presetRoute as compoundRoute,
+  compoundInitialQuery
+} from '@/app/[locale]/calculators/[category]/[slug]/preset/compoundInterestPresets';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { isLocale, locales, localeMeta, type Locale } from '@/config/i18n.config';
 import { calculatorRoute, getCalculator } from '@/config/calculators.config';
@@ -60,7 +71,8 @@ export function generateStaticParams() {
   const combos = [
     ...expand(TDEE_CATEGORY, TDEE_SLUG, TDEE_SLUGS),
     ...expand(FIRE_CATEGORY, FIRE_SLUG, FIRE_SLUGS),
-    ...expand(SCHENGEN_CATEGORY, SCHENGEN_SLUG, SCHENGEN_SLUGS)
+    ...expand(SCHENGEN_CATEGORY, SCHENGEN_SLUG, SCHENGEN_SLUGS),
+    ...expand(COMPOUND_CATEGORY, COMPOUND_SLUG, COMPOUND_SLUGS)
   ];
   return locales.flatMap((l) => combos.map((c) => ({ locale: l, ...c })));
 }
@@ -91,6 +103,11 @@ export async function generateMetadata({
     if (!p) return {};
     preset = p;
     route = schengenRoute(scenario);
+  } else if (slug === COMPOUND_SLUG) {
+    const p = getCompound(scenario);
+    if (!p) return {};
+    preset = p;
+    route = compoundRoute(scenario);
   } else {
     return {};
   }
@@ -110,7 +127,13 @@ export default async function PresetPage({
   params: { locale, category, slug, scenario }
 }: PageParams) {
   if (!isLocale(locale)) notFound();
-  if (category !== TDEE_CATEGORY && category !== FIRE_CATEGORY && category !== SCHENGEN_CATEGORY) notFound();
+  if (
+    category !== TDEE_CATEGORY &&
+    category !== FIRE_CATEGORY &&
+    category !== SCHENGEN_CATEGORY &&
+    category !== COMPOUND_CATEGORY
+  )
+    notFound();
   const l = locale as Locale;
   const meta = getCalculator(category, slug);
   if (!meta) notFound();
@@ -169,6 +192,25 @@ export default async function PresetPage({
     routeFor = schengenRoute;
     calculatorNode = <SchengenCalculator initialQuery={schengenInitialQuery(p)} cardTitle={title} />;
     benchmark = await SchengenBenchmark(l, r);
+  } else if (slug === COMPOUND_SLUG) {
+    const p = getCompound(scenario);
+    if (!p) notFound();
+    const r = calculateCompound(p.defaultParams);
+    const loc = p.localized[l];
+    title = loc.title;
+    description = loc.description;
+    faqs = loc.faqs;
+    ns = 'compoundPresets';
+    presets = COMPOUND_PRESETS;
+    routeFor = compoundRoute;
+    calculatorNode = (
+      <CompoundInterestCalculatorClient
+        initialState={p.defaultParams}
+        initialQuery={compoundInitialQuery(p)}
+        cardTitle={title}
+      />
+    );
+    benchmark = await CompoundInterestBenchmark(l, r);
   } else {
     notFound();
     return;
@@ -289,6 +331,29 @@ async function SchengenBenchmark(locale: Locale, r: SchengenResult) {
       />
       <PresetStat label={t('fullReset')} value={df.format(new Date(`${r.fullResetDate}T00:00:00Z`))} />
       <PresetStat label={t('status')} value={statusLabel} />
+    </>
+  );
+}
+
+async function CompoundInterestBenchmark(locale: Locale, r: CompoundResult) {
+  const t = await getTranslations({ locale, namespace: 'calculators.compound.ui' });
+  const tc = await getTranslations({ locale, namespace: 'common' });
+  const money = new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: localeMeta[locale].currency,
+    maximumFractionDigits: 0
+  });
+  return (
+    <>
+      <PresetStat label={t('futureValue')} value={money.format(r.futureValue)} accent />
+      <PresetStat label={t('totalPrincipal')} value={money.format(r.totalPrincipal)} />
+      <PresetStat label={t('totalInterest')} value={money.format(r.totalInterest)} />
+      <PresetStat
+        label={t('interestRatioLabel')}
+        value={`${Math.round(r.interestRatio * 100)}%`}
+      />
+      <PresetStat label={t('cagr')} value={`${r.cagr.toFixed(1)}%`} />
+      <PresetStat label={tc('years')} value={`${r.series.length}`} />
     </>
   );
 }

@@ -15,11 +15,13 @@ import { absoluteUrl } from '@/config/site.config';
 import { PRESET_SLUGS as TDEE, presetRoute as tdeeRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/tdeePresets';
 import { PRESET_SLUGS as FIRE, presetRoute as fireRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/firePresets';
 import { PRESET_SLUGS as SCHENGEN, presetRoute as schengenRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/schengenPresets';
+import { PRESET_SLUGS as COMPOUND, presetRoute as compoundRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/compoundInterestPresets';
 
 const ALL_PRESET_ROUTES: string[] = [
   ...TDEE.map((s) => tdeeRoute(s)),
   ...FIRE.map((s) => fireRoute(s)),
-  ...SCHENGEN.map((s) => schengenRoute(s))
+  ...SCHENGEN.map((s) => schengenRoute(s)),
+  ...COMPOUND.map((s) => compoundRoute(s))
 ];
 
 function languagesFor(route: string): Record<string, string> {
