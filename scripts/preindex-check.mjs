@@ -29,7 +29,8 @@ const CALCULATORS = [
   { category: 'travel', slug: 'schengen-visa-calculator' },
   { category: 'finance', slug: 'fire-compound-interest-calculator' },
   { category: 'health', slug: 'tdee-macro-calculator' },
-  { category: 'finance', slug: 'compound-interest-calculator' }
+  { category: 'finance', slug: 'compound-interest-calculator' },
+  { category: 'finance', slug: 'mortgage-calculator' }
 ];
 
 // pSEO preset scenarios across every calculator — kept here so both the sitemap
@@ -54,7 +55,15 @@ const PRESETS = [
   { category: 'finance', slug: 'compound-interest-calculator', scenario: 'lump-sum-50k-5-years' },
   { category: 'finance', slug: 'compound-interest-calculator', scenario: 'conservative-saver-3-percent-20-years' },
   { category: 'finance', slug: 'compound-interest-calculator', scenario: 'early-start-teen-investor-18-to-65' },
-  { category: 'finance', slug: 'compound-interest-calculator', scenario: 'high-earner-2k-monthly-15-years' }
+  { category: 'finance', slug: 'compound-interest-calculator', scenario: 'high-earner-2k-monthly-15-years' },
+  { category: 'finance', slug: 'mortgage-calculator', scenario: '30-year-fixed-mortgage-7-percent' },
+  { category: 'finance', slug: 'mortgage-calculator', scenario: '15-year-fixed-vs-30-year-mortgage' },
+  { category: 'finance', slug: 'mortgage-calculator', scenario: '500k-house-20-percent-down-payment' },
+  { category: 'finance', slug: 'mortgage-calculator', scenario: 'extra-100-monthly-payment-mortgage-payoff' },
+  { category: 'finance', slug: 'mortgage-calculator', scenario: '700k-house-10-percent-down' },
+  { category: 'finance', slug: 'mortgage-calculator', scenario: 'mortgage-amortization-first-5-years' },
+  { category: 'finance', slug: 'mortgage-calculator', scenario: '1-million-luxury-home-mortgage' },
+  { category: 'finance', slug: 'mortgage-calculator', scenario: 'rental-property-mortgage-calculator' }
 ];
 
 // Every SSG content route that must appear in a sitemap and carry a clean
@@ -285,7 +294,9 @@ for (const r of results) {
 // ---------------------------------------------------------------- summary
 console.log(`\n${'─'.repeat(64)}`);
 console.log(`${C.bold}SUMMARY${C.rst}`);
-console.log(`  pages checked : ${targets.length} (12 calculator + 8 home/listing + 48 preset)`);
+const calcCount = CALCULATORS.length * LOCALES.length;
+const presetCount = PRESETS.length * LOCALES.length;
+console.log(`  pages checked : ${targets.length} (${calcCount} calculator + ${LOCALES.length * 2} home/listing + ${presetCount} preset)`);
 console.log(`  sitemap/robots: ${sitemapOk ? `${C.pass}OK${C.rst}` : `${C.fail}FAIL${C.rst}`}`);
 console.log(`  pages with failures : ${failedTargets}`);
 console.log(`  pages with warnings : ${warnedTargets}`);

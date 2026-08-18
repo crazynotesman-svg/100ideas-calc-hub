@@ -83,5 +83,20 @@ assert('Result shell reserved pre-hydration', schHtml.includes('result-shell'), 
 assert('Badge slot height reserved', schHtml.includes('flex h-6 items-center'), true);
 assert('Date inputs server-rendered', (schHtml.match(/type="date"/g) || []).length >= 3, true);
 
+/* ------------------------------------------------------------- Mortgage reference
+ * Defaults shipped in the component: $500,000 home, $100,000 (20%) down, 30 years, 7%.
+ *   loan = 400,000;  r = 0.07/12;  n = 360
+ *   M    = 400000·r / (1 − (1+r)^−360) = 2,661.21  -> $2,661
+ *   total interest = 558,035.58                    -> $558,036
+ */
+const mortHtml = await (await fetch(`${base}/en/calculators/finance/mortgage-calculator`)).text();
+console.log('\nMORTGAGE ENGINE (server-rendered defaults: $500k home, 20% down, 30yr @ 7%)');
+console.log('─'.repeat(96));
+assert('Monthly P&I = $2,661 (en-US)', mortHtml.includes('$2,661'), true);
+assert('Total interest = $558,036', mortHtml.includes('$558,036'), true);
+assert('Amortization table server-rendered', /<tbody/.test(mortHtml), true);
+assert('Chart shell height reserved', mortHtml.includes('chart-shell'), true);
+assert('Result shells reserved pre-hydration', (mortHtml.match(/result-shell/g) || []).length >= 4, true);
+
 console.log(`\n${failures === 0 ? 'PASS — engines verified' : `FAILED — ${failures} checks`}\n`);
 process.exit(failures === 0 ? 0 : 1);

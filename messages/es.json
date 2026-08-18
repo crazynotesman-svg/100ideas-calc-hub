@@ -79,7 +79,11 @@
       "schengenTitle": "Mantente sano mientras viajas",
       "schengenBody": "Controla tus calorías y macros en ruta y mantén tu nutrición con la Calculadora TDEE.",
       "compoundTitle": "¿Quieres saber si este crecimiento cubre tu jubilación anticipada?",
-      "compoundBody": "Convierte tu saldo proyectado en un plan de independencia financiera con la Calculadora FIRE."
+      "compoundBody": "Convierte tu saldo proyectado en un plan de independencia financiera con la Calculadora FIRE.",
+      "mortgageTitle": "Convierte tu hipoteca en un plan de jubilación",
+      "mortgageBody": "Una vez controlado el pago, modela cómo ese mismo flujo de caja mensual construye riqueza con la calculadora FIRE.",
+      "secondaryTitle": "Compara el camino de inversión",
+      "secondaryBody": "Mira en qué podría convertirse ese mismo pago mensual con el {name}."
     }
   },
   "home": {
@@ -654,6 +658,113 @@
           "answer": "Sí — usa la tarjeta de resultado compartible para descargar un SVG o copiar un enlace que conserva tus entradas exactas."
         }
       ]
+    },
+    "mortgage": {
+      "name": "Calculadora de Hipoteca y Amortización",
+      "shortName": "Calculadora de Hipoteca",
+      "metaTitle": "Calculadora de Hipoteca y Amortización — Pago Mensual",
+      "metaDescription": "Calcula el pago mensual de capital e intereses, el interés total, el plazo de liquidación y un calendario completo de amortización para una hipoteca fija — con pagos extra. Todo en tu navegador.",
+      "h1": "Calculadora de Hipoteca y Amortización",
+      "intro": "Mira de un vistazo tu pago mensual, los intereses de por vida y la fecha de liquidación. Introduce precio, entrada, plazo y tipo — y añade un pago extra mensual para ver lo rápido que la casa queda libre de deuda.",
+      "keywords": [
+        "calculadora de hipoteca",
+        "calculadora de pago de hipoteca",
+        "calculadora de amortización",
+        "calculadora de préstamo hipotecario",
+        "calculadora de amortización anticipada"
+      ],
+      "features": [
+        "Pago mensual de capital e intereses",
+        "Interés total y coste total del préstamo",
+        "Calendario de amortización año a año",
+        "Ahorro por pagos extra (plazo e intereses)",
+        "Tarjeta de resultado compartible + exportación CSV"
+      ],
+      "ui": {
+        "inputsTitle": "Tus datos",
+        "homePrice": "Precio de la vivienda",
+        "downPayment": "Entrada",
+        "downAmount": "Entrada ($)",
+        "downPercent": "Entrada (%)",
+        "loanTermYears": "Plazo (años)",
+        "annualRate": "Tipo de interés",
+        "extraMonthly": "Pago extra mensual",
+        "extraHint": "Aplicado 100 % al capital",
+        "loanAmountLabel": "Importe del préstamo",
+        "monthlyPayment": "Pago mensual de P&I",
+        "monthlyPaymentHint": "Capital e intereses, antes de impuestos y seguros",
+        "totalInterest": "Interés total",
+        "totalCost": "Coste total del préstamo",
+        "payoffTime": "Plazo de liquidación",
+        "payoffHintNone": "Plazo programado, sin pagos extra",
+        "payoffHintExtra": "{months} meses antes de lo programado",
+        "monthsSaved": "Meses ahorrados",
+        "interestSaved": "Interés ahorrado",
+        "chartTitle": "Amortización a lo largo del tiempo",
+        "chartBalance": "Saldo restante",
+        "chartPrincipal": "Capital pagado",
+        "chartInterest": "Interés pagado",
+        "tableTitle": "Desglose año a año",
+        "tableYear": "Año",
+        "tablePayment": "Pago",
+        "tablePrincipal": "Capital",
+        "tableInterest": "Interés",
+        "tableBalance": "Saldo"
+      },
+      "formula": {
+        "steps": [
+          "Empieza con el importe del préstamo: precio de la vivienda menos entrada.",
+          "Divide el tipo anual entre 12 para obtener el tipo mensual r.",
+          "Pago mensual M = L·r / (1 − (1+r)^−n), donde L es el préstamo y n el número de meses.",
+          "Cada mes: interés = saldo·r y el resto del pago reduce el capital; cualquier pago extra va 100 % al capital."
+        ],
+        "intro": "Una hipoteca fija usa amortización: cada pago se divide entre el interés sobre el saldo restante y la devolución del capital. Al principio dominan los intereses; después, el capital — el calendario lo hace visible año a año.",
+        "note": "Las cifras son solo capital e intereses. Impuestos sobre la propiedad, seguros y PMI no están incluidos, y los resultados son ilustrativos, no una oferta de préstamo."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "¿Qué es la amortización?",
+            "paragraphs": [
+              "La amortización es el proceso de pagar un préstamo con cuotas mensuales iguales, donde cada pago cubre el interés acumulado sobre el saldo restante más una parte del capital.",
+              "Como el saldo se reduce, la parte de interés baja con el tiempo y la de capital crece — por eso los primeros pagos parecen \"todo intereses\"."
+            ]
+          },
+          {
+            "heading": "¿Debería pagar la hipoteca antes de tiempo?",
+            "paragraphs": [
+              "Los pagos extra van directos al capital, acortan el plazo y reducen el interés total — a menudo en decenas de miles de dólares.",
+              "Si es el mejor uso de tu dinero depende del tipo frente a la rentabilidad que puedas obtener en otro sitio, pero la calculadora hace tangible el dilema."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "¿Cómo se calcula mi pago hipotecario mensual?",
+          "answer": "El pago se calcula con la fórmula estándar de amortización: importe del préstamo, tipo mensual y plazo. Solo cubre capital e intereses — impuestos, seguros y PMI son aparte."
+        },
+        {
+          "question": "¿Por qué gran parte de mis primeros pagos son intereses?",
+          "answer": "Cada pago cubre primero los intereses del saldo restante. Como el saldo es mayor al inicio, los primeros pagos son sobre todo intereses; al caer el saldo, más pago va al capital."
+        },
+        {
+          "question": "¿Cómo ayudan los pagos extra?",
+          "answer": "Un pago extra se aplica 100 % al capital. Eso reduce el saldo más rápido, corta los intereses futuros y acorta el plazo — la calculadora muestra los meses y los intereses ahorrados."
+        },
+        {
+          "question": "¿Qué incluye el coste total del préstamo?",
+          "answer": "El coste total es la suma de todos los pagos de capital e intereses durante la vida del préstamo — el importe más todos los intereses. Excluye entrada, impuestos y seguros."
+        },
+        {
+          "question": "¿Una entrada mayor cambia mi pago?",
+          "answer": "Sí. Una entrada mayor significa un préstamo menor, lo que baja el pago mensual y el interés total. Puedes alternar entre importe en dólares y porcentaje."
+        },
+        {
+          "question": "¿Puedo guardar o compartir este resultado?",
+          "answer": "Sí — el enlace compartible lleva tus datos exactos, la tarjeta de resultado se descarga como imagen y el calendario se exporta a CSV."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -697,5 +808,13 @@
     "currentLabel": "Actual",
     "benchmarkTitle": "Referencia del escenario",
     "benchmarkIntro": "Cifras clave de {scenario}."
+  },
+  "mortgagePresets": {
+    "gridTitle": "Escenarios de hipoteca",
+    "gridSubtitle": "Salta a un ejemplo preconfigurado o empieza desde cero.",
+    "viewPreset": "Ver escenario",
+    "currentLabel": "Actual",
+    "benchmarkTitle": "Referencia del escenario",
+    "benchmarkIntro": "Cifras clave para {scenario}."
   }
 }

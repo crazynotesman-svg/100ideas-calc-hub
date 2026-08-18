@@ -15,7 +15,7 @@ export interface ShareHighlight {
 
 interface ResultShareCardProps {
   locale: Locale;
-  calculatorId: 'tdee' | 'fire' | 'schengen' | 'compound';
+  calculatorId: 'tdee' | 'fire' | 'schengen' | 'compound' | 'mortgage';
   title: string;
   /** null → render a reserved-height skeleton (used by Schengen before a result exists). */
   highlights: ShareHighlight[] | null;
@@ -28,7 +28,8 @@ const ACCENT: Record<ResultShareCardProps['calculatorId'], string> = {
   tdee: '#f97316',
   fire: '#10b981',
   schengen: '#0ea5e9',
-  compound: '#6366f1'
+  compound: '#6366f1',
+  mortgage: '#3b82f6'
 };
 
 const BRAND = siteConfig.name;

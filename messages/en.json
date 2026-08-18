@@ -79,7 +79,11 @@
       "schengenTitle": "Stay healthy while traveling",
       "schengenBody": "Track your calories and macros on the road and keep your nutrition on track with the TDEE Calculator.",
       "compoundTitle": "Want to know if this growth covers early retirement?",
-      "compoundBody": "Turn your projected balance into a financial-independence plan with the FIRE Calculator."
+      "compoundBody": "Turn your projected balance into a financial-independence plan with the FIRE Calculator.",
+      "mortgageTitle": "Turn your mortgage into a retirement plan",
+      "mortgageBody": "Once the payment is under control, model the same monthly cash flow building wealth with the FIRE Calculator.",
+      "secondaryTitle": "Compare the investment path",
+      "secondaryBody": "See what the same monthly payment could grow to with the {name}."
     }
   },
   "home": {
@@ -654,6 +658,113 @@
           "answer": "Yes — use the shareable result card to download an SVG or copy a link that preserves your exact inputs."
         }
       ]
+    },
+    "mortgage": {
+      "name": "Mortgage & Amortization Calculator",
+      "shortName": "Mortgage Calculator",
+      "metaTitle": "Mortgage & Amortization Calculator — Monthly Payment",
+      "metaDescription": "Estimate monthly principal & interest, total interest, payoff time and a full amortization schedule for a fixed-rate mortgage — with extra payments. All runs in your browser.",
+      "h1": "Mortgage & Amortization Calculator",
+      "intro": "See your monthly payment, lifetime interest and payoff date at a glance. Enter a home price, down payment, term and rate — then add an extra monthly payment to see how fast you can own the home free and clear.",
+      "keywords": [
+        "mortgage calculator",
+        "mortgage payment calculator",
+        "amortization calculator",
+        "home loan calculator",
+        "mortgage payoff calculator"
+      ],
+      "features": [
+        "Monthly principal & interest payment",
+        "Total interest and total loan cost",
+        "Year-by-year amortization schedule",
+        "Extra-payment payoff & interest savings",
+        "Shareable result card + CSV export"
+      ],
+      "ui": {
+        "inputsTitle": "Your inputs",
+        "homePrice": "Home price",
+        "downPayment": "Down payment",
+        "downAmount": "Down payment ($)",
+        "downPercent": "Down payment (%)",
+        "loanTermYears": "Loan term (years)",
+        "annualRate": "Interest rate",
+        "extraMonthly": "Extra monthly payment",
+        "extraHint": "Applied 100% to principal",
+        "loanAmountLabel": "Loan amount",
+        "monthlyPayment": "Monthly P&I payment",
+        "monthlyPaymentHint": "Principal & interest, before taxes & insurance",
+        "totalInterest": "Total interest",
+        "totalCost": "Total loan cost",
+        "payoffTime": "Payoff time",
+        "payoffHintNone": "Scheduled term, no extra payments",
+        "payoffHintExtra": "{months} months faster than scheduled",
+        "monthsSaved": "Months saved",
+        "interestSaved": "Interest saved",
+        "chartTitle": "Amortization over time",
+        "chartBalance": "Remaining balance",
+        "chartPrincipal": "Principal paid",
+        "chartInterest": "Interest paid",
+        "tableTitle": "Year-by-year breakdown",
+        "tableYear": "Year",
+        "tablePayment": "Payment",
+        "tablePrincipal": "Principal",
+        "tableInterest": "Interest",
+        "tableBalance": "Balance"
+      },
+      "formula": {
+        "steps": [
+          "Start with the loan amount: home price minus down payment.",
+          "Divide the annual rate by 12 for a monthly rate r.",
+          "Monthly payment M = L·r / (1 − (1+r)^−n), where L is the loan and n is the number of months.",
+          "Each month interest = balance·r and the rest of the payment reduces principal; any extra payment goes 100% to principal."
+        ],
+        "intro": "A fixed-rate mortgage uses amortization: every payment is split between interest on the remaining balance and principal repayment. Early on, interest dominates; later, principal does — the schedule makes this visible year by year.",
+        "note": "Figures are principal & interest only. Property taxes, insurance and PMI are not included, and results are illustrative, not a loan offer."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "What is amortization?",
+            "paragraphs": [
+              "Amortization is the process of paying down a loan with equal monthly payments, where each payment covers the interest accrued on the remaining balance plus a portion of the principal.",
+              "Because the balance shrinks, the interest portion falls over time and the principal portion grows — the reason early payments feel like \"all interest\"."
+            ]
+          },
+          {
+            "heading": "Should I pay off my mortgage early?",
+            "paragraphs": [
+              "Extra monthly payments go straight to principal, which shortens the term and cuts total interest — often by tens of thousands of dollars.",
+              "Whether it is the best use of your cash depends on your rate versus the return you could earn elsewhere, but the calculator makes the trade-off concrete."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "How is my monthly mortgage payment calculated?",
+          "answer": "The payment is computed with the standard amortization formula: loan amount, monthly interest rate and term. It covers principal and interest only — taxes, insurance and PMI are separate."
+        },
+        {
+          "question": "Why is so much of my early payment interest?",
+          "answer": "Each payment first covers interest on the remaining balance. Since the balance is largest at the start, early payments are mostly interest; as the balance falls, more of the payment goes to principal."
+        },
+        {
+          "question": "How do extra payments help?",
+          "answer": "An extra monthly payment is applied 100% to principal. That reduces the balance faster, which cuts future interest and shortens the payoff term — the calculator shows both the months saved and the interest saved."
+        },
+        {
+          "question": "What is included in total loan cost?",
+          "answer": "Total loan cost is the sum of every principal and interest payment over the life of the loan — the loan amount plus all interest paid. It excludes the down payment, taxes and insurance."
+        },
+        {
+          "question": "Does a larger down payment change my payment?",
+          "answer": "Yes. A larger down payment means a smaller loan, which lowers the monthly payment and total interest. You can switch the input between a dollar amount and a percentage to compare."
+        },
+        {
+          "question": "Can I save or share this result?",
+          "answer": "Yes — the share link carries your exact inputs, the result card can be downloaded as an image, and the year-by-year schedule exports to CSV."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -692,6 +803,14 @@
   },
   "compoundPresets": {
     "gridTitle": "Compound Interest Scenarios",
+    "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
+    "viewPreset": "View scenario",
+    "currentLabel": "Current",
+    "benchmarkTitle": "Scenario Benchmark",
+    "benchmarkIntro": "Key figures for {scenario}."
+  },
+  "mortgagePresets": {
+    "gridTitle": "Mortgage scenarios",
     "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
     "viewPreset": "View scenario",
     "currentLabel": "Current",

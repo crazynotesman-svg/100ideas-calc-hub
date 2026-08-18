@@ -39,6 +39,8 @@ import {
 } from '@/app/[locale]/calculators/[category]/[slug]/preset/schengenPresets';
 import { CompoundInterestCalculatorClient } from '@/components/calculators/finance/CompoundInterestCalculatorClient';
 import { calculateCompound, type CompoundResult } from '@/lib/calculators/finance/compound';
+import { MortgageCalculatorClient } from '@/components/calculators/finance/MortgageCalculatorClient';
+import { calculateMortgage, type MortgageResult } from '@/lib/calculators/finance/mortgage';
 import {
   COMPOUND_CATEGORY,
   COMPOUND_SLUG,
@@ -48,6 +50,15 @@ import {
   presetRoute as compoundRoute,
   compoundInitialQuery
 } from '@/app/[locale]/calculators/[category]/[slug]/preset/compoundInterestPresets';
+import {
+  MORTGAGE_CATEGORY,
+  MORTGAGE_SLUG,
+  PRESET_SLUGS as MORTGAGE_SLUGS,
+  PRESETS as MORTGAGE_PRESETS,
+  getPreset as getMortgage,
+  presetRoute as mortgageRoute,
+  mortgageInitialQuery
+} from '@/app/[locale]/calculators/[category]/[slug]/preset/mortgagePresets';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { HrefLangAlternates } from '@/components/seo/HrefLangAlternates';
 import { isLocale, locales, localeMeta, type Locale } from '@/config/i18n.config';
@@ -73,7 +84,8 @@ export function generateStaticParams() {
     ...expand(TDEE_CATEGORY, TDEE_SLUG, TDEE_SLUGS),
     ...expand(FIRE_CATEGORY, FIRE_SLUG, FIRE_SLUGS),
     ...expand(SCHENGEN_CATEGORY, SCHENGEN_SLUG, SCHENGEN_SLUGS),
-    ...expand(COMPOUND_CATEGORY, COMPOUND_SLUG, COMPOUND_SLUGS)
+    ...expand(COMPOUND_CATEGORY, COMPOUND_SLUG, COMPOUND_SLUGS),
+    ...expand(MORTGAGE_CATEGORY, MORTGAGE_SLUG, MORTGAGE_SLUGS)
   ];
   return locales.flatMap((l) => combos.map((c) => ({ locale: l, ...c })));
 }
@@ -109,6 +121,11 @@ export async function generateMetadata({
     if (!p) return {};
     preset = p;
     route = compoundRoute(scenario);
+  } else if (slug === MORTGAGE_SLUG) {
+    const p = getMortgage(scenario);
+    if (!p) return {};
+    preset = p;
+    route = mortgageRoute(scenario);
   } else {
     return {};
   }
@@ -132,7 +149,8 @@ export default async function PresetPage({
     category !== TDEE_CATEGORY &&
     category !== FIRE_CATEGORY &&
     category !== SCHENGEN_CATEGORY &&
-    category !== COMPOUND_CATEGORY
+    category !== COMPOUND_CATEGORY &&
+    category !== MORTGAGE_CATEGORY
   )
     notFound();
   const l = locale as Locale;
@@ -212,6 +230,25 @@ export default async function PresetPage({
       />
     );
     benchmark = await CompoundInterestBenchmark(l, r);
+  } else if (slug === MORTGAGE_SLUG) {
+    const p = getMortgage(scenario);
+    if (!p) notFound();
+    const r = calculateMortgage(p.defaultParams);
+    const loc = p.localized[l];
+    title = loc.title;
+    description = loc.description;
+    faqs = loc.faqs;
+    ns = 'mortgagePresets';
+    presets = MORTGAGE_PRESETS;
+    routeFor = mortgageRoute;
+    calculatorNode = (
+      <MortgageCalculatorClient
+        initialState={p.defaultParams}
+        initialQuery={mortgageInitialQuery(p)}
+        cardTitle={title}
+      />
+    );
+    benchmark = await MortgageBenchmark(l, r);
   } else {
     notFound();
     return;
@@ -358,6 +395,30 @@ async function CompoundInterestBenchmark(locale: Locale, r: CompoundResult) {
       />
       <PresetStat label={t('cagr')} value={`${r.cagr.toFixed(1)}%`} />
       <PresetStat label={tc('years')} value={`${r.series.length}`} />
+    </>
+  );
+}
+
+async function MortgageBenchmark(locale: Locale, r: MortgageResult) {
+  const t = await getTranslations({ locale, namespace: 'calculators.mortgage.ui' });
+  const tc = await getTranslations({ locale, namespace: 'common' });
+  const money = new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: localeMeta[locale].currency,
+    maximumFractionDigits: 0
+  });
+  return (
+    <>
+      <PresetStat label={t('monthlyPayment')} value={money.format(r.monthlyPayment)} accent />
+      <PresetStat label={t('totalInterest')} value={money.format(r.totalInterest)} />
+      <PresetStat label={t('totalCost')} value={money.format(r.totalCost)} />
+      <PresetStat label={t('payoffTime')} value={`${r.payoffYears.toFixed(1)} ${tc('years')}`} />
+      {r.hasExtra && (
+        <>
+          <PresetStat label={t('monthsSaved')} value={String(r.monthsSaved)} />
+          <PresetStat label={t('interestSaved')} value={money.format(r.interestSaved)} accent />
+        </>
+      )}
     </>
   );
 }

@@ -96,6 +96,18 @@ export const calculators: readonly CalculatorMeta[] = [
     availableLocales: locales,
     icon: 'trending-up',
     accent: 'from-violet-500/15 to-fuchsia-500/5'
+  },
+  {
+    id: 'mortgage',
+    category: 'finance',
+    slug: 'mortgage-calculator',
+    faqCount: 6,
+    updated: '2026-08-18',
+    priority: 0.9,
+    featured: true,
+    availableLocales: locales,
+    icon: 'trending-up',
+    accent: 'from-blue-500/15 to-indigo-500/5'
   }
 ] as const;
 

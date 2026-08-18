@@ -6,22 +6,35 @@ import { Activity, ArrowRight, Plane, TrendingUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { calculatorRoute, getCalculatorById, type CalculatorMeta } from '@/config/calculators.config';
 
-const NEXT: Record<string, string> = { tdee: 'fire', fire: 'schengen', schengen: 'tdee', compound: 'fire' };
+/**
+ * Next-calculator map. A source calculator may target several destinations
+ * (mortgage → FIRE + Compound): the first entry is the primary card with
+ * source-specific copy, additional targets use the generic secondary copy.
+ */
+const NEXT: Record<string, string | string[]> = {
+  tdee: 'fire',
+  fire: 'schengen',
+  schengen: 'tdee',
+  compound: 'fire',
+  mortgage: ['fire', 'compound']
+};
 const ICON = { plane: Plane, 'trending-up': TrendingUp, activity: Activity } as const;
 const RING: Record<string, string> = {
   fire: 'border-emerald-500/30 bg-emerald-500/5',
   schengen: 'border-sky-500/30 bg-sky-500/5',
   tdee: 'border-orange-500/30 bg-orange-500/5',
-  compound: 'border-violet-500/30 bg-violet-500/5'
+  compound: 'border-violet-500/30 bg-violet-500/5',
+  mortgage: 'border-blue-500/30 bg-blue-500/5'
 };
 const CHIP: Record<string, string> = {
   fire: 'bg-emerald-500/15 text-emerald-600',
   schengen: 'bg-sky-500/15 text-sky-600',
   tdee: 'bg-orange-500/15 text-orange-600',
-  compound: 'bg-violet-500/15 text-violet-600'
+  compound: 'bg-violet-500/15 text-violet-600',
+  mortgage: 'bg-blue-500/15 text-blue-600'
 };
 
-type CalcId = 'tdee' | 'fire' | 'schengen' | 'compound';
+type CalcId = 'tdee' | 'fire' | 'schengen' | 'compound' | 'mortgage';
 
 interface CrossCalcBridgeProps {
   from: CalcId;
@@ -38,46 +51,56 @@ interface CrossCalcBridgeProps {
  *
  * A contextual CTA that nudges the user toward the next relevant calculator based on
  * the one they just used: TDEE → FIRE (budget for early retirement), FIRE → Schengen
- * (visa compliance for the traveling retiree), Schengen → TDEE (nutrition on the road).
+ * (visa compliance for the traveling retiree), Schengen → TDEE (nutrition on the road),
+ * mortgage → FIRE + Compound (retire the debt, then grow wealth).
  *
- * Content is fixed per `from`, so this card renders identically on first paint and after
- * hydration → zero CLS.
+ * Content is fixed per `from`, so these cards render identically on first paint and
+ * after hydration → zero CLS.
  */
 export function CrossCalcBridge({ from, query }: CrossCalcBridgeProps) {
   const t = useTranslations('common.bridge');
-  const targetId = NEXT[from];
-  const target = getCalculatorById(targetId) as CalculatorMeta | undefined;
-  if (!target) return null;
-
-  const tName = useTranslations(`calculators.${targetId}`);
-  const Icon = ICON[target.icon];
-  // next-intl <Link> auto-prepends the locale, so the href must be locale-less.
-  const href =
-    calculatorRoute(target) + (query ? `?${new URLSearchParams(query).toString()}` : '');
+  const tNames = useTranslations('calculators');
+  const targetIds = (Array.isArray(NEXT[from]) ? NEXT[from] : [NEXT[from]]) as CalcId[];
 
   return (
-    <Card className={`border-2 ${RING[targetId]}`}>
-      <CardContent className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-start gap-3">
-          <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-lg ${CHIP[targetId]}`}>
-            <Icon className="h-5 w-5" aria-hidden />
-          </span>
-          <div>
-            <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-              {t('heading')}
-            </p>
-            <p className="mt-0.5 text-base font-semibold">{t(`${from}Title`)}</p>
-            <p className="mt-1 max-w-prose text-sm text-muted-foreground">{t(`${from}Body`)}</p>
-          </div>
-        </div>
-        <Link
-          href={href}
-          className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-        >
-          {t('cta', { name: tName('name') })}
-          <ArrowRight className="h-4 w-4" aria-hidden />
-        </Link>
-      </CardContent>
-    </Card>
+    <div className="space-y-3">
+      {targetIds.map((targetId, index) => {
+        const target = getCalculatorById(targetId) as CalculatorMeta | undefined;
+        if (!target) return null;
+        const Icon = ICON[target.icon];
+        const primary = index === 0;
+        const title = primary ? t(`${from}Title`) : t('secondaryTitle', { name: tNames(`${targetId}.name`) });
+        const body = primary ? t(`${from}Body`) : t('secondaryBody', { name: tNames(`${targetId}.name`) });
+        // next-intl <Link> auto-prepends the locale, so the href must be locale-less.
+        const href =
+          calculatorRoute(target) + (query ? `?${new URLSearchParams(query).toString()}` : '');
+
+        return (
+          <Card key={targetId} className={`border-2 ${RING[targetId]}`}>
+            <CardContent className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-start gap-3">
+                <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-lg ${CHIP[targetId]}`}>
+                  <Icon className="h-5 w-5" aria-hidden />
+                </span>
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    {t('heading')}
+                  </p>
+                  <p className="mt-0.5 text-base font-semibold">{title}</p>
+                  <p className="mt-1 max-w-prose text-sm text-muted-foreground">{body}</p>
+                </div>
+              </div>
+              <Link
+                href={href}
+                className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              >
+                {t('cta', { name: tNames(`${targetId}.name`) })}
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+            </CardContent>
+          </Card>
+        );
+      })}
+    </div>
   );
 }

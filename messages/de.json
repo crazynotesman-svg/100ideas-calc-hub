@@ -79,7 +79,11 @@
       "schengenTitle": "Unterwegs gesund bleiben",
       "schengenBody": "Verfolge deine Kalorien und Makros auf Reisen und halte deine Ernährung mit dem TDEE-Rechner im Blick.",
       "compoundTitle": "Möchtest du wissen, ob dieses Wachstum für den frühen Ruhestand reicht?",
-      "compoundBody": "Verwandle dein projiziertes Guthaben mit dem FIRE-Rechner in einen Finanzunabhängigkeits-Plan."
+      "compoundBody": "Verwandle dein projiziertes Guthaben mit dem FIRE-Rechner in einen Finanzunabhängigkeits-Plan.",
+      "mortgageTitle": "Aus der Hypothek einen Ruhestandsplan machen",
+      "mortgageBody": "Wenn die Rate unter Kontrolle ist, modelliere mit dem FIRE-Rechner, wie derselbe monatliche Cashflow Vermögen aufbaut.",
+      "secondaryTitle": "Den Anlageweg vergleichen",
+      "secondaryBody": "Sieh, wozu dieselbe Monatsrate mit dem {name} wachsen könnte."
     }
   },
   "home": {
@@ -654,6 +658,113 @@
           "answer": "Ja — nutze die teilbare Ergebniskarte, um ein SVG herunterzuladen oder einen Link zu kopieren, der deine genauen Eingaben bewahrt."
         }
       ]
+    },
+    "mortgage": {
+      "name": "Hypotheken- und Tilgungsrechner",
+      "shortName": "Hypothekenrechner",
+      "metaTitle": "Hypotheken- & Tilgungsrechner — Monatliche Rate",
+      "metaDescription": "Monatliche Tilgung & Zinsen, Gesamtzinsen, Tilgungsdauer und vollständigen Tilgungsplan für eine Festhypothek berechnen — inklusive Sondertilgungen. Läuft komplett im Browser.",
+      "h1": "Hypotheken- und Tilgungsrechner",
+      "intro": "Monatsrate, Lebenszeitzinsen und Tilgungsdatum auf einen Blick. Preis, Anzahlung, Laufzeit und Zinssatz eingeben — und mit einer Sondertilgung sehen, wie schnell das Haus schuldenfrei ist.",
+      "keywords": [
+        "Hypothekenrechner",
+        "Hypothekenraten-Rechner",
+        "Tilgungsrechner",
+        "Darlehensrechner",
+        "Hypothek früher abbezahlen"
+      ],
+      "features": [
+        "Monatliche Tilgungs- & Zinsrate",
+        "Gesamtzinsen und Gesamtkosten",
+        "Jährlicher Tilgungsplan",
+        "Sondertilgung: Dauer- & Zinsersparnis",
+        "Teilbare Ergebniskarte + CSV-Export"
+      ],
+      "ui": {
+        "inputsTitle": "Deine Eingaben",
+        "homePrice": "Kaufpreis",
+        "downPayment": "Anzahlung",
+        "downAmount": "Anzahlung ($)",
+        "downPercent": "Anzahlung (%)",
+        "loanTermYears": "Laufzeit (Jahre)",
+        "annualRate": "Zinssatz",
+        "extraMonthly": "Sondertilgung pro Monat",
+        "extraHint": "Fließt zu 100 % ins Kapital",
+        "loanAmountLabel": "Darlehensbetrag",
+        "monthlyPayment": "Monatliche Rate",
+        "monthlyPaymentHint": "Tilgung & Zinsen, vor Steuern und Versicherung",
+        "totalInterest": "Gesamtzinsen",
+        "totalCost": "Gesamtkosten des Darlehens",
+        "payoffTime": "Tilgungsdauer",
+        "payoffHintNone": "Planmäßige Laufzeit, ohne Sondertilgung",
+        "payoffHintExtra": "{months} Monate schneller als geplant",
+        "monthsSaved": "Gesparte Monate",
+        "interestSaved": "Gesparte Zinsen",
+        "chartTitle": "Tilgung im Zeitverlauf",
+        "chartBalance": "Restschuld",
+        "chartPrincipal": "Getilgtes Kapital",
+        "chartInterest": "Gezahlte Zinsen",
+        "tableTitle": "Jährliche Aufstellung",
+        "tableYear": "Jahr",
+        "tablePayment": "Rate",
+        "tablePrincipal": "Kapital",
+        "tableInterest": "Zinsen",
+        "tableBalance": "Restschuld"
+      },
+      "formula": {
+        "steps": [
+          "Beginn mit dem Darlehensbetrag: Kaufpreis minus Anzahlung.",
+          "Teile den Jahreszins durch 12 für den Monatszins r.",
+          "Monatsrate M = L·r / (1 − (1+r)^−n), mit L = Darlehen und n = Monatsanzahl.",
+          "Monatlich: Zinsen = Saldo·r, der Rest der Rate tilgt das Kapital; Sondertilgungen fließen zu 100 % ins Kapital."
+        ],
+        "intro": "Eine Festhypothek arbeitet mit Annuitätentilgung: Jede Rate teilt sich in Zinsen auf die Restschuld und Kapitalrückzahlung. Am Anfang dominieren die Zinsen, später das Kapital — der Tilgungsplan macht das Jahr für Jahr sichtbar.",
+        "note": "Die Werte umfassen nur Tilgung und Zinsen. Grundsteuer, Versicherung und PMI sind nicht enthalten; die Ergebnisse sind illustrativ, kein Kreditangebot."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Was ist Tilgung?",
+            "paragraphs": [
+              "Tilgung ist das Abbezahlen eines Darlehens mit gleichbleibenden Monatsraten, wobei jede Rate die auf die Restschuld angefallenen Zinsen plus einen Kapitalanteil abdeckt.",
+              "Weil der Saldo schrumpft, sinkt der Zinsanteil mit der Zeit und der Kapitalanteil wächst — der Grund, warum sich frühe Raten nach \"lauter Zinsen\" anfühlen."
+            ]
+          },
+          {
+            "heading": "Sollte ich die Hypothek früh abbezahlen?",
+            "paragraphs": [
+              "Sondertilgungen fließen direkt ins Kapital, verkürzen die Laufzeit und senken die Gesamtzinsen — oft um Zehntausende Dollar.",
+              "Ob das die beste Verwendung deines Geldes ist, hängt vom Zinssatz gegenüber der Rendite anderer Anlagen ab — der Rechner macht den Trade-off konkret."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Wie wird meine Monatsrate berechnet?",
+          "answer": "Die Rate folgt der Standard-Annuitätenformel aus Darlehensbetrag, Monatszins und Laufzeit. Sie deckt nur Tilgung und Zinsen ab — Steuern, Versicherung und PMI sind separat."
+        },
+        {
+          "question": "Warum sind frühe Raten so zinslastig?",
+          "answer": "Jede Rate deckt zuerst die Zinsen auf die Restschuld. Da der Saldo am Anfang am größten ist, sind frühe Raten überwiegend Zinsen; sinkt der Saldo, fließt mehr in die Tilgung."
+        },
+        {
+          "question": "Wie helfen Sondertilgungen?",
+          "answer": "Eine Sondertilgung fließt zu 100 % ins Kapital. Das senkt die Restschuld schneller, reduziert künftige Zinsen und verkürzt die Laufzeit — der Rechner zeigt beides: gesparte Monate und gesparte Zinsen."
+        },
+        {
+          "question": "Was umfassen die Gesamtkosten?",
+          "answer": "Die Gesamtkosten sind die Summe aller Tilgungs- und Zinszahlungen über die Laufzeit — Darlehensbetrag plus alle Zinsen. Anzahlung, Steuern und Versicherung sind nicht enthalten."
+        },
+        {
+          "question": "Ändert eine höhere Anzahlung meine Rate?",
+          "answer": "Ja. Eine höhere Anzahlung bedeutet ein kleineres Darlehen, was Monatsrate und Gesamtzinsen senkt. Zwischen Dollar-Betrag und Prozent lässt sich umschalten."
+        },
+        {
+          "question": "Kann ich dieses Ergebnis speichern oder teilen?",
+          "answer": "Ja — der Teillink trägt deine exakten Eingaben, die Ergebniskarte lässt sich als Bild herunterladen und der Jahresplan als CSV exportieren."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -696,6 +807,14 @@
     "viewPreset": "Szenario ansehen",
     "currentLabel": "Aktuell",
     "benchmarkTitle": "Szenario-Benchmark",
+    "benchmarkIntro": "Kennzahlen für {scenario}."
+  },
+  "mortgagePresets": {
+    "gridTitle": "Hypothekenszenarien",
+    "gridSubtitle": "Zu einem vorbefüllten Beispiel springen oder von null starten.",
+    "viewPreset": "Szenario ansehen",
+    "currentLabel": "Aktuell",
+    "benchmarkTitle": "Szenario-Kennzahlen",
     "benchmarkIntro": "Kennzahlen für {scenario}."
   }
 }

@@ -19,7 +19,8 @@ const routes = [
   { route: '/calculators/travel/schengen-visa-calculator', kind: 'calculator' },
   { route: '/calculators/finance/fire-compound-interest-calculator', kind: 'calculator' },
   { route: '/calculators/health/tdee-macro-calculator', kind: 'calculator' },
-  { route: '/calculators/finance/compound-interest-calculator', kind: 'calculator' }
+  { route: '/calculators/finance/compound-interest-calculator', kind: 'calculator' },
+  { route: '/calculators/finance/mortgage-calculator', kind: 'calculator' }
 ];
 
 let failures = 0;

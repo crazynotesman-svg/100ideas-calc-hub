@@ -79,7 +79,11 @@
       "schengenTitle": "旅行中保持健康",
       "schengenBody": "在路上追踪热量与宏量营养素，用 TDEE 计算器维持营养计划。",
       "compoundTitle": "想知道这笔增长能否覆盖提前退休？",
-      "compoundBody": "用 FIRE 计算器把你的预计余额变成一份财务独立计划。"
+      "compoundBody": "用 FIRE 计算器把你的预计余额变成一份财务独立计划。",
+      "mortgageTitle": "把房贷变成退休计划",
+      "mortgageBody": "月供稳定后，用 FIRE 计算器模拟同样的每月现金流如何积累财富。",
+      "secondaryTitle": "对比投资路径",
+      "secondaryBody": "看看同样的月供用{name}能增长到什么规模。"
     }
   },
   "home": {
@@ -654,6 +658,113 @@
           "answer": "可以——用可分享结果卡片下载 SVG，或复制一条保留你精确输入的链接。"
         }
       ]
+    },
+    "mortgage": {
+      "name": "房贷与摊销计算器",
+      "shortName": "房贷计算器",
+      "metaTitle": "房贷与摊销计算器——月供计算",
+      "metaDescription": "估算固定利率房贷的每月本金与利息、总利息、还清时间与完整摊销明细，支持额外还款。全部在浏览器本地运行。",
+      "h1": "房贷与摊销计算器",
+      "intro": "一眼看清月供、终身利息与还清日期。输入房价、首付、期限和利率——再加一笔每月额外还款，看看你能多快无债拥有这套房子。",
+      "keywords": [
+        "房贷计算器",
+        "月供计算器",
+        "贷款摊销计算器",
+        "房屋贷款计算器",
+        "提前还贷计算器"
+      ],
+      "features": [
+        "每月本金与利息月供",
+        "总利息与贷款总成本",
+        "逐年摊销明细表",
+        "额外还款的提前还清与利息节省",
+        "可分享结果卡片 + CSV 导出"
+      ],
+      "ui": {
+        "inputsTitle": "你的输入",
+        "homePrice": "房价",
+        "downPayment": "首付",
+        "downAmount": "首付（美元）",
+        "downPercent": "首付（%）",
+        "loanTermYears": "贷款期限（年）",
+        "annualRate": "利率",
+        "extraMonthly": "每月额外还款",
+        "extraHint": "100% 直接冲抵本金",
+        "loanAmountLabel": "贷款金额",
+        "monthlyPayment": "每月本息月供",
+        "monthlyPaymentHint": "本金与利息，不含税费与保险",
+        "totalInterest": "总利息",
+        "totalCost": "贷款总成本",
+        "payoffTime": "还清时间",
+        "payoffHintNone": "计划期限，无额外还款",
+        "payoffHintExtra": "比计划提前 {months} 个月",
+        "monthsSaved": "节省月数",
+        "interestSaved": "节省利息",
+        "chartTitle": "随时间变化的摊销",
+        "chartBalance": "剩余本金",
+        "chartPrincipal": "已还本金",
+        "chartInterest": "已还利息",
+        "tableTitle": "逐年明细",
+        "tableYear": "年份",
+        "tablePayment": "还款额",
+        "tablePrincipal": "本金",
+        "tableInterest": "利息",
+        "tableBalance": "余额"
+      },
+      "formula": {
+        "steps": [
+          "从贷款金额开始：房价减去首付。",
+          "将年利率除以 12 得到月利率 r。",
+          "月供 M = L·r / (1 − (1+r)^−n)，其中 L 为贷款金额，n 为还款月数。",
+          "每月：利息 = 余额×r，其余还款冲抵本金；任何额外还款 100% 用于本金。"
+        ],
+        "intro": "固定利率房贷采用等额本息摊销：每期还款在「剩余本金的利息」与「本金偿还」之间分配。早期利息占大头，后期本金占大头——摊销表让这一过程逐年可见。",
+        "note": "数值仅含本金与利息。房产税、保险与 PMI 不包含在内；结果仅供参考，不构成贷款报价。"
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "什么是摊销？",
+            "paragraphs": [
+              "摊销是用等额月供逐步偿还贷款的过程，每期还款覆盖剩余本金产生的利息加上一部分本金。",
+              "随着余额下降，利息部分逐渐减少、本金部分逐渐增加——这就是为什么早期还款感觉\"全是利息\"。"
+            ]
+          },
+          {
+            "heading": "我应该提前还清房贷吗？",
+            "paragraphs": [
+              "每月额外还款直接冲抵本金，缩短期限并大幅减少总利息——往往可省数万美元。",
+              "这是否是最佳资金安排，取决于你的利率与其它投资的回报对比；计算器让这个取舍变得具体。"
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "我的房贷月供是怎么算的？",
+          "answer": "月供采用标准等额本息公式，由贷款金额、月利率与期限决定。只含本金与利息——税费、保险与 PMI 另计。"
+        },
+        {
+          "question": "为什么早期还款大部分是利息？",
+          "answer": "每期还款先覆盖剩余本金的利息。由于初期余额最大，早期还款以利息为主；余额下降后，更多还款用于本金。"
+        },
+        {
+          "question": "额外还款有什么帮助？",
+          "answer": "额外还款 100% 冲抵本金，使余额更快下降，减少未来利息并缩短还清期限——计算器同时显示节省的月数与利息。"
+        },
+        {
+          "question": "贷款总成本包含什么？",
+          "answer": "总成本是整个贷款期内所有本金与利息还款之和——贷款金额加上全部利息。不含首付、税费与保险。"
+        },
+        {
+          "question": "更高首付会改变月供吗？",
+          "answer": "会。首付越高、贷款越小，月供与总利息就越低。输入可在美元金额与百分比之间切换对比。"
+        },
+        {
+          "question": "我能保存或分享这个结果吗？",
+          "answer": "可以——分享链接携带你的精确输入，结果卡片可下载为图片，逐年明细表可导出为 CSV。"
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -693,6 +804,14 @@
   "compoundPresets": {
     "gridTitle": "复利场景",
     "gridSubtitle": "跳到预填好的例子，或从零开始。",
+    "viewPreset": "查看场景",
+    "currentLabel": "当前",
+    "benchmarkTitle": "场景基准",
+    "benchmarkIntro": "{scenario} 的关键数据。"
+  },
+  "mortgagePresets": {
+    "gridTitle": "房贷场景",
+    "gridSubtitle": "跳转到预填好的示例，或从零开始。",
     "viewPreset": "查看场景",
     "currentLabel": "当前",
     "benchmarkTitle": "场景基准",

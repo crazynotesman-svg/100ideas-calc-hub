@@ -8,6 +8,7 @@ import { PRESETS as TDEE_PRESETS, presetRoute as tdeeRoute } from '@/app/[locale
 import { PRESETS as FIRE_PRESETS, presetRoute as fireRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/firePresets';
 import { PRESETS as SCHENGEN_PRESETS, presetRoute as schengenRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/schengenPresets';
 import { PRESETS as COMPOUND_PRESETS, presetRoute as compoundRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/compoundInterestPresets';
+import { PRESETS as MORTGAGE_PRESETS, presetRoute as mortgageRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/mortgagePresets';
 import { locales, isLocale, type Locale } from '@/config/i18n.config';
 import { calculators, getCalculator, calculatorRoute } from '@/config/calculators.config';
 import { buildMetadata } from '@/lib/seo/metadata';
@@ -33,6 +34,11 @@ const registry: Record<string, React.ComponentType> = {
   compound: dynamic(() =>
     import('@/components/calculators/finance/CompoundInterestCalculatorClient').then(
       (m) => m.CompoundInterestCalculatorClient
+    )
+  ),
+  mortgage: dynamic(() =>
+    import('@/components/calculators/finance/MortgageCalculatorClient').then(
+      (m) => m.MortgageCalculatorClient
     )
   )
 };
@@ -122,6 +128,13 @@ export default async function CalculatorPage({ params: { locale, category, slug 
         namespace="compoundPresets"
         presets={COMPOUND_PRESETS}
         routeFor={compoundRoute}
+      />
+    ) : meta.id === 'mortgage' ? (
+      <ScenarioPresetsGrid
+        locale={locale as Locale}
+        namespace="mortgagePresets"
+        presets={MORTGAGE_PRESETS}
+        routeFor={mortgageRoute}
       />
     ) : undefined;
 
