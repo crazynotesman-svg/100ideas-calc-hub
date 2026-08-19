@@ -10,6 +10,7 @@ import { PRESETS as SCHENGEN_PRESETS, presetRoute as schengenRoute } from '@/app
 import { PRESETS as COMPOUND_PRESETS, presetRoute as compoundRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/compoundInterestPresets';
 import { PRESETS as MORTGAGE_PRESETS, presetRoute as mortgageRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/mortgagePresets';
 import { PRESETS as BODYFAT_PRESETS, presetRoute as bodyFatRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/bodyFatPresets';
+import { PRESETS as AUTOLOAN_PRESETS, presetRoute as autoLoanRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/autoLoanPresets';
 import { locales, isLocale, type Locale } from '@/config/i18n.config';
 import { calculators, getCalculator, calculatorRoute } from '@/config/calculators.config';
 import { buildMetadata } from '@/lib/seo/metadata';
@@ -45,6 +46,11 @@ const registry: Record<string, React.ComponentType> = {
   'body-fat-bmi': dynamic(() =>
     import('@/components/calculators/health/BodyFatBmiCalculatorClient').then(
       (m) => m.BodyFatBmiCalculatorClient
+    )
+  ),
+  'auto-loan': dynamic(() =>
+    import('@/components/calculators/finance/AutoLoanCalculatorClient').then(
+      (m) => m.AutoLoanCalculatorClient
     )
   )
 };
@@ -148,6 +154,13 @@ export default async function CalculatorPage({ params: { locale, category, slug 
         namespace="bodyFatPresets"
         presets={BODYFAT_PRESETS}
         routeFor={bodyFatRoute}
+      />
+    ) : meta.id === 'auto-loan' ? (
+      <ScenarioPresetsGrid
+        locale={locale as Locale}
+        namespace="autoLoanPresets"
+        presets={AUTOLOAN_PRESETS}
+        routeFor={autoLoanRoute}
       />
     ) : undefined;
 

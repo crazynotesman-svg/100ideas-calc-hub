@@ -85,7 +85,9 @@
       "secondaryTitle": "Den Anlageweg vergleichen",
       "secondaryBody": "Sieh, wozu dieselbe Monatsrate mit dem {name} wachsen könnte.",
       "body-fat-bmiTitle": "Kalorienziele verfeinern",
-      "body-fat-bmiBody": "Die Körperzusammensetzung ist eine Hälfte des Bildes — plane Kalorien und Makros darum herum mit dem TDEE-Rechner."
+      "body-fat-bmiBody": "Die Körperzusammensetzung ist eine Hälfte des Bildes — plane Kalorien und Makros darum herum mit dem TDEE-Rechner.",
+      "auto-loanTitle": "Als Nächstes das größere Darlehen prüfen",
+      "auto-loanBody": "Wenn die Autorate ins Budget passt, vergleiche mit dem Hypothekenrechner, wie sich eine Immobilienfinanzierung anfühlt."
     }
   },
   "home": {
@@ -874,6 +876,110 @@
           "answer": "Ja — der Teillink trägt deine exakten Maße, die Ergebniskarte lässt sich als Bild herunterladen und die Zusammenfassung als CSV exportieren."
         }
       ]
+    },
+    "auto-loan": {
+      "name": "Auto-Darlehens- und Zahlungsrechner",
+      "shortName": "Autokreditrechner",
+      "metaTitle": "Auto-Darlehens- & Zahlungsrechner — Monatliche Rate",
+      "metaDescription": "Monatliche Raten, Gesamtdarlehen inklusive Umsatzsteuer und Inzahlungnahme, Gesamtzinsen und Tilgungsplan für ein Autodarlehen berechnen. Läuft komplett im Browser.",
+      "h1": "Auto-Darlehens- und Zahlungsrechner",
+      "intro": "Sieh genau, was ein Auto zu finanzieren kostet. Fahrzeugpreis, Anzahlung, Inzahlungnahme und Umsatzsteuer eingeben, dann Laufzeit und Zinssatz wählen — Rate, Zinsen und Tilgungsplan aktualisieren sich sofort.",
+      "keywords": [
+        "Autodarlehensrechner",
+        "Autokredit-Rechner",
+        "Autofinanzierung Rechner",
+        "Autokredit Zinsen Rechner",
+        "Kfz-Finanzierung Rechner"
+      ],
+      "features": [
+        "Monatsraten-Schätzung",
+        "Umsatzsteuer & Inzahlungnahme inklusive",
+        "Gesamtzinsen & Gesamtkosten",
+        "Monatlicher Tilgungsplan",
+        "Teilbare Ergebniskarte + CSV-Export"
+      ],
+      "ui": {
+        "inputsTitle": "Deine Darlehensdaten",
+        "vehiclePrice": "Fahrzeugpreis",
+        "downPayment": "Anzahlung",
+        "tradeIn": "Inzahlungnahme",
+        "salesTax": "Umsatzsteuer",
+        "loanTerm": "Laufzeit",
+        "termMonths": "Monate",
+        "annualRate": "Zinssatz",
+        "showTradeIn": "Inzahlungnahme berücksichtigen",
+        "showTax": "Umsatzsteuer berücksichtigen",
+        "salesTaxLabel": "Umsatzsteuer",
+        "loanAmountLabel": "Darlehensbetrag",
+        "monthlyPayment": "Monatsrate",
+        "totalInterest": "Gesamtzinsen",
+        "totalPayments": "Gesamtzahlungen",
+        "totalVehicleCost": "Gesamtkosten des Fahrzeugs",
+        "chartTitle": "Restschuld im Zeitverlauf",
+        "chartPrincipal": "Getilgtes Kapital",
+        "chartInterest": "Gezahlte Zinsen",
+        "tableTitle": "Zahlungsaufstellung",
+        "tableMonth": "Monat",
+        "tablePayment": "Rate",
+        "tablePrincipal": "Kapital",
+        "tableInterest": "Zinsen",
+        "tableBalance": "Restschuld",
+        "chartBalance": "Restschuld"
+      },
+      "formula": {
+        "steps": [
+          "Die Umsatzsteuer wird auf den Preis abzüglich Inzahlungnahme berechnet.",
+          "Darlehen = Preis − Anzahlung − Inzahlungnahme + Umsatzsteuer.",
+          "Monatsrate M = L·r / (1 − (1+r)^−n), mit r als Monatszins und n als Laufzeit in Monaten.",
+          "Monatlich: Zinsen = Saldo·r, der Rest der Rate tilgt das Kapital."
+        ],
+        "intro": "Ein Autodarlehen ist ein Annuitätendarlehen: gleiche Monatsraten, zinslastig am Anfang, mit wachsendem Kapitalanteil. Steuer addieren und Inzahlungnahme abziehen ergibt den echten Finanzierungsbetrag.",
+        "note": "Die Werte umfassen keine Zulassung, Gebühren und Versicherung. Die Ergebnisse sind illustrativ, kein Kreditangebot."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Was steckt wirklich in einem Autodarlehen?",
+            "paragraphs": [
+              "Der finanzierte Betrag ist nicht nur der Listenpreis — die Umsatzsteuer wird meist ins Darlehen eingerechnet, während Anzahlung und Inzahlungnahme es reduzieren.",
+              "Weil auch die Steuer finanziert wird, zahlst du darauf Zinsen. Deshalb übersteigen die Gesamtkosten immer den Preis am Fensterschild."
+            ]
+          },
+          {
+            "heading": "Kürzere Laufzeit oder niedrigere Rate?",
+            "paragraphs": [
+              "Ein 60-Monats-Darlehen kostet deutlich weniger Zinsen als 72 Monate, aber eine höhere Monatsrate. Die kürzeste tragbare Laufzeit ist der schnellste Weg, Zinsen zu sparen.",
+              "Der Rechner zeigt den Trade-off direkt: Laufzeit ändern und beobachten, wie sich Rate und Gesamtzinsen in entgegengesetzte Richtungen bewegen."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Wie wird meine Autodarlehensrate berechnet?",
+          "answer": "Die Rate folgt der Standard-Annuitätenformel auf den finanzierten Betrag: Fahrzeugpreis minus Anzahlung und Inzahlungnahme plus Umsatzsteuer, zu deinem Zinssatz über die gewählte Laufzeit."
+        },
+        {
+          "question": "Wie wirkt die Umsatzsteuer auf das Darlehen?",
+          "answer": "Die Umsatzsteuer wird meist zum finanzierten Betrag addiert, sodass du darauf Zinsen zahlst. Ein höherer Steuersatz erhöht Darlehen und Monatsrate."
+        },
+        {
+          "question": "Senkt die Inzahlungnahme die Kosten?",
+          "answer": "Ja — die Inzahlungnahme reduziert den finanzierten Betrag und in diesem Modell auch den steuerpflichtigen Betrag, was Rate und Gesamtzinsen senkt."
+        },
+        {
+          "question": "Was umfassen die Gesamtkosten des Fahrzeugs?",
+          "answer": "Die Gesamtkosten sind Anzahlung plus Inzahlungnahme plus alle Monatsraten über die Laufzeit — alles, was du tatsächlich für das Fahrzeug zahlst, inklusive Zinsen."
+        },
+        {
+          "question": "Wie verändert die Laufzeit meine Rate?",
+          "answer": "Eine längere Laufzeit (72 statt 60 Monate) senkt die Monatsrate, erhöht aber die Gesamtzinsen. Der Rechner vergleicht Laufzeiten nebeneinander."
+        },
+        {
+          "question": "Kann ich dieses Ergebnis speichern oder teilen?",
+          "answer": "Ja — der Teillink trägt deine exakten Eingaben, die Ergebniskarte lässt sich als Bild herunterladen und der Zahlungsplan als CSV exportieren."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -928,6 +1034,14 @@
   },
   "bodyFatPresets": {
     "gridTitle": "Körperzusammensetzungs-Szenarien",
+    "gridSubtitle": "Zu einem vorbefüllten Beispiel springen oder von null starten.",
+    "viewPreset": "Szenario ansehen",
+    "currentLabel": "Aktuell",
+    "benchmarkTitle": "Szenario-Kennzahlen",
+    "benchmarkIntro": "Kennzahlen für {scenario}."
+  },
+  "autoLoanPresets": {
+    "gridTitle": "Autokredit-Szenarien",
     "gridSubtitle": "Zu einem vorbefüllten Beispiel springen oder von null starten.",
     "viewPreset": "Szenario ansehen",
     "currentLabel": "Aktuell",

@@ -31,7 +31,8 @@ const CALCULATORS = [
   { category: 'health', slug: 'tdee-macro-calculator' },
   { category: 'finance', slug: 'compound-interest-calculator' },
   { category: 'finance', slug: 'mortgage-calculator' },
-  { category: 'health', slug: 'body-fat-bmi-calculator' }
+  { category: 'health', slug: 'body-fat-bmi-calculator' },
+  { category: 'finance', slug: 'auto-loan-calculator' }
 ];
 
 // pSEO preset scenarios across every calculator — kept here so both the sitemap
@@ -72,7 +73,15 @@ const PRESETS = [
   { category: 'health', slug: 'body-fat-bmi-calculator', scenario: 'body-fat-percentage-men-average' },
   { category: 'health', slug: 'body-fat-bmi-calculator', scenario: 'bmi-calculator-weight-height' },
   { category: 'health', slug: 'body-fat-bmi-calculator', scenario: 'lean-mass-body-composition' },
-  { category: 'health', slug: 'body-fat-bmi-calculator', scenario: 'weight-loss-body-fat-target' }
+  { category: 'health', slug: 'body-fat-bmi-calculator', scenario: 'weight-loss-body-fat-target' },
+  { category: 'finance', slug: 'auto-loan-calculator', scenario: '30k-car-loan-5-year-6-percent' },
+  { category: 'finance', slug: 'auto-loan-calculator', scenario: '60-month-vs-72-month-auto-loan' },
+  { category: 'finance', slug: 'auto-loan-calculator', scenario: 'used-car-loan-interest-rate-calculator' },
+  { category: 'finance', slug: 'auto-loan-calculator', scenario: 'zero-down-payment-auto-loan' },
+  { category: 'finance', slug: 'auto-loan-calculator', scenario: '50k-luxury-car-loan-payment' },
+  { category: 'finance', slug: 'auto-loan-calculator', scenario: 'trade-in-value-car-loan-calculator' },
+  { category: 'finance', slug: 'auto-loan-calculator', scenario: 'auto-loan-sales-tax-calculator' },
+  { category: 'finance', slug: 'auto-loan-calculator', scenario: '20k-budget-car-loan-payment' }
 ];
 
 // Every SSG content route that must appear in a sitemap and carry a clean

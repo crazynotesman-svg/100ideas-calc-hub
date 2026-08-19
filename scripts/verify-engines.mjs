@@ -112,5 +112,20 @@ assert('Navy body fat = 10.6%', bfHtml.includes('10.6%'), true);
 assert('Composition bar rendered', /width:"?\s*\d+(\.\d+)?%/.test(bfHtml), true);
 assert('Result shells reserved pre-hydration', (bfHtml.match(/result-shell/g) || []).length >= 4, true);
 
+/* ---------------------------------------------------------- Auto Loan reference
+ * Defaults shipped in the component: $30,000 price, $3,000 down, 7% tax, 60 mo, 6%.
+ *   tax  = (30000 − 0) × 7%        = 2,100
+ *   loan = 30000 − 3000 − 0 + 2100 = 29,100                       -> "$29,100"
+ *   M    = 29100·(0.06/12)/(1−(1+0.005)^−60) = 562.58              -> "$563"
+ */
+const alHtml = await (await fetch(`${base}/en/calculators/finance/auto-loan-calculator`)).text();
+console.log('\nAUTO LOAN ENGINE (server-rendered defaults: $30k, $3k down, 7% tax, 60mo @ 6%)');
+console.log('─'.repeat(96));
+assert('Loan amount = $29,100', alHtml.includes('$29,100'), true);
+assert('Monthly payment = $563', alHtml.includes('$563'), true);
+assert('Amortization table server-rendered', /<tbody/.test(alHtml), true);
+assert('Chart shell height reserved', alHtml.includes('chart-shell'), true);
+assert('Result shells reserved pre-hydration', (alHtml.match(/result-shell/g) || []).length >= 5, true);
+
 console.log(`\n${failures === 0 ? 'PASS — engines verified' : `FAILED — ${failures} checks`}\n`);
 process.exit(failures === 0 ? 0 : 1);

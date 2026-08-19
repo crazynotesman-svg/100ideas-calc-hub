@@ -85,7 +85,9 @@
       "secondaryTitle": "Compare the investment path",
       "secondaryBody": "See what the same monthly payment could grow to with the {name}.",
       "body-fat-bmiTitle": "Refine your calorie targets",
-      "body-fat-bmiBody": "Body composition is one half of the picture — set calories and macros around it with the TDEE Calculator."
+      "body-fat-bmiBody": "Body composition is one half of the picture — set calories and macros around it with the TDEE Calculator.",
+      "auto-loanTitle": "Size up the bigger loan next",
+      "auto-loanBody": "Once the car payment fits your budget, see how a mortgage on a home compares with the Mortgage Calculator."
     }
   },
   "home": {
@@ -874,6 +876,110 @@
           "answer": "Yes — the share link carries your exact measurements, the result card downloads as an image, and the summary exports to CSV."
         }
       ]
+    },
+    "auto-loan": {
+      "name": "Auto Loan & Payment Calculator",
+      "shortName": "Auto Loan Calculator",
+      "metaTitle": "Auto Loan & Payment Calculator — Monthly Payment",
+      "metaDescription": "Estimate monthly payments, total loan amount with sales tax and trade-in, total interest and an amortization schedule for an auto loan. All runs in your browser.",
+      "h1": "Auto Loan & Payment Calculator",
+      "intro": "See exactly what a car costs to finance. Enter the vehicle price, down payment, trade-in and sales tax, then choose a term and rate — the payment, interest and full schedule update instantly.",
+      "keywords": [
+        "auto loan calculator",
+        "car payment calculator",
+        "car loan calculator",
+        "auto loan interest calculator",
+        "car financing calculator"
+      ],
+      "features": [
+        "Monthly payment estimate",
+        "Sales tax & trade-in included",
+        "Total interest & total vehicle cost",
+        "Month-by-month amortization schedule",
+        "Shareable result card + CSV export"
+      ],
+      "ui": {
+        "inputsTitle": "Your loan details",
+        "vehiclePrice": "Vehicle price",
+        "downPayment": "Down payment",
+        "tradeIn": "Trade-in value",
+        "salesTax": "Sales tax",
+        "loanTerm": "Loan term",
+        "termMonths": "months",
+        "annualRate": "Interest rate",
+        "showTradeIn": "Include trade-in",
+        "showTax": "Include sales tax",
+        "salesTaxLabel": "Sales tax",
+        "loanAmountLabel": "Loan amount",
+        "monthlyPayment": "Monthly payment",
+        "totalInterest": "Total interest",
+        "totalPayments": "Total payments",
+        "totalVehicleCost": "Total vehicle cost",
+        "chartTitle": "Loan balance over time",
+        "chartPrincipal": "Principal paid",
+        "chartInterest": "Interest paid",
+        "tableTitle": "Payment breakdown",
+        "tableMonth": "Month",
+        "tablePayment": "Payment",
+        "tablePrincipal": "Principal",
+        "tableInterest": "Interest",
+        "tableBalance": "Balance",
+        "chartBalance": "Remaining balance"
+      },
+      "formula": {
+        "steps": [
+          "Sales tax is calculated on the price minus the trade-in value.",
+          "Loan amount = price − down payment − trade-in + sales tax.",
+          "Monthly payment M = L·r / (1 − (1+r)^−n), where r is the monthly rate and n the term in months.",
+          "Each month, interest = balance·r and the rest of the payment reduces the principal."
+        ],
+        "intro": "An auto loan is a fixed-rate amortizing loan: equal monthly payments, with interest front-loaded and principal growing over time. Adding tax and subtracting your trade-in gives the true amount financed.",
+        "note": "Figures exclude registration, fees and insurance. Results are illustrative, not a loan offer."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "What really goes into a car loan?",
+            "paragraphs": [
+              "The financed amount is not just the sticker price — sales tax is usually rolled into the loan, while your down payment and trade-in reduce it.",
+              "Because the tax is financed too, you pay interest on it. That is why the total vehicle cost always exceeds the price on the window sticker."
+            ]
+          },
+          {
+            "heading": "Shorter term or lower payment?",
+            "paragraphs": [
+              "A 60-month loan costs far less interest than 72 months, but a higher monthly payment. Choosing the shortest term you can afford is the fastest way to cut interest.",
+              "The calculator shows the trade-off directly: change the term and watch the payment and total interest move in opposite directions."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "How is my auto loan payment calculated?",
+          "answer": "The payment uses the standard amortization formula on the financed amount: vehicle price minus down payment and trade-in, plus sales tax, at your rate over the chosen term."
+        },
+        {
+          "question": "How does sales tax affect the loan?",
+          "answer": "Sales tax is usually added to the financed amount, so you pay interest on it. A higher tax rate increases both the loan and the monthly payment."
+        },
+        {
+          "question": "Does a trade-in lower the cost?",
+          "answer": "Yes — a trade-in reduces the financed amount and, in this model, the taxable amount too, lowering both the payment and the total interest."
+        },
+        {
+          "question": "What is included in total vehicle cost?",
+          "answer": "Total vehicle cost is your down payment plus trade-in plus every monthly payment over the term — everything you actually pay for the vehicle, including interest."
+        },
+        {
+          "question": "How does the loan term change my payment?",
+          "answer": "A longer term (72 vs 60 months) lowers the monthly payment but increases total interest. The calculator compares terms side by side so you can see the trade-off."
+        },
+        {
+          "question": "Can I save or share this result?",
+          "answer": "Yes — the share link carries your exact inputs, the result card downloads as an image, and the payment schedule exports to CSV."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -928,6 +1034,14 @@
   },
   "bodyFatPresets": {
     "gridTitle": "Body composition scenarios",
+    "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
+    "viewPreset": "View scenario",
+    "currentLabel": "Current",
+    "benchmarkTitle": "Scenario Benchmark",
+    "benchmarkIntro": "Key figures for {scenario}."
+  },
+  "autoLoanPresets": {
+    "gridTitle": "Auto loan scenarios",
     "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
     "viewPreset": "View scenario",
     "currentLabel": "Current",

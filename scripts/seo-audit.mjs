@@ -21,7 +21,8 @@ const routes = [
   { route: '/calculators/health/tdee-macro-calculator', kind: 'calculator' },
   { route: '/calculators/finance/compound-interest-calculator', kind: 'calculator' },
   { route: '/calculators/finance/mortgage-calculator', kind: 'calculator' },
-  { route: '/calculators/health/body-fat-bmi-calculator', kind: 'calculator' }
+  { route: '/calculators/health/body-fat-bmi-calculator', kind: 'calculator' },
+  { route: '/calculators/finance/auto-loan-calculator', kind: 'calculator' }
 ];
 
 let failures = 0;

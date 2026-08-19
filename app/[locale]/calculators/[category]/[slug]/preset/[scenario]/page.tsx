@@ -70,6 +70,17 @@ import {
   presetRoute as bodyFatRoute,
   bodyFatInitialQuery
 } from '@/app/[locale]/calculators/[category]/[slug]/preset/bodyFatPresets';
+import { AutoLoanCalculatorClient } from '@/components/calculators/finance/AutoLoanCalculatorClient';
+import { calculateAutoLoan, type AutoLoanResult } from '@/lib/calculators/finance/auto-loan';
+import {
+  AUTOLOAN_CATEGORY,
+  AUTOLOAN_SLUG,
+  PRESET_SLUGS as AUTOLOAN_SLUGS,
+  PRESETS as AUTOLOAN_PRESETS,
+  getPreset as getAutoLoan,
+  presetRoute as autoLoanRoute,
+  autoLoanInitialQuery
+} from '@/app/[locale]/calculators/[category]/[slug]/preset/autoLoanPresets';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { HrefLangAlternates } from '@/components/seo/HrefLangAlternates';
 import { isLocale, locales, localeMeta, type Locale } from '@/config/i18n.config';
@@ -97,7 +108,8 @@ export function generateStaticParams() {
     ...expand(SCHENGEN_CATEGORY, SCHENGEN_SLUG, SCHENGEN_SLUGS),
     ...expand(COMPOUND_CATEGORY, COMPOUND_SLUG, COMPOUND_SLUGS),
     ...expand(MORTGAGE_CATEGORY, MORTGAGE_SLUG, MORTGAGE_SLUGS),
-    ...expand(BODYFAT_CATEGORY, BODYFAT_SLUG, BODYFAT_SLUGS)
+    ...expand(BODYFAT_CATEGORY, BODYFAT_SLUG, BODYFAT_SLUGS),
+    ...expand(AUTOLOAN_CATEGORY, AUTOLOAN_SLUG, AUTOLOAN_SLUGS)
   ];
   return locales.flatMap((l) => combos.map((c) => ({ locale: l, ...c })));
 }
@@ -143,6 +155,11 @@ export async function generateMetadata({
     if (!p) return {};
     preset = p;
     route = bodyFatRoute(scenario);
+  } else if (slug === AUTOLOAN_SLUG) {
+    const p = getAutoLoan(scenario);
+    if (!p) return {};
+    preset = p;
+    route = autoLoanRoute(scenario);
   } else {
     return {};
   }
@@ -286,6 +303,25 @@ export default async function PresetPage({
       />
     );
     benchmark = await BodyFatBmiBenchmark(l, r);
+  } else if (slug === AUTOLOAN_SLUG) {
+    const p = getAutoLoan(scenario);
+    if (!p) notFound();
+    const r = calculateAutoLoan(p.defaultParams);
+    const loc = p.localized[l];
+    title = loc.title;
+    description = loc.description;
+    faqs = loc.faqs;
+    ns = 'autoLoanPresets';
+    presets = AUTOLOAN_PRESETS;
+    routeFor = autoLoanRoute;
+    calculatorNode = (
+      <AutoLoanCalculatorClient
+        initialState={p.defaultParams}
+        initialQuery={autoLoanInitialQuery(p)}
+        cardTitle={title}
+      />
+    );
+    benchmark = await AutoLoanBenchmark(l, r);
   } else {
     notFound();
     return;
@@ -486,6 +522,24 @@ async function BodyFatBmiBenchmark(locale: Locale, r: BodyFatBmiResult) {
       />
       <PresetStat label={t('fatMass')} value={`${nf1.format(r.fatMassKg)} kg`} />
       <PresetStat label={t('leanMass')} value={`${nf1.format(r.leanMassKg)} kg`} />
+    </>
+  );
+}
+
+async function AutoLoanBenchmark(locale: Locale, r: AutoLoanResult) {
+  const t = await getTranslations({ locale, namespace: 'calculators.auto-loan.ui' });
+  const money = new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: localeMeta[locale].currency,
+    maximumFractionDigits: 0
+  });
+  return (
+    <>
+      <PresetStat label={t('monthlyPayment')} value={money.format(r.monthlyPayment)} accent />
+      <PresetStat label={t('loanAmountLabel')} value={money.format(r.loanAmount)} />
+      <PresetStat label={t('totalInterest')} value={money.format(r.totalInterest)} />
+      <PresetStat label={t('salesTaxLabel')} value={money.format(r.salesTax)} />
+      <PresetStat label={t('totalVehicleCost')} value={money.format(r.totalVehicleCost)} accent />
     </>
   );
 }

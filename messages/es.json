@@ -85,7 +85,9 @@
       "secondaryTitle": "Compara el camino de inversión",
       "secondaryBody": "Mira en qué podría convertirse ese mismo pago mensual con el {name}.",
       "body-fat-bmiTitle": "Afina tus objetivos de calorías",
-      "body-fat-bmiBody": "La composición corporal es la mitad del panorama — planifica calorías y macros a su alrededor con la calculadora TDEE."
+      "body-fat-bmiBody": "La composición corporal es la mitad del panorama — planifica calorías y macros a su alrededor con la calculadora TDEE.",
+      "auto-loanTitle": "Evalúa el préstamo mayor a continuación",
+      "auto-loanBody": "Cuando el pago del coche encaje en tu presupuesto, mira cómo se compara una hipoteca con la Calculadora de Hipoteca."
     }
   },
   "home": {
@@ -874,6 +876,110 @@
           "answer": "Sí — el enlace compartible lleva tus medidas exactas, la tarjeta se descarga como imagen y el resumen se exporta a CSV."
         }
       ]
+    },
+    "auto-loan": {
+      "name": "Calculadora de Préstamo de Auto y Pago",
+      "shortName": "Calculadora de Auto",
+      "metaTitle": "Calculadora de Préstamo de Auto y Pago — Pago Mensual",
+      "metaDescription": "Calcula pagos mensuales, el importe total del préstamo con impuesto sobre ventas y permuta, el interés total y un calendario de amortización para un préstamo de auto. Todo en tu navegador.",
+      "h1": "Calculadora de Préstamo de Auto y Pago",
+      "intro": "Mira exactamente cuánto cuesta financiar un coche. Introduce el precio, la entrada, la permuta y el impuesto, elige plazo y tipo — el pago, los intereses y el calendario se actualizan al instante.",
+      "keywords": [
+        "calculadora de préstamo de auto",
+        "calculadora de pago de coche",
+        "calculadora de préstamo de coche",
+        "calculadora de intereses de auto",
+        "calculadora de financiación de coche"
+      ],
+      "features": [
+        "Estimación del pago mensual",
+        "Impuesto sobre ventas y permuta incluidos",
+        "Interés total y coste total del vehículo",
+        "Calendario de amortización mes a mes",
+        "Tarjeta compartible + exportación CSV"
+      ],
+      "ui": {
+        "inputsTitle": "Los datos de tu préstamo",
+        "vehiclePrice": "Precio del vehículo",
+        "downPayment": "Entrada",
+        "tradeIn": "Valor de permuta",
+        "salesTax": "Impuesto sobre ventas",
+        "loanTerm": "Plazo del préstamo",
+        "termMonths": "meses",
+        "annualRate": "Tipo de interés",
+        "showTradeIn": "Incluir permuta",
+        "showTax": "Incluir impuesto",
+        "salesTaxLabel": "Impuesto sobre ventas",
+        "loanAmountLabel": "Importe del préstamo",
+        "monthlyPayment": "Pago mensual",
+        "totalInterest": "Interés total",
+        "totalPayments": "Pagos totales",
+        "totalVehicleCost": "Coste total del vehículo",
+        "chartTitle": "Saldo del préstamo a lo largo del tiempo",
+        "chartPrincipal": "Capital pagado",
+        "chartInterest": "Interés pagado",
+        "tableTitle": "Desglose de pagos",
+        "tableMonth": "Mes",
+        "tablePayment": "Pago",
+        "tablePrincipal": "Capital",
+        "tableInterest": "Interés",
+        "tableBalance": "Saldo",
+        "chartBalance": "Saldo restante"
+      },
+      "formula": {
+        "steps": [
+          "El impuesto se calcula sobre el precio menos la permuta.",
+          "Préstamo = precio − entrada − permuta + impuesto.",
+          "Pago mensual M = L·r / (1 − (1+r)^−n), con r como tipo mensual y n el plazo en meses.",
+          "Cada mes: interés = saldo·r y el resto del pago reduce el capital."
+        ],
+        "intro": "Un préstamo de auto es un préstamo amortizable a tipo fijo: pagos mensuales iguales, con intereses adelantados y capital creciente. Sumar el impuesto y restar tu permuta da el importe real financiado.",
+        "note": "Las cifras excluyen matriculación, tasas y seguros. Los resultados son ilustrativos, no una oferta de préstamo."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "¿Qué entra realmente en un préstamo de coche?",
+            "paragraphs": [
+              "El importe financiado no es solo el precio de etiqueta — el impuesto sobre ventas suele integrarse en el préstamo, mientras que tu entrada y permuta lo reducen.",
+              "Como el impuesto también se financia, pagas intereses sobre él. Por eso el coste total siempre supera el precio del escaparate."
+            ]
+          },
+          {
+            "heading": "¿Plazo más corto o pago menor?",
+            "paragraphs": [
+              "Un préstamo a 60 meses cuesta mucho menos interés que uno a 72, pero un pago mensual mayor. Elegir el plazo más corto que puedas asumir es la forma más rápida de recortar intereses.",
+              "La calculadora muestra el dilema directamente: cambia el plazo y observa cómo pago e interés total se mueven en direcciones opuestas."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "¿Cómo se calcula mi pago de préstamo de auto?",
+          "answer": "El pago usa la fórmula estándar de amortización sobre el importe financiado: precio del vehículo menos entrada y permuta, más impuesto, a tu tipo durante el plazo elegido."
+        },
+        {
+          "question": "¿Cómo afecta el impuesto al préstamo?",
+          "answer": "El impuesto sobre ventas suele añadirse al importe financiado, así que pagas intereses sobre él. Un tipo más alto aumenta el préstamo y el pago mensual."
+        },
+        {
+          "question": "¿La permuta reduce el coste?",
+          "answer": "Sí — la permuta reduce el importe financiado y, en este modelo, también la base imponible, bajando tanto el pago como el interés total."
+        },
+        {
+          "question": "¿Qué incluye el coste total del vehículo?",
+          "answer": "El coste total es tu entrada más la permuta más todos los pagos mensuales durante el plazo — todo lo que pagas realmente por el vehículo, incluidos los intereses."
+        },
+        {
+          "question": "¿Cómo cambia el plazo mi pago?",
+          "answer": "Un plazo mayor (72 frente a 60 meses) baja el pago mensual pero sube el interés total. La calculadora compara plazos lado a lado."
+        },
+        {
+          "question": "¿Puedo guardar o compartir este resultado?",
+          "answer": "Sí — el enlace compartible lleva tus datos exactos, la tarjeta se descarga como imagen y el calendario se exporta a CSV."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -928,6 +1034,14 @@
   },
   "bodyFatPresets": {
     "gridTitle": "Escenarios de composición corporal",
+    "gridSubtitle": "Salta a un ejemplo preconfigurado o empieza desde cero.",
+    "viewPreset": "Ver escenario",
+    "currentLabel": "Actual",
+    "benchmarkTitle": "Referencia del escenario",
+    "benchmarkIntro": "Cifras clave para {scenario}."
+  },
+  "autoLoanPresets": {
+    "gridTitle": "Escenarios de préstamo de auto",
     "gridSubtitle": "Salta a un ejemplo preconfigurado o empieza desde cero.",
     "viewPreset": "Ver escenario",
     "currentLabel": "Actual",

@@ -120,6 +120,18 @@ export const calculators: readonly CalculatorMeta[] = [
     availableLocales: locales,
     icon: 'trending-up',
     accent: 'from-blue-500/15 to-indigo-500/5'
+  },
+  {
+    id: 'auto-loan',
+    category: 'finance',
+    slug: 'auto-loan-calculator',
+    faqCount: 6,
+    updated: '2026-08-19',
+    priority: 0.9,
+    featured: true,
+    availableLocales: locales,
+    icon: 'trending-up',
+    accent: 'from-yellow-500/15 to-amber-500/5'
   }
 ] as const;
 
