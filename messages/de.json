@@ -87,7 +87,9 @@
       "body-fat-bmiTitle": "Kalorienziele verfeinern",
       "body-fat-bmiBody": "Die Körperzusammensetzung ist eine Hälfte des Bildes — plane Kalorien und Makros darum herum mit dem TDEE-Rechner.",
       "auto-loanTitle": "Als Nächstes das größere Darlehen prüfen",
-      "auto-loanBody": "Wenn die Autorate ins Budget passt, vergleiche mit dem Hypothekenrechner, wie sich eine Immobilienfinanzierung anfühlt."
+      "auto-loanBody": "Wenn die Autorate ins Budget passt, vergleiche mit dem Hypothekenrechner, wie sich eine Immobilienfinanzierung anfühlt.",
+      "student-loanTitle": "Als Nächstes die größeren Schulden prüfen",
+      "student-loanBody": "Wenn deine Studienstschulden erfasst sind, vergleiche mit dem Hypothekenrechner ein Hausdarlehen — den größten Kredit der meisten Menschen."
     }
   },
   "home": {
@@ -980,6 +982,113 @@
           "answer": "Ja — der Teillink trägt deine exakten Eingaben, die Ergebniskarte lässt sich als Bild herunterladen und der Zahlungsplan als CSV exportieren."
         }
       ]
+    },
+    "student-loan": {
+      "name": "Studienkredit- und Rückzahlungsrechner",
+      "shortName": "Studienkreditrechner",
+      "metaTitle": "Studienkredit- & Rückzahlungsrechner — Monatliche Rate",
+      "metaDescription": "Monatliche Studienkredit-Raten, Zinskapitalisierung in der Karenzzeit, Gesamtzinsen und Tilgungsdauer berechnen — inklusive Sondertilgungen. Läuft komplett im Browser.",
+      "h1": "Studienkredit- und Rückzahlungsrechner",
+      "intro": "Plane die Rückzahlung, bevor sie beginnt. Darlehensbetrag, Zinssatz und Laufzeit eingeben, Karenzzeit oder Sondertilgung hinzufügen — Rate, Zinsen und Tilgungsdatum aktualisieren sich sofort.",
+      "keywords": [
+        "Studienkreditrechner",
+        "Studienkredit-Ratenrechner",
+        "Studienkredit abbezahlen",
+        "Rückzahlungsplan Rechner",
+        "Studentenschulden Rechner"
+      ],
+      "features": [
+        "Monatsraten-Schätzung",
+        "Zinskapitalisierung in der Karenzzeit",
+        "Sondertilgungs-Ersparnis (Zeit & Zinsen)",
+        "Monatlicher Tilgungsplan",
+        "Teilbare Ergebniskarte + CSV-Export"
+      ],
+      "ui": {
+        "inputsTitle": "Deine Darlehensdaten",
+        "principal": "Darlehensbetrag",
+        "annualRate": "Zinssatz",
+        "termYears": "Laufzeit",
+        "gracePeriodMonths": "Karenzzeit (Monate)",
+        "graceHint": "Zinsen laufen auf und werden in der Karenzzeit kapitalisiert",
+        "extraMonthly": "Sondertilgung pro Monat",
+        "extraHint": "Fließt zu 100 % ins Kapital",
+        "monthlyPayment": "Basisrate",
+        "actualMonthlyPayment": "Tatsächliche Rate",
+        "totalInterest": "Gesamtzinsen",
+        "interestSaved": "Gesparte Zinsen",
+        "payoffTime": "Tilgungsdauer",
+        "payoffHintNone": "Planmäßige Laufzeit, ohne Sondertilgung",
+        "payoffHintExtra": "{months} Monate schneller als geplant",
+        "totalPayment": "Gesamtrückzahlung",
+        "capitalizedInterest": "Kapitalisierte Zinsen",
+        "capitalizedBalance": "Saldo zu Beginn der Rückzahlung",
+        "chartTitle": "Saldo & Zinsen im Zeitverlauf",
+        "chartBalance": "Restschuld",
+        "chartPrincipal": "Getilgtes Kapital",
+        "chartInterest": "Gezahlte Zinsen",
+        "tableTitle": "Monatliche Aufstellung",
+        "tableMonth": "Monat",
+        "tablePayment": "Rate",
+        "tablePrincipal": "Kapital",
+        "tableInterest": "Zinsen",
+        "tableBalance": "Restschuld",
+        "termMonths": "Monate"
+      },
+      "formula": {
+        "steps": [
+          "In der Karenzzeit fallen monatlich Zinsen an, die zu Beginn der Rückzahlung kapitalisiert (dem Kapital zugeschlagen) werden.",
+          "Basisrate M = L·r / (1 − (1+r)^−n), mit L als kapitalisiertem Saldo, r als Monatszins und n als Laufzeit in Monaten.",
+          "Monatlich: Zinsen = Saldo·r, der Rest der Rate tilgt das Kapital.",
+          "Eine Sondertilgung fließt zu 100 % ins Kapital, verkürzt die Laufzeit und senkt die Gesamtzinsen."
+        ],
+        "intro": "Ein Studienkredit ist ein Annuitätendarlehen. Eine Karenzzeit lässt Zinsen auflaufen und kapitalisieren, sodass der zurückzuzahlende Saldo das geliehene Kapital übersteigen kann.",
+        "note": "Die Werte sind illustrativ und umfassen keine Gebühren, Stundungen oder Erlassprogramme. Keine Finanzberatung."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Was ist Zinskapitalisierung?",
+            "paragraphs": [
+              "In einer Karenzzeit (typisch sechs Monate nach dem Abschluss) sind keine Raten fällig, aber die Zinsen laufen bei ungeförderten Darlehen weiter.",
+              "Zu Beginn der Rückzahlung werden diese Zinsen dem Kapital zugeschlagen — du zahlst dann Zinsen auf Zinsen, weshalb der Saldo wachsen kann, bevor du eine einzige Rate zahlst."
+            ]
+          },
+          {
+            "heading": "Sondertilgungen sind der schnellste Hebel",
+            "paragraphs": [
+              "Jeder zusätzliche Dollar fließt direkt ins Kapital, senkt künftige Zinsen und verkürzt die Laufzeit — oft um Jahre.",
+              "Der Rechner zeigt genau, wie viele Monate (und wie viel Zinsen) eine Sondertilgung bei deinem Darlehen spart."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Wie wird meine Studienkreditrate berechnet?",
+          "answer": "Die Rate folgt der Standard-Annuitätenformel auf den Saldo nach eventueller Kapitalisierung in der Karenzzeit, zu deinem Zinssatz über die gewählte Laufzeit."
+        },
+        {
+          "question": "Was ist eine Karenzzeit und wie wirkt sie?",
+          "answer": "Eine Karenzzeit ist der Zeitraum nach dem Abschluss vor Beginn der Raten. Bei ungeförderten Darlehen laufen Zinsen auf und werden kapitalisiert, was den zurückzuzahlenden Saldo erhöht."
+        },
+        {
+          "question": "Wie helfen Sondertilgungen?",
+          "answer": "Sondertilgungen fließen zu 100 % ins Kapital, senken den Saldo schneller, reduzieren künftige Zinsen und verkürzen die Laufzeit — der Rechner zeigt gesparte Monate und Zinsen."
+        },
+        {
+          "question": "Was ist Zinskapitalisierung?",
+          "answer": "Kapitalisierung schlägt aufgelaufene Zinsen dem Kapital zu. Danach zahlst du Zinsen auf den größeren Saldo — deshalb ist früher Start oder Zinszahlung in der Karenzzeit wichtig."
+        },
+        {
+          "question": "Was umfasst die Gesamtrückzahlung?",
+          "answer": "Die Gesamtrückzahlung ist die Summe aller Raten — das kapitalisierte Kapital plus alle Zinsen über die Laufzeit."
+        },
+        {
+          "question": "Kann ich dieses Ergebnis speichern oder teilen?",
+          "answer": "Ja — der Teillink trägt deine exakten Eingaben, die Ergebniskarte lässt sich als Bild herunterladen und der Tilgungsplan als CSV exportieren."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1042,6 +1151,14 @@
   },
   "autoLoanPresets": {
     "gridTitle": "Autokredit-Szenarien",
+    "gridSubtitle": "Zu einem vorbefüllten Beispiel springen oder von null starten.",
+    "viewPreset": "Szenario ansehen",
+    "currentLabel": "Aktuell",
+    "benchmarkTitle": "Szenario-Kennzahlen",
+    "benchmarkIntro": "Kennzahlen für {scenario}."
+  },
+  "studentLoanPresets": {
+    "gridTitle": "Studienkredit-Szenarien",
     "gridSubtitle": "Zu einem vorbefüllten Beispiel springen oder von null starten.",
     "viewPreset": "Szenario ansehen",
     "currentLabel": "Aktuell",

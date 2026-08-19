@@ -32,7 +32,8 @@ const CALCULATORS = [
   { category: 'finance', slug: 'compound-interest-calculator' },
   { category: 'finance', slug: 'mortgage-calculator' },
   { category: 'health', slug: 'body-fat-bmi-calculator' },
-  { category: 'finance', slug: 'auto-loan-calculator' }
+  { category: 'finance', slug: 'auto-loan-calculator' },
+  { category: 'finance', slug: 'student-loan-calculator' }
 ];
 
 // pSEO preset scenarios across every calculator — kept here so both the sitemap
@@ -81,7 +82,15 @@ const PRESETS = [
   { category: 'finance', slug: 'auto-loan-calculator', scenario: '50k-luxury-car-loan-payment' },
   { category: 'finance', slug: 'auto-loan-calculator', scenario: 'trade-in-value-car-loan-calculator' },
   { category: 'finance', slug: 'auto-loan-calculator', scenario: 'auto-loan-sales-tax-calculator' },
-  { category: 'finance', slug: 'auto-loan-calculator', scenario: '20k-budget-car-loan-payment' }
+  { category: 'finance', slug: 'auto-loan-calculator', scenario: '20k-budget-car-loan-payment' },
+  { category: 'finance', slug: 'student-loan-calculator', scenario: '30k-10yr-6.5' },
+  { category: 'finance', slug: 'student-loan-calculator', scenario: '50k-graduate-7.5' },
+  { category: 'finance', slug: 'student-loan-calculator', scenario: '100k-medical-law' },
+  { category: 'finance', slug: 'student-loan-calculator', scenario: 'extra-200-payoff' },
+  { category: 'finance', slug: 'student-loan-calculator', scenario: 'parent-plus-40k' },
+  { category: 'finance', slug: 'student-loan-calculator', scenario: 'refinance-5pct-7yr' },
+  { category: 'finance', slug: 'student-loan-calculator', scenario: 'idr-vs-standard' },
+  { category: 'finance', slug: 'student-loan-calculator', scenario: '25k-grace-period' }
 ];
 
 // Every SSG content route that must appear in a sitemap and carry a clean

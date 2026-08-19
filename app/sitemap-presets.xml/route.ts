@@ -19,6 +19,7 @@ import { PRESET_SLUGS as COMPOUND, presetRoute as compoundRoute } from '@/app/[l
 import { PRESET_SLUGS as MORTGAGE, presetRoute as mortgageRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/mortgagePresets';
 import { PRESET_SLUGS as BODYFAT, presetRoute as bodyFatRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/bodyFatPresets';
 import { PRESET_SLUGS as AUTOLOAN, presetRoute as autoLoanRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/autoLoanPresets';
+import { PRESET_SLUGS as STUDENTLOAN, presetRoute as studentLoanRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/studentLoanPresets';
 
 const ALL_PRESET_ROUTES: string[] = [
   ...TDEE.map((s) => tdeeRoute(s)),
@@ -27,7 +28,8 @@ const ALL_PRESET_ROUTES: string[] = [
   ...COMPOUND.map((s) => compoundRoute(s)),
   ...MORTGAGE.map((s) => mortgageRoute(s)),
   ...BODYFAT.map((s) => bodyFatRoute(s)),
-  ...AUTOLOAN.map((s) => autoLoanRoute(s))
+  ...AUTOLOAN.map((s) => autoLoanRoute(s)),
+  ...STUDENTLOAN.map((s) => studentLoanRoute(s))
 ];
 
 function languagesFor(route: string): Record<string, string> {

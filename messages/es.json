@@ -87,7 +87,9 @@
       "body-fat-bmiTitle": "Afina tus objetivos de calorías",
       "body-fat-bmiBody": "La composición corporal es la mitad del panorama — planifica calorías y macros a su alrededor con la calculadora TDEE.",
       "auto-loanTitle": "Evalúa el préstamo mayor a continuación",
-      "auto-loanBody": "Cuando el pago del coche encaje en tu presupuesto, mira cómo se compara una hipoteca con la Calculadora de Hipoteca."
+      "auto-loanBody": "Cuando el pago del coche encaje en tu presupuesto, mira cómo se compara una hipoteca con la Calculadora de Hipoteca.",
+      "student-loanTitle": "Evalúa las deudas mayores a continuación",
+      "student-loanBody": "Una vez mapeada tu deuda estudiantil, compara una hipoteca con la Calculadora de Hipoteca — el préstamo más grande que la mayoría toma."
     }
   },
   "home": {
@@ -980,6 +982,113 @@
           "answer": "Sí — el enlace compartible lleva tus datos exactos, la tarjeta se descarga como imagen y el calendario se exporta a CSV."
         }
       ]
+    },
+    "student-loan": {
+      "name": "Calculadora de Préstamo Estudiantil y Pago",
+      "shortName": "Calculadora de Préstamo",
+      "metaTitle": "Calculadora de Préstamo Estudiantil y Pago — Cuota Mensual",
+      "metaDescription": "Calcula las cuotas mensuales del préstamo estudiantil, la capitalización de intereses del periodo de gracia, el interés total y el plazo de liquidación, con pagos extra. Todo en tu navegador.",
+      "h1": "Calculadora de Préstamo Estudiantil y Pago",
+      "intro": "Planifica tu pago antes de que empiece. Introduce el importe, el tipo y el plazo, añade un periodo de gracia o un pago extra mensual — la cuota, los intereses y la fecha de liquidación se actualizan al instante.",
+      "keywords": [
+        "calculadora de préstamo estudiantil",
+        "calculadora de pago de préstamo estudiantil",
+        "calculadora de liquidación de préstamo",
+        "calculadora de plan de pago",
+        "calculadora de deuda estudiantil"
+      ],
+      "features": [
+        "Estimación de la cuota mensual",
+        "Capitalización de intereses del periodo de gracia",
+        "Ahorro por pagos extra (tiempo e intereses)",
+        "Calendario de pago mes a mes",
+        "Tarjeta compartible + exportación CSV"
+      ],
+      "ui": {
+        "inputsTitle": "Los datos de tu préstamo",
+        "principal": "Importe del préstamo",
+        "annualRate": "Tipo de interés",
+        "termYears": "Plazo de pago",
+        "gracePeriodMonths": "Periodo de gracia (meses)",
+        "graceHint": "Los intereses se acumulan y capitalizan durante la gracia",
+        "extraMonthly": "Pago extra mensual",
+        "extraHint": "Aplicado 100 % al capital",
+        "monthlyPayment": "Pago base",
+        "actualMonthlyPayment": "Pago real",
+        "totalInterest": "Interés total",
+        "interestSaved": "Interés ahorrado",
+        "payoffTime": "Plazo de liquidación",
+        "payoffHintNone": "Plazo programado, sin pagos extra",
+        "payoffHintExtra": "{months} meses antes de lo programado",
+        "totalPayment": "Devolución total",
+        "capitalizedInterest": "Interés capitalizado",
+        "capitalizedBalance": "Saldo al inicio del pago",
+        "chartTitle": "Saldo e intereses a lo largo del tiempo",
+        "chartBalance": "Saldo restante",
+        "chartPrincipal": "Capital pagado",
+        "chartInterest": "Interés pagado",
+        "tableTitle": "Desglose mes a mes",
+        "tableMonth": "Mes",
+        "tablePayment": "Pago",
+        "tablePrincipal": "Capital",
+        "tableInterest": "Interés",
+        "tableBalance": "Saldo",
+        "termMonths": "meses"
+      },
+      "formula": {
+        "steps": [
+          "Durante el periodo de gracia, el interés mensual se acumula y se capitaliza (se suma al capital) cuando empieza el pago.",
+          "Pago base M = L·r / (1 − (1+r)^−n), con L como saldo capitalizado, r el tipo mensual y n el plazo en meses.",
+          "Cada mes: interés = saldo·r y el resto del pago reduce el capital.",
+          "Un pago extra va 100 % al capital, acortando el plazo y recortando el interés total."
+        ],
+        "intro": "Un préstamo estudiantil es un préstamo amortizable a tipo fijo. Un periodo de gracia deja acumular y capitalizar intereses antes de los pagos, así que el saldo a devolver puede superar lo prestado.",
+        "note": "Las cifras son ilustrativas y excluyen tasas, prórrogas y programas de condonación. No es asesoramiento financiero."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "¿Qué es la capitalización de intereses?",
+            "paragraphs": [
+              "Durante un periodo de gracia (normalmente seis meses tras graduarse) no hay pagos, pero los intereses siguen acumulándose en los préstamos no subvencionados.",
+              "Cuando empieza el pago, ese interés se suma a tu capital — pagas interés sobre interés, por eso el saldo puede crecer antes de hacer un solo pago."
+            ]
+          },
+          {
+            "heading": "Los pagos extra son la palanca más rápida",
+            "paragraphs": [
+              "Cada dólar extra va directo al capital, lo que corta los intereses futuros y acorta el plazo — a menudo por años.",
+              "La calculadora muestra exactamente cuántos meses (y cuánto interés) ahorra un pago extra mensual en tu préstamo."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "¿Cómo se calcula mi pago de préstamo estudiantil?",
+          "answer": "El pago usa la fórmula estándar de amortización sobre el saldo tras la capitalización del periodo de gracia, a tu tipo durante el plazo elegido."
+        },
+        {
+          "question": "¿Qué es el periodo de gracia y cómo me afecta?",
+          "answer": "Es el tiempo tras graduarse antes de empezar a pagar. En préstamos no subvencionados, el interés se acumula y capitaliza, aumentando el saldo a devolver."
+        },
+        {
+          "question": "¿Cómo ayudan los pagos extra?",
+          "answer": "Los pagos extra van 100 % al capital, reducen el saldo más rápido, cortan intereses futuros y acortan la liquidación — la calculadora muestra meses e intereses ahorrados."
+        },
+        {
+          "question": "¿Qué es la capitalización de intereses?",
+          "answer": "La capitalización suma el interés impagado al capital. A partir de ahí pagas interés sobre el saldo mayor, por eso importa empezar antes o pagar intereses durante la gracia."
+        },
+        {
+          "question": "¿Qué incluye la devolución total?",
+          "answer": "La devolución total es la suma de todos los pagos — el capital capitalizado más todos los intereses durante la vida del préstamo."
+        },
+        {
+          "question": "¿Puedo guardar o compartir este resultado?",
+          "answer": "Sí — el enlace compartible lleva tus datos exactos, la tarjeta se descarga como imagen y el calendario se exporta a CSV."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1042,6 +1151,14 @@
   },
   "autoLoanPresets": {
     "gridTitle": "Escenarios de préstamo de auto",
+    "gridSubtitle": "Salta a un ejemplo preconfigurado o empieza desde cero.",
+    "viewPreset": "Ver escenario",
+    "currentLabel": "Actual",
+    "benchmarkTitle": "Referencia del escenario",
+    "benchmarkIntro": "Cifras clave para {scenario}."
+  },
+  "studentLoanPresets": {
+    "gridTitle": "Escenarios de préstamo estudiantil",
     "gridSubtitle": "Salta a un ejemplo preconfigurado o empieza desde cero.",
     "viewPreset": "Ver escenario",
     "currentLabel": "Actual",

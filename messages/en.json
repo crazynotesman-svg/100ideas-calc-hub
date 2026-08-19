@@ -87,7 +87,9 @@
       "body-fat-bmiTitle": "Refine your calorie targets",
       "body-fat-bmiBody": "Body composition is one half of the picture — set calories and macros around it with the TDEE Calculator.",
       "auto-loanTitle": "Size up the bigger loan next",
-      "auto-loanBody": "Once the car payment fits your budget, see how a mortgage on a home compares with the Mortgage Calculator."
+      "auto-loanBody": "Once the car payment fits your budget, see how a mortgage on a home compares with the Mortgage Calculator.",
+      "student-loanTitle": "Size up the bigger debts next",
+      "student-loanBody": "Once your student debt is mapped, compare a home loan with the Mortgage Calculator — the biggest loan most people ever take."
     }
   },
   "home": {
@@ -980,6 +982,113 @@
           "answer": "Yes — the share link carries your exact inputs, the result card downloads as an image, and the payment schedule exports to CSV."
         }
       ]
+    },
+    "student-loan": {
+      "name": "Student Loan & Repayment Plan Calculator",
+      "shortName": "Student Loan Calculator",
+      "metaTitle": "Student Loan & Repayment Calculator — Monthly Payment",
+      "metaDescription": "Estimate student loan monthly payments, grace-period interest capitalization, total interest and payoff time, with extra payments. All runs in your browser.",
+      "h1": "Student Loan & Repayment Plan Calculator",
+      "intro": "Map your repayment before it starts. Enter the loan amount, rate and term, add a grace period or an extra monthly payment — the payment, interest and payoff date update instantly.",
+      "keywords": [
+        "student loan calculator",
+        "student loan payment calculator",
+        "student loan payoff calculator",
+        "repayment plan calculator",
+        "student debt calculator"
+      ],
+      "features": [
+        "Monthly payment estimate",
+        "Grace-period interest capitalization",
+        "Extra-payment savings (time & interest)",
+        "Month-by-month repayment schedule",
+        "Shareable result card + CSV export"
+      ],
+      "ui": {
+        "inputsTitle": "Your loan details",
+        "principal": "Loan amount",
+        "annualRate": "Interest rate",
+        "termYears": "Repayment term",
+        "gracePeriodMonths": "Grace period (months)",
+        "graceHint": "Interest accrues and capitalizes during grace",
+        "extraMonthly": "Extra monthly payment",
+        "extraHint": "Applied 100% to principal",
+        "monthlyPayment": "Base payment",
+        "actualMonthlyPayment": "Actual payment",
+        "totalInterest": "Total interest",
+        "interestSaved": "Interest saved",
+        "payoffTime": "Payoff time",
+        "payoffHintNone": "Scheduled term, no extra payments",
+        "payoffHintExtra": "{months} months faster than scheduled",
+        "totalPayment": "Total repayment",
+        "capitalizedInterest": "Capitalized interest",
+        "capitalizedBalance": "Balance at repayment start",
+        "chartTitle": "Balance & interest over time",
+        "chartBalance": "Remaining balance",
+        "chartPrincipal": "Principal paid",
+        "chartInterest": "Interest paid",
+        "tableTitle": "Month-by-month breakdown",
+        "tableMonth": "Month",
+        "tablePayment": "Payment",
+        "tablePrincipal": "Principal",
+        "tableInterest": "Interest",
+        "tableBalance": "Balance",
+        "termMonths": "months"
+      },
+      "formula": {
+        "steps": [
+          "During the grace period, monthly interest accrues on the balance and is capitalized (added to principal) when repayment begins.",
+          "Base payment M = L·r / (1 − (1+r)^−n), where L is the capitalized balance, r the monthly rate and n the term in months.",
+          "Each month, interest = balance·r and the rest of the payment reduces principal.",
+          "An extra monthly payment goes 100% to principal, shortening the term and cutting total interest."
+        ],
+        "intro": "A student loan is a fixed-rate amortizing loan. A grace period lets interest accumulate and capitalize before payments start, so the balance you repay can exceed what you borrowed.",
+        "note": "Figures are illustrative and exclude fees, deferment and forgiveness programs. Not financial advice."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "What is interest capitalization?",
+            "paragraphs": [
+              "During a grace period (typically six months after graduation), no payments are due but interest keeps accruing on unsubsidized loans.",
+              "When repayment starts, that accrued interest is added to your principal — you then pay interest on interest, which is why the balance can grow before you make a single payment."
+            ]
+          },
+          {
+            "heading": "Extra payments are the fastest lever",
+            "paragraphs": [
+              "Every extra dollar you pay goes straight to principal, which cuts future interest and shortens the term — often by years.",
+              "The calculator shows exactly how many months (and how much interest) an extra monthly payment saves on your specific loan."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "How is my student loan payment calculated?",
+          "answer": "The payment uses the standard amortization formula on the loan balance after any grace-period capitalization, at your rate over the chosen term."
+        },
+        {
+          "question": "What is a grace period and how does it affect me?",
+          "answer": "A grace period is the time after graduation before payments start. On unsubsidized loans, interest accrues during grace and is capitalized, increasing the balance you repay."
+        },
+        {
+          "question": "How do extra payments help?",
+          "answer": "Extra monthly payments go 100% to principal, reducing the balance faster, cutting future interest and shortening the payoff — the calculator shows the months and interest saved."
+        },
+        {
+          "question": "What is interest capitalization?",
+          "answer": "Capitalization adds unpaid interest to the principal. After that point you pay interest on the larger balance, which is why starting payments earlier or paying interest during grace matters."
+        },
+        {
+          "question": "What is included in total repayment?",
+          "answer": "Total repayment is the sum of every payment you make — the capitalized principal plus all interest over the life of the loan."
+        },
+        {
+          "question": "Can I save or share this result?",
+          "answer": "Yes — the share link carries your exact inputs, the result card downloads as an image, and the repayment schedule exports to CSV."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1042,6 +1151,14 @@
   },
   "autoLoanPresets": {
     "gridTitle": "Auto loan scenarios",
+    "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
+    "viewPreset": "View scenario",
+    "currentLabel": "Current",
+    "benchmarkTitle": "Scenario Benchmark",
+    "benchmarkIntro": "Key figures for {scenario}."
+  },
+  "studentLoanPresets": {
+    "gridTitle": "Student loan scenarios",
     "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
     "viewPreset": "View scenario",
     "currentLabel": "Current",

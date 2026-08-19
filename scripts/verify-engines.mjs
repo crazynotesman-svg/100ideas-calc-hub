@@ -127,5 +127,26 @@ assert('Amortization table server-rendered', /<tbody/.test(alHtml), true);
 assert('Chart shell height reserved', alHtml.includes('chart-shell'), true);
 assert('Result shells reserved pre-hydration', (alHtml.match(/result-shell/g) || []).length >= 5, true);
 
+/* --------------------------------------------------------- Student Loan reference
+ * Defaults shipped in the component: $30,000 principal, 6.5%, 10 yr, +$100/mo extra.
+ * Note: the schedule uses the EXACT (unrounded) payment so the balance reaches zero
+ * in the final month; rounded-payment references (340.66 / $3,459.55 / 33 mo) differ
+ * slightly from the exact-payment model mandated here (340.64 / $3,346.98 / 34 mo).
+ *   base M   = 30000·(0.065/12)/(1−(1+r)^−120) = 340.64   -> "$341"
+ *   actual   = 340.64 + 100 = 440.64                      -> "$441"
+ *   saved    = $3,346.98                                  -> "$3,347"
+ *   payoff   = 86 months (34 faster than scheduled)       -> "34 months faster"
+ */
+const slHtml = await (await fetch(`${base}/en/calculators/finance/student-loan-calculator`)).text();
+console.log('\nSTUDENT LOAN ENGINE (server-rendered defaults: $30k, 6.5%, 10yr, +$100/mo)');
+console.log('─'.repeat(96));
+assert('Base payment = $341', slHtml.includes('$341'), true);
+assert('Actual payment = $441', slHtml.includes('$441'), true);
+assert('Interest saved = $3,347', slHtml.includes('$3,347'), true);
+assert('Payoff 34 months faster than scheduled', slHtml.includes('34 months faster than scheduled'), true);
+assert('Amortization table server-rendered', /<tbody/.test(slHtml), true);
+assert('Chart shell height reserved', slHtml.includes('chart-shell'), true);
+assert('Result shells reserved pre-hydration', (slHtml.match(/result-shell/g) || []).length >= 6, true);
+
 console.log(`\n${failures === 0 ? 'PASS — engines verified' : `FAILED — ${failures} checks`}\n`);
 process.exit(failures === 0 ? 0 : 1);

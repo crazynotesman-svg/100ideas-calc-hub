@@ -132,6 +132,18 @@ export const calculators: readonly CalculatorMeta[] = [
     availableLocales: locales,
     icon: 'trending-up',
     accent: 'from-yellow-500/15 to-amber-500/5'
+  },
+  {
+    id: 'student-loan',
+    category: 'finance',
+    slug: 'student-loan-calculator',
+    faqCount: 6,
+    updated: '2026-08-19',
+    priority: 0.9,
+    featured: true,
+    availableLocales: locales,
+    icon: 'trending-up',
+    accent: 'from-cyan-500/15 to-sky-500/5'
   }
 ] as const;
 

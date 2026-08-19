@@ -18,7 +18,8 @@ const NEXT: Record<string, string | string[]> = {
   compound: 'fire',
   mortgage: ['fire', 'compound'],
   'body-fat-bmi': 'tdee',
-  'auto-loan': ['mortgage', 'compound']
+  'auto-loan': ['mortgage', 'compound'],
+  'student-loan': ['mortgage', 'auto-loan', 'compound']
 };
 const ICON = { plane: Plane, 'trending-up': TrendingUp, activity: Activity } as const;
 const RING: Record<string, string> = {
@@ -28,7 +29,8 @@ const RING: Record<string, string> = {
   compound: 'border-violet-500/30 bg-violet-500/5',
   mortgage: 'border-blue-500/30 bg-blue-500/5',
   'body-fat-bmi': 'border-rose-500/30 bg-rose-500/5',
-  'auto-loan': 'border-yellow-500/30 bg-yellow-500/5'
+  'auto-loan': 'border-yellow-500/30 bg-yellow-500/5',
+  'student-loan': 'border-cyan-500/30 bg-cyan-500/5'
 };
 const CHIP: Record<string, string> = {
   fire: 'bg-emerald-500/15 text-emerald-600',
@@ -37,10 +39,19 @@ const CHIP: Record<string, string> = {
   compound: 'bg-violet-500/15 text-violet-600',
   mortgage: 'bg-blue-500/15 text-blue-600',
   'body-fat-bmi': 'bg-rose-500/15 text-rose-600',
-  'auto-loan': 'bg-yellow-500/15 text-yellow-600'
+  'auto-loan': 'bg-yellow-500/15 text-yellow-600',
+  'student-loan': 'bg-cyan-500/15 text-cyan-600'
 };
 
-type CalcId = 'tdee' | 'fire' | 'schengen' | 'compound' | 'mortgage' | 'body-fat-bmi' | 'auto-loan';
+type CalcId =
+  | 'tdee'
+  | 'fire'
+  | 'schengen'
+  | 'compound'
+  | 'mortgage'
+  | 'body-fat-bmi'
+  | 'auto-loan'
+  | 'student-loan';
 
 interface CrossCalcBridgeProps {
   from: CalcId;

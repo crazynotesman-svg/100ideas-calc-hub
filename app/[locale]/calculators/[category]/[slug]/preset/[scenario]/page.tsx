@@ -81,6 +81,17 @@ import {
   presetRoute as autoLoanRoute,
   autoLoanInitialQuery
 } from '@/app/[locale]/calculators/[category]/[slug]/preset/autoLoanPresets';
+import { StudentLoanCalculatorClient } from '@/components/calculators/finance/StudentLoanCalculatorClient';
+import { calculateStudentLoan, type StudentLoanResult } from '@/lib/calculators/finance/student-loan';
+import {
+  STUDENTLOAN_CATEGORY,
+  STUDENTLOAN_SLUG,
+  PRESET_SLUGS as STUDENTLOAN_SLUGS,
+  PRESETS as STUDENTLOAN_PRESETS,
+  getPreset as getStudentLoan,
+  presetRoute as studentLoanRoute,
+  studentLoanInitialQuery
+} from '@/app/[locale]/calculators/[category]/[slug]/preset/studentLoanPresets';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { HrefLangAlternates } from '@/components/seo/HrefLangAlternates';
 import { isLocale, locales, localeMeta, type Locale } from '@/config/i18n.config';
@@ -109,7 +120,8 @@ export function generateStaticParams() {
     ...expand(COMPOUND_CATEGORY, COMPOUND_SLUG, COMPOUND_SLUGS),
     ...expand(MORTGAGE_CATEGORY, MORTGAGE_SLUG, MORTGAGE_SLUGS),
     ...expand(BODYFAT_CATEGORY, BODYFAT_SLUG, BODYFAT_SLUGS),
-    ...expand(AUTOLOAN_CATEGORY, AUTOLOAN_SLUG, AUTOLOAN_SLUGS)
+    ...expand(AUTOLOAN_CATEGORY, AUTOLOAN_SLUG, AUTOLOAN_SLUGS),
+    ...expand(STUDENTLOAN_CATEGORY, STUDENTLOAN_SLUG, STUDENTLOAN_SLUGS)
   ];
   return locales.flatMap((l) => combos.map((c) => ({ locale: l, ...c })));
 }
@@ -160,6 +172,11 @@ export async function generateMetadata({
     if (!p) return {};
     preset = p;
     route = autoLoanRoute(scenario);
+  } else if (slug === STUDENTLOAN_SLUG) {
+    const p = getStudentLoan(scenario);
+    if (!p) return {};
+    preset = p;
+    route = studentLoanRoute(scenario);
   } else {
     return {};
   }
@@ -185,7 +202,9 @@ export default async function PresetPage({
     category !== SCHENGEN_CATEGORY &&
     category !== COMPOUND_CATEGORY &&
     category !== MORTGAGE_CATEGORY &&
-    category !== BODYFAT_CATEGORY
+    category !== BODYFAT_CATEGORY &&
+    category !== AUTOLOAN_CATEGORY &&
+    category !== STUDENTLOAN_CATEGORY
   )
     notFound();
   const l = locale as Locale;
@@ -322,6 +341,25 @@ export default async function PresetPage({
       />
     );
     benchmark = await AutoLoanBenchmark(l, r);
+  } else if (slug === STUDENTLOAN_SLUG) {
+    const p = getStudentLoan(scenario);
+    if (!p) notFound();
+    const r = calculateStudentLoan(p.defaultParams);
+    const loc = p.localized[l];
+    title = loc.title;
+    description = loc.description;
+    faqs = loc.faqs;
+    ns = 'studentLoanPresets';
+    presets = STUDENTLOAN_PRESETS;
+    routeFor = studentLoanRoute;
+    calculatorNode = (
+      <StudentLoanCalculatorClient
+        initialState={p.defaultParams}
+        initialQuery={studentLoanInitialQuery(p)}
+        cardTitle={title}
+      />
+    );
+    benchmark = await StudentLoanBenchmark(l, r);
   } else {
     notFound();
     return;
@@ -540,6 +578,31 @@ async function AutoLoanBenchmark(locale: Locale, r: AutoLoanResult) {
       <PresetStat label={t('totalInterest')} value={money.format(r.totalInterest)} />
       <PresetStat label={t('salesTaxLabel')} value={money.format(r.salesTax)} />
       <PresetStat label={t('totalVehicleCost')} value={money.format(r.totalVehicleCost)} accent />
+    </>
+  );
+}
+
+async function StudentLoanBenchmark(locale: Locale, r: StudentLoanResult) {
+  const t = await getTranslations({ locale, namespace: 'calculators.student-loan.ui' });
+  const money = new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: localeMeta[locale].currency,
+    maximumFractionDigits: 0
+  });
+  return (
+    <>
+      <PresetStat label={t('monthlyPayment')} value={money.format(r.monthlyPayment)} accent />
+      {r.hasExtra && (
+        <PresetStat label={t('actualMonthlyPayment')} value={money.format(r.actualMonthlyPayment)} />
+      )}
+      <PresetStat label={t('totalInterest')} value={money.format(r.totalInterest)} />
+      {r.capitalizedInterest > 0 && (
+        <PresetStat label={t('capitalizedInterest')} value={money.format(r.capitalizedInterest)} />
+      )}
+      {r.hasExtra && (
+        <PresetStat label={t('interestSaved')} value={money.format(r.interestSaved)} accent />
+      )}
+      <PresetStat label={t('totalPayment')} value={money.format(r.totalPayment)} />
     </>
   );
 }
