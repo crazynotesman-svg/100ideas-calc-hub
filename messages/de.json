@@ -89,7 +89,9 @@
       "auto-loanTitle": "Als Nächstes das größere Darlehen prüfen",
       "auto-loanBody": "Wenn die Autorate ins Budget passt, vergleiche mit dem Hypothekenrechner, wie sich eine Immobilienfinanzierung anfühlt.",
       "student-loanTitle": "Als Nächstes die größeren Schulden prüfen",
-      "student-loanBody": "Wenn deine Studienstschulden erfasst sind, vergleiche mit dem Hypothekenrechner ein Hausdarlehen — den größten Kredit der meisten Menschen."
+      "student-loanBody": "Wenn deine Studienstschulden erfasst sind, vergleiche mit dem Hypothekenrechner ein Hausdarlehen — den größten Kredit der meisten Menschen.",
+      "lease-vs-buyTitle": "Die Autokredit-Zahlen prüfen",
+      "lease-vs-buyBody": "Wenn du weißt, ob Leasing oder Kauf, feinjustiere die Kaufkonditionen mit dem Autokredit-Rechner."
     }
   },
   "home": {
@@ -1089,6 +1091,123 @@
           "answer": "Ja — der Teillink trägt deine exakten Eingaben, die Ergebniskarte lässt sich als Bild herunterladen und der Tilgungsplan als CSV exportieren."
         }
       ]
+    },
+    "lease-vs-buy": {
+      "name": "Leasing- oder Kaufrechner",
+      "shortName": "Leasing vs. Kauf",
+      "metaTitle": "Leasing- oder Kaufrechner — Auto leasen oder kaufen",
+      "metaDescription": "Vergleiche die realen Kosten von Leasing und Kauf: Nettokosten, Monatsraten, Endkapital und den Sieger. Läuft komplett im Browser.",
+      "h1": "Leasing- oder Kaufrechner",
+      "intro": "Beide Zahlen nebeneinander prüfen. Fahrzeugpreis, Darlehenszins, Money Factor und Restwert eingeben — der Rechner verrechnet Eigenkapital, Gebühren und Steuer und nennt die günstigere Option.",
+      "keywords": [
+        "Leasing oder Kaufen Rechner",
+        "Auto leasen oder kaufen",
+        "Leasingrechner",
+        "Kauf vs Leasing Rechner",
+        "Autoleasing Vergleich"
+      ],
+      "features": [
+        "Kauf-vs-Leasing-Nettokosten",
+        "Money-Factor- & Restwertanalyse",
+        "Sieger mit Gesamtersparnis",
+        "Kumulierte Kosten- & Eigenkapitalgrafik",
+        "Teilbare Ergebniskarte + CSV-Export"
+      ],
+      "ui": {
+        "inputsTitle": "Deine Vergleichsdaten",
+        "tabBuy": "Kaufen",
+        "tabLease": "Leasing",
+        "buyPrice": "Kaufpreis",
+        "loanRate": "Darlehenszins",
+        "loanTermMonths": "Laufzeit (Monate)",
+        "holdingPeriodMonths": "Haltedauer (Monate)",
+        "resaleValue": "Erwarteter Wiederverkaufswert",
+        "downPayment": "Anzahlung",
+        "salesTaxPct": "Umsatzsteuer",
+        "msrp": "UVP",
+        "moneyFactor": "Money Factor",
+        "moneyFactorHint": "APR ≈ Money Factor × 2400",
+        "leaseTermMonths": "Leasingdauer (Monate)",
+        "residualPct": "Restwert",
+        "acquisitionFee": "Bearbeitungsgebühr",
+        "dispositionFee": "Rückgabegebühr",
+        "buyNetCost": "Netto Kaufkosten",
+        "leaseNetCost": "Netto Leasingkosten",
+        "winner": "Sieger",
+        "winnerBuy": "Kaufen gewinnt",
+        "winnerLease": "Leasing gewinnt",
+        "savings": "Ersparnis",
+        "buyMonthly": "Kauf-Monatsrate",
+        "leaseMonthly": "Leasing-Monatsrate",
+        "finalEquity": "Endkapital",
+        "chartTitle": "Kumulierte Kosten & Eigenkapital",
+        "chartLeaseCum": "Leasing-Kumulativ",
+        "chartBuyCum": "Kauf-Kumulativ",
+        "chartEquity": "Kauf-Eigenkapital",
+        "tableTitle": "Kostenaufstellung",
+        "tableColBuy": "Kauf",
+        "tableColLease": "Leasing",
+        "tableRowDown": "Anzahlung",
+        "tableRowMonthly": "Monatsraten",
+        "tableRowFees": "Gebühren",
+        "tableRowTax": "Umsatzsteuer",
+        "tableRowEquity": "Endkapital",
+        "tableRowNet": "Nettokosten"
+      },
+      "formula": {
+        "steps": [
+          "Kauf: Umsatzsteuer zum Preis addieren, Anzahlung abziehen und das Darlehen tilgen; nach der Haltedauer zum Restwert verkaufen und das Eigenkapital abziehen.",
+          "Leasing: Restwert = UVP × Restwert%; Monatsrate = Wertminderung + (Kosten + Restwert) × Money Factor, plus Umsatzsteuer auf jede Rate.",
+          "Netto Kaufkosten = Anzahlung + Steuer + Raten + Restschuld − Restwert.",
+          "Netto Leasingkosten = Anzahlung + Gebühren + Gesamtraten — am Ende kein Vermögenswert. Die niedrigeren Nettokosten gewinnen."
+        ],
+        "intro": "Leasing zahlt nur für das genutzte Fahrzeug (Wertminderung plus Finanzierungskosten); Kaufen zahlt das ganze Auto, hinterlässt aber Eigenkapital, das du verkaufen kannst. Der Vergleich rechnet beide auf denselben Zeitpunkt.",
+        "note": "Die Werte sind illustrativ und umfassen keine Versicherung, Wartung und Kilometer-Strafen. Keine Finanzberatung."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Was entscheidet zwischen Leasing und Kauf?",
+            "paragraphs": [
+              "Der größte Hebel ist die Wertminderung: verliert das Auto schnell an Wert (EVs, Luxusmodelle), kann Leasing deinen Verlust begrenzen; hält es den Wert (Pickups, SUVs), sichert dir Kaufen das Eigenkapital.",
+              "Auch dein Zinssatz zählt — ein subventionierter Money Factor kann das Leasing trotz Gebühren günstiger machen, ein niedriger Darlehenszins begünstigt den Kauf."
+            ]
+          },
+          {
+            "heading": "Das Ergebnis lesen",
+            "paragraphs": [
+              "Die Nettokosten stellen beide Optionen gleich: alles, was du zahlst, minus das, was du zurückbekommst. Kaufen zeigt meist höhere Monatskosten, aber eine starke Endkapital-Linie.",
+              "Sieger sind die niedrigeren Nettokosten — ist die Lücke klein, zählen andere Faktoren wie Kilometer, Wartung oder Eigentum mehr."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Wie werden die Kaufkosten berechnet?",
+          "answer": "Kaufen verrechnet den finanzierten Preis (mit Umsatzsteuer) über die Haltedauer und zieht dann den Restwert ab: Anzahlung + Steuer + Raten + Restschuld − Restwert."
+        },
+        {
+          "question": "Wie werden die Leasingkosten berechnet?",
+          "answer": "Leasing verrechnet Anzahlung, Bearbeitungs- und Rückgabegebühren sowie alle Raten (Wertminderung + Finanzierungskosten, monatlich besteuert) — am Ende kein Vermögenswert."
+        },
+        {
+          "question": "Was ist ein Money Factor?",
+          "answer": "Der Leasingzinssatz als Dezimalzahl; multipliziert mit 2400 ergibt sich der ungefähre APR. Niedrigere Money Factors machen Leasing günstiger."
+        },
+        {
+          "question": "Was ist meist günstiger — Leasing oder Kauf?",
+          "answer": "Es gibt keine universelle Antwort: Kaufen gewinnt meist bei hohem Restwert oder langer Haltedauer, Leasing bei schnell wertverlierenden Autos oder subventionierten Zinsen. Der Rechner verrechnet beides für deine Zahlen."
+        },
+        {
+          "question": "Was bedeutet Endkapital?",
+          "answer": "Beim Kauf ist das Endkapital der Wiederverkaufswert minus die Restschuld am Ende der Haltedauer — das Geld, das du beim Verkauf zurückbekommst."
+        },
+        {
+          "question": "Kann ich dieses Ergebnis speichern oder teilen?",
+          "answer": "Ja — der Teillink trägt deine exakten Eingaben, die Ergebniskarte lässt sich als Bild herunterladen und die Kostenaufstellung als CSV exportieren."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1159,6 +1278,14 @@
   },
   "studentLoanPresets": {
     "gridTitle": "Studienkredit-Szenarien",
+    "gridSubtitle": "Zu einem vorbefüllten Beispiel springen oder von null starten.",
+    "viewPreset": "Szenario ansehen",
+    "currentLabel": "Aktuell",
+    "benchmarkTitle": "Szenario-Kennzahlen",
+    "benchmarkIntro": "Kennzahlen für {scenario}."
+  },
+  "leaseVsBuyPresets": {
+    "gridTitle": "Leasing-oder-Kauf-Szenarien",
     "gridSubtitle": "Zu einem vorbefüllten Beispiel springen oder von null starten.",
     "viewPreset": "Szenario ansehen",
     "currentLabel": "Aktuell",

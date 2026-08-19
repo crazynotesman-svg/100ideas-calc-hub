@@ -148,5 +148,24 @@ assert('Amortization table server-rendered', /<tbody/.test(slHtml), true);
 assert('Chart shell height reserved', slHtml.includes('chart-shell'), true);
 assert('Result shells reserved pre-hydration', (slHtml.match(/result-shell/g) || []).length >= 6, true);
 
+/* ---------------------------------------------------------- Lease vs Buy reference
+ * Defaults shipped in the component: $35,000 price, 36 mo, MF 0.0025 (6% APR),
+ * 60% residual ($21,000), loan 6%, down $3,000, tax 7%.
+ *   buy:  loan = 35000 − 3000 + 2450 = 34,450; M = 1,048.04 → net = 22,179.29  -> "$22,179"
+ *   lease: rent = (35000−21000)/36 + (35000+21000)·0.0025 = 528.89; +7% tax = 565.91
+ *          net = 3000 + 565.91·36 = 23,372.80                              -> "$23,373"
+ *   winner: BUY by 1,193.51                                                -> "Buying wins" / "$1,194"
+ */
+const lvbHtml = await (await fetch(`${base}/en/calculators/finance/lease-vs-buy-calculator`)).text();
+console.log('\nLEASE VS BUY ENGINE (server-rendered defaults: $35k, 36mo, MF 0.0025, 60% residual, 6% loan)');
+console.log('─'.repeat(96));
+assert('Buy net cost = $22,179', lvbHtml.includes('$22,179'), true);
+assert('Lease net cost = $23,373', lvbHtml.includes('$23,373'), true);
+assert('Winner = Buying wins', lvbHtml.includes('Buying wins'), true);
+assert('Savings = $1,194', lvbHtml.includes('$1,194'), true);
+assert('Breakdown table server-rendered', /<tbody/.test(lvbHtml), true);
+assert('Chart shell height reserved', lvbHtml.includes('chart-shell'), true);
+assert('Result shells reserved pre-hydration', (lvbHtml.match(/result-shell/g) || []).length >= 6, true);
+
 console.log(`\n${failures === 0 ? 'PASS — engines verified' : `FAILED — ${failures} checks`}\n`);
 process.exit(failures === 0 ? 0 : 1);

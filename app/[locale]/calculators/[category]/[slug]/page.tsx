@@ -12,6 +12,7 @@ import { PRESETS as MORTGAGE_PRESETS, presetRoute as mortgageRoute } from '@/app
 import { PRESETS as BODYFAT_PRESETS, presetRoute as bodyFatRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/bodyFatPresets';
 import { PRESETS as AUTOLOAN_PRESETS, presetRoute as autoLoanRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/autoLoanPresets';
 import { PRESETS as STUDENTLOAN_PRESETS, presetRoute as studentLoanRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/studentLoanPresets';
+import { PRESETS as LEASEVSBUY_PRESETS, presetRoute as leaseVsBuyRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/leaseVsBuyPresets';
 import { locales, isLocale, type Locale } from '@/config/i18n.config';
 import { calculators, getCalculator, calculatorRoute } from '@/config/calculators.config';
 import { buildMetadata } from '@/lib/seo/metadata';
@@ -57,6 +58,11 @@ const registry: Record<string, React.ComponentType> = {
   'student-loan': dynamic(() =>
     import('@/components/calculators/finance/StudentLoanCalculatorClient').then(
       (m) => m.StudentLoanCalculatorClient
+    )
+  ),
+  'lease-vs-buy': dynamic(() =>
+    import('@/components/calculators/finance/LeaseVsBuyCalculatorClient').then(
+      (m) => m.LeaseVsBuyCalculatorClient
     )
   )
 };
@@ -174,6 +180,13 @@ export default async function CalculatorPage({ params: { locale, category, slug 
         namespace="studentLoanPresets"
         presets={STUDENTLOAN_PRESETS}
         routeFor={studentLoanRoute}
+      />
+    ) : meta.id === 'lease-vs-buy' ? (
+      <ScenarioPresetsGrid
+        locale={locale as Locale}
+        namespace="leaseVsBuyPresets"
+        presets={LEASEVSBUY_PRESETS}
+        routeFor={leaseVsBuyRoute}
       />
     ) : undefined;
 

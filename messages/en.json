@@ -89,7 +89,9 @@
       "auto-loanTitle": "Size up the bigger loan next",
       "auto-loanBody": "Once the car payment fits your budget, see how a mortgage on a home compares with the Mortgage Calculator.",
       "student-loanTitle": "Size up the bigger debts next",
-      "student-loanBody": "Once your student debt is mapped, compare a home loan with the Mortgage Calculator — the biggest loan most people ever take."
+      "student-loanBody": "Once your student debt is mapped, compare a home loan with the Mortgage Calculator — the biggest loan most people ever take.",
+      "lease-vs-buyTitle": "Run the auto loan numbers",
+      "lease-vs-buyBody": "Once you know whether to lease or buy, fine-tune the purchase terms with the Auto Loan Calculator."
     }
   },
   "home": {
@@ -1089,6 +1091,123 @@
           "answer": "Yes — the share link carries your exact inputs, the result card downloads as an image, and the repayment schedule exports to CSV."
         }
       ]
+    },
+    "lease-vs-buy": {
+      "name": "Lease vs Buy Auto Calculator",
+      "shortName": "Lease vs Buy",
+      "metaTitle": "Lease vs Buy Calculator — Auto Lease or Buy Comparison",
+      "metaDescription": "Compare the real cost of leasing versus buying a car: net costs, monthly payments, final equity and the winner. All runs in your browser.",
+      "h1": "Lease vs Buy Auto Calculator",
+      "intro": "Run both numbers side by side. Enter the vehicle price, loan rate, money factor and residual — the calculator nets out ownership equity, fees and tax to name the cheaper option.",
+      "keywords": [
+        "lease vs buy calculator",
+        "lease or buy car",
+        "car lease calculator",
+        "buying vs leasing calculator",
+        "auto lease comparison"
+      ],
+      "features": [
+        "Buy vs lease net cost comparison",
+        "Money factor & residual analysis",
+        "Winner with total savings",
+        "Cumulative cost & equity chart",
+        "Shareable result card + CSV export"
+      ],
+      "ui": {
+        "inputsTitle": "Your comparison inputs",
+        "tabBuy": "Buying",
+        "tabLease": "Leasing",
+        "buyPrice": "Purchase price",
+        "loanRate": "Loan rate",
+        "loanTermMonths": "Loan term (months)",
+        "holdingPeriodMonths": "Holding period (months)",
+        "resaleValue": "Expected resale value",
+        "downPayment": "Down payment",
+        "salesTaxPct": "Sales tax",
+        "msrp": "MSRP",
+        "moneyFactor": "Money factor",
+        "moneyFactorHint": "APR ≈ money factor × 2400",
+        "leaseTermMonths": "Lease term (months)",
+        "residualPct": "Residual value",
+        "acquisitionFee": "Acquisition fee",
+        "dispositionFee": "Disposition fee",
+        "buyNetCost": "Buy net cost",
+        "leaseNetCost": "Lease net cost",
+        "winner": "Winner",
+        "winnerBuy": "Buying wins",
+        "winnerLease": "Leasing wins",
+        "savings": "Savings",
+        "buyMonthly": "Buy monthly payment",
+        "leaseMonthly": "Lease monthly payment",
+        "finalEquity": "Final equity",
+        "chartTitle": "Cumulative cost & equity",
+        "chartLeaseCum": "Lease cumulative cost",
+        "chartBuyCum": "Buy cumulative cost",
+        "chartEquity": "Buy equity",
+        "tableTitle": "Cost breakdown",
+        "tableColBuy": "Buy",
+        "tableColLease": "Lease",
+        "tableRowDown": "Down payment",
+        "tableRowMonthly": "Monthly payments",
+        "tableRowFees": "Fees",
+        "tableRowTax": "Sales tax",
+        "tableRowEquity": "Final equity",
+        "tableRowNet": "Net cost"
+      },
+      "formula": {
+        "steps": [
+          "Buy: add sales tax to the price, subtract the down payment and amortize the loan; after the holding period, sell at the resale value and deduct the equity.",
+          "Lease: residual = MSRP × residual%; monthly rent = depreciation + (cap cost + residual) × money factor, plus sales tax on each payment.",
+          "Net buy cost = down + tax + payments + remaining balance − resale value.",
+          "Net lease cost = down + fees + total rent — no asset at the end. The lower net cost wins."
+        ],
+        "intro": "Leasing pays only for the vehicle you use (depreciation plus a finance charge); buying pays for the whole car but leaves you with equity you can sell. The comparison nets both to the same point in time.",
+        "note": "Figures are illustrative and exclude insurance, maintenance and mileage penalties. Not financial advice."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "What decides lease vs buy?",
+            "paragraphs": [
+              "The biggest lever is depreciation: if the car loses value quickly (EVs, luxury models), leasing can cap your loss; if it holds value (trucks, SUVs), buying lets you bank the equity.",
+              "Your rate also matters — a subsidized money factor can make the lease cheaper even with fees, while a low loan rate favors buying."
+            ]
+          },
+          {
+            "heading": "Reading the result",
+            "paragraphs": [
+              "Net cost puts both options on equal footing: everything you pay out minus what you get back. Buying usually shows higher monthly costs but a strong final equity line.",
+              "The winner is the lower net cost — if the gap is small, other factors like mileage, maintenance or owning the car matter more."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "How is the buy cost calculated?",
+          "answer": "Buying nets the financed price (with sales tax) over the holding period, then subtracts the resale value: down + tax + payments + remaining balance − resale."
+        },
+        {
+          "question": "How is the lease cost calculated?",
+          "answer": "Leasing nets the down payment, acquisition/disposition fees and every rent payment (depreciation + finance charge, taxed monthly) — with no asset at the end."
+        },
+        {
+          "question": "What is a money factor?",
+          "answer": "The lease interest rate expressed as a decimal; multiply by 2400 for the approximate APR. Lower money factors make leasing cheaper."
+        },
+        {
+          "question": "Which is usually cheaper — lease or buy?",
+          "answer": "There is no universal answer: buying usually wins on high-resale or long-ownership vehicles, leasing wins on fast-depreciating cars or subsidized rates. The calculator nets both for your specific numbers."
+        },
+        {
+          "question": "What does final equity mean?",
+          "answer": "For buying, final equity is the resale value minus the remaining loan balance at the end of the holding period — the money you get back when you sell."
+        },
+        {
+          "question": "Can I save or share this result?",
+          "answer": "Yes — the share link carries your exact inputs, the result card downloads as an image, and the cost breakdown exports to CSV."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1159,6 +1278,14 @@
   },
   "studentLoanPresets": {
     "gridTitle": "Student loan scenarios",
+    "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
+    "viewPreset": "View scenario",
+    "currentLabel": "Current",
+    "benchmarkTitle": "Scenario Benchmark",
+    "benchmarkIntro": "Key figures for {scenario}."
+  },
+  "leaseVsBuyPresets": {
+    "gridTitle": "Lease vs buy scenarios",
     "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
     "viewPreset": "View scenario",
     "currentLabel": "Current",

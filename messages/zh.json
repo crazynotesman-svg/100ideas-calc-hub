@@ -89,7 +89,9 @@
       "auto-loanTitle": "接下来评估更大的贷款",
       "auto-loanBody": "当车贷月供适合你的预算后，用房贷计算器对比一套房子的贷款规模。",
       "student-loanTitle": "接下来评估更大的债务",
-      "student-loanBody": "理清助学贷款后，用房贷计算器对比房屋贷款——大多数人一生中最大的一笔贷款。"
+      "student-loanBody": "理清助学贷款后，用房贷计算器对比房屋贷款——大多数人一生中最大的一笔贷款。",
+      "lease-vs-buyTitle": "跑一遍车贷数字",
+      "lease-vs-buyBody": "确定租还是买之后，用车贷计算器精调购买条款。"
     }
   },
   "home": {
@@ -1089,6 +1091,123 @@
           "answer": "可以——分享链接携带你的精确输入，结果卡片可下载为图片，还款明细可导出为 CSV。"
         }
       ]
+    },
+    "lease-vs-buy": {
+      "name": "汽车租买对比计算器",
+      "shortName": "租买对比",
+      "metaTitle": "汽车租买对比计算器——租赁还是购买",
+      "metaDescription": "对比租赁与购买汽车的真实成本：净成本、月供、期末权益与最终胜者。全部在浏览器本地运行，无需上传任何数据。",
+      "h1": "汽车租买对比计算器",
+      "intro": "并排运行两种方案。输入车价、贷款利率、Money Factor 与残值率——计算器扣除所有权权益、费用与税费，得出更划算的选择。",
+      "keywords": [
+        "租买对比计算器",
+        "汽车租赁还是购买",
+        "汽车租赁计算器",
+        "购车对比租赁",
+        "汽车租赁对比"
+      ],
+      "features": [
+        "购买与租赁净成本对比",
+        "Money Factor 与残值分析",
+        "胜者与总节省额",
+        "累计成本与权益图表",
+        "可分享结果卡片 + CSV 导出"
+      ],
+      "ui": {
+        "inputsTitle": "你的对比参数",
+        "tabBuy": "购买",
+        "tabLease": "租赁",
+        "buyPrice": "购买价格",
+        "loanRate": "贷款利率",
+        "loanTermMonths": "贷款期限（月）",
+        "holdingPeriodMonths": "持有期限（月）",
+        "resaleValue": "预期二手车残值",
+        "downPayment": "首付",
+        "salesTaxPct": "销售税",
+        "msrp": "厂商建议零售价",
+        "moneyFactor": "Money Factor",
+        "moneyFactorHint": "年化利率 ≈ Money Factor × 2400",
+        "leaseTermMonths": "租赁期限（月）",
+        "residualPct": "残值率",
+        "acquisitionFee": "购置费",
+        "dispositionFee": "退车费",
+        "buyNetCost": "购买净成本",
+        "leaseNetCost": "租赁净成本",
+        "winner": "胜者",
+        "winnerBuy": "购买胜出",
+        "winnerLease": "租赁胜出",
+        "savings": "节省额",
+        "buyMonthly": "购买月供",
+        "leaseMonthly": "租赁月费",
+        "finalEquity": "期末权益",
+        "chartTitle": "累计成本与权益",
+        "chartLeaseCum": "租赁累计成本",
+        "chartBuyCum": "购买累计成本",
+        "chartEquity": "购买权益",
+        "tableTitle": "费用拆解",
+        "tableColBuy": "购买",
+        "tableColLease": "租赁",
+        "tableRowDown": "首付",
+        "tableRowMonthly": "月度支付",
+        "tableRowFees": "费用",
+        "tableRowTax": "销售税",
+        "tableRowEquity": "期末权益",
+        "tableRowNet": "净成本"
+      },
+      "formula": {
+        "steps": [
+          "购买：售价加销售税、减去首付后等额本息；持有期末按残值出售，扣除权益。",
+          "租赁：残值 = MSRP × 残值率%；月租 = 折旧 + (成本+残值) × Money Factor，每期另加销售税。",
+          "购买净成本 = 首付 + 税 + 还款 + 期末剩余本金 − 残值。",
+          "租赁净成本 = 首付 + 费用 + 租金总额——期末无资产。净成本较低者胜出。"
+        ],
+        "intro": "租赁只为使用付费（折旧加金融费用）；购买支付整车，但期末留下可出售的权益。对比把两者折算到同一时间点。",
+        "note": "数值仅供示意，不含保险、保养与里程罚金。不构成财务建议。"
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "什么决定租还是买？",
+            "paragraphs": [
+              "最大的杠杆是贬值：如果车贬值快（电动车、豪华车型），租赁可限制你的损失；如果保值（皮卡、SUV），购买能锁定权益。",
+              "利率同样关键——补贴后的 Money Factor 可能让租赁即使含费用也更便宜，而低贷款利率则偏向购买。"
+            ]
+          },
+          {
+            "heading": "如何解读结果",
+            "paragraphs": [
+              "净成本让两种方案站在同一起跑线：全部支出减去全部回收。购买通常月成本更高，但期末权益线很强。",
+              "胜者是净成本更低的一方——若差距很小，里程、保养或拥有权等因素更重要。"
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "购买成本怎么算？",
+          "answer": "购买按持有期摊还含税车价，再减去残值：首付 + 税 + 还款 + 期末剩余本金 − 残值。"
+        },
+        {
+          "question": "租赁成本怎么算？",
+          "answer": "租赁净额为：首付 + 购置/退车费 + 全部租金（折旧 + 金融费用，每月计税）——期末无资产。"
+        },
+        {
+          "question": "什么是 Money Factor？",
+          "answer": "租赁利率的小数形式；乘以 2400 约等于年化 APR。Money Factor 越低租赁越便宜。"
+        },
+        {
+          "question": "通常哪个更划算——租还是买？",
+          "answer": "没有统一答案：高残值或长期持有通常购买胜出；贬值快或利率补贴时租赁胜出。计算器按你的具体数字净额对比。"
+        },
+        {
+          "question": "期末权益是什么意思？",
+          "answer": "购买方案中，期末权益 = 持有期末的残值 − 剩余贷款本金——即你卖车时拿回的钱。"
+        },
+        {
+          "question": "我能保存或分享这个结果吗？",
+          "answer": "可以——分享链接携带你的精确输入，结果卡片可下载为图片，费用拆解可导出为 CSV。"
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1159,6 +1278,14 @@
   },
   "studentLoanPresets": {
     "gridTitle": "助学贷款场景",
+    "gridSubtitle": "跳转到预填好的示例，或从零开始。",
+    "viewPreset": "查看场景",
+    "currentLabel": "当前",
+    "benchmarkTitle": "场景基准",
+    "benchmarkIntro": "{scenario} 的关键数据。"
+  },
+  "leaseVsBuyPresets": {
+    "gridTitle": "租买对比场景",
     "gridSubtitle": "跳转到预填好的示例，或从零开始。",
     "viewPreset": "查看场景",
     "currentLabel": "当前",

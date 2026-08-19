@@ -89,7 +89,9 @@
       "auto-loanTitle": "Evalúa el préstamo mayor a continuación",
       "auto-loanBody": "Cuando el pago del coche encaje en tu presupuesto, mira cómo se compara una hipoteca con la Calculadora de Hipoteca.",
       "student-loanTitle": "Evalúa las deudas mayores a continuación",
-      "student-loanBody": "Una vez mapeada tu deuda estudiantil, compara una hipoteca con la Calculadora de Hipoteca — el préstamo más grande que la mayoría toma."
+      "student-loanBody": "Una vez mapeada tu deuda estudiantil, compara una hipoteca con la Calculadora de Hipoteca — el préstamo más grande que la mayoría toma.",
+      "lease-vs-buyTitle": "Calcula los números del préstamo de auto",
+      "lease-vs-buyBody": "Una vez sepas si alquilar o comprar, afina las condiciones de compra con la Calculadora de Préstamo de Auto."
     }
   },
   "home": {
@@ -1089,6 +1091,123 @@
           "answer": "Sí — el enlace compartible lleva tus datos exactos, la tarjeta se descarga como imagen y el calendario se exporta a CSV."
         }
       ]
+    },
+    "lease-vs-buy": {
+      "name": "Calculadora de Leasing o Compra de Auto",
+      "shortName": "Leasing vs Compra",
+      "metaTitle": "Calculadora de Leasing o Compra — ¿Alquilar o Comprar?",
+      "metaDescription": "Compara el coste real de alquilar frente a comprar un coche: costes netos, pagos mensuales, patrimonio final y el ganador. Todo en tu navegador.",
+      "h1": "Calculadora de Leasing o Compra de Auto",
+      "intro": "Ejecuta ambos números lado a lado. Introduce el precio, el tipo del préstamo, el money factor y el residual — la calculadora netea patrimonio, tasas e impuestos para nombrar la opción más barata.",
+      "keywords": [
+        "calculadora leasing o compra",
+        "alquilar o comprar coche",
+        "calculadora de leasing de coche",
+        "calculadora comprar vs leasing",
+        "comparación leasing auto"
+      ],
+      "features": [
+        "Comparación de coste neto compra vs leasing",
+        "Análisis de money factor y residual",
+        "Ganador con ahorro total",
+        "Gráfica de coste acumulado y patrimonio",
+        "Tarjeta compartible + exportación CSV"
+      ],
+      "ui": {
+        "inputsTitle": "Tus datos de comparación",
+        "tabBuy": "Comprar",
+        "tabLease": "Leasing",
+        "buyPrice": "Precio de compra",
+        "loanRate": "Tipo del préstamo",
+        "loanTermMonths": "Plazo del préstamo (meses)",
+        "holdingPeriodMonths": "Periodo de tenencia (meses)",
+        "resaleValue": "Valor de reventa esperado",
+        "downPayment": "Entrada",
+        "salesTaxPct": "Impuesto sobre ventas",
+        "msrp": "PVP",
+        "moneyFactor": "Money factor",
+        "moneyFactorHint": "TAE ≈ money factor × 2400",
+        "leaseTermMonths": "Duración del leasing (meses)",
+        "residualPct": "Valor residual",
+        "acquisitionFee": "Tasa de apertura",
+        "dispositionFee": "Tasa de devolución",
+        "buyNetCost": "Coste neto compra",
+        "leaseNetCost": "Coste neto leasing",
+        "winner": "Ganador",
+        "winnerBuy": "Comprar gana",
+        "winnerLease": "Leasing gana",
+        "savings": "Ahorro",
+        "buyMonthly": "Pago mensual compra",
+        "leaseMonthly": "Pago mensual leasing",
+        "finalEquity": "Patrimonio final",
+        "chartTitle": "Coste acumulado y patrimonio",
+        "chartLeaseCum": "Coste acumulado leasing",
+        "chartBuyCum": "Coste acumulado compra",
+        "chartEquity": "Patrimonio compra",
+        "tableTitle": "Desglose de costes",
+        "tableColBuy": "Compra",
+        "tableColLease": "Leasing",
+        "tableRowDown": "Entrada",
+        "tableRowMonthly": "Pagos mensuales",
+        "tableRowFees": "Tasas",
+        "tableRowTax": "Impuesto",
+        "tableRowEquity": "Patrimonio final",
+        "tableRowNet": "Coste neto"
+      },
+      "formula": {
+        "steps": [
+          "Compra: añade el impuesto al precio, resta la entrada y amortiza el préstamo; tras el periodo de tenencia, vende al valor de reventa y deduce el patrimonio.",
+          "Leasing: residual = PVP × residual%; renta mensual = depreciación + (coste + residual) × money factor, más impuesto sobre cada pago.",
+          "Coste neto compra = entrada + impuesto + pagos + saldo restante − valor de reventa.",
+          "Coste neto leasing = entrada + tasas + renta total — sin activo al final. Gana el menor coste neto."
+        ],
+        "intro": "El leasing paga solo por el vehículo que usas (depreciación más cargo financiero); comprar paga todo el coche pero te deja patrimonio que puedes vender. La comparación netea ambos en el mismo punto temporal.",
+        "note": "Las cifras son ilustrativas y excluyen seguros, mantenimiento y penalizaciones por kilometraje. No es asesoramiento financiero."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Qué decide entre leasing y compra",
+            "paragraphs": [
+              "La mayor palanca es la depreciación: si el coche pierde valor rápido (EV, modelos de lujo), el leasing puede limitar tu pérdida; si conserva valor (pickups, SUV), comprar te permite embolsarte el patrimonio.",
+              "También importa tu tipo — un money factor subvencionado puede hacer más barato el leasing incluso con tasas, mientras que un préstamo barato favorece la compra."
+            ]
+          },
+          {
+            "heading": "Leer el resultado",
+            "paragraphs": [
+              "El coste neto pone ambas opciones a igualdad: todo lo que pagas menos lo que recuperas. Comprar suele mostrar pagos mensuales mayores pero una línea de patrimonio final fuerte.",
+              "Gana el menor coste neto — si la brecha es pequeña, importan más otros factores como kilometraje, mantenimiento o ser dueño."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "¿Cómo se calcula el coste de compra?",
+          "answer": "Comprar netea el precio financiado (con impuesto) durante el periodo de tenencia y resta el valor de reventa: entrada + impuesto + pagos + saldo − reventa."
+        },
+        {
+          "question": "¿Cómo se calcula el coste de leasing?",
+          "answer": "El leasing netea la entrada, las tasas de apertura/devolución y todas las rentas (depreciación + cargo financiero, con impuesto mensual) — sin activo al final."
+        },
+        {
+          "question": "¿Qué es un money factor?",
+          "answer": "El tipo de interés del leasing en decimal; multiplícalo por 2400 para el TAE aproximado. Money factors bajos abaratan el leasing."
+        },
+        {
+          "question": "¿Qué suele ser más barato — leasing o compra?",
+          "answer": "No hay respuesta universal: comprar suele ganar con alto valor residual o larga tenencia; el leasing gana en coches que se deprecian rápido o con tipos subvencionados. La calculadora netea ambos con tus cifras."
+        },
+        {
+          "question": "¿Qué significa patrimonio final?",
+          "answer": "En la compra, el patrimonio final es el valor de reventa menos el saldo restante al final del periodo — el dinero que recuperas al vender."
+        },
+        {
+          "question": "¿Puedo guardar o compartir este resultado?",
+          "answer": "Sí — el enlace compartible lleva tus datos exactos, la tarjeta se descarga como imagen y el desglose se exporta a CSV."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1159,6 +1278,14 @@
   },
   "studentLoanPresets": {
     "gridTitle": "Escenarios de préstamo estudiantil",
+    "gridSubtitle": "Salta a un ejemplo preconfigurado o empieza desde cero.",
+    "viewPreset": "Ver escenario",
+    "currentLabel": "Actual",
+    "benchmarkTitle": "Referencia del escenario",
+    "benchmarkIntro": "Cifras clave para {scenario}."
+  },
+  "leaseVsBuyPresets": {
+    "gridTitle": "Escenarios de leasing o compra",
     "gridSubtitle": "Salta a un ejemplo preconfigurado o empieza desde cero.",
     "viewPreset": "Ver escenario",
     "currentLabel": "Actual",

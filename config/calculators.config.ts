@@ -144,6 +144,18 @@ export const calculators: readonly CalculatorMeta[] = [
     availableLocales: locales,
     icon: 'trending-up',
     accent: 'from-cyan-500/15 to-sky-500/5'
+  },
+  {
+    id: 'lease-vs-buy',
+    category: 'finance',
+    slug: 'lease-vs-buy-calculator',
+    faqCount: 6,
+    updated: '2026-08-19',
+    priority: 0.9,
+    featured: true,
+    availableLocales: locales,
+    icon: 'trending-up',
+    accent: 'from-emerald-500/15 to-teal-500/5'
   }
 ] as const;
 

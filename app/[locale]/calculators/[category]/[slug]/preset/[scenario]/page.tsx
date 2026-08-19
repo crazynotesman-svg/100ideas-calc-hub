@@ -92,6 +92,17 @@ import {
   presetRoute as studentLoanRoute,
   studentLoanInitialQuery
 } from '@/app/[locale]/calculators/[category]/[slug]/preset/studentLoanPresets';
+import { LeaseVsBuyCalculatorClient } from '@/components/calculators/finance/LeaseVsBuyCalculatorClient';
+import { calculateLeaseVsBuy, type LeaseVsBuyResult } from '@/lib/calculators/finance/lease-vs-buy';
+import {
+  LEASEVSBUY_CATEGORY,
+  LEASEVSBUY_SLUG,
+  PRESET_SLUGS as LEASEVSBUY_SLUGS,
+  PRESETS as LEASEVSBUY_PRESETS,
+  getPreset as getLeaseVsBuy,
+  presetRoute as leaseVsBuyRoute,
+  leaseVsBuyInitialQuery
+} from '@/app/[locale]/calculators/[category]/[slug]/preset/leaseVsBuyPresets';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { HrefLangAlternates } from '@/components/seo/HrefLangAlternates';
 import { isLocale, locales, localeMeta, type Locale } from '@/config/i18n.config';
@@ -121,7 +132,8 @@ export function generateStaticParams() {
     ...expand(MORTGAGE_CATEGORY, MORTGAGE_SLUG, MORTGAGE_SLUGS),
     ...expand(BODYFAT_CATEGORY, BODYFAT_SLUG, BODYFAT_SLUGS),
     ...expand(AUTOLOAN_CATEGORY, AUTOLOAN_SLUG, AUTOLOAN_SLUGS),
-    ...expand(STUDENTLOAN_CATEGORY, STUDENTLOAN_SLUG, STUDENTLOAN_SLUGS)
+    ...expand(STUDENTLOAN_CATEGORY, STUDENTLOAN_SLUG, STUDENTLOAN_SLUGS),
+    ...expand(LEASEVSBUY_CATEGORY, LEASEVSBUY_SLUG, LEASEVSBUY_SLUGS)
   ];
   return locales.flatMap((l) => combos.map((c) => ({ locale: l, ...c })));
 }
@@ -177,6 +189,11 @@ export async function generateMetadata({
     if (!p) return {};
     preset = p;
     route = studentLoanRoute(scenario);
+  } else if (slug === LEASEVSBUY_SLUG) {
+    const p = getLeaseVsBuy(scenario);
+    if (!p) return {};
+    preset = p;
+    route = leaseVsBuyRoute(scenario);
   } else {
     return {};
   }
@@ -204,7 +221,8 @@ export default async function PresetPage({
     category !== MORTGAGE_CATEGORY &&
     category !== BODYFAT_CATEGORY &&
     category !== AUTOLOAN_CATEGORY &&
-    category !== STUDENTLOAN_CATEGORY
+    category !== STUDENTLOAN_CATEGORY &&
+    category !== LEASEVSBUY_CATEGORY
   )
     notFound();
   const l = locale as Locale;
@@ -360,6 +378,25 @@ export default async function PresetPage({
       />
     );
     benchmark = await StudentLoanBenchmark(l, r);
+  } else if (slug === LEASEVSBUY_SLUG) {
+    const p = getLeaseVsBuy(scenario);
+    if (!p) notFound();
+    const r = calculateLeaseVsBuy(p.defaultParams);
+    const loc = p.localized[l];
+    title = loc.title;
+    description = loc.description;
+    faqs = loc.faqs;
+    ns = 'leaseVsBuyPresets';
+    presets = LEASEVSBUY_PRESETS;
+    routeFor = leaseVsBuyRoute;
+    calculatorNode = (
+      <LeaseVsBuyCalculatorClient
+        initialState={p.defaultParams}
+        initialQuery={leaseVsBuyInitialQuery(p)}
+        cardTitle={title}
+      />
+    );
+    benchmark = await LeaseVsBuyBenchmark(l, r);
   } else {
     notFound();
     return;
@@ -603,6 +640,26 @@ async function StudentLoanBenchmark(locale: Locale, r: StudentLoanResult) {
         <PresetStat label={t('interestSaved')} value={money.format(r.interestSaved)} accent />
       )}
       <PresetStat label={t('totalPayment')} value={money.format(r.totalPayment)} />
+    </>
+  );
+}
+
+async function LeaseVsBuyBenchmark(locale: Locale, r: LeaseVsBuyResult) {
+  const t = await getTranslations({ locale, namespace: 'calculators.lease-vs-buy.ui' });
+  const money = new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: localeMeta[locale].currency,
+    maximumFractionDigits: 0
+  });
+  const winnerLabel = r.winner === 'buy' ? t('winnerBuy') : t('winnerLease');
+  return (
+    <>
+      <PresetStat label={t('buyNetCost')} value={money.format(r.buy.netCost)} accent />
+      <PresetStat label={t('leaseNetCost')} value={money.format(r.lease.netCost)} />
+      <PresetStat label={t('winner')} value={`${winnerLabel} · ${money.format(r.savings)}`} accent />
+      <PresetStat label={t('buyMonthly')} value={money.format(r.buy.monthlyPayment)} />
+      <PresetStat label={t('leaseMonthly')} value={money.format(r.lease.monthlyPayment)} />
+      <PresetStat label={t('finalEquity')} value={money.format(r.buy.finalEquity)} />
     </>
   );
 }

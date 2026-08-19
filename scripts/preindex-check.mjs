@@ -33,7 +33,8 @@ const CALCULATORS = [
   { category: 'finance', slug: 'mortgage-calculator' },
   { category: 'health', slug: 'body-fat-bmi-calculator' },
   { category: 'finance', slug: 'auto-loan-calculator' },
-  { category: 'finance', slug: 'student-loan-calculator' }
+  { category: 'finance', slug: 'student-loan-calculator' },
+  { category: 'finance', slug: 'lease-vs-buy-calculator' }
 ];
 
 // pSEO preset scenarios across every calculator — kept here so both the sitemap
@@ -90,7 +91,15 @@ const PRESETS = [
   { category: 'finance', slug: 'student-loan-calculator', scenario: 'parent-plus-40k' },
   { category: 'finance', slug: 'student-loan-calculator', scenario: 'refinance-5pct-7yr' },
   { category: 'finance', slug: 'student-loan-calculator', scenario: 'idr-vs-standard' },
-  { category: 'finance', slug: 'student-loan-calculator', scenario: '25k-grace-period' }
+  { category: 'finance', slug: 'student-loan-calculator', scenario: '25k-grace-period' },
+  { category: 'finance', slug: 'lease-vs-buy-calculator', scenario: '35k-36mo-luxury' },
+  { category: 'finance', slug: 'lease-vs-buy-calculator', scenario: '50k-ev-tesla' },
+  { category: 'finance', slug: 'lease-vs-buy-calculator', scenario: 'zero-down-lease' },
+  { category: 'finance', slug: 'lease-vs-buy-calculator', scenario: 'high-mileage-commuter' },
+  { category: 'finance', slug: 'lease-vs-buy-calculator', scenario: '25k-budget-sedan' },
+  { category: 'finance', slug: 'lease-vs-buy-calculator', scenario: '60k-truck-suv' },
+  { category: 'finance', slug: 'lease-vs-buy-calculator', scenario: 'business-tax-deduction' },
+  { category: 'finance', slug: 'lease-vs-buy-calculator', scenario: 'low-money-factor-promo' }
 ];
 
 // Every SSG content route that must appear in a sitemap and carry a clean
