@@ -87,6 +87,11 @@ export function calculateFire(input: FireInput): FireResult {
   const rMonthly = monthlyRate(input.annualReturnRate);
   const inflAnnual = input.inflationRate / 100;
   const swr = Math.max(0.1, input.withdrawalRate) / 100;
+  // Defensive defaults: a missing/undefined growth rate (or any partial caller input)
+  // must never poison the projection with NaN.
+  const contributionGrowthRate = Number.isFinite(input.contributionGrowthRate)
+    ? input.contributionGrowthRate
+    : 0;
 
   const fireNumber = input.annualExpenses / swr;
 
@@ -137,7 +142,7 @@ export function calculateFire(input: FireInput): FireResult {
     });
 
     // Salary growth applies once per year.
-    if (contributingThisYear) contribution *= 1 + input.contributionGrowthRate / 100;
+    if (contributingThisYear) contribution *= 1 + contributionGrowthRate / 100;
   }
 
   const finalBalance = balance;

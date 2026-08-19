@@ -58,12 +58,27 @@
   .result-shell {
     @apply rounded-lg border bg-card p-4;
     min-height: 96px;
+    transition:
+      border-color 0.15s ease,
+      background-color 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .result-shell:hover {
+    border-color: hsl(var(--primary) / 0.25);
+    background-color: hsl(var(--primary) / 0.04);
   }
 
   .chart-shell {
     height: 320px;
     width: 100%;
     contain: layout paint;
+  }
+
+  @media (max-width: 640px) {
+    .chart-shell {
+      height: 260px;
+    }
   }
 
   .ad-shell {

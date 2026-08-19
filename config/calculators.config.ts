@@ -155,7 +155,7 @@ export const calculators: readonly CalculatorMeta[] = [
     featured: true,
     availableLocales: locales,
     icon: 'trending-up',
-    accent: 'from-emerald-500/15 to-teal-500/5'
+    accent: 'from-teal-500/15 to-emerald-500/5'
   }
 ] as const;
 

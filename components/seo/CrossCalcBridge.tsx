@@ -16,9 +16,9 @@ const NEXT: Record<string, string | string[]> = {
   fire: 'schengen',
   schengen: 'tdee',
   compound: 'fire',
-  mortgage: ['fire', 'compound'],
+  mortgage: ['fire', 'compound', 'lease-vs-buy'],
   'body-fat-bmi': 'tdee',
-  'auto-loan': ['mortgage', 'compound'],
+  'auto-loan': ['mortgage', 'lease-vs-buy', 'compound'],
   'student-loan': ['mortgage', 'auto-loan', 'compound'],
   'lease-vs-buy': ['auto-loan', 'mortgage', 'compound']
 };

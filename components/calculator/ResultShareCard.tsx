@@ -32,8 +32,8 @@ const ACCENT: Record<ResultShareCardProps['calculatorId'], string> = {
   mortgage: '#3b82f6',
   'body-fat-bmi': '#e11d48',
   'auto-loan': '#eab308',
-  'student-loan': '#0ea5e9',
-  'lease-vs-buy': '#10b981'
+  'student-loan': '#06b6d4',
+  'lease-vs-buy': '#14b8a6'
 };
 
 const BRAND = siteConfig.name;
