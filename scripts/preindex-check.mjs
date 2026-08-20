@@ -35,7 +35,8 @@ const CALCULATORS = [
   { category: 'finance', slug: 'auto-loan-calculator' },
   { category: 'finance', slug: 'student-loan-calculator' },
   { category: 'finance', slug: 'lease-vs-buy-calculator' },
-  { category: 'finance', slug: 'credit-card-payoff-calculator' }
+  { category: 'finance', slug: 'credit-card-payoff-calculator' },
+  { category: 'finance', slug: 'mortgage-refinance-calculator' }
 ];
 
 // pSEO preset scenarios across every calculator — kept here so both the sitemap
@@ -108,7 +109,15 @@ const PRESETS = [
   { category: 'finance', slug: 'credit-card-payoff-calculator', scenario: '20k-high-interest-card' },
   { category: 'finance', slug: 'credit-card-payoff-calculator', scenario: 'fixed-3-year-payoff' },
   { category: 'finance', slug: 'credit-card-payoff-calculator', scenario: 'fixed-1-year-fast-track' },
-  { category: 'finance', slug: 'credit-card-payoff-calculator', scenario: 'debt-consolidation-vs-card' }
+  { category: 'finance', slug: 'credit-card-payoff-calculator', scenario: 'debt-consolidation-vs-card' },
+  { category: 'finance', slug: 'mortgage-refinance-calculator', scenario: '30yr-7pct-to-5.5pct' },
+  { category: 'finance', slug: 'mortgage-refinance-calculator', scenario: '30yr-to-15yr-refi' },
+  { category: 'finance', slug: 'mortgage-refinance-calculator', scenario: 'no-closing-cost-refi' },
+  { category: 'finance', slug: 'mortgage-refinance-calculator', scenario: 'break-even-2-year' },
+  { category: 'finance', slug: 'mortgage-refinance-calculator', scenario: '500k-jumbo-refinance' },
+  { category: 'finance', slug: 'mortgage-refinance-calculator', scenario: 'cash-out-refi-50k' },
+  { category: 'finance', slug: 'mortgage-refinance-calculator', scenario: 'fha-to-conventional-refi' },
+  { category: 'finance', slug: 'mortgage-refinance-calculator', scenario: 'arm-to-fixed-refinance' }
 ];
 
 // Every SSG content route that must appear in a sitemap and carry a clean

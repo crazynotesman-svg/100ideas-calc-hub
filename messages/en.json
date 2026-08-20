@@ -93,7 +93,9 @@
       "lease-vs-buyTitle": "Run the auto loan numbers",
       "lease-vs-buyBody": "Once you know whether to lease or buy, fine-tune the purchase terms with the Auto Loan Calculator.",
       "credit-card-payoffTitle": "Tackle your student debt next",
-      "credit-card-payoffBody": "Once the card is under control, map a student loan repayment plan with the Student Loan Calculator."
+      "credit-card-payoffBody": "Once the card is under control, map a student loan repayment plan with the Student Loan Calculator.",
+      "mortgage-refinanceTitle": "Compare with the full Mortgage Calculator",
+      "mortgage-refinanceBody": "Map the whole loan and its amortization with the Mortgage Calculator."
     }
   },
   "home": {
@@ -1319,6 +1321,120 @@
           "answer": "Yes — the share link carries your exact inputs, the result card downloads as an image, and the payoff schedule exports to CSV."
         }
       ]
+    },
+    "mortgage-refinance": {
+      "name": "Mortgage Refinance Calculator",
+      "shortName": "Refinance",
+      "metaTitle": "Mortgage Refinance Calculator — Break Even & Savings",
+      "metaDescription": "Compare your current mortgage with a refinance: new payment, monthly savings, break-even months and net lifetime savings. All runs in your browser.",
+      "h1": "Mortgage Refinance Calculator",
+      "intro": "Run the numbers before you sign. Compare your current payment and remaining interest with a new loan — the calculator finds your monthly savings, break-even point and lifetime net saving.",
+      "keywords": [
+        "mortgage refinance calculator",
+        "refinance break even calculator",
+        "should i refinance my mortgage",
+        "mortgage refinance savings calculator",
+        "home refinance calculator"
+      ],
+      "features": [
+        "New payment & monthly savings",
+        "Break-even months on closing costs",
+        "Net lifetime savings",
+        "Cumulative payment comparison chart",
+        "Shareable result card + CSV export"
+      ],
+      "ui": {
+        "inputsTitle": "Refinance comparison",
+        "currentTitle": "Current loan",
+        "newTitle": "New loan",
+        "currentBalance": "Remaining balance",
+        "currentRate": "Current rate",
+        "remainingYears": "Remaining term (years)",
+        "newRate": "New rate",
+        "newTermYears": "New term (years)",
+        "closingCosts": "Closing costs",
+        "feesPaid": "How fees are paid",
+        "feesCash": "Cash",
+        "feesRolled": "Rolled into loan",
+        "cashOutAmount": "Cash-out amount",
+        "currentMonthlyPayment": "Current payment",
+        "newMonthlyPayment": "New payment",
+        "monthlySavings": "Monthly savings",
+        "breakEvenMonths": "Break-even",
+        "breakEvenHint": "months to recover costs",
+        "closingCostsLabel": "Closing costs",
+        "interestSaved": "Interest saved",
+        "netLifetimeSavings": "Net lifetime savings",
+        "warningTitle": "Check before you refinance",
+        "warningBody": "The new rate is not lower and the term is not shorter — this refinance may not be worth its closing costs.",
+        "chartTitle": "Cumulative payments: current vs new",
+        "chartOldCum": "Current loan (cumulative)",
+        "chartNewCum": "New loan (cumulative)",
+        "chartSavingsCum": "Cumulative savings",
+        "tableTitle": "Cost comparison",
+        "tableRowCurrent": "Current payment",
+        "tableRowNew": "New payment",
+        "tableRowSavings": "Monthly savings",
+        "tableRowInterestCurrent": "Remaining interest",
+        "tableRowInterestNew": "New total interest",
+        "tableRowInterestSaved": "Interest saved",
+        "tableRowNet": "Net lifetime savings",
+        "monthsUnit": "months"
+      },
+      "formula": {
+        "steps": [
+          "Current loan: amortize the remaining balance at the current rate over the remaining term.",
+          "New loan: amortize the balance (plus rolled-in costs and cash-out) at the new rate over the new term.",
+          "Monthly savings = current payment − new payment; break-even = closing costs ÷ monthly savings.",
+          "Net lifetime savings = (current remaining interest − new total interest) − closing costs."
+        ],
+        "intro": "A refinance is worth it when the interest you save exceeds the closing costs. The break-even month is the moment the savings pay for the fees — after that, every month is a gain.",
+        "note": "Figures are illustrative and exclude taxes, insurance, PMI and rate changes. Not financial advice."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "The break-even is the real test",
+            "paragraphs": [
+              "A lower rate almost always lowers the payment, but closing costs must be repaid from that saving first.",
+              "As a rule of thumb, if you cannot break even within about two years, the refinance is usually not worth the paperwork and fees."
+            ]
+          },
+          {
+            "heading": "Watch the term, not just the rate",
+            "paragraphs": [
+              "Restarting a 30-year term can look cheap monthly while quietly adding years of interest.",
+              "Compare the same remaining term first — only then decide whether shortening or extending the term serves your plan."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "How is the new payment calculated?",
+          "answer": "The new loan is amortized at the new rate over the new term, on the balance plus any rolled-in costs and cash-out."
+        },
+        {
+          "question": "What is the break-even point?",
+          "answer": "It is the closing costs divided by the monthly savings — the number of months until the savings pay for the fees. After that you are ahead."
+        },
+        {
+          "question": "What is net lifetime savings?",
+          "answer": "It is the interest saved over the loan minus the closing costs — the true financial benefit of refinancing."
+        },
+        {
+          "question": "What happens if closing costs are rolled in?",
+          "answer": "The costs are added to the new principal, so the new payment is slightly higher but you pay nothing upfront."
+        },
+        {
+          "question": "When should I NOT refinance?",
+          "answer": "If the new rate is not lower and the term is not shorter, or if you plan to move before the break-even point, the fees are usually not recovered."
+        },
+        {
+          "question": "Can I save or share this result?",
+          "answer": "Yes — the share link carries your exact inputs, the result card downloads as an image, and the comparison exports to CSV."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1405,6 +1521,14 @@
   },
   "creditCardPayoffPresets": {
     "gridTitle": "Card payoff scenarios",
+    "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
+    "viewPreset": "View scenario",
+    "currentLabel": "Current",
+    "benchmarkTitle": "Scenario Benchmark",
+    "benchmarkIntro": "Key figures for {scenario}."
+  },
+  "mortgageRefinancePresets": {
+    "gridTitle": "Refinance scenarios",
     "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
     "viewPreset": "View scenario",
     "currentLabel": "Current",

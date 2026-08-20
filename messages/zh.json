@@ -93,7 +93,9 @@
       "lease-vs-buyTitle": "跑一遍车贷数字",
       "lease-vs-buyBody": "确定租还是买之后，用车贷计算器精调购买条款。",
       "credit-card-payoffTitle": "接下来解决助学贷款",
-      "credit-card-payoffBody": "信用卡受控后，用助学贷款计算器规划还款计划。"
+      "credit-card-payoffBody": "信用卡受控后，用助学贷款计算器规划还款计划。",
+      "mortgage-refinanceTitle": "用完整房贷计算器对比",
+      "mortgage-refinanceBody": "用房贷计算器完整呈现贷款与摊还计划。"
     }
   },
   "home": {
@@ -1319,6 +1321,120 @@
           "answer": "可以——分享链接携带你的精确输入，结果卡片可下载为图片，还款明细可导出为 CSV。"
         }
       ]
+    },
+    "mortgage-refinance": {
+      "name": "房贷重贷计算器",
+      "shortName": "房贷重贷",
+      "metaTitle": "房贷重贷计算器——回本与节省",
+      "metaDescription": "对比现有房贷与重贷方案：新月供、每月节省、保本回本月数与生命周期净节省。全部在浏览器本地运行，无需上传任何数据。",
+      "h1": "房贷重贷计算器",
+      "intro": "签字前先算清数字。把当前月供与剩余利息和新贷款对比——计算器帮你找到每月节省、保本回本点与净节省。",
+      "keywords": [
+        "房贷重贷计算器",
+        "重贷回本计算器",
+        "我应该重贷房贷吗",
+        "房贷重贷节省计算器",
+        "房屋重贷计算器"
+      ],
+      "features": [
+        "新月供与每月节省",
+        "交割费保本回本月数",
+        "生命周期净节省",
+        "累计还款对比图",
+        "可分享结果卡片 + CSV 导出"
+      ],
+      "ui": {
+        "inputsTitle": "重贷对比",
+        "currentTitle": "现有贷款",
+        "newTitle": "新贷款",
+        "currentBalance": "剩余本金",
+        "currentRate": "原利率",
+        "remainingYears": "剩余期限（年）",
+        "newRate": "新利率",
+        "newTermYears": "新期限（年）",
+        "closingCosts": "交割费",
+        "feesPaid": "费用支付方式",
+        "feesCash": "现金",
+        "feesRolled": "滚入贷款",
+        "cashOutAmount": "增贷变现额",
+        "currentMonthlyPayment": "原月供",
+        "newMonthlyPayment": "新月供",
+        "monthlySavings": "每月节省",
+        "breakEvenMonths": "保本回本",
+        "breakEvenHint": "个月收回费用",
+        "closingCostsLabel": "交割费",
+        "interestSaved": "累计省息",
+        "netLifetimeSavings": "净总节省",
+        "warningTitle": "重贷前请检查",
+        "warningBody": "新利率并不更低且期限并未缩短——这笔重贷可能不值它的交割费。",
+        "chartTitle": "累计还款：现有 vs 新贷款",
+        "chartOldCum": "现有贷款（累计）",
+        "chartNewCum": "新贷款（累计）",
+        "chartSavingsCum": "累计节省",
+        "tableTitle": "费用对比",
+        "tableRowCurrent": "原月供",
+        "tableRowNew": "新月供",
+        "tableRowSavings": "每月节省",
+        "tableRowInterestCurrent": "剩余利息",
+        "tableRowInterestNew": "新贷款总利息",
+        "tableRowInterestSaved": "节省利息",
+        "tableRowNet": "净总节省",
+        "monthsUnit": "个月"
+      },
+      "formula": {
+        "steps": [
+          "现有贷款：剩余本金按原利率在剩余期限内等额本息。",
+          "新贷款：本金（加滚入费用与增贷额）按新利率在新期限内等额本息。",
+          "每月节省 = 原月供 − 新月供；保本 = 交割费 ÷ 每月节省。",
+          "净节省 =（原剩余利息 − 新贷款总利息）− 交割费。"
+        ],
+        "intro": "当节省的利息超过交割费时，重贷才划算。保本回本的那个月就是节省额覆盖费用的时刻——之后每个月都是净赚。",
+        "note": "数值仅供示意，不含税费、保险、PMI 与利率变动。不构成财务建议。"
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "保本回本才是真正的考验",
+            "paragraphs": [
+              "更低利率几乎总能降低月供，但交割费必须先从节省中偿还。",
+              "经验法则：若约两年内无法回本，这笔重贷通常不值得办理。"
+            ]
+          },
+          {
+            "heading": "看期限，不只盯利率",
+            "paragraphs": [
+              "重新开始 30 年期限看似月供更便宜，却悄悄增加多年利息。",
+              "先对比相同剩余期限——再决定缩短或延长期限是否符合你的计划。"
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "新月供怎么算？",
+          "answer": "新贷款按新利率、新期限，对本金（含滚入费用与增贷额）等额本息摊还。"
+        },
+        {
+          "question": "什么是保本回本点？",
+          "answer": "交割费除以每月节省——即节省额覆盖费用所需的月数。此后你开始净赚。"
+        },
+        {
+          "question": "什么是生命周期净节省？",
+          "answer": "贷款期内的省息减去交割费——重贷真正的财务收益。"
+        },
+        {
+          "question": "交割费滚入贷款会怎样？",
+          "answer": "费用计入新本金，新月供略高，但无需预付现金。"
+        },
+        {
+          "question": "什么时候不该重贷？",
+          "answer": "若新利率不更低且期限不缩短，或计划在回本前搬家，费用通常无法收回。"
+        },
+        {
+          "question": "我能保存或分享这个结果吗？",
+          "answer": "可以——分享链接携带你的精确输入，结果卡片可下载为图片，对比可导出为 CSV。"
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1405,6 +1521,14 @@
   },
   "creditCardPayoffPresets": {
     "gridTitle": "信用卡还款场景",
+    "gridSubtitle": "跳转到预填好的示例，或从零开始。",
+    "viewPreset": "查看场景",
+    "currentLabel": "当前",
+    "benchmarkTitle": "场景基准",
+    "benchmarkIntro": "{scenario} 的关键数据。"
+  },
+  "mortgageRefinancePresets": {
+    "gridTitle": "重贷场景",
     "gridSubtitle": "跳转到预填好的示例，或从零开始。",
     "viewPreset": "查看场景",
     "currentLabel": "当前",

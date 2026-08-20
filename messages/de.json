@@ -93,7 +93,9 @@
       "lease-vs-buyTitle": "Die Autokredit-Zahlen prüfen",
       "lease-vs-buyBody": "Wenn du weißt, ob Leasing oder Kauf, feinjustiere die Kaufkonditionen mit dem Autokredit-Rechner.",
       "credit-card-payoffTitle": "Als Nächstes die Studienstschulden angehen",
-      "credit-card-payoffBody": "Ist die Karte unter Kontrolle, plane mit dem Studienkredit-Rechner die Rückzahlung deines Studiendarlehens."
+      "credit-card-payoffBody": "Ist die Karte unter Kontrolle, plane mit dem Studienkredit-Rechner die Rückzahlung deines Studiendarlehens.",
+      "mortgage-refinanceTitle": "Mit dem Hypothekenrechner vergleichen",
+      "mortgage-refinanceBody": "Das ganze Darlehen und seine Tilgung mit dem Hypothekenrechner abbilden."
     }
   },
   "home": {
@@ -1319,6 +1321,120 @@
           "answer": "Ja — der Teillink trägt deine exakten Eingaben, die Ergebniskarte lässt sich als Bild herunterladen und der Tilgungsplan als CSV exportieren."
         }
       ]
+    },
+    "mortgage-refinance": {
+      "name": "Hypotheken-Umschuldungsrechner",
+      "shortName": "Umschuldung",
+      "metaTitle": "Hypotheken-Umschuldung — Amortisation & Ersparnis",
+      "metaDescription": "Vergleiche deine aktuelle Hypothek mit einer Umschuldung: neue Rate, monatliche Ersparnis, Amortisationszeit und Nettoersparnis. Läuft komplett im Browser.",
+      "h1": "Hypotheken-Umschuldungsrechner",
+      "intro": "Rechne nach, bevor du unterschreibst. Vergleiche Rate und Restzinsen deiner aktuellen Hypothek mit einem neuen Darlehen — der Rechner findet Monatsersparnis, Amortisationspunkt und Nettoersparnis.",
+      "keywords": [
+        "Hypotheken-Umschuldungsrechner",
+        "Umschuldung Amortisationsrechner",
+        "Sollte ich meine Hypothek umschulden",
+        "Hypothek Umschuldung Rechner",
+        "Hypothekenrefinanzierung Rechner"
+      ],
+      "features": [
+        "Neue Rate & monatliche Ersparnis",
+        "Amortisationszeit der Kosten",
+        "Nettoersparnis",
+        "Kumulativer Zahlungsvergleich",
+        "Teilbare Ergebniskarte + CSV-Export"
+      ],
+      "ui": {
+        "inputsTitle": "Umschuldungsvergleich",
+        "currentTitle": "Aktuelles Darlehen",
+        "newTitle": "Neues Darlehen",
+        "currentBalance": "Restbetrag",
+        "currentRate": "Aktueller Zinssatz",
+        "remainingYears": "Restlaufzeit (Jahre)",
+        "newRate": "Neuer Zinssatz",
+        "newTermYears": "Neue Laufzeit (Jahre)",
+        "closingCosts": "Abschlusskosten",
+        "feesPaid": "Zahlung der Gebühren",
+        "feesCash": "Bar",
+        "feesRolled": "Ins Darlehen",
+        "cashOutAmount": "Auszahlungsbetrag",
+        "currentMonthlyPayment": "Aktuelle Rate",
+        "newMonthlyPayment": "Neue Rate",
+        "monthlySavings": "Monatliche Ersparnis",
+        "breakEvenMonths": "Amortisation",
+        "breakEvenHint": "Monate bis zur Kostendeckung",
+        "closingCostsLabel": "Abschlusskosten",
+        "interestSaved": "Gesparte Zinsen",
+        "netLifetimeSavings": "Nettoersparnis",
+        "warningTitle": "Vor der Umschuldung prüfen",
+        "warningBody": "Der neue Zinssatz ist nicht niedriger und die Laufzeit nicht kürzer — diese Umschuldung lohnt ihre Abschlusskosten möglicherweise nicht.",
+        "chartTitle": "Kumulative Zahlungen: aktuell vs. neu",
+        "chartOldCum": "Aktuelles Darlehen (kumulativ)",
+        "chartNewCum": "Neues Darlehen (kumulativ)",
+        "chartSavingsCum": "Kumulative Ersparnis",
+        "tableTitle": "Kostenvergleich",
+        "tableRowCurrent": "Aktuelle Rate",
+        "tableRowNew": "Neue Rate",
+        "tableRowSavings": "Monatliche Ersparnis",
+        "tableRowInterestCurrent": "Restzinsen",
+        "tableRowInterestNew": "Neue Gesamtzinsen",
+        "tableRowInterestSaved": "Gesparte Zinsen",
+        "tableRowNet": "Nettoersparnis",
+        "monthsUnit": "Monate"
+      },
+      "formula": {
+        "steps": [
+          "Aktuelles Darlehen: Restbetrag zu aktuellem Zinssatz über die Restlaufzeit tilgen.",
+          "Neues Darlehen: Restbetrag (plus eingerollte Kosten und Auszahlung) zu neuem Zinssatz über die neue Laufzeit tilgen.",
+          "Monatsersparnis = aktuelle Rate − neue Rate; Amortisation = Abschlusskosten ÷ Monatsersparnis.",
+          "Nettoersparnis = (aktuelle Restzinsen − neue Gesamtzinsen) − Abschlusskosten."
+        ],
+        "intro": "Eine Umschuldung lohnt sich, wenn die gesparten Zinsen die Abschlusskosten übersteigen. Der Amortisationsmonat ist der Moment, in dem die Ersparnis die Gebühren deckt — danach ist jeder Monat Gewinn.",
+        "note": "Die Werte sind illustrativ und umfassen keine Steuern, Versicherungen, PMI und Zinsänderungen. Keine Finanzberatung."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Die Amortisation ist der echte Test",
+            "paragraphs": [
+              "Ein niedrigerer Zinssatz senkt fast immer die Rate, aber die Abschlusskosten müssen zuerst aus dieser Ersparnis bezahlt werden.",
+              "Als Faustregel: Ohne Amortisation in etwa zwei Jahren lohnt sich die Umschuldung meist nicht."
+            ]
+          },
+          {
+            "heading": "Auf die Laufzeit achten, nicht nur den Zinssatz",
+            "paragraphs": [
+              "Eine neue 30-jährige Laufzeit kann monatlich günstig wirken, fügt aber still Jahre an Zinsen hinzu.",
+              "Vergleiche zuerst dieselbe Restlaufzeit — entscheide dann, ob Verkürzen oder Verlängern zu deinem Plan passt."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Wie wird die neue Rate berechnet?",
+          "answer": "Das neue Darlehen wird zu neuem Zinssatz über die neue Laufzeit getilgt, auf den Restbetrag plus eingerollte Kosten und Auszahlung."
+        },
+        {
+          "question": "Was ist der Amortisationspunkt?",
+          "answer": "Er ist die Abschlusskosten geteilt durch die Monatsersparnis — die Monate, bis die Ersparnis die Gebühren deckt. Danach bist du im Plus."
+        },
+        {
+          "question": "Was ist die Nettoersparnis?",
+          "answer": "Sie ist die über das Darlehen gesparte Zinsen minus der Abschlusskosten — der wahre finanzielle Nutzen der Umschuldung."
+        },
+        {
+          "question": "Was passiert, wenn die Kosten eingerollt werden?",
+          "answer": "Die Kosten werden dem neuen Kapital zugeschlagen, die neue Rate ist etwas höher, aber du zahlst nichts im Voraus."
+        },
+        {
+          "question": "Wann sollte ich NICHT umschulden?",
+          "answer": "Ist der neue Zinssatz nicht niedriger und die Laufzeit nicht kürzer, oder ziehst du vor dem Amortisationspunkt um, werden die Gebühren meist nicht gedeckt."
+        },
+        {
+          "question": "Kann ich dieses Ergebnis speichern oder teilen?",
+          "answer": "Ja — der Teillink trägt deine exakten Eingaben, die Ergebniskarte lässt sich als Bild herunterladen und der Vergleich als CSV exportieren."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1405,6 +1521,14 @@
   },
   "creditCardPayoffPresets": {
     "gridTitle": "Karten-Tilgungsszenarien",
+    "gridSubtitle": "Zu einem vorbefüllten Beispiel springen oder von null starten.",
+    "viewPreset": "Szenario ansehen",
+    "currentLabel": "Aktuell",
+    "benchmarkTitle": "Szenario-Kennzahlen",
+    "benchmarkIntro": "Kennzahlen für {scenario}."
+  },
+  "mortgageRefinancePresets": {
+    "gridTitle": "Umschuldungs-Szenarien",
     "gridSubtitle": "Zu einem vorbefüllten Beispiel springen oder von null starten.",
     "viewPreset": "Szenario ansehen",
     "currentLabel": "Aktuell",

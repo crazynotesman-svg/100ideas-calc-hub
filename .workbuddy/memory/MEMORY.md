@@ -49,7 +49,7 @@ Shadcn 风格手写原语 · Zustand（单位制）· Recharts 2.15（仅 FIRE�
 
 ## 质量门禁（改完必跑）
 ```
-npm run typecheck && npm run build      # 类型 + 静态预渲染（现 320 页：10 计算器 base + 68 预设 × 4 语言）
+npm run typecheck && npm run build      # 类型 + 静态预渲染（现 356 页：11 计算器 base + 76 预设 × 4 语言）
 npx next start -p 3311                  # 另起终端
 npm run audit:preindex -- http://127.0.0.1:3311  # 预索引 SEO 断言（canonical/hreflang/JSON-LD/sitemap 覆盖）
 npm run audit:seo -- http://127.0.0.1:3311      # SEO 断言（标题/描述长度、hreflang 计数等）
@@ -65,6 +65,6 @@ npm run audit:engines -- http://127.0.0.1:3311  # 引擎数值对照
 
 ## 内容规模
 `config/calculators.config.ts` 是唯一索引（驱动路由/sitemap/JSON-LD/列表）。
-当前 10 个计算器：schengen / fire / tdee / compound / mortgage / body-fat-bmi / auto-loan / student-loan / lease-vs-buy / credit-card-payoff（finance 类 7 个）。
+当前 11 个计算器：schengen / fire / tdee / compound / mortgage / body-fat-bmi / auto-loan / student-loan / lease-vs-buy / credit-card-payoff / mortgage-refinance（finance 类 8 个）。
 四语言字典结构必须完全一致（新增计算器/预设要四语言同步补齐，含 `mortgagePresets`/`bodyFatPresets` 命名空间与
 `common.bridge` 的 mortgage/secondary/body-fat-bmi 桥接文案）；审计脚本路由清单必须同步扩展。

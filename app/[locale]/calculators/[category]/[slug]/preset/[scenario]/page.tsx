@@ -117,6 +117,20 @@ import {
   presetRoute as creditCardPayoffRoute,
   creditCardPayoffInitialQuery
 } from '@/app/[locale]/calculators/[category]/[slug]/preset/creditCardPayoffPresets';
+import { MortgageRefinanceCalculatorClient } from '@/components/calculators/finance/MortgageRefinanceCalculatorClient';
+import {
+  calculateMortgageRefinance,
+  type MortgageRefinanceResult
+} from '@/lib/calculators/finance/mortgage-refinance';
+import {
+  MORTGAGEREFINANCE_CATEGORY,
+  MORTGAGEREFINANCE_SLUG,
+  PRESET_SLUGS as MORTGAGEREFINANCE_SLUGS,
+  PRESETS as MORTGAGEREFINANCE_PRESETS,
+  getPreset as getMortgageRefinance,
+  presetRoute as mortgageRefinanceRoute,
+  mortgageRefinanceInitialQuery
+} from '@/app/[locale]/calculators/[category]/[slug]/preset/mortgageRefinancePresets';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { HrefLangAlternates } from '@/components/seo/HrefLangAlternates';
 import { isLocale, locales, localeMeta, type Locale } from '@/config/i18n.config';
@@ -148,7 +162,8 @@ export function generateStaticParams() {
     ...expand(AUTOLOAN_CATEGORY, AUTOLOAN_SLUG, AUTOLOAN_SLUGS),
     ...expand(STUDENTLOAN_CATEGORY, STUDENTLOAN_SLUG, STUDENTLOAN_SLUGS),
     ...expand(LEASEVSBUY_CATEGORY, LEASEVSBUY_SLUG, LEASEVSBUY_SLUGS),
-    ...expand(CREDITCARDPAYOFF_CATEGORY, CREDITCARDPAYOFF_SLUG, CREDITCARDPAYOFF_SLUGS)
+    ...expand(CREDITCARDPAYOFF_CATEGORY, CREDITCARDPAYOFF_SLUG, CREDITCARDPAYOFF_SLUGS),
+    ...expand(MORTGAGEREFINANCE_CATEGORY, MORTGAGEREFINANCE_SLUG, MORTGAGEREFINANCE_SLUGS)
   ];
   return locales.flatMap((l) => combos.map((c) => ({ locale: l, ...c })));
 }
@@ -214,6 +229,11 @@ export async function generateMetadata({
     if (!p) return {};
     preset = p;
     route = creditCardPayoffRoute(scenario);
+  } else if (slug === MORTGAGEREFINANCE_SLUG) {
+    const p = getMortgageRefinance(scenario);
+    if (!p) return {};
+    preset = p;
+    route = mortgageRefinanceRoute(scenario);
   } else {
     return {};
   }
@@ -243,7 +263,8 @@ export default async function PresetPage({
     category !== AUTOLOAN_CATEGORY &&
     category !== STUDENTLOAN_CATEGORY &&
     category !== LEASEVSBUY_CATEGORY &&
-    category !== CREDITCARDPAYOFF_CATEGORY
+    category !== CREDITCARDPAYOFF_CATEGORY &&
+    category !== MORTGAGEREFINANCE_CATEGORY
   )
     notFound();
   const l = locale as Locale;
@@ -437,6 +458,25 @@ export default async function PresetPage({
       />
     );
     benchmark = await CreditCardPayoffBenchmark(l, r);
+  } else if (slug === MORTGAGEREFINANCE_SLUG) {
+    const p = getMortgageRefinance(scenario);
+    if (!p) notFound();
+    const r = calculateMortgageRefinance(p.defaultParams);
+    const loc = p.localized[l];
+    title = loc.title;
+    description = loc.description;
+    faqs = loc.faqs;
+    ns = 'mortgageRefinancePresets';
+    presets = MORTGAGEREFINANCE_PRESETS;
+    routeFor = mortgageRefinanceRoute;
+    calculatorNode = (
+      <MortgageRefinanceCalculatorClient
+        initialState={p.defaultParams}
+        initialQuery={mortgageRefinanceInitialQuery(p)}
+        cardTitle={title}
+      />
+    );
+    benchmark = await MortgageRefinanceBenchmark(l, r);
   } else {
     notFound();
     return;
@@ -719,6 +759,26 @@ async function CreditCardPayoffBenchmark(locale: Locale, r: CreditCardPayoffResu
       <PresetStat label={t('totalInterest')} value={money.format(r.totalInterest ?? 0)} />
       <PresetStat label={t('interestSaved')} value={money.format(r.interestSaved ?? 0)} />
       <PresetStat label={t('totalPaid')} value={money.format(r.totalPaid ?? 0)} />
+    </>
+  );
+}
+
+async function MortgageRefinanceBenchmark(locale: Locale, r: MortgageRefinanceResult) {
+  const t = await getTranslations({ locale, namespace: 'calculators.mortgage-refinance.ui' });
+  const money = new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: localeMeta[locale].currency,
+    maximumFractionDigits: 0
+  });
+  const breakEven = r.breakEvenMonths === null ? '—' : `${r.breakEvenMonths} ${t('monthsUnit')}`;
+  return (
+    <>
+      <PresetStat label={t('currentMonthlyPayment')} value={money.format(r.currentMonthlyPayment)} />
+      <PresetStat label={t('newMonthlyPayment')} value={money.format(r.newMonthlyPayment)} accent />
+      <PresetStat label={t('monthlySavings')} value={money.format(r.monthlySavings)} />
+      <PresetStat label={t('breakEvenMonths')} value={breakEven} accent />
+      <PresetStat label={t('interestSaved')} value={money.format(r.interestSaved)} />
+      <PresetStat label={t('netLifetimeSavings')} value={money.format(r.netLifetimeSavings)} accent />
     </>
   );
 }

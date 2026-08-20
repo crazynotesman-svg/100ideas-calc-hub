@@ -93,7 +93,9 @@
       "lease-vs-buyTitle": "Calcula los números del préstamo de auto",
       "lease-vs-buyBody": "Una vez sepas si alquilar o comprar, afina las condiciones de compra con la Calculadora de Préstamo de Auto.",
       "credit-card-payoffTitle": "Afronta tu deuda estudiantil a continuación",
-      "credit-card-payoffBody": "Una vez controlada la tarjeta, planifica el pago del préstamo estudiantil con la Calculadora de Préstamo Estudiantil."
+      "credit-card-payoffBody": "Una vez controlada la tarjeta, planifica el pago del préstamo estudiantil con la Calculadora de Préstamo Estudiantil.",
+      "mortgage-refinanceTitle": "Compara con la Calculadora de Hipoteca completa",
+      "mortgage-refinanceBody": "Traza el préstamo completo y su amortización con la Calculadora de Hipoteca."
     }
   },
   "home": {
@@ -1319,6 +1321,120 @@
           "answer": "Sí — el enlace compartible lleva tus datos exactos, la tarjeta se descarga como imagen y el calendario se exporta a CSV."
         }
       ]
+    },
+    "mortgage-refinance": {
+      "name": "Calculadora de Refinanciación de Hipoteca",
+      "shortName": "Refinanciación",
+      "metaTitle": "Refinanciación de Hipoteca — Punto de Equilibrio",
+      "metaDescription": "Compara tu hipoteca actual con una refinanciación: nuevo pago, ahorro mensual, meses de equilibrio y ahorro neto de por vida. Todo en tu navegador.",
+      "h1": "Calculadora de Refinanciación de Hipoteca",
+      "intro": "Haz los números antes de firmar. Compara tu pago e interés restante actuales con un nuevo préstamo — la calculadora encuentra tu ahorro mensual, punto de equilibrio y ahorro neto.",
+      "keywords": [
+        "calculadora de refinanciación de hipoteca",
+        "calculadora de equilibrio de refinanciación",
+        "debería refinanciar mi hipoteca",
+        "calculadora de ahorro de refinanciación",
+        "calculadora de refinanciación de casa"
+      ],
+      "features": [
+        "Nuevo pago y ahorro mensual",
+        "Meses de equilibrio de costes",
+        "Ahorro neto de por vida",
+        "Gráfica de pagos acumulados",
+        "Tarjeta compartible + exportación CSV"
+      ],
+      "ui": {
+        "inputsTitle": "Comparación de refinanciación",
+        "currentTitle": "Préstamo actual",
+        "newTitle": "Nuevo préstamo",
+        "currentBalance": "Saldo restante",
+        "currentRate": "Tipo actual",
+        "remainingYears": "Plazo restante (años)",
+        "newRate": "Nuevo tipo",
+        "newTermYears": "Nuevo plazo (años)",
+        "closingCosts": "Costes de cierre",
+        "feesPaid": "Cómo se pagan las tasas",
+        "feesCash": "Efectivo",
+        "feesRolled": "Incluidas en el préstamo",
+        "cashOutAmount": "Importe retirado",
+        "currentMonthlyPayment": "Pago actual",
+        "newMonthlyPayment": "Nuevo pago",
+        "monthlySavings": "Ahorro mensual",
+        "breakEvenMonths": "Equilibrio",
+        "breakEvenHint": "meses para recuperar costes",
+        "closingCostsLabel": "Costes de cierre",
+        "interestSaved": "Interés ahorrado",
+        "netLifetimeSavings": "Ahorro neto de por vida",
+        "warningTitle": "Revisa antes de refinanciar",
+        "warningBody": "El nuevo tipo no es menor ni el plazo más corto — esta refinanciación puede no merecer sus costes de cierre.",
+        "chartTitle": "Pagos acumulados: actual vs nuevo",
+        "chartOldCum": "Préstamo actual (acumulado)",
+        "chartNewCum": "Nuevo préstamo (acumulado)",
+        "chartSavingsCum": "Ahorro acumulado",
+        "tableTitle": "Comparación de costes",
+        "tableRowCurrent": "Pago actual",
+        "tableRowNew": "Nuevo pago",
+        "tableRowSavings": "Ahorro mensual",
+        "tableRowInterestCurrent": "Interés restante",
+        "tableRowInterestNew": "Nuevo interés total",
+        "tableRowInterestSaved": "Interés ahorrado",
+        "tableRowNet": "Ahorro neto de por vida",
+        "monthsUnit": "meses"
+      },
+      "formula": {
+        "steps": [
+          "Préstamo actual: amortiza el saldo restante al tipo actual durante el plazo restante.",
+          "Nuevo préstamo: amortiza el saldo (más costes incluidos y retiro) al nuevo tipo durante el nuevo plazo.",
+          "Ahorro mensual = pago actual − pago nuevo; equilibrio = costes de cierre ÷ ahorro mensual.",
+          "Ahorro neto = (interés restante actual − interés total nuevo) − costes de cierre."
+        ],
+        "intro": "Una refinanciación merece la pena cuando el interés ahorrado supera los costes de cierre. El mes de equilibrio es el momento en que el ahorro paga las tasas — después, cada mes es ganancia.",
+        "note": "Las cifras son ilustrativas y excluyen impuestos, seguros, PMI y cambios de tipo. No es asesoramiento financiero."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "El equilibrio es la prueba real",
+            "paragraphs": [
+              "Un tipo menor casi siempre baja el pago, pero primero hay que pagar los costes de cierre con ese ahorro.",
+              "Como regla general: si no compensa en unos dos años, la refinanciación casi nunca merece el papeleo."
+            ]
+          },
+          {
+            "heading": "Mira el plazo, no solo el tipo",
+            "paragraphs": [
+              "Reiniciar un plazo de 30 años puede verse barato al mes, pero añade silenciosamente años de intereses.",
+              "Compara primero el mismo plazo restante — solo entonces decide si acortar o alargar sirve a tu plan."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "¿Cómo se calcula el nuevo pago?",
+          "answer": "El nuevo préstamo se amortiza al nuevo tipo durante el nuevo plazo, sobre el saldo más los costes incluidos y el retiro."
+        },
+        {
+          "question": "¿Qué es el punto de equilibrio?",
+          "answer": "Son los costes de cierre divididos por el ahorro mensual — los meses hasta que el ahorro paga las tasas. Después vas por delante."
+        },
+        {
+          "question": "¿Qué es el ahorro neto de por vida?",
+          "answer": "Es el interés ahorrado durante el préstamo menos los costes de cierre — el verdadero beneficio financiero de refinanciar."
+        },
+        {
+          "question": "¿Qué pasa si incluyo los costes de cierre?",
+          "answer": "Se añaden al nuevo capital, así que el nuevo pago es algo mayor pero no pagas nada por adelantado."
+        },
+        {
+          "question": "¿Cuándo NO debería refinanciar?",
+          "answer": "Si el nuevo tipo no es menor y el plazo no es más corto, o si piensas mudarte antes del equilibrio, las tasas normalmente no se recuperan."
+        },
+        {
+          "question": "¿Puedo guardar o compartir este resultado?",
+          "answer": "Sí — el enlace compartible lleva tus datos exactos, la tarjeta se descarga como imagen y la comparación se exporta a CSV."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1405,6 +1521,14 @@
   },
   "creditCardPayoffPresets": {
     "gridTitle": "Escenarios de liquidación de tarjeta",
+    "gridSubtitle": "Salta a un ejemplo preconfigurado o empieza desde cero.",
+    "viewPreset": "Ver escenario",
+    "currentLabel": "Actual",
+    "benchmarkTitle": "Referencia del escenario",
+    "benchmarkIntro": "Cifras clave para {scenario}."
+  },
+  "mortgageRefinancePresets": {
+    "gridTitle": "Escenarios de refinanciación",
     "gridSubtitle": "Salta a un ejemplo preconfigurado o empieza desde cero.",
     "viewPreset": "Ver escenario",
     "currentLabel": "Actual",

@@ -168,6 +168,18 @@ export const calculators: readonly CalculatorMeta[] = [
     availableLocales: locales,
     icon: 'trending-up',
     accent: 'from-amber-500/15 to-orange-500/5'
+  },
+  {
+    id: 'mortgage-refinance',
+    category: 'finance',
+    slug: 'mortgage-refinance-calculator',
+    faqCount: 6,
+    updated: '2026-08-20',
+    priority: 0.9,
+    featured: true,
+    availableLocales: locales,
+    icon: 'trending-up',
+    accent: 'from-indigo-500/15 to-violet-500/5'
   }
 ] as const;
 

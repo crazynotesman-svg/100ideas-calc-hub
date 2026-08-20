@@ -25,7 +25,8 @@ const routes = [
   { route: '/calculators/finance/auto-loan-calculator', kind: 'calculator' },
   { route: '/calculators/finance/student-loan-calculator', kind: 'calculator' },
   { route: '/calculators/finance/lease-vs-buy-calculator', kind: 'calculator' },
-  { route: '/calculators/finance/credit-card-payoff-calculator', kind: 'calculator' }
+  { route: '/calculators/finance/credit-card-payoff-calculator', kind: 'calculator' },
+  { route: '/calculators/finance/mortgage-refinance-calculator', kind: 'calculator' }
 ];
 
 let failures = 0;

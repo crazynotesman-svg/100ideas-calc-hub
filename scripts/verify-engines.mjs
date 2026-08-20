@@ -186,5 +186,27 @@ assert('No insufficient-payment banner', !ccpHtml.includes('role="alert"'), true
 assert('Amortization table server-rendered', /<tbody/.test(ccpHtml), true);
 assert('Result shells reserved pre-hydration', (ccpHtml.match(/result-shell/g) || []).length >= 6, true);
 
+/* ------------------------------------------------ Mortgage Refinance reference
+ * Defaults shipped in the component: $300,000 balance, 6.5% over 25 yr remaining,
+ * refinance to 5.0% over 25 yr, $5,000 closing costs paid in cash.
+ *   current payment = 300000·0.0054167/(1−1.0054167^−300) = 2,025.62
+ *   new payment     = 300000·0.0041667/(1−1.0041667^−300) = 1,753.77  -> "$1,754"
+ *   monthly savings = 271.85                                          -> "$272"
+ *   break-even      = 5000 / 271.85 = 18.4 → ceil = 19 months         -> "19 months"
+ *   interest saved  = 307,686.45 − 226,131.04 = 81,555.41            -> "$81,555"
+ *   net lifetime    = 81,555.41 − 5,000 = 76,555.41                  -> "$76,555"
+ */
+const mrHtml = await (await fetch(`${base}/en/calculators/finance/mortgage-refinance-calculator`)).text();
+console.log('\nMORTGAGE REFINANCE ENGINE (server-rendered defaults: $300k, 6.5%→5.0%, 25yr, $5k cash)');
+console.log('─'.repeat(96));
+assert('New payment = $1,754', mrHtml.includes('$1,754'), true);
+assert('Monthly savings = $272', mrHtml.includes('$272'), true);
+assert('Break-even = 19 months', mrHtml.includes('>19 months</p>'), true);
+assert('Interest saved = $81,555', mrHtml.includes('$81,555'), true);
+assert('Net lifetime savings = $76,555', mrHtml.includes('$76,555'), true);
+assert('No refi warning banner', !mrHtml.includes('role="alert"'), true);
+assert('Comparison table server-rendered', /<tbody/.test(mrHtml), true);
+assert('Result shells reserved pre-hydration', (mrHtml.match(/result-shell/g) || []).length >= 6, true);
+
 console.log(`\n${failures === 0 ? 'PASS — engines verified' : `FAILED — ${failures} checks`}\n`);
 process.exit(failures === 0 ? 0 : 1);

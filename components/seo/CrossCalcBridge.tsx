@@ -21,7 +21,8 @@ const NEXT: Record<string, string | string[]> = {
   'auto-loan': ['mortgage', 'lease-vs-buy', 'compound'],
   'student-loan': ['mortgage', 'auto-loan', 'compound'],
   'lease-vs-buy': ['auto-loan', 'mortgage', 'compound'],
-  'credit-card-payoff': ['student-loan', 'auto-loan', 'compound']
+  'credit-card-payoff': ['student-loan', 'auto-loan', 'compound'],
+  'mortgage-refinance': ['mortgage', 'auto-loan', 'compound']
 };
 const ICON = { plane: Plane, 'trending-up': TrendingUp, activity: Activity } as const;
 const RING: Record<string, string> = {
@@ -34,7 +35,8 @@ const RING: Record<string, string> = {
   'auto-loan': 'border-yellow-500/30 bg-yellow-500/5',
   'student-loan': 'border-cyan-500/30 bg-cyan-500/5',
   'lease-vs-buy': 'border-emerald-500/30 bg-emerald-500/5',
-  'credit-card-payoff': 'border-amber-500/30 bg-amber-500/5'
+  'credit-card-payoff': 'border-amber-500/30 bg-amber-500/5',
+  'mortgage-refinance': 'border-indigo-500/30 bg-indigo-500/5'
 };
 const CHIP: Record<string, string> = {
   fire: 'bg-emerald-500/15 text-emerald-600',
@@ -46,7 +48,8 @@ const CHIP: Record<string, string> = {
   'auto-loan': 'bg-yellow-500/15 text-yellow-600',
   'student-loan': 'bg-cyan-500/15 text-cyan-600',
   'lease-vs-buy': 'bg-emerald-500/15 text-emerald-600',
-  'credit-card-payoff': 'bg-amber-500/15 text-amber-600'
+  'credit-card-payoff': 'bg-amber-500/15 text-amber-600',
+  'mortgage-refinance': 'bg-indigo-500/15 text-indigo-600'
 };
 
 type CalcId =
@@ -59,7 +62,8 @@ type CalcId =
   | 'auto-loan'
   | 'student-loan'
   | 'lease-vs-buy'
-  | 'credit-card-payoff';
+  | 'credit-card-payoff'
+  | 'mortgage-refinance';
 
 interface CrossCalcBridgeProps {
   from: CalcId;
