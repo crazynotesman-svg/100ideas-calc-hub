@@ -15,14 +15,14 @@ const NEXT: Record<string, string | string[]> = {
   tdee: 'fire',
   fire: 'schengen',
   schengen: 'tdee',
-  compound: 'fire',
-  mortgage: ['fire', 'compound', 'lease-vs-buy'],
+  compound: ['fire', 'credit-card-payoff'],
+  mortgage: ['fire', 'compound', 'lease-vs-buy', 'mortgage-refinance'],
   'body-fat-bmi': 'tdee',
   'auto-loan': ['mortgage', 'lease-vs-buy', 'compound'],
   'student-loan': ['mortgage', 'auto-loan', 'compound'],
   'lease-vs-buy': ['auto-loan', 'mortgage', 'compound'],
   'credit-card-payoff': ['student-loan', 'auto-loan', 'compound'],
-  'mortgage-refinance': ['mortgage', 'auto-loan', 'compound']
+  'mortgage-refinance': ['mortgage', 'auto-loan', 'compound', 'credit-card-payoff']
 };
 const ICON = { plane: Plane, 'trending-up': TrendingUp, activity: Activity } as const;
 const RING: Record<string, string> = {

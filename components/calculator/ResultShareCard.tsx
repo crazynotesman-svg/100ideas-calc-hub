@@ -35,7 +35,7 @@ const ACCENT: Record<ResultShareCardProps['calculatorId'], string> = {
   'student-loan': '#06b6d4',
   'lease-vs-buy': '#14b8a6',
   'credit-card-payoff': '#f59e0b',
-  'mortgage-refinance': '#6366f1'
+  'mortgage-refinance': '#4f46e5'
 };
 
 const BRAND = siteConfig.name;
@@ -214,6 +214,29 @@ export function ResultShareCard({
               fontSize={20}
               fontWeight={600}
               fill={accent}
+            >
+              {DOMAIN}
+            </text>
+
+            {/* Brand footer — wordmark + domain lock-up */}
+            <circle cx={64} cy={606} r={7} fill={accent} />
+            <text
+              x={82}
+              y={612}
+              fontFamily="system-ui, -apple-system, sans-serif"
+              fontSize={20}
+              fontWeight={700}
+              fill="#0f172a"
+            >
+              {BRAND}
+            </text>
+            <text
+              x={1136}
+              y={612}
+              textAnchor="end"
+              fontFamily="system-ui, -apple-system, sans-serif"
+              fontSize={16}
+              fill="#94a3b8"
             >
               {DOMAIN}
             </text>

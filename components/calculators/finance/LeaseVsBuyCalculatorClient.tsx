@@ -17,6 +17,7 @@ import {
   XAxis,
   YAxis
 } from 'recharts';
+import { chartTooltipStyle, chartCursorStyle, chartAxisTick, chartGridStroke, chartLegendStyle } from '@/lib/chart-style';
 import { Banknote, CalendarClock, Car, Download, PiggyBank, Scale, Trophy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -438,16 +439,16 @@ export function LeaseVsBuyCalculatorClient({
                       <stop offset="95%" stopColor="hsl(217 91% 60%)" stopOpacity={0.02} />
                     </linearGradient>
                   </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(214 32% 91%)" vertical={false} />
+                  <CartesianGrid strokeDasharray="3 3" stroke={chartGridStroke} vertical={false} />
                   <XAxis
                     dataKey="month"
-                    tick={{ fontSize: 12, fill: 'hsl(215 16% 47%)' }}
+                    tick={chartAxisTick}
                     tickLine={false}
                     axisLine={false}
                   />
                   <YAxis
                     tickFormatter={(value: number) => compact.format(value)}
-                    tick={{ fontSize: 12, fill: 'hsl(215 16% 47%)' }}
+                    tick={chartAxisTick}
                     tickLine={false}
                     axisLine={false}
                     width={54}
@@ -455,9 +456,9 @@ export function LeaseVsBuyCalculatorClient({
                   <Tooltip
                     formatter={(value: number) => money.format(value)}
                     labelFormatter={(label) => `${t('tableRowMonthly')} ${label}`}
-                    contentStyle={{ borderRadius: 10, border: '1px solid hsl(214 32% 91%)', fontSize: 13 }}
+                    contentStyle={chartTooltipStyle} cursor={chartCursorStyle}
                   />
-                  <Legend wrapperStyle={{ fontSize: 12 }} />
+                  <Legend wrapperStyle={chartLegendStyle} />
                   <Area
                     type="monotone"
                     dataKey="leaseCum"
