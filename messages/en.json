@@ -91,7 +91,9 @@
       "student-loanTitle": "Size up the bigger debts next",
       "student-loanBody": "Once your student debt is mapped, compare a home loan with the Mortgage Calculator — the biggest loan most people ever take.",
       "lease-vs-buyTitle": "Run the auto loan numbers",
-      "lease-vs-buyBody": "Once you know whether to lease or buy, fine-tune the purchase terms with the Auto Loan Calculator."
+      "lease-vs-buyBody": "Once you know whether to lease or buy, fine-tune the purchase terms with the Auto Loan Calculator.",
+      "credit-card-payoffTitle": "Tackle your student debt next",
+      "credit-card-payoffBody": "Once the card is under control, map a student loan repayment plan with the Student Loan Calculator."
     }
   },
   "home": {
@@ -1208,6 +1210,115 @@
           "answer": "Yes — the share link carries your exact inputs, the result card downloads as an image, and the cost breakdown exports to CSV."
         }
       ]
+    },
+    "credit-card-payoff": {
+      "name": "Credit Card Payoff Calculator",
+      "shortName": "Card Payoff",
+      "metaTitle": "Credit Card Payoff Calculator — Pay Off Debt Faster",
+      "metaDescription": "See how long it takes to pay off a credit card balance, total interest, and what you save versus minimum payments. All runs in your browser.",
+      "h1": "Credit Card Payoff Calculator",
+      "intro": "Pick a payment strategy — a fixed monthly amount or the card minimum — add an extra payment, and see exactly when the balance hits zero and how much interest you avoid.",
+      "keywords": [
+        "credit card payoff calculator",
+        "credit card payment calculator",
+        "pay off credit card faster",
+        "credit card debt payoff calculator",
+        "minimum payment calculator"
+      ],
+      "features": [
+        "Payoff months & payoff date",
+        "Fixed payment or minimum strategy",
+        "Savings vs minimum payments",
+        "Month-by-month balance schedule",
+        "Shareable result card + CSV export"
+      ],
+      "ui": {
+        "inputsTitle": "Your card setup",
+        "balance": "Current balance",
+        "apr": "APR",
+        "strategy": "Payment strategy",
+        "strategyMinimum": "Minimum payment",
+        "strategyFixed": "Fixed amount",
+        "minimumPct": "Minimum (% of balance)",
+        "minimumFloor": "Minimum floor",
+        "fixedMonthly": "Fixed monthly payment",
+        "extraMonthly": "Extra monthly payment",
+        "extraHint": "Added on top of your payment",
+        "monthlyPayment": "Monthly payment",
+        "payoffMonths": "Payoff time",
+        "totalInterest": "Total interest",
+        "interestSaved": "Interest saved",
+        "savedVsMin": "vs minimum payments",
+        "payoffDate": "Payoff date",
+        "totalPaid": "Total paid",
+        "warningTitle": "Payment too low",
+        "warningBody": "This payment does not cover the monthly interest ({interest}/mo) — the balance would never shrink. Increase the payment or switch to the minimum strategy.",
+        "chartTitle": "Balance decay & interest",
+        "chartBalance": "Remaining balance",
+        "chartPrincipal": "Principal paid",
+        "chartInterest": "Interest paid",
+        "tableTitle": "Month-by-month schedule",
+        "tableMonth": "Month",
+        "tablePayment": "Payment",
+        "tablePrincipal": "Principal",
+        "tableInterest": "Interest",
+        "tableBalance": "Balance",
+        "monthsUnit": "months"
+      },
+      "formula": {
+        "steps": [
+          "Monthly interest = balance × APR / 12.",
+          "Minimum payment = max(floor, balance × minimum%) + interest; fixed payment is the amount you choose.",
+          "Each month, interest is charged first and the rest of the payment reduces the balance.",
+          "The schedule uses exact numbers, so the balance reaches zero in the final month."
+        ],
+        "intro": "Credit cards compound monthly, so interest grows fastest early on. Paying more than the minimum — even a small fixed amount — shortens the payoff dramatically because more of each payment hits the balance.",
+        "note": "Figures are illustrative and exclude fees, penalties and rate changes. Not financial advice."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Why minimum payments take so long",
+            "paragraphs": [
+              "A typical minimum of 1% of the balance mostly covers the interest charge, leaving only a few dollars to reduce what you owe.",
+              "At a 22% APR, a $10,000 balance paid only at the minimum can take decades and more than double in interest — the calculator shows your exact number."
+            ]
+          },
+          {
+            "heading": "The fastest lever: extra payments",
+            "paragraphs": [
+              "Every extra dollar goes straight to the balance, cutting future interest and shortening the timeline by months.",
+              "Set a fixed payment you can sustain — consistency beats occasional large payments."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "How is my payoff time calculated?",
+          "answer": "Each month the engine charges interest (balance × APR/12), applies your payment, and tracks the shrinking balance until it reaches zero — the count of months is your payoff time."
+        },
+        {
+          "question": "What is the minimum payment model?",
+          "answer": "The minimum is modeled as the greater of a floor amount and a percent of the balance, plus the monthly interest charge — the standard way issuers disclose minimums."
+        },
+        {
+          "question": "Why do minimum payments take so long?",
+          "answer": "The minimum mostly covers interest, so only a small part reduces the balance. At high APRs the balance shrinks very slowly and total interest balloons."
+        },
+        {
+          "question": "What if my payment does not cover interest?",
+          "answer": "The calculator flags this with a warning — a payment below the monthly interest can never reduce the balance. Increase the payment or switch to the minimum strategy."
+        },
+        {
+          "question": "What is interest saved vs minimum?",
+          "answer": "It compares your plan against paying only the minimum for the same balance: the difference in total interest (and months) is what your strategy saves."
+        },
+        {
+          "question": "Can I save or share this result?",
+          "answer": "Yes — the share link carries your exact inputs, the result card downloads as an image, and the payoff schedule exports to CSV."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1286,6 +1397,14 @@
   },
   "leaseVsBuyPresets": {
     "gridTitle": "Lease vs buy scenarios",
+    "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
+    "viewPreset": "View scenario",
+    "currentLabel": "Current",
+    "benchmarkTitle": "Scenario Benchmark",
+    "benchmarkIntro": "Key figures for {scenario}."
+  },
+  "creditCardPayoffPresets": {
+    "gridTitle": "Card payoff scenarios",
     "gridSubtitle": "Jump to a pre-filled example, or start from scratch.",
     "viewPreset": "View scenario",
     "currentLabel": "Current",

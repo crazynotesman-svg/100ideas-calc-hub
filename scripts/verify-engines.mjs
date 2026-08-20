@@ -167,5 +167,24 @@ assert('Breakdown table server-rendered', /<tbody/.test(lvbHtml), true);
 assert('Chart shell height reserved', lvbHtml.includes('chart-shell'), true);
 assert('Result shells reserved pre-hydration', (lvbHtml.match(/result-shell/g) || []).length >= 6, true);
 
+/* --------------------------------------------------- Credit Card Payoff reference
+ * Defaults shipped in the component: $10,000 balance, 22% APR, fixed $300/mo.
+ *   r = 0.22/12 = 0.0183333; month-1 interest = 183.33 (covered by $300 payment)
+ *   payoff = 52 months; total interest = 5,596.10   -> "$5,596" / "52 months"
+ *   total paid = 15,596.10                           -> "$15,596"
+ *   vs 1%-minimum baseline (238 mo, $16,064.58):
+ *   saved = 10,468.48                                -> "$10,468"
+ */
+const ccpHtml = await (await fetch(`${base}/en/calculators/finance/credit-card-payoff-calculator`)).text();
+console.log('\nCREDIT CARD PAYOFF ENGINE (server-rendered defaults: $10k, 22% APR, $300/mo fixed)');
+console.log('─'.repeat(96));
+assert('Payoff = 52 months (rendered stat)', ccpHtml.includes('>52 months</p>'), true);
+assert('Total interest = $5,596', ccpHtml.includes('$5,596'), true);
+assert('Total paid = $15,596', ccpHtml.includes('$15,596'), true);
+assert('Interest saved = $10,468', ccpHtml.includes('$10,468'), true);
+assert('No insufficient-payment banner', !ccpHtml.includes('role="alert"'), true);
+assert('Amortization table server-rendered', /<tbody/.test(ccpHtml), true);
+assert('Result shells reserved pre-hydration', (ccpHtml.match(/result-shell/g) || []).length >= 6, true);
+
 console.log(`\n${failures === 0 ? 'PASS — engines verified' : `FAILED — ${failures} checks`}\n`);
 process.exit(failures === 0 ? 0 : 1);

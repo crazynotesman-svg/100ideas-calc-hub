@@ -34,7 +34,8 @@ const CALCULATORS = [
   { category: 'health', slug: 'body-fat-bmi-calculator' },
   { category: 'finance', slug: 'auto-loan-calculator' },
   { category: 'finance', slug: 'student-loan-calculator' },
-  { category: 'finance', slug: 'lease-vs-buy-calculator' }
+  { category: 'finance', slug: 'lease-vs-buy-calculator' },
+  { category: 'finance', slug: 'credit-card-payoff-calculator' }
 ];
 
 // pSEO preset scenarios across every calculator — kept here so both the sitemap
@@ -99,7 +100,15 @@ const PRESETS = [
   { category: 'finance', slug: 'lease-vs-buy-calculator', scenario: '25k-budget-sedan' },
   { category: 'finance', slug: 'lease-vs-buy-calculator', scenario: '60k-truck-suv' },
   { category: 'finance', slug: 'lease-vs-buy-calculator', scenario: 'business-tax-deduction' },
-  { category: 'finance', slug: 'lease-vs-buy-calculator', scenario: 'low-money-factor-promo' }
+  { category: 'finance', slug: 'lease-vs-buy-calculator', scenario: 'low-money-factor-promo' },
+  { category: 'finance', slug: 'credit-card-payoff-calculator', scenario: '5k-20pct-apr-payoff' },
+  { category: 'finance', slug: 'credit-card-payoff-calculator', scenario: '10k-minimum-payment-trap' },
+  { category: 'finance', slug: 'credit-card-payoff-calculator', scenario: '15k-balance-transfer-promo' },
+  { category: 'finance', slug: 'credit-card-payoff-calculator', scenario: 'extra-100-payoff-plan' },
+  { category: 'finance', slug: 'credit-card-payoff-calculator', scenario: '20k-high-interest-card' },
+  { category: 'finance', slug: 'credit-card-payoff-calculator', scenario: 'fixed-3-year-payoff' },
+  { category: 'finance', slug: 'credit-card-payoff-calculator', scenario: 'fixed-1-year-fast-track' },
+  { category: 'finance', slug: 'credit-card-payoff-calculator', scenario: 'debt-consolidation-vs-card' }
 ];
 
 // Every SSG content route that must appear in a sitemap and carry a clean

@@ -156,6 +156,18 @@ export const calculators: readonly CalculatorMeta[] = [
     availableLocales: locales,
     icon: 'trending-up',
     accent: 'from-teal-500/15 to-emerald-500/5'
+  },
+  {
+    id: 'credit-card-payoff',
+    category: 'finance',
+    slug: 'credit-card-payoff-calculator',
+    faqCount: 6,
+    updated: '2026-08-20',
+    priority: 0.9,
+    featured: true,
+    availableLocales: locales,
+    icon: 'trending-up',
+    accent: 'from-amber-500/15 to-orange-500/5'
   }
 ] as const;
 

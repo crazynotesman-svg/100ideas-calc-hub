@@ -103,6 +103,20 @@ import {
   presetRoute as leaseVsBuyRoute,
   leaseVsBuyInitialQuery
 } from '@/app/[locale]/calculators/[category]/[slug]/preset/leaseVsBuyPresets';
+import { CreditCardPayoffCalculatorClient } from '@/components/calculators/finance/CreditCardPayoffCalculatorClient';
+import {
+  calculateCreditCardPayoff,
+  type CreditCardPayoffResult
+} from '@/lib/calculators/finance/credit-card-payoff';
+import {
+  CREDITCARDPAYOFF_CATEGORY,
+  CREDITCARDPAYOFF_SLUG,
+  PRESET_SLUGS as CREDITCARDPAYOFF_SLUGS,
+  PRESETS as CREDITCARDPAYOFF_PRESETS,
+  getPreset as getCreditCardPayoff,
+  presetRoute as creditCardPayoffRoute,
+  creditCardPayoffInitialQuery
+} from '@/app/[locale]/calculators/[category]/[slug]/preset/creditCardPayoffPresets';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { HrefLangAlternates } from '@/components/seo/HrefLangAlternates';
 import { isLocale, locales, localeMeta, type Locale } from '@/config/i18n.config';
@@ -133,7 +147,8 @@ export function generateStaticParams() {
     ...expand(BODYFAT_CATEGORY, BODYFAT_SLUG, BODYFAT_SLUGS),
     ...expand(AUTOLOAN_CATEGORY, AUTOLOAN_SLUG, AUTOLOAN_SLUGS),
     ...expand(STUDENTLOAN_CATEGORY, STUDENTLOAN_SLUG, STUDENTLOAN_SLUGS),
-    ...expand(LEASEVSBUY_CATEGORY, LEASEVSBUY_SLUG, LEASEVSBUY_SLUGS)
+    ...expand(LEASEVSBUY_CATEGORY, LEASEVSBUY_SLUG, LEASEVSBUY_SLUGS),
+    ...expand(CREDITCARDPAYOFF_CATEGORY, CREDITCARDPAYOFF_SLUG, CREDITCARDPAYOFF_SLUGS)
   ];
   return locales.flatMap((l) => combos.map((c) => ({ locale: l, ...c })));
 }
@@ -194,6 +209,11 @@ export async function generateMetadata({
     if (!p) return {};
     preset = p;
     route = leaseVsBuyRoute(scenario);
+  } else if (slug === CREDITCARDPAYOFF_SLUG) {
+    const p = getCreditCardPayoff(scenario);
+    if (!p) return {};
+    preset = p;
+    route = creditCardPayoffRoute(scenario);
   } else {
     return {};
   }
@@ -222,7 +242,8 @@ export default async function PresetPage({
     category !== BODYFAT_CATEGORY &&
     category !== AUTOLOAN_CATEGORY &&
     category !== STUDENTLOAN_CATEGORY &&
-    category !== LEASEVSBUY_CATEGORY
+    category !== LEASEVSBUY_CATEGORY &&
+    category !== CREDITCARDPAYOFF_CATEGORY
   )
     notFound();
   const l = locale as Locale;
@@ -397,6 +418,25 @@ export default async function PresetPage({
       />
     );
     benchmark = await LeaseVsBuyBenchmark(l, r);
+  } else if (slug === CREDITCARDPAYOFF_SLUG) {
+    const p = getCreditCardPayoff(scenario);
+    if (!p) notFound();
+    const r = calculateCreditCardPayoff(p.defaultParams);
+    const loc = p.localized[l];
+    title = loc.title;
+    description = loc.description;
+    faqs = loc.faqs;
+    ns = 'creditCardPayoffPresets';
+    presets = CREDITCARDPAYOFF_PRESETS;
+    routeFor = creditCardPayoffRoute;
+    calculatorNode = (
+      <CreditCardPayoffCalculatorClient
+        initialState={p.defaultParams}
+        initialQuery={creditCardPayoffInitialQuery(p)}
+        cardTitle={title}
+      />
+    );
+    benchmark = await CreditCardPayoffBenchmark(l, r);
   } else {
     notFound();
     return;
@@ -660,6 +700,25 @@ async function LeaseVsBuyBenchmark(locale: Locale, r: LeaseVsBuyResult) {
       <PresetStat label={t('buyMonthly')} value={money.format(r.buy.monthlyPayment)} />
       <PresetStat label={t('leaseMonthly')} value={money.format(r.lease.monthlyPayment)} />
       <PresetStat label={t('finalEquity')} value={money.format(r.buy.finalEquity)} />
+    </>
+  );
+}
+
+async function CreditCardPayoffBenchmark(locale: Locale, r: CreditCardPayoffResult) {
+  const t = await getTranslations({ locale, namespace: 'calculators.credit-card-payoff.ui' });
+  const money = new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: localeMeta[locale].currency,
+    maximumFractionDigits: 0
+  });
+  const months = r.payoffMonths === null ? '—' : String(r.payoffMonths);
+  return (
+    <>
+      <PresetStat label={t('monthlyPayment')} value={money.format(r.monthlyPayment)} accent />
+      <PresetStat label={t('payoffMonths')} value={`${months} ${t('monthsUnit')}`} accent />
+      <PresetStat label={t('totalInterest')} value={money.format(r.totalInterest ?? 0)} />
+      <PresetStat label={t('interestSaved')} value={money.format(r.interestSaved ?? 0)} />
+      <PresetStat label={t('totalPaid')} value={money.format(r.totalPaid ?? 0)} />
     </>
   );
 }

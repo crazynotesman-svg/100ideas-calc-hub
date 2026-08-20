@@ -15,7 +15,7 @@ export interface ShareHighlight {
 
 interface ResultShareCardProps {
   locale: Locale;
-  calculatorId: 'tdee' | 'fire' | 'schengen' | 'compound' | 'mortgage' | 'body-fat-bmi' | 'auto-loan' | 'student-loan' | 'lease-vs-buy';
+  calculatorId: 'tdee' | 'fire' | 'schengen' | 'compound' | 'mortgage' | 'body-fat-bmi' | 'auto-loan' | 'student-loan' | 'lease-vs-buy' | 'credit-card-payoff';
   title: string;
   /** null → render a reserved-height skeleton (used by Schengen before a result exists). */
   highlights: ShareHighlight[] | null;
@@ -33,7 +33,8 @@ const ACCENT: Record<ResultShareCardProps['calculatorId'], string> = {
   'body-fat-bmi': '#e11d48',
   'auto-loan': '#eab308',
   'student-loan': '#06b6d4',
-  'lease-vs-buy': '#14b8a6'
+  'lease-vs-buy': '#14b8a6',
+  'credit-card-payoff': '#f59e0b'
 };
 
 const BRAND = siteConfig.name;

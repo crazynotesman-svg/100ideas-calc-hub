@@ -91,7 +91,9 @@
       "student-loanTitle": "Evalúa las deudas mayores a continuación",
       "student-loanBody": "Una vez mapeada tu deuda estudiantil, compara una hipoteca con la Calculadora de Hipoteca — el préstamo más grande que la mayoría toma.",
       "lease-vs-buyTitle": "Calcula los números del préstamo de auto",
-      "lease-vs-buyBody": "Una vez sepas si alquilar o comprar, afina las condiciones de compra con la Calculadora de Préstamo de Auto."
+      "lease-vs-buyBody": "Una vez sepas si alquilar o comprar, afina las condiciones de compra con la Calculadora de Préstamo de Auto.",
+      "credit-card-payoffTitle": "Afronta tu deuda estudiantil a continuación",
+      "credit-card-payoffBody": "Una vez controlada la tarjeta, planifica el pago del préstamo estudiantil con la Calculadora de Préstamo Estudiantil."
     }
   },
   "home": {
@@ -1208,6 +1210,115 @@
           "answer": "Sí — el enlace compartible lleva tus datos exactos, la tarjeta se descarga como imagen y el desglose se exporta a CSV."
         }
       ]
+    },
+    "credit-card-payoff": {
+      "name": "Calculadora de Liquidación de Tarjeta",
+      "shortName": "Liquidar Tarjeta",
+      "metaTitle": "Calculadora de Liquidación de Tarjeta — Paga la Deuda Antes",
+      "metaDescription": "Mira cuánto tardas en liquidar un saldo de tarjeta, el interés total y lo que ahorras frente al pago mínimo. Todo en tu navegador.",
+      "h1": "Calculadora de Liquidación de Tarjeta",
+      "intro": "Elige una estrategia de pago — una cantidad fija mensual o el mínimo de la tarjeta — añade un pago extra y mira exactamente cuándo llega el saldo a cero y cuánto interés evitas.",
+      "keywords": [
+        "calculadora de liquidación de tarjeta",
+        "calculadora de pago de tarjeta",
+        "pagar tarjeta más rápido",
+        "calculadora de deuda de tarjeta",
+        "calculadora de pago mínimo"
+      ],
+      "features": [
+        "Meses y fecha de liquidación",
+        "Pago fijo o estrategia mínima",
+        "Ahorro frente al pago mínimo",
+        "Calendario de saldo mes a mes",
+        "Tarjeta compartible + exportación CSV"
+      ],
+      "ui": {
+        "inputsTitle": "Tu configuración de tarjeta",
+        "balance": "Saldo actual",
+        "apr": "TAE",
+        "strategy": "Estrategia de pago",
+        "strategyMinimum": "Pago mínimo",
+        "strategyFixed": "Cantidad fija",
+        "minimumPct": "Mínimo (% del saldo)",
+        "minimumFloor": "Mínimo absoluto",
+        "fixedMonthly": "Pago mensual fijo",
+        "extraMonthly": "Pago extra mensual",
+        "extraHint": "Se añade a tu pago",
+        "monthlyPayment": "Pago mensual",
+        "payoffMonths": "Plazo de liquidación",
+        "totalInterest": "Interés total",
+        "interestSaved": "Interés ahorrado",
+        "savedVsMin": "frente al pago mínimo",
+        "payoffDate": "Fecha de liquidación",
+        "totalPaid": "Total pagado",
+        "warningTitle": "Pago demasiado bajo",
+        "warningBody": "Este pago no cubre el interés mensual ({interest}/mes) — el saldo nunca se reduciría. Sube el pago o cambia a la estrategia mínima.",
+        "chartTitle": "Caída del saldo e intereses",
+        "chartBalance": "Saldo restante",
+        "chartPrincipal": "Capital pagado",
+        "chartInterest": "Interés pagado",
+        "tableTitle": "Calendario mes a mes",
+        "tableMonth": "Mes",
+        "tablePayment": "Pago",
+        "tablePrincipal": "Capital",
+        "tableInterest": "Interés",
+        "tableBalance": "Saldo",
+        "monthsUnit": "meses"
+      },
+      "formula": {
+        "steps": [
+          "Interés mensual = saldo × TAE / 12.",
+          "Pago mínimo = max(suelo, saldo × mínimo%) + interés; con pago fijo pagas la cantidad elegida.",
+          "Cada mes se cobra primero el interés y el resto del pago reduce el saldo.",
+          "El calendario usa cifras exactas, así que el saldo llega a cero en el último mes."
+        ],
+        "intro": "Las tarjetas capitalizan mensualmente, así que el interés crece más rápido al principio. Pagar más que el mínimo — incluso una cantidad fija pequeña — acorta la liquidación drásticamente porque más de cada pago golpea el saldo.",
+        "note": "Las cifras son ilustrativas y excluyen tasas, penalizaciones y cambios de tipo. No es asesoramiento financiero."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Por qué el pago mínimo tarda tanto",
+            "paragraphs": [
+              "Un mínimo típico del 1 % del saldo cubre sobre todo el interés, dejando solo unos dólares para reducir la deuda.",
+              "Al 22 % TAE, un saldo de 10.000 $ pagado solo al mínimo puede tardar décadas y más que duplicar el interés — la calculadora muestra tu cifra exacta."
+            ]
+          },
+          {
+            "heading": "La palanca más rápida: pagos extra",
+            "paragraphs": [
+              "Cada dólar extra va directo al saldo, recortando intereses futuros y acortando el plazo por meses.",
+              "Fija un pago sostenible — la constancia supera a los pagos grandes ocasionales."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "¿Cómo se calcula mi plazo de liquidación?",
+          "answer": "Cada mes la calculadora cobra el interés (saldo × TAE/12), aplica tu pago y sigue el saldo menguante hasta cero — el número de meses es tu plazo."
+        },
+        {
+          "question": "¿Qué es el modelo de pago mínimo?",
+          "answer": "El mínimo se modela como el mayor entre un suelo y un porcentaje del saldo, más el interés mensual — la forma estándar en que los emisores lo divulgan."
+        },
+        {
+          "question": "¿Por qué el pago mínimo tarda tanto?",
+          "answer": "El mínimo cubre sobre todo el interés, así que solo una parte pequeña reduce el saldo. Con TAE altos el saldo mengua muy despacio y el interés total se dispara."
+        },
+        {
+          "question": "¿Qué pasa si mi pago no cubre el interés?",
+          "answer": "La calculadora lo marca con una advertencia — un pago por debajo del interés mensual jamás reduce el saldo. Sube el pago o cambia a la estrategia mínima."
+        },
+        {
+          "question": "¿Qué es el interés ahorrado frente al mínimo?",
+          "answer": "Compara tu plan con pagar solo el mínimo del mismo saldo: la diferencia en interés total (y meses) es lo que ahorra tu estrategia."
+        },
+        {
+          "question": "¿Puedo guardar o compartir este resultado?",
+          "answer": "Sí — el enlace compartible lleva tus datos exactos, la tarjeta se descarga como imagen y el calendario se exporta a CSV."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1286,6 +1397,14 @@
   },
   "leaseVsBuyPresets": {
     "gridTitle": "Escenarios de leasing o compra",
+    "gridSubtitle": "Salta a un ejemplo preconfigurado o empieza desde cero.",
+    "viewPreset": "Ver escenario",
+    "currentLabel": "Actual",
+    "benchmarkTitle": "Referencia del escenario",
+    "benchmarkIntro": "Cifras clave para {scenario}."
+  },
+  "creditCardPayoffPresets": {
+    "gridTitle": "Escenarios de liquidación de tarjeta",
     "gridSubtitle": "Salta a un ejemplo preconfigurado o empieza desde cero.",
     "viewPreset": "Ver escenario",
     "currentLabel": "Actual",

@@ -21,6 +21,7 @@ import { PRESET_SLUGS as BODYFAT, presetRoute as bodyFatRoute } from '@/app/[loc
 import { PRESET_SLUGS as AUTOLOAN, presetRoute as autoLoanRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/autoLoanPresets';
 import { PRESET_SLUGS as STUDENTLOAN, presetRoute as studentLoanRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/studentLoanPresets';
 import { PRESET_SLUGS as LEASEVSBUY, presetRoute as leaseVsBuyRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/leaseVsBuyPresets';
+import { PRESET_SLUGS as CREDITCARDPAYOFF, presetRoute as creditCardPayoffRoute } from '@/app/[locale]/calculators/[category]/[slug]/preset/creditCardPayoffPresets';
 
 const ALL_PRESET_ROUTES: string[] = [
   ...TDEE.map((s) => tdeeRoute(s)),
@@ -31,7 +32,8 @@ const ALL_PRESET_ROUTES: string[] = [
   ...BODYFAT.map((s) => bodyFatRoute(s)),
   ...AUTOLOAN.map((s) => autoLoanRoute(s)),
   ...STUDENTLOAN.map((s) => studentLoanRoute(s)),
-  ...LEASEVSBUY.map((s) => leaseVsBuyRoute(s))
+  ...LEASEVSBUY.map((s) => leaseVsBuyRoute(s)),
+  ...CREDITCARDPAYOFF.map((s) => creditCardPayoffRoute(s))
 ];
 
 function languagesFor(route: string): Record<string, string> {

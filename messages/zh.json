@@ -91,7 +91,9 @@
       "student-loanTitle": "接下来评估更大的债务",
       "student-loanBody": "理清助学贷款后，用房贷计算器对比房屋贷款——大多数人一生中最大的一笔贷款。",
       "lease-vs-buyTitle": "跑一遍车贷数字",
-      "lease-vs-buyBody": "确定租还是买之后，用车贷计算器精调购买条款。"
+      "lease-vs-buyBody": "确定租还是买之后，用车贷计算器精调购买条款。",
+      "credit-card-payoffTitle": "接下来解决助学贷款",
+      "credit-card-payoffBody": "信用卡受控后，用助学贷款计算器规划还款计划。"
     }
   },
   "home": {
@@ -1208,6 +1210,115 @@
           "answer": "可以——分享链接携带你的精确输入，结果卡片可下载为图片，费用拆解可导出为 CSV。"
         }
       ]
+    },
+    "credit-card-payoff": {
+      "name": "信用卡还款计算器",
+      "shortName": "信用卡清欠",
+      "metaTitle": "信用卡还款计算器——更快还清债务",
+      "metaDescription": "看看还清信用卡账单要多久、总利息多少，以及相比最低还款能省多少。全部在浏览器本地运行，无需上传任何数据。",
+      "h1": "信用卡还款计算器",
+      "intro": "选择还款策略——固定月供或最低还款——加上额外还款，立即看到余额何时归零、能避免多少利息。",
+      "keywords": [
+        "信用卡还款计算器",
+        "信用卡清欠计算器",
+        "更快还清信用卡",
+        "信用卡债务计算器",
+        "最低还款计算器"
+      ],
+      "features": [
+        "清欠月数与还清日期",
+        "固定月供或最低还款策略",
+        "对比最低还款的节省",
+        "逐月余额明细",
+        "可分享结果卡片 + CSV 导出"
+      ],
+      "ui": {
+        "inputsTitle": "你的卡账单设置",
+        "balance": "当前余额",
+        "apr": "年化利率",
+        "strategy": "还款策略",
+        "strategyMinimum": "最低还款",
+        "strategyFixed": "固定金额",
+        "minimumPct": "最低比例（余额的 %）",
+        "minimumFloor": "最低下限金额",
+        "fixedMonthly": "固定月供",
+        "extraMonthly": "每月额外还款",
+        "extraHint": "在月供之上叠加",
+        "monthlyPayment": "月供",
+        "payoffMonths": "清欠时间",
+        "totalInterest": "总利息",
+        "interestSaved": "节省利息",
+        "savedVsMin": "对比最低还款",
+        "payoffDate": "还清日期",
+        "totalPaid": "总还款额",
+        "warningTitle": "月供过低",
+        "warningBody": "该月供不足以覆盖每月利息（{interest}/月）——余额永远不会减少。请提高月供或改用最低还款策略。",
+        "chartTitle": "余额递减与利息",
+        "chartBalance": "剩余余额",
+        "chartPrincipal": "已还本金",
+        "chartInterest": "已还利息",
+        "tableTitle": "逐月明细",
+        "tableMonth": "月份",
+        "tablePayment": "还款额",
+        "tablePrincipal": "本金",
+        "tableInterest": "利息",
+        "tableBalance": "余额",
+        "monthsUnit": "个月"
+      },
+      "formula": {
+        "steps": [
+          "每月利息 = 余额 × APR / 12。",
+          "最低还款 = max(下限, 余额 × 最低%) + 利息；固定月供为你选择的金额。",
+          "每月先计利息，其余还款冲抵本金。",
+          "明细使用精确数值，末月余额归零。"
+        ],
+        "intro": "信用卡按月复利，初期利息增长最快。超过最低还款（哪怕只是小额固定金额）能大幅缩短清欠时间，因为更多还款直接冲抵本金。",
+        "note": "数值仅供示意，不含手续费、罚金与利率变动。不构成财务建议。"
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "为什么最低还款要这么久",
+            "paragraphs": [
+              "典型的最低还款（余额的 1%）大部分只是利息，只剩几美元冲抵本金。",
+              "22% APR 下，1 万美元账单仅还最低额可能拖数十年、利息翻倍以上——计算器显示你的确切数字。"
+            ]
+          },
+          {
+            "heading": "最快的杠杆：额外还款",
+            "paragraphs": [
+              "每一笔额外还款都直接冲抵本金，削减未来利息并缩短数月时间线。",
+              "设定一个可持续的固定月供——坚持比偶尔大额还款更有效。"
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "清欠时间怎么算？",
+          "answer": "每月引擎先计利息（余额×APR/12），再应用你的还款，跟踪余额直至归零——月数即清欠时间。"
+        },
+        {
+          "question": "最低还款模型是什么？",
+          "answer": "最低还款 = max(下限金额, 余额×最低%) + 当月利息——这是发卡机构披露最低额的通行方式。"
+        },
+        {
+          "question": "为什么最低还款要这么久？",
+          "answer": "最低额大部分是利息，只有一小部分冲抵本金。高 APR 下余额缩水极慢，总利息暴涨。"
+        },
+        {
+          "question": "月供不足以覆盖利息会怎样？",
+          "answer": "计算器会显示警告——低于月息的还款永远无法减少余额。请提高月供或改用最低还款策略。"
+        },
+        {
+          "question": "对比最低还款的节省是什么？",
+          "answer": "它把你的方案与同一余额仅还最低额比较：总利息（与月数）的差值即你的方案节省。"
+        },
+        {
+          "question": "我能保存或分享这个结果吗？",
+          "answer": "可以——分享链接携带你的精确输入，结果卡片可下载为图片，还款明细可导出为 CSV。"
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1286,6 +1397,14 @@
   },
   "leaseVsBuyPresets": {
     "gridTitle": "租买对比场景",
+    "gridSubtitle": "跳转到预填好的示例，或从零开始。",
+    "viewPreset": "查看场景",
+    "currentLabel": "当前",
+    "benchmarkTitle": "场景基准",
+    "benchmarkIntro": "{scenario} 的关键数据。"
+  },
+  "creditCardPayoffPresets": {
+    "gridTitle": "信用卡还款场景",
     "gridSubtitle": "跳转到预填好的示例，或从零开始。",
     "viewPreset": "查看场景",
     "currentLabel": "当前",

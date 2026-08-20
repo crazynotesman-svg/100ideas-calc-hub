@@ -91,7 +91,9 @@
       "student-loanTitle": "Als Nächstes die größeren Schulden prüfen",
       "student-loanBody": "Wenn deine Studienstschulden erfasst sind, vergleiche mit dem Hypothekenrechner ein Hausdarlehen — den größten Kredit der meisten Menschen.",
       "lease-vs-buyTitle": "Die Autokredit-Zahlen prüfen",
-      "lease-vs-buyBody": "Wenn du weißt, ob Leasing oder Kauf, feinjustiere die Kaufkonditionen mit dem Autokredit-Rechner."
+      "lease-vs-buyBody": "Wenn du weißt, ob Leasing oder Kauf, feinjustiere die Kaufkonditionen mit dem Autokredit-Rechner.",
+      "credit-card-payoffTitle": "Als Nächstes die Studienstschulden angehen",
+      "credit-card-payoffBody": "Ist die Karte unter Kontrolle, plane mit dem Studienkredit-Rechner die Rückzahlung deines Studiendarlehens."
     }
   },
   "home": {
@@ -1208,6 +1210,115 @@
           "answer": "Ja — der Teillink trägt deine exakten Eingaben, die Ergebniskarte lässt sich als Bild herunterladen und die Kostenaufstellung als CSV exportieren."
         }
       ]
+    },
+    "credit-card-payoff": {
+      "name": "Kreditkarten-Tilgungsrechner",
+      "shortName": "Kartentilgung",
+      "metaTitle": "Kreditkarten-Tilgungsrechner — Schulden schneller abbezahlen",
+      "metaDescription": "Sieh, wie lange es dauert, ein Kreditkartensaldo abzuzahlen, die Gesamtzinsen und was du gegenüber Mindestzahlungen sparst. Läuft komplett im Browser.",
+      "h1": "Kreditkarten-Tilgungsrechner",
+      "intro": "Wähle eine Tilgungsstrategie — einen festen Monatsbetrag oder die Mindestzahlung — füge eine Extrazahlung hinzu und sieh genau, wann der Saldo null erreicht und wie viel Zinsen du vermeidest.",
+      "keywords": [
+        "Kreditkarten-Tilgungsrechner",
+        "Kreditkartenrechner",
+        "Kreditkarte schneller abbezahlen",
+        "Kreditkartenschulden Rechner",
+        "Mindestzahlung Rechner"
+      ],
+      "features": [
+        "Tilgungsmonate & Tilgungsdatum",
+        "Feste Rate oder Mindeststrategie",
+        "Ersparnis gegenüber Mindestzahlung",
+        "Monatlicher Saldo-Verlauf",
+        "Teilbare Ergebniskarte + CSV-Export"
+      ],
+      "ui": {
+        "inputsTitle": "Deine Kartendaten",
+        "balance": "Aktueller Saldo",
+        "apr": "APR",
+        "strategy": "Zahlungsstrategie",
+        "strategyMinimum": "Mindestzahlung",
+        "strategyFixed": "Fester Betrag",
+        "minimumPct": "Minimum (% des Saldos)",
+        "minimumFloor": "Mindest-Mindestbetrag",
+        "fixedMonthly": "Feste Monatsrate",
+        "extraMonthly": "Zusätzliche Monatsrate",
+        "extraHint": "Zusätzlich zu deiner Rate",
+        "monthlyPayment": "Monatsrate",
+        "payoffMonths": "Tilgungsdauer",
+        "totalInterest": "Gesamtzinsen",
+        "interestSaved": "Gesparte Zinsen",
+        "savedVsMin": "gegenüber Mindestzahlung",
+        "payoffDate": "Tilgungsdatum",
+        "totalPaid": "Gesamtzahlungen",
+        "warningTitle": "Rate zu niedrig",
+        "warningBody": "Diese Rate deckt nicht die monatlichen Zinsen ({interest}/Monat) — der Saldo würde nie schrumpfen. Erhöhe die Rate oder wechsle zur Mindeststrategie.",
+        "chartTitle": "Saldo-Verlauf & Zinsen",
+        "chartBalance": "Restschuld",
+        "chartPrincipal": "Getilgtes Kapital",
+        "chartInterest": "Gezahlte Zinsen",
+        "tableTitle": "Monatliche Aufstellung",
+        "tableMonth": "Monat",
+        "tablePayment": "Rate",
+        "tablePrincipal": "Kapital",
+        "tableInterest": "Zinsen",
+        "tableBalance": "Restschuld",
+        "monthsUnit": "Monate"
+      },
+      "formula": {
+        "steps": [
+          "Monatliche Zinsen = Saldo × APR / 12.",
+          "Mindestzahlung = max(Floor, Saldo × Minimum%) + Zinsen; bei fester Rate zahlst du den gewählten Betrag.",
+          "Monatlich werden zuerst die Zinsen berechnet, der Rest der Rate tilgt den Saldo.",
+          "Der Plan nutzt exakte Zahlen, sodass der Saldo im letzten Monat null erreicht."
+        ],
+        "intro": "Kreditkarten verzinsen monatlich, daher wachsen die Zinsen am Anfang am schnellsten. Mehr als das Minimum zu zahlen — auch ein kleiner fester Betrag — verkürzt die Tilgung drastisch, weil mehr von jeder Rate in den Saldo fließt.",
+        "note": "Die Werte sind illustrativ und umfassen keine Gebühren, Strafen und Zinsänderungen. Keine Finanzberatung."
+      },
+      "content": {
+        "sections": [
+          {
+            "heading": "Warum Mindestzahlungen so lange dauern",
+            "paragraphs": [
+              "Ein typisches Minimum von 1 % des Saldos deckt meist nur die Zinsen und lässt nur wenige Dollar zur Reduktion übrig.",
+              "Bei 22 % APR kann ein 10.000-$-Saldo mit nur Mindestzahlung Jahrzehnte dauern und sich im Zins mehr als verdoppeln — der Rechner zeigt deine genaue Zahl."
+            ]
+          },
+          {
+            "heading": "Der schnellste Hebel: Extrazahlungen",
+            "paragraphs": [
+              "Jeder zusätzliche Dollar fließt direkt in den Saldo, senkt künftige Zinsen und verkürzt die Laufzeit um Monate.",
+              "Setze eine feste, tragbare Rate — Beständigkeit schlägt gelegentliche Großzahlungen."
+            ]
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Wie wird meine Tilgungsdauer berechnet?",
+          "answer": "Monatlich berechnet der Rechner die Zinsen (Saldo × APR/12), wendet deine Rate an und verfolgt den schrumpfenden Saldo bis null — die Anzahl der Monate ist deine Tilgungsdauer."
+        },
+        {
+          "question": "Was ist das Mindestzahlungs-Modell?",
+          "answer": "Das Minimum ist das Maximum aus einem Floor-Betrag und einem Prozentsatz des Saldos, plus die monatlichen Zinsen — die übliche Offenlegung der Anbieter."
+        },
+        {
+          "question": "Warum dauern Mindestzahlungen so lange?",
+          "answer": "Das Minimum deckt meist nur die Zinsen, sodass nur ein kleiner Teil den Saldo reduziert. Bei hohen APRs schrumpft der Saldo sehr langsam und die Gesamtzinsen explodieren."
+        },
+        {
+          "question": "Was, wenn meine Rate die Zinsen nicht deckt?",
+          "answer": "Der Rechner markiert das mit einer Warnung — eine Rate unter den Monatszinsen kann den Saldo nie reduzieren. Erhöhe die Rate oder wechsle zur Mindeststrategie."
+        },
+        {
+          "question": "Was sind gesparte Zinsen gegenüber Minimum?",
+          "answer": "Es vergleicht deinen Plan mit nur Mindestzahlungen für dasselbe Saldo: die Differenz bei Gesamtzinsen (und Monaten) ist deine Ersparnis."
+        },
+        {
+          "question": "Kann ich dieses Ergebnis speichern oder teilen?",
+          "answer": "Ja — der Teillink trägt deine exakten Eingaben, die Ergebniskarte lässt sich als Bild herunterladen und der Tilgungsplan als CSV exportieren."
+        }
+      ]
     }
   },
   "tdeePresets": {
@@ -1286,6 +1397,14 @@
   },
   "leaseVsBuyPresets": {
     "gridTitle": "Leasing-oder-Kauf-Szenarien",
+    "gridSubtitle": "Zu einem vorbefüllten Beispiel springen oder von null starten.",
+    "viewPreset": "Szenario ansehen",
+    "currentLabel": "Aktuell",
+    "benchmarkTitle": "Szenario-Kennzahlen",
+    "benchmarkIntro": "Kennzahlen für {scenario}."
+  },
+  "creditCardPayoffPresets": {
+    "gridTitle": "Karten-Tilgungsszenarien",
     "gridSubtitle": "Zu einem vorbefüllten Beispiel springen oder von null starten.",
     "viewPreset": "Szenario ansehen",
     "currentLabel": "Aktuell",
